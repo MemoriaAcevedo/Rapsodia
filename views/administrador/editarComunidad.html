@@ -1,0 +1,72 @@
+<md-content  class="md-whiteframe-z3" flex >
+ <div layout = "row">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#/home/administrador">Inicio</a></li>
+      <li class="breadcrumb-item"><a href="#/home/administrador/comunidades">Gestión de Comunidades</a></li>
+      <li class="breadcrumb-item active">Editar Comunidad</li>
+    </ol>
+  </div>
+</div>
+<div layout = "column" layout-align="center center">
+                      <div>
+                       <br>
+                        <h3>Editar Comunidad</h3>
+                        <br>
+                      </div>
+                      <div layout = "column" layout-align="center center">
+                      <form name="editar">
+                      <div layout = "column">
+                           <div>
+                              <md-input-container>
+                                <label>Nombre</label>
+                                <input type="text" name = "nombre" ng-required = "true" ng-model="nombreC" ng-maxlength="20">
+                                <div ng-messages="editar.nombre.$error">
+                                  <div ng-message="required">Nombre requerido!</div>
+                                  <div ng-message="maxlength">Máximo 20 caracteres</div> 
+                                </div>
+                              </md-input-container>
+                            </div>
+                            <div>
+                              <md-input-container>
+                                <label>Descripción</label>
+                                <input type="text" name = "descripcion" ng-required = "true" ng-model="descripcionC" ng-maxlength="50">
+                                <div ng-messages="editar.descripcion.$error">
+                                  <div ng-message="required">Descripción requerida!</div>
+                                  <div ng-message="maxlength">Máximo 50 caracteres</div> 
+                                </div>
+                              </md-input-container>
+                            </div>
+                            <div>
+                              <md-input-container>
+                                <label>Profesor: </label>
+                                <input type="text" ng-model="profe" disabled>
+                              </md-input-container>
+                          </div>
+                      </div>
+                      <br>
+                      <div layout = "column" layout-align="center center">
+
+                        <md-button class="md-raised md-primary" ng-disabled = "editar.nombre.$invalid || editar.descripcion.$invalid" ng-click="actualizarC()">Actualizar</md-button>
+                        <md-button ng-click= "back()">Cancelar</md-button>
+                      </div>
+                      </form>
+                      </div>
+</div>
+<div layout = "column" layout-align="center center">
+  <div>
+    <br>
+    <h3>Eliminar Comunidad</h3>
+  <br>
+  </div>
+  <div layout = "column" layout-align="center center">
+    <md-button class="md-raised md-primary" ng-click="eliminarC()">Eliminar</md-button>
+    <md-button ng-click= "back()">Cancelar</md-button>
+  </div>
+</div> 
+</md-content>

@@ -19,8 +19,9 @@ app.service('sesion',['$window',function($window) {
 
     this.user = JSON.parse($window.localStorage.getItem('sesion.user'));
     this.userToEdit  = JSON.parse($window.localStorage.getItem('sesion.userToEdit'));
-    this.userAux  = JSON.parse($window.localStorage.getItem('sesion.userAux'));        
-
+    this.userAux  = JSON.parse($window.localStorage.getItem('sesion.userAux'));
+    this.comunidad  = JSON.parse($window.localStorage.getItem('sesion.comunidad'));         
+    //GETS
     this.getUser = function(){
         return this.user;
     };
@@ -33,6 +34,11 @@ app.service('sesion',['$window',function($window) {
         return this.userAux;
     };
 
+    this.getComunidad = function(){
+        return this.comunidad;
+    };
+
+    //SETS
     this.setUser = function(user){
         this.user = user;
         $window.localStorage.setItem('sesion.user', JSON.stringify(user));
@@ -51,6 +57,14 @@ app.service('sesion',['$window',function($window) {
         return this;
     };
 
+    this.setComunidad = function(comunidad){
+        this.comunidad = comunidad;
+        $window.localStorage.setItem('sesion.comunidad', JSON.stringify(comunidad));
+        return this;
+    };
+
+    //DESTROY
+
     this.destroy = function destroy(){
         this.setUser(null);
     };
@@ -61,6 +75,10 @@ app.service('sesion',['$window',function($window) {
 
     this.destroyUserAux = function destroyUserAux(){
         this.setUserAux(null);
+    };
+
+    this.destroyComunidad = function destroyComunidad(){
+        this.setComunidad(null);
     };
  }]);
 
@@ -104,5 +122,9 @@ app.service('auth',['$http', 'sesion', '$location', function($http, sesion, $loc
 
     this.isUserAux = function isUserAux(){
          return sesion.getUserAux() !== null;
+    }
+
+     this.isComunidad= function isComunidad(){
+         return sesion.getComunidad() !== null;
     }
  }]);

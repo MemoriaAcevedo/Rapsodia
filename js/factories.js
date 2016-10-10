@@ -50,10 +50,6 @@ app.factory("restFactory", ["$http", function($http){
 		return $http.get("http://localhost:8080/RAPSO-web/webresources/usuario/getAllE/"+tipo);
 	};
 
-	restFactory.asociar = function(rutP, rutA){
-		return $http.post("http://localhost:8080/RAPSO-web/webresources/usuario/asociar/"+rutP+"/"+rutA);
-	};
-
 	restFactory.getTUCustom = function(){
 		return $http.get("http://localhost:8080/RAPSO-web/webresources/usuario/getTUCustom");
 	};
@@ -64,6 +60,39 @@ app.factory("restFactory", ["$http", function($http){
 
 	restFactory.getPByAA = function(idAA){
 		return $http.get("http://localhost:8080/RAPSO-web/webresources/usuario/getPByAlum/"+idAA);
+	};
+
+	//SPRINT 1.3
+	restFactory.crearComunidad = function(nombreC, descripcionC, emailP){
+		return $http.post("http://localhost:8080/RAPSO-web/webresources/usuario/crearComunidad/"+nombreC+"/"+descripcionC+"/"+emailP);
+	};
+
+	restFactory.getAllComunidad = function(){
+		return $http.get("http://localhost:8080/RAPSO-web/webresources/usuario/getAllComunidad");
+	};
+
+	restFactory.asociar = function(nombreC, rutA){
+		return $http.post("http://localhost:8080/RAPSO-web/webresources/usuario/asociar/"+nombreC+"/"+rutA);
+	};
+
+	restFactory.getAsociadosC = function(idC){
+		return $http.get("http://localhost:8080/RAPSO-web/webresources/usuario/getAsociadosC/"+idC);
+	};
+
+	restFactory.editarComunidad = function(comunidad){
+		return $http.post("http://localhost:8080/RAPSO-web/webresources/usuario/editarC", comunidad);
+	};
+
+	restFactory.eliminarComunidad = function(comunidad){
+		return $http.post("http://localhost:8080/RAPSO-web/webresources/usuario/eliminarComunidad", comunidad);
+	};
+
+	restFactory.getCByProfesor = function(idP){
+		return $http.get("http://localhost:8080/RAPSO-web/webresources/usuario/getComunidadesByProfesor/"+ idP);
+	};
+
+	restFactory.getCByAA = function(idA){
+		return $http.get("http://localhost:8080/RAPSO-web/webresources/usuario/getComunidadesByAA/"+ idA);
 	};
 
 	return restFactory;

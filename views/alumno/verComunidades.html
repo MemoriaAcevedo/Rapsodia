@@ -8,24 +8,15 @@
   <div>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="#/home/alumno">Inicio</a></li>
-      <li class="breadcrumb-item"><a href="#/home/alumno/verAsociadosP">Ver Profesores</a></li>
-      <li class="breadcrumb-item active">Usuarios Asociados</li>
+      <li class="breadcrumb-item active">Ver Comunidades </li>
     </ol>
   </div>
 </div>
         <div layout = "column" layout-align="center center">
           <br>
-          <h3>Cuentas asociadas</h3>
+          <h3>Gestión de Comunidades</h3>
         </div>
 
-        <div layout = "column" layout-align="center center">
-                            <md-input-container>
-                              <label>Profesor: </label>
-                              <input type="text" ng-model="profe" disabled>
-                            </md-input-container>
-                          </div>
-
-         <!-- FILTRADO -->
             <div layout = "column" layout-align="center center">
                 <div  layout="row" layout-align="center center">
                     <div>
@@ -34,14 +25,14 @@
                      <div>
                         <md-input-container md-no-float md-is-error="false" class="md-block flex-gt-xs flex-xs">
                           <label>Búsqueda</label>
-                            <input ng-model="apellidoU"
+                            <input ng-model="nombreC"
                                    class="md-input"
                                    ng-change="gridActions.filter()"
                                    id="order"
-                                   filter-by="apellidoU"
+                                   filter-by="nombreC"
                                    filter-type="text"
                                    aria-invalid="false"
-                                   placeholder = "Búsqueda por apellido">
+                                   placeholder = "Búsqueda por comunidad">
                         </md-input-container>
                     </div>
                   </div>
@@ -51,14 +42,12 @@
         <div  layout="row" layout-align="center">
           <div flex-gt-md="60" flex-md="80" flex-xs="100">
               <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
-                  <!-- paginación -->
                   <div layout-gt-sm="row" layout-sm="column" layout-align="center">
-                      <!-- Total de items -->
                       <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
-                          <span>{{filtered.length}} Total de usuarios</span>
+                          <span>{{filtered.length}} Total de comunidades</span>
                       </div>
-                      <!-- Total de items -->
-                      <!-- Paginación y cantidad de items por vista-->
+
+
                       <div flex-gt-sm="75" flex-xs="100">
                           <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
                               <grid-pagination max-size="20"
@@ -79,52 +68,45 @@
                               </md-input-container>
                           </div>
                       </div>
-                      <!-- Paginación y cantidad de items por vista-->
+
                   </div>
-                  <!-- paginación -->
-                  <!-- tabla -->
+
                   <div>
                       <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                           <thead>
-                          <!-- Cabeceras -->
-                          <tr>
-                              <th sortable="emailU" class="sortable">
-                                  <span>Email</span>
+
+                           <tr>
+                              <th sortable="nombreC" class="sortable">
+                                  <span>Comunidad</span>
                               </th>
-                              <th sortable="nombreU" class="sortable">
-                                  <span>Nombre</span>
+                              <th sortable="descripcionC" class="sortable">
+                                  <span>Descripción</span>
                               </th>
-                              <th th sortable="apellidoU" class="sortable">
-                                  <span>Apellido</span>
+                              <th sortable="profesorC.nombreU" class="sortable">
+                                  <span>Nombre Profesor</span>
                               </th>
-                              <th sortable="rutU" class="sortable">
-                                  <span>Rut</span>
+                              <th sortable="profesorC.apellidoU" class="sortable">
+                                  <span>Apellido Profesor</span>
                               </th>
-                              <th sortable="tipoUsuarioidTipoUsuario.nombreTU" class="sortable">
-                                  <span>Tipo de usuario</span>
-                              </th>
-                              <th sortable="estadoidEstado.nombreE" class="sortable">
-                                  <span>Estado</span>
+                              <th sortable="profesorC.emailU" class="sortable">
+                                  <span>Email Profesor</span>
                               </th>
                           </tr>
-                          <!-- Cabeceras -->
+
+
                           </thead>
                           <tbody>
-                          <tr grid-item ng-click="sendEdicion(item)">
-                              <!-- Acceso a los elementos -->
-                                <td ng-bind="item.emailU"></td>
-                                <td ng-bind="item.nombreU"></td>
-                                <td ng-bind="item.apellidoU"></td>
-                                <td ng-bind="item.rutU"></td>
-                                <td ng-bind="item.tipoUsuarioidTipoUsuario.nombreTU"></td>
-                                <td ng-bind="item.estadoidEstado.nombreE"></td>
-                               <!-- Acceso a los elementos -->
+                          <tr grid-item ng-click = "sendSupervision(item)">
+                               <td ng-bind="item.nombreC"></td>
+                                <td ng-bind="item.descripcionC"></td>
+                                <td ng-bind="item.profesorC.nombreU"></td>
+                                <td ng-bind="item.profesorC.apellidoU"></td>
+                                <td ng-bind="item.profesorC.emailU"></td>
                           </tr>
                           </tbody>
                       </table>
                   </div>
-                  <!-- tabla -->
-                  <!-- Paginacion-->
+
                   <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
                       <grid-pagination max-size="20"
                                        boundary-links="true"
@@ -142,7 +124,7 @@
                           </md-select>
                       </md-input-container>
                   </div>
-                  <!-- Paginacion-->
+
               </div>
           </div>
         </div>

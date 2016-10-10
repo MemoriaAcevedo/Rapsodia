@@ -1,4 +1,4 @@
-<md-content flex class="md-whiteframe-z3">
+<md-content  class="md-whiteframe-z3" flex >
  <div layout = "row">
   <div>
    <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
@@ -7,18 +7,65 @@
   </div>
   <div>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#/home/administrador">Inicio</a></li>
-      <li class="breadcrumb-item active">Cuentas Profesores</li>
+      <li class="breadcrumb-item"><a href="#/home/profesor">Inicio</a></li>
+      <li class="breadcrumb-item"><a href="#/home/profesor/comunidades">Gestión de Comunidades</a></li>
+      <li class="breadcrumb-item active">Usuarios Comunidad</li>
     </ol>
   </div>
 </div>
-        <div layout = "column" layout-align="center center">
-          <br>
-          <h3>Cuentas de profesores</h3>
-        </div>
-
-        <!-- FILTRADO -->
-            <div layout = "column" layout-align="center center">
+    <div layout = "column" layout-align="center center">
+                      <div>
+                       <br>
+                        <h3>Asociar Usuario</h3>
+                        <br>
+                      </div>
+                      <div layout = "column" layout-align="center center">
+                          <div>
+                            <md-input-container>
+                              <label>Comunidad: </label>
+                              <input type="text" ng-model="comunidad.nombreC" disabled>
+                            </md-input-container>
+                          </div>
+                          <div>
+                            <md-input-container>
+                              <label>Profesor: </label>
+                              <input type="text" ng-model="profe" disabled>
+                            </md-input-container>
+                          </div>
+                          <div layout = "row" layout-align="center center">
+                            <div>
+                              <md-input-container>
+                                <label>Usuarios</label>
+                                <md-select ng-model="opcionSelected">
+                                  <md-option ng-value = "t" ng-repeat="t in opciones">
+                                    {{t.nombreU}} {{t.apellidoU}} - {{t.rutU}}
+                                  </md-option>
+                                </md-select>
+                              </md-input-container>
+                            </div>
+                            <div>
+                              <md-input-container>
+                                <label>Rol</label>
+                                <md-select ng-change = "change()" ng-model="tipoSelected">
+                                  <md-option  ng-value = "tipo" ng-repeat="tipo in tiposUsuario">
+                                    {{tipo.nombreTU}}
+                                  </md-option>
+                                </md-select>
+                              </md-input-container>
+                            </div>
+                          </div>
+                      </div>
+                      <br>
+                      <div layout = "column" layout-align="center center">
+                        <md-button class="md-raised md-primary" ng-disabled = "opcionSelected.nombreU == undefined" ng-click="asociarC()">Asociar</md-button>
+                      </div>
+    </div>
+    
+    <div layout = "column" layout-align="center center">
+        <br>
+          <h3>Usuarios Comunidad</h3>
+    </div>
+    <div layout = "column" layout-align="center center">
                 <div  layout="row" layout-align="center center">
                     <div>
                       <md-icon md-svg-icon="img/icon/ic_search_black_48px.svg"></md-icon>
@@ -38,19 +85,14 @@
                     </div>
                   </div>
                 </div>
-            </div>
-
-        <div  layout="row" layout-align="center">
+    </div>
+    <div  layout="row" layout-align="center">
           <div flex-gt-md="60" flex-md="80" flex-xs="100">
               <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
-                  <!-- paginación -->
                   <div layout-gt-sm="row" layout-sm="column" layout-align="center">
-                      <!-- Total de items -->
                       <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
-                          <span>{{filtered.length}} Total de profesores</span>
+                          <span>{{filtered.length}} Total de usuarios</span>
                       </div>
-                      <!-- Total de items -->
-                      <!-- Paginación y cantidad de items por vista-->
                       <div flex-gt-sm="75" flex-xs="100">
                           <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
                               <grid-pagination max-size="20"
@@ -71,14 +113,10 @@
                               </md-input-container>
                           </div>
                       </div>
-                      <!-- Paginación y cantidad de items por vista-->
                   </div>
-                  <!-- paginación -->
-                  <!-- tabla -->
                   <div>
                       <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                           <thead>
-                          <!-- Cabeceras -->
                           <tr>
                               <th sortable="emailU" class="sortable">
                                   <span>Email</span>
@@ -99,24 +137,19 @@
                                   <span>Estado</span>
                               </th>
                           </tr>
-                          <!-- Cabeceras -->
                           </thead>
                           <tbody>
-                          <tr grid-item ng-click="sendEdicion(item)">
-                              <!-- Acceso a los elementos -->
+                          <tr grid-item ng-click="sendToDes(item)">
                                 <td ng-bind="item.emailU"></td>
                                 <td ng-bind="item.nombreU"></td>
                                 <td ng-bind="item.apellidoU"></td>
                                 <td ng-bind="item.rutU"></td>
                                 <td ng-bind="item.tipoUsuarioidTipoUsuario.nombreTU"></td>
                                 <td ng-bind="item.estadoidEstado.nombreE"></td>
-                               <!-- Acceso a los elementos -->
                           </tr>
                           </tbody>
                       </table>
                   </div>
-                  <!-- tabla -->
-                  <!-- Paginacion-->
                   <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
                       <grid-pagination max-size="20"
                                        boundary-links="true"
@@ -134,8 +167,9 @@
                           </md-select>
                       </md-input-container>
                   </div>
-                  <!-- Paginacion-->
               </div>
           </div>
-        </div>
+    </div>
+    -->
+  
 </md-content>

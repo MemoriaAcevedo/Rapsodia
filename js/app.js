@@ -110,7 +110,8 @@ app.config(function($routeProvider){
 		controller: "editarAlumCtrl"
 		
 	})
-	.when("/home/alumno/verAsociadosP", {
+	.when("/home/alumno/comunidades", {
+
 		resolve: {
 			"check": function($location,$rootScope){
 				if( !$rootScope.auth.isLoggedIn()){
@@ -124,11 +125,12 @@ app.config(function($routeProvider){
 				}
 			}	
 		},
-		templateUrl: "views/alumno/verProfeAsociado.html",
-		controller: "cuentasPAlumCtrl"
-		
+
+		templateUrl: "views/alumno/verComunidades.html",
+		controller: "comunidadesCtrl"
+
 	})
-	.when("/home/alumno/verAsociadosAA", {
+	.when("/home/alumno/verAsociadosC", {
 		resolve: {
 			"check": function($location,$rootScope){
 				if( !$rootScope.auth.isLoggedIn()){
@@ -138,17 +140,17 @@ app.config(function($routeProvider){
 						$location.path('/home/profesor');
 					}else if($rootScope.auth.isAdministrador()){
 						$location.path('/home/administrador');
-					}else if($rootScope.auth.isAlumnoAyudante() && !$rootScope.auth.isUserToEdit()){
-						$location.path('/home/administrador');
+					}else if($rootScope.auth.isAlumnoAyudante() && !$rootScope.auth.isComunidad()){
+						$location.path('/home/alumno');
 					}
 				}
 			}	
 		},
-		templateUrl: "views/alumno/verAA.html",
-		controller: "cuentasAACtrl"
+		templateUrl: "views/alumno/verAsociadosC.html",
+		controller: "asociadosCtrl"
 		
 	})
-	.when("/home/alumno/verAA", {
+	.when("/home/alumno/verSelected", {
 		resolve: {
 			"check": function($location,$rootScope){
 				if( !$rootScope.auth.isLoggedIn()){
@@ -159,13 +161,13 @@ app.config(function($routeProvider){
 					}else if($rootScope.auth.isAdministrador()){
 						$location.path('/home/administrador');
 					}else if($rootScope.auth.isAlumnoAyudante() && !$rootScope.auth.isUserAux()){
-						$location.path('/home/administrador');
+						$location.path('/home/alumno');
 					}
 				}
 			}	
 		},
-		templateUrl: "views/alumno/uSelected.html",
-		controller: "verAACtrl"
+		templateUrl: "views/alumno/verSelected.html",
+		controller: "verSelectedCtrl"
 		
 	})
 	.when("/home/profesor", {
@@ -224,7 +226,7 @@ app.config(function($routeProvider){
 		controller: "editarProfeCtrl"
 
 	})
-	.when("/home/profesor/ver", {
+	.when("/home/profesor/comunidades", {
 
 		resolve: {
 			"check": function($location,$rootScope){
@@ -240,8 +242,8 @@ app.config(function($routeProvider){
 			}	
 		},
 
-		templateUrl: "views/profesor/cuentas.html",
-		controller: "cuentasCtrlProfe"
+		templateUrl: "views/profesor/verComunidades.html",
+		controller: "comunidadesCtrlProfe"
 
 	})
 	.when("/home/profesor/info", {
@@ -286,6 +288,66 @@ app.config(function($routeProvider){
 		controller: "editarProfeCtrl"
 		
 	})
+	.when("/home/profesor/editarC", {
+		resolve: {
+			"check": function($location,$rootScope){
+				if( !$rootScope.auth.isLoggedIn()){
+					$location.path('/');
+				}else{
+					if($rootScope.auth.isAlumnoAyudante()){
+						$location.path('/home/alumno');
+					}else if($rootScope.auth.isAdministrador()){
+						$location.path('/home/administrador');
+					}else if($rootScope.auth.isProfesor() && !$rootScope.auth.isComunidad()){
+						$location.path('/home/profesor');
+					}
+				}
+			}	
+		},
+		templateUrl: "views/profesor/editarComunidad.html",
+		controller: "editarCCtrl"
+		
+	})
+	.when("/home/profesor/verAsociadosC", {
+		resolve: {
+			"check": function($location,$rootScope){
+				if( !$rootScope.auth.isLoggedIn()){
+					$location.path('/');
+				}else{
+					if($rootScope.auth.isAlumnoAyudante()){
+						$location.path('/home/alumno');
+					}else if($rootScope.auth.isAdministrador()){
+						$location.path('/home/administrador');
+					}else if($rootScope.auth.isProfesor() && !$rootScope.auth.isComunidad()){
+						$location.path('/home/profesor');
+					}
+				}
+			}	
+		},
+		templateUrl: "views/profesor/verAsociadosC.html",
+		controller: "asociadosCCtrl"
+		
+	})
+	.when("/home/profesor/verDesligar", {
+		resolve: {
+			"check": function($location,$rootScope){
+				if( !$rootScope.auth.isLoggedIn()){
+					$location.path('/');
+				}else{
+					if($rootScope.auth.isAlumnoAyudante()){
+						$location.path('/home/alumno');
+					}else if($rootScope.auth.isAdministrador()){
+						$location.path('/home/pro');
+					}else if($rootScope.auth.isProfesor() && !$rootScope.auth.isUserAux()){
+						$location.path('/home/profesor');
+					}
+				}
+			}	
+		},
+		templateUrl: "views/profesor/verDesligar.html",
+		controller: "desligarCtrl"
+		
+	})
 	.when("/home/administrador", {
 		resolve: {
 			"check": function($location,$rootScope){
@@ -303,6 +365,9 @@ app.config(function($routeProvider){
 		templateUrl: "views/administrador/homeAdmin.html",
 		controller: "homeCtrlAdmin"
 		
+	})
+	.when("/home/administrador/mp", {
+		templateUrl: "views/moduloP/t1.html",		
 	})
 	.when("/home/administrador/perfil", {
 		resolve: {
@@ -445,7 +510,7 @@ app.config(function($routeProvider){
 		controller: "editarAdminCtrl"
 		
 	})
-	.when("/home/administrador/cuentasP", {
+	.when("/home/administrador/comunidades", {
 		resolve: {
 			"check": function($location,$rootScope){
 				if( !$rootScope.auth.isLoggedIn()){
@@ -459,11 +524,11 @@ app.config(function($routeProvider){
 				}
 			}	
 		},
-		templateUrl: "views/administrador/cuentasPAdmin.html",
-		controller: "cuentasPAdminCtrl"
+		templateUrl: "views/administrador/verComunidades.html",
+		controller: "comunidadesAdminCtrl"
 		
 	})
-	.when("/home/administrador/verAsociadosP", {
+	.when("/home/administrador/editarC", {
 		resolve: {
 			"check": function($location,$rootScope){
 				if( !$rootScope.auth.isLoggedIn()){
@@ -473,14 +538,34 @@ app.config(function($routeProvider){
 						$location.path('/home/alumno');
 					}else if($rootScope.auth.isProfesor()){
 						$location.path('/home/profesor');
-					}else if($rootScope.auth.isAdministrador() && !$rootScope.auth.isUserToEdit()){
+					}else if($rootScope.auth.isAdministrador() && !$rootScope.auth.isComunidad()){
 						$location.path('/home/administrador');
 					}
 				}
 			}	
 		},
-		templateUrl: "views/administrador/verAsociadosP.html",
-		controller: "asociadosPAdminCtrl"
+		templateUrl: "views/administrador/editarComunidad.html",
+		controller: "editarCAdminCtrl"
+		
+	})
+	.when("/home/administrador/verAsociadosC", {
+		resolve: {
+			"check": function($location,$rootScope){
+				if( !$rootScope.auth.isLoggedIn()){
+					$location.path('/');
+				}else{
+					if($rootScope.auth.isAlumnoAyudante()){
+						$location.path('/home/alumno');
+					}else if($rootScope.auth.isProfesor()){
+						$location.path('/home/profesor');
+					}else if($rootScope.auth.isAdministrador() && !$rootScope.auth.isComunidad()){
+						$location.path('/home/administrador');
+					}
+				}
+			}	
+		},
+		templateUrl: "views/administrador/verAsociadosC.html",
+		controller: "asociadosCAdminCtrl"
 		
 	})
 	.when("/home/administrador/verDesligar", {

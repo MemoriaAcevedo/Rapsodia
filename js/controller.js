@@ -11,8 +11,8 @@ app.controller("snCtrl", function($rootScope, $scope, $location, $mdToast, $time
 		$location.path("/home/alumno/info");
 	}
 
-	$scope.verProfeAsociado = function(){
-		$location.path("/home/alumno/verAsociadosP");
+	$scope.verC = function(){
+		$location.path("/home/alumno/comunidades");
 	}
 
 	//Funciones administrador
@@ -28,8 +28,8 @@ app.controller("snCtrl", function($rootScope, $scope, $location, $mdToast, $time
 		$location.path("/home/administrador/ver");
 	}
 
-	$scope.verCuentasP = function(){
-		$location.path("/home/administrador/cuentasP");
+	$scope.verComunidades = function(){
+		$location.path("/home/administrador/comunidades");
 	}
 
 	$scope.closeSide = function(sideId) {
@@ -45,7 +45,7 @@ app.controller("snCtrl", function($rootScope, $scope, $location, $mdToast, $time
 	}
 
 	$scope.ver = function(){
-		$location.path("/home/profesor/ver");
+		$location.path("/home/profesor/comunidades");
 	}
 
 	$scope.closeSide = function(sideId) {
@@ -471,60 +471,94 @@ app.controller("editarAlumCtrl", function($rootScope, $scope, $location, $http, 
 		$location.path("/home/alumno/info");
 	}
 });
-app.controller("cuentasPAlumCtrl", function($rootScope, $scope, $location, $http, restFactory){
-	$scope.usuario = $rootScope.sesion.getUser();	
-
+app.controller("comunidadesCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+	$scope.usuario = $rootScope.sesion.getUser();
 	$scope.gridOptions = {
             data: [],
             urlSync: false
     };
-
-	restFactory.getPByAA($scope.usuario.idUsuario)
-		.success(function (response){
-		$scope.gridOptions.data = response;
-	});
-
 	
-	$scope.sendEdicion = function(item){
-		$rootScope.sesion.setUserToEdit(item);
-		$location.path("/home/alumno/verAsociadosAA");
-	}
+	restFactory.getCByAA($scope.usuario.idUsuario)
+		  .success(function (response){
+		  	$scope.gridOptions.data = response;	  	
+		});
 
+	$scope.toastPosition = {
+	    bottom: true,
+	    top: false,
+	    left: false,
+	    right: true,
+	    center: true
+  	};
+	$scope.getToastPosition = function() {
+	    return Object.keys($scope.toastPosition)
+	      .filter(function(pos) { return $scope.toastPosition[pos]; })
+	      .join(' ');
+	};
+	$scope.showSimpleToast = function(message) {
+	    $mdToast.show(
+	      $mdToast.simple()
+	        .content(message)
+	        .action("ok")
+	        .highlightAction(true)
+	        .highlightClass("md-accent")
+	        .position($scope.getToastPosition())
+	        .hideDelay(3000)
+	    );
+	};
+	$scope.showAlert = function(contenido) {
+
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
+
+
+	$scope.sendSupervision = function(item){
+		$rootScope.sesion.setComunidad(item);
+		$location.path("/home/alumno/verAsociadosC");
+	}
+	
 	$scope.back = function(){
 		$location.path("/home/alumno");
 	}
 });
-app.controller("cuentasAACtrl", function($rootScope, $scope, $location, $http, restFactory){
-	$scope.usuario = $rootScope.sesion.getUser();	
-	$scope.profesor = $rootScope.sesion.getUserToEdit();
-	$scope.profe = $scope.profesor.nombreU +" "+$scope.profesor.apellidoU;
+app.controller("asociadosCtrl", function($rootScope, $scope, $location, $http, restFactory){
+
+	$scope.comunidad = $rootScope.sesion.getComunidad();
+	$scope.profe = $scope.comunidad.profesorC.nombreU +" "+ $scope.comunidad.profesorC.apellidoU;
+
 	$scope.gridOptions = {
-            data: [],
-            urlSync: false
+        data: [],
+        urlSync: false
     };
 
-	restFactory.getPAA($scope.profesor.idUsuario)
+	restFactory.getAsociadosC($scope.comunidad.idComunidad)
 		.success(function (response){
-			$scope.gridOptions.data = response;
+		$scope.gridOptions.data = response;
 	});
 
-	
-	$scope.sendEdicion = function(item){
+	$scope.sendToDes = function(item){
 		$rootScope.sesion.setUserAux(item);
-		$location.path("/home/alumno/verAA");
+		$location.path("/home/alumno/verSelected");
 	}
 
 	$scope.back = function(){
-		$rootScope.sesion.destroyUserToEdit();
-		$location.path("/home/alumno/verAsociadosP");
+		$rootScope.sesion.destroyComunidad();
+		$location.path("/home/alumno/comunidades");
 	}
 });
-app.controller("verAACtrl", function($rootScope, $scope, $location, $http, restFactory){
-	$scope.usuario = $rootScope.sesion.getUserAux();	
+app.controller("verSelectedCtrl", function($rootScope, $scope, $location, $http, restFactory){
+	$scope.usuario = $rootScope.sesion.getUserAux();
 
 	$scope.back = function(){
 		$rootScope.sesion.destroyUserAux();
-		$location.path("/home/alumno/verAsociadosAA");
+		$location.path("/home/alumno/verAsociadosC");
 	}
 });
 /*Fin Alumno controllers*/
@@ -731,26 +765,96 @@ app.controller("editarProfeCtrl", function($rootScope, $scope, $location, $http,
 		$location.path("/home/profesor/perfil");
 	}
 });
-app.controller("cuentasCtrlProfe", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
-	$scope.opciones = {};
-	$scope.opcionSelected = {};
-	$scope.tiposUsuario = {};
-	$scope.tipoSelected = {};
-	$scope.alumnos = {};
-	$scope.ayudantes = {};
+app.controller("comunidadesCtrlProfe", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
 	$scope.profesor = $rootScope.sesion.getUser();
 	$scope.profe = $scope.profesor.nombreU +" "+ $scope.profesor.apellidoU;
 	$scope.gridOptions = {
             data: [],
             urlSync: false
     };
+	
+	restFactory.getCByProfesor($scope.profesor.idUsuario)
+		  .success(function (response){
+		  	$scope.gridOptions.data = response;	  	
+		});
 
-	restFactory.getPAA($scope.profesor.idUsuario)
-		.success(function (response){
-		$scope.gridOptions.data = response;
-	});
+	$scope.toastPosition = {
+	    bottom: true,
+	    top: false,
+	    left: false,
+	    right: true,
+	    center: true
+  	};
+	$scope.getToastPosition = function() {
+	    return Object.keys($scope.toastPosition)
+	      .filter(function(pos) { return $scope.toastPosition[pos]; })
+	      .join(' ');
+	};
+	$scope.showSimpleToast = function(message) {
+	    $mdToast.show(
+	      $mdToast.simple()
+	        .content(message)
+	        .action("ok")
+	        .highlightAction(true)
+	        .highlightClass("md-accent")
+	        .position($scope.getToastPosition())
+	        .hideDelay(3000)
+	    );
+	};
+	$scope.showAlert = function(contenido) {
 
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
 
+	$scope.nombreCC = "";
+	$scope.descripcionCC = "";
+
+	$scope.crearC = function(){
+		restFactory.crearComunidad($scope.nombreCC, $scope.descripcionCC, $scope.profesor.emailU)
+		  .success(function (response){
+		  	if(response.message == "t"){
+		  		$scope.showSimpleToast("Comunidad creada, se le enviará un correo electrónico al Profesor");
+		  		restFactory.getCByProfesor($scope.profesor.idUsuario)
+				  .success(function (response){
+				  	$scope.gridOptions.data = response;	  	
+				});
+
+		  	}else if(response.message == "e"){
+		  		$scope.showAlert("Nombre ingresado existente.");
+		  	}else if(response.message == "p"){
+		  		$scope.showAlert("Profesor seleccionado ya no existe en el sistema.");
+		  	}else{
+		  		$scope.showAlert("Error al crear la comunidad. Intente más tarde.");
+		  	}
+		});
+	}
+	
+	$scope.sendEdicion = function(item){
+		$rootScope.sesion.setComunidad(item);
+		$location.path("/home/profesor/editarC");
+	}
+
+	$scope.sendSupervision = function(item){
+		$rootScope.sesion.setComunidad(item);
+		$location.path("/home/profesor/verAsociadosC");
+	}
+	
+	$scope.back = function(){
+		$location.path("/home/profesor");
+	}
+});
+app.controller("editarCCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+	$scope.comunidad = $rootScope.sesion.getComunidad();
+	$scope.profe = $scope.comunidad.profesorC.nombreU +" "+ $scope.comunidad.profesorC.apellidoU;
+	$scope.nombreC = $scope.comunidad.nombreC;
+	$scope.descripcionC = $scope.comunidad.descripcionC;	
 	$scope.toastPosition = {
 	    bottom: true,
 	    top: false,
@@ -775,11 +879,123 @@ app.controller("cuentasCtrlProfe", function($rootScope, $scope, $location, $http
 	        .hideDelay(3000)
 	    );
 	};
+	$scope.showAlert = function(contenido) {
 
-	$scope.back = function(){
-		 $location.path("/home/profesor");
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
+	
+	$scope.actualizarC = function(){
+		if($scope.nombreC == $scope.comunidad.nombreC && $scope.descripcionC == $scope.comunidad.descripcionC){
+			$scope.showAlert("No existen nuevos valores para actualizar");
+			return "";
+		}
+
+		var confirm = $mdDialog.confirm()
+	          .title('Desea actualizar la comunidad?')
+	          .textContent('La comunidad será actualizada')
+	          .ariaLabel('Lucky day')
+	          .ok('Actualizar')
+	          .cancel('Cancelar');
+			    $mdDialog.show(confirm).then(function() {
+			    	$scope.comunidad.nombreC = $scope.nombreC;
+			    	$scope.comunidad.descripcionC = $scope.descripcionC;
+				    restFactory.editarComunidad($scope.comunidad).success(function(response){
+				    	if(response.message == "true"){	
+				    		$scope.showSimpleToast("Comunidad actualizada, se le enviará un correo electrónico");
+				    		$location.path("/home/profesor/comunidades");
+				    	}else if(response.message == "e"){
+				    		$scope.showAlert("Nombre ingresado existente.");
+				    	}else{
+				    		$scope.showAlert("Error al actualizar la comunidad. Intente más tarde.");
+				    	}
+					});	
+			      	return "";
+			    }, function() {	
+			    	return "";
+			     
+			    });
 	}
 
+	$scope.eliminarC = function(){
+
+		var confirm = $mdDialog.confirm()
+	          .title('Desea eliminar la comunidad?')
+	          .textContent('La comunidad será eliminada')
+	          .ariaLabel('Lucky day')
+	          .ok('Eliminar')
+	          .cancel('Cancelar');
+			    $mdDialog.show(confirm).then(function() {
+				    restFactory.eliminarComunidad($scope.comunidad).success(function(response){
+				    	if(response.message == "true"){	
+				    		$scope.showSimpleToast("Comunidad eliminada, se le enviará un correo electrónico");
+				    		$location.path("/home/profesor/comunidades");
+				    	}else{
+				    		$scope.showAlert("Error al eliminar la comunidad. Intente más tarde.");
+				    	}
+					});	
+			      	return "";
+			    }, function() {	
+			    	return "";
+			     
+			    });
+	}
+
+	$scope.back = function(){
+		$rootScope.sesion.destroyComunidad();
+		$location.path("/home/profesor/comunidades");
+	}
+});
+app.controller("asociadosCCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+	$scope.opciones = {};
+	$scope.opcionSelected = {};
+	$scope.tiposUsuario = {};
+	$scope.tipoSelected = {};
+	$scope.alumnos = {};
+	$scope.ayudantes = {};
+	$scope.comunidad = $rootScope.sesion.getComunidad();
+	$scope.profe = $scope.comunidad.profesorC.nombreU +" "+ $scope.comunidad.profesorC.apellidoU;
+
+	$scope.gridOptions = {
+        data: [],
+        urlSync: false
+    };
+
+	restFactory.getAsociadosC($scope.comunidad.idComunidad)
+		.success(function (response){
+		$scope.gridOptions.data = response;
+	});
+	
+	$scope.toastPosition = {
+	    bottom: true,
+	    top: false,
+	    left: false,
+	    right: true,
+	    center: true
+  	};
+
+	$scope.getToastPosition = function() {
+	    return Object.keys($scope.toastPosition)
+	      .filter(function(pos) { return $scope.toastPosition[pos]; })
+	      .join(' ');
+	};
+	$scope.showSimpleToast = function(message) {
+	    $mdToast.show(
+	      $mdToast.simple()
+	        .content(message)
+	        .action("ok")
+	        .highlightAction(true)
+	        .highlightClass("md-accent")
+	        .position($scope.getToastPosition())
+	        .hideDelay(3000)
+	    );
+	};
 	$scope.showAlert = function(contenido) {
 
 		$mdDialog.show(
@@ -824,27 +1040,31 @@ app.controller("cuentasCtrlProfe", function($rootScope, $scope, $location, $http
 	}
 
 	$scope.asociarC = function(){
-		restFactory.asociar($scope.profesor.rutU, $scope.opcionSelected.rutU).success(function(response){
+		restFactory.asociar($scope.comunidad.nombreC, $scope.opcionSelected.rutU).success(function(response){
 				if(response.message == "e"){
 					$scope.showAlert("Usuario ya se encuentra asociado.");
 				}else if(response.message == "true"){
-					restFactory.sendEmail($scope.opcionSelected.emailU, "aso");
 					$scope.showSimpleToast("Usuario asociado, se le enviará un correo electrónico");
-
-					restFactory.getPAA($scope.profesor.idUsuario)
+					restFactory.getAsociadosC($scope.comunidad.idComunidad)
 						.success(function (response){
 						$scope.gridOptions.data = response;
 					});
+
 				}else{
-					$scope.showAlert("Error al asociar el usuario con el profesor. Intente más tarde.");
+					$scope.showAlert("Error al asociar el usuario a la comunidad. Intente más tarde.");
 				}
 		});
 	}
 
 	$scope.sendToDes = function(item){
-		$rootScope.sesion.setUserToEdit(item);
-		$location.path("/home/profesor/info");
-	}	
+		$rootScope.sesion.setUserAux(item);
+		$location.path("/home/profesor/verDesligar");
+	}
+
+	$scope.back = function(){
+		$rootScope.sesion.destroyComunidad();
+		$location.path("/home/profesor/comunidades");
+	}
 });
 app.controller("infoCtrlProfe", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
 
@@ -915,6 +1135,74 @@ app.controller("infoCtrlProfe", function($rootScope, $scope, $location, $http, r
 			     
 			    });
 
+	}
+});
+app.controller("desligarCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+	$scope.usuario = $rootScope.sesion.getUserAux();
+	$scope.toastPosition = {
+	    bottom: true,
+	    top: false,
+	    left: false,
+	    right: true,
+	    center: true
+  	};
+
+	$scope.getToastPosition = function() {
+	    return Object.keys($scope.toastPosition)
+	      .filter(function(pos) { return $scope.toastPosition[pos]; })
+	      .join(' ');
+	};
+	$scope.showSimpleToast = function(message) {
+	    $mdToast.show(
+	      $mdToast.simple()
+	        .content(message)
+	        .action("ok")
+	        .highlightAction(true)
+	        .highlightClass("md-accent")
+	        .position($scope.getToastPosition())
+	        .hideDelay(3000)
+	    );
+	};
+	$scope.showAlert = function(contenido) {
+
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
+	
+	$scope.desligarC = function(){
+
+		var confirm = $mdDialog.confirm()
+	          .title('Desea desligar el usuario?')
+	          .textContent('El usuario será desligado de la comunidad')
+	          .ariaLabel('Lucky day')
+	          .ok('Desligar')
+	          .cancel('Cancelar');
+			    $mdDialog.show(confirm).then(function() {
+				    restFactory.desligar($rootScope.sesion.getComunidad().idComunidad, $scope.usuario.idUsuario).success(function(response){
+						if(response.message == "true"){
+							$scope.showSimpleToast("Usuario desligado, se le enviará un correo electrónico");
+							$rootScope.sesion.destroyUserAux();
+							$location.path("/home/profesor/verAsociadosC");
+						}else{
+							$scope.showAlert("Error al desligar el usuario de la comunidad. Intente más tarde.");
+						}
+					});	
+			      	return "";
+			    }, function() {	
+			    	return "";
+			     
+			    });
+
+	}
+	$scope.back = function(){
+		$rootScope.sesion.destroyUserAux();
+		$location.path("/home/profesor/verAsociadosC");
 	}
 });
 /*Inicio Profesor controllers*/
@@ -1519,43 +1807,115 @@ app.controller("editarSelectedAdmin", function($rootScope, $scope, $location, $h
 		$location.path("/home/administrador/ver");
 	}
 });
-app.controller("cuentasPAdminCtrl", function($rootScope, $scope, $location, $http, restFactory){
+app.controller("comunidadesAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+	
 	$scope.gridOptions = {
             data: [],
             urlSync: false
     };
+	
+	restFactory.getAllComunidad()
+		  .success(function (response){
+		  	$scope.gridOptions.data = response;	  	
+		});
 
+
+	$scope.toastPosition = {
+	    bottom: true,
+	    top: false,
+	    left: false,
+	    right: true,
+	    center: true
+  	};
+	$scope.getToastPosition = function() {
+	    return Object.keys($scope.toastPosition)
+	      .filter(function(pos) { return $scope.toastPosition[pos]; })
+	      .join(' ');
+	};
+	$scope.showSimpleToast = function(message) {
+	    $mdToast.show(
+	      $mdToast.simple()
+	        .content(message)
+	        .action("ok")
+	        .highlightAction(true)
+	        .highlightClass("md-accent")
+	        .position($scope.getToastPosition())
+	        .hideDelay(3000)
+	    );
+	};
+	$scope.showAlert = function(contenido) {
+
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
+
+	$scope.usuario = $rootScope.sesion.getUser();
+	$scope.nombreCC = "";
+	$scope.descripcionCC = "";
+	$scope.profesores = {};
+	$scope.profesorSelected = {};
 	restFactory.getAllE("Profesor")
 		.success(function (response){
-		$scope.gridOptions.data = response;
+		$scope.profesores = response;
 	});
 
-	$scope.usuario = $rootScope.sesion.getUser();	
+	$scope.crearC = function(){
+		restFactory.crearComunidad($scope.nombreCC, $scope.descripcionCC, $scope.profesorSelected.emailU)
+		  .success(function (response){
+		  	if(response.message == "t"){
+		  		$scope.showSimpleToast("Comunidad creada, se le enviará un correo electrónico al Profesor");
+		  		restFactory.getAllComunidad()
+				  .success(function (response){
+				  	$scope.gridOptions.data = response;	  	
+				});
 
-	$scope.sendEdicion = function(item){
-		$rootScope.sesion.setUserToEdit(item);
-		$location.path("/home/administrador/verAsociadosP");
+		  	}else if(response.message == "e"){
+		  		$scope.showAlert("Nombre ingresado existente.");
+		  	}else if(response.message == "p"){
+		  		$scope.showAlert("Profesor seleccionado ya no existe en el sistema.");
+		  	}else{
+		  		$scope.showAlert("Error al crear la comunidad. Intente más tarde.");
+		  	}
+		});
 	}
+	
+	$scope.sendEdicion = function(item){
+		$rootScope.sesion.setComunidad(item);
+		$location.path("/home/administrador/editarC");
+	}
+
+	$scope.sendSupervision = function(item){
+		$rootScope.sesion.setComunidad(item);
+		$location.path("/home/administrador/verAsociadosC");
+	}
+	
 
 	$scope.back = function(){
 		$location.path("/home/administrador");
 	}
 });
-app.controller("asociadosPAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("asociadosCAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
 	$scope.opciones = {};
 	$scope.opcionSelected = {};
 	$scope.tiposUsuario = {};
 	$scope.tipoSelected = {};
 	$scope.alumnos = {};
 	$scope.ayudantes = {};
-	$scope.profesor = $rootScope.sesion.getUserToEdit();
-	$scope.profe = $scope.profesor.nombreU +" "+ $scope.profesor.apellidoU;
+	$scope.comunidad = $rootScope.sesion.getComunidad();
+	$scope.profe = $scope.comunidad.profesorC.nombreU +" "+ $scope.comunidad.profesorC.apellidoU;
+
 	$scope.gridOptions = {
         data: [],
         urlSync: false
     };
 
-	restFactory.getPAA($scope.profesor.idUsuario)
+	restFactory.getAsociadosC($scope.comunidad.idComunidad)
 		.success(function (response){
 		$scope.gridOptions.data = response;
 	});
@@ -1628,20 +1988,18 @@ app.controller("asociadosPAdminCtrl", function($rootScope, $scope, $location, $h
 	}
 
 	$scope.asociarC = function(){
-		restFactory.asociar($scope.profesor.rutU, $scope.opcionSelected.rutU).success(function(response){
+		restFactory.asociar($scope.comunidad.nombreC, $scope.opcionSelected.rutU).success(function(response){
 				if(response.message == "e"){
 					$scope.showAlert("Usuario ya se encuentra asociado.");
 				}else if(response.message == "true"){
 					$scope.showSimpleToast("Usuario asociado, se le enviará un correo electrónico");
-
-					restFactory.getPAA($scope.profesor.idUsuario)
+					restFactory.getAsociadosC($scope.comunidad.idComunidad)
 						.success(function (response){
 						$scope.gridOptions.data = response;
 					});
-	
 
 				}else{
-					$scope.showAlert("Error al asociar el usuario con el profesor. Intente más tarde.");
+					$scope.showAlert("Error al asociar el usuario a la comunidad. Intente más tarde.");
 				}
 		});
 	}
@@ -1652,8 +2010,8 @@ app.controller("asociadosPAdminCtrl", function($rootScope, $scope, $location, $h
 	}
 
 	$scope.back = function(){
-		$rootScope.sesion.destroyUserToEdit();
-		$location.path("/home/administrador/cuentasP");
+		$rootScope.sesion.destroyComunidad();
+		$location.path("/home/administrador/comunidades");
 	}
 });
 app.controller("desligarAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
@@ -1698,20 +2056,20 @@ app.controller("desligarAdminCtrl", function($rootScope, $scope, $location, $htt
 
 		var confirm = $mdDialog.confirm()
 	          .title('Desea desligar el usuario?')
-	          .textContent('El usuario será desligado del profesor')
+	          .textContent('El usuario será desligado de la comunidad')
 	          .ariaLabel('Lucky day')
 	          .ok('Desligar')
 	          .cancel('Cancelar');
 			    $mdDialog.show(confirm).then(function() {
-				    restFactory.desligar($rootScope.sesion.getUserToEdit().rutU, $scope.usuario.rutU).success(function(response){
+				    restFactory.desligar($rootScope.sesion.getComunidad().idComunidad, $scope.usuario.idUsuario).success(function(response){
 						if(response.message == "true"){
 							$scope.showSimpleToast("Usuario desligado, se le enviará un correo electrónico");
 							$rootScope.sesion.destroyUserAux();
-							$location.path("/home/administrador/verAsociadosP");
+							$location.path("/home/administrador/verAsociadosC");
 						}else{
-							$scope.showAlert("Error al desligar el usuario del profesor. Intente más tarde.");
+							$scope.showAlert("Error al desligar el usuario de la comunidad. Intente más tarde.");
 						}
-					});		
+					});	
 			      	return "";
 			    }, function() {	
 			    	return "";
@@ -1721,7 +2079,109 @@ app.controller("desligarAdminCtrl", function($rootScope, $scope, $location, $htt
 	}
 	$scope.back = function(){
 		$rootScope.sesion.destroyUserAux();
-		$location.path("/home/administrador/verAsociadosP");
+		$location.path("/home/administrador/verAsociadosC");
+	}
+});
+app.controller("editarCAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+	$scope.comunidad = $rootScope.sesion.getComunidad();
+	$scope.profe = $scope.comunidad.profesorC.nombreU +" "+ $scope.comunidad.profesorC.apellidoU;
+	$scope.nombreC = $scope.comunidad.nombreC;
+	$scope.descripcionC = $scope.comunidad.descripcionC;	
+	$scope.toastPosition = {
+	    bottom: true,
+	    top: false,
+	    left: false,
+	    right: true,
+	    center: true
+  	};
+
+	$scope.getToastPosition = function() {
+	    return Object.keys($scope.toastPosition)
+	      .filter(function(pos) { return $scope.toastPosition[pos]; })
+	      .join(' ');
+	};
+	$scope.showSimpleToast = function(message) {
+	    $mdToast.show(
+	      $mdToast.simple()
+	        .content(message)
+	        .action("ok")
+	        .highlightAction(true)
+	        .highlightClass("md-accent")
+	        .position($scope.getToastPosition())
+	        .hideDelay(3000)
+	    );
+	};
+	$scope.showAlert = function(contenido) {
+
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
+	
+	$scope.actualizarC = function(){
+		if($scope.nombreC == $scope.comunidad.nombreC && $scope.descripcionC == $scope.comunidad.descripcionC){
+			$scope.showAlert("No existen nuevos valores para actualizar");
+			return "";
+		}
+
+		var confirm = $mdDialog.confirm()
+	          .title('Desea actualizar la comunidad?')
+	          .textContent('La comunidad será actualizada')
+	          .ariaLabel('Lucky day')
+	          .ok('Actualizar')
+	          .cancel('Cancelar');
+			    $mdDialog.show(confirm).then(function() {
+			    	$scope.comunidad.nombreC = $scope.nombreC;
+			    	$scope.comunidad.descripcionC = $scope.descripcionC;
+				    restFactory.editarComunidad($scope.comunidad).success(function(response){
+				    	if(response.message == "true"){	
+				    		$scope.showSimpleToast("Comunidad actualizada, se le enviará un correo electrónico");
+				    		$location.path("/home/administrador/comunidades");
+				    	}else if(response.message == "e"){
+				    		$scope.showAlert("Nombre ingresado existente.");
+				    	}else{
+				    		$scope.showAlert("Error al actualizar la comunidad. Intente más tarde.");
+				    	}
+					});	
+			      	return "";
+			    }, function() {	
+			    	return "";
+			     
+			    });
+	}
+
+	$scope.eliminarC = function(){
+
+		var confirm = $mdDialog.confirm()
+	          .title('Desea eliminar la comunidad?')
+	          .textContent('La comunidad será eliminada')
+	          .ariaLabel('Lucky day')
+	          .ok('Eliminar')
+	          .cancel('Cancelar');
+			    $mdDialog.show(confirm).then(function() {
+				    restFactory.eliminarComunidad($scope.comunidad).success(function(response){
+				    	if(response.message == "true"){	
+				    		$scope.showSimpleToast("Comunidad eliminada, se le enviará un correo electrónico");
+				    		$location.path("/home/administrador/comunidades");
+				    	}else{
+				    		$scope.showAlert("Error al eliminar la comunidad. Intente más tarde.");
+				    	}
+					});	
+			      	return "";
+			    }, function() {	
+			    	return "";
+			     
+			    });
+	}
+
+	$scope.back = function(){
+		$rootScope.sesion.destroyComunidad();
+		$location.path("/home/administrador/comunidades");
 	}
 });
 /*Fin Administrador controllers*/
