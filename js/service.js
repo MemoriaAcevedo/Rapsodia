@@ -20,7 +20,9 @@ app.service('sesion',['$window',function($window) {
     this.user = JSON.parse($window.localStorage.getItem('sesion.user'));
     this.userToEdit  = JSON.parse($window.localStorage.getItem('sesion.userToEdit'));
     this.userAux  = JSON.parse($window.localStorage.getItem('sesion.userAux'));
-    this.comunidad  = JSON.parse($window.localStorage.getItem('sesion.comunidad'));         
+    this.comunidad  = JSON.parse($window.localStorage.getItem('sesion.comunidad'));
+    this.userTerminal  = JSON.parse($window.localStorage.getItem('sesion.userTerminal'));
+    this.userTerminalD  = JSON.parse($window.localStorage.getItem('sesion.userTerminalD'));              
     //GETS
     this.getUser = function(){
         return this.user;
@@ -36,6 +38,14 @@ app.service('sesion',['$window',function($window) {
 
     this.getComunidad = function(){
         return this.comunidad;
+    };
+
+    this.getUserTerminal = function(){
+        return this.userTerminal;
+    };
+
+    this.getUserTerminalD = function(){
+        return this.userTerminalD;
     };
 
     //SETS
@@ -63,6 +73,18 @@ app.service('sesion',['$window',function($window) {
         return this;
     };
 
+    this.setUserTerminal = function(userT){
+        this.userTerminal = userT;
+        $window.localStorage.setItem('sesion.userTerminal', JSON.stringify(userT));
+        return this;
+    };
+
+    this.setUserTerminalD = function(userT){
+        this.userTerminalD = userT;
+        $window.localStorage.setItem('sesion.userTerminalD', JSON.stringify(userT));
+        return this;
+    };
+
     //DESTROY
 
     this.destroy = function destroy(){
@@ -79,6 +101,14 @@ app.service('sesion',['$window',function($window) {
 
     this.destroyComunidad = function destroyComunidad(){
         this.setComunidad(null);
+    };
+
+    this.destroyUserTerminal = function destroyUserTerminal(){
+        this.setUserTerminal(null);
+    };
+
+    this.destroyUserTerminalD = function destroyUserTerminalD(){
+        this.setUserTerminalD(null);
     };
  }]);
 
@@ -127,4 +157,23 @@ app.service('auth',['$http', 'sesion', '$location', function($http, sesion, $loc
      this.isComunidad= function isComunidad(){
          return sesion.getComunidad() !== null;
     }
+
+    //Modulo de práctica
+    this.isActive = function isActive(){
+      return sesion.getUserTerminal().estadoC == 1;
+    };
+
+    this.isActiveD = function isActiveD(){
+      return sesion.getUserTerminalD().estadoC == 1;
+    };
+
+    this.isLogged = function isLogged(){
+      return sesion.getUserTerminal() !== null;
+    };
+
+    this.isLoggedD = function isLoggedD(){
+      return sesion.getUserTerminalD() !== null;
+    };
+    //Modulo de práctica
+
  }]);

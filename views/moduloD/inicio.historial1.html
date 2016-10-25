@@ -1,0 +1,85 @@
+<md-content flex class="md-whiteframe-z3">
+        <div layout = "column" layout-align="center center">
+          <br>
+          <h3>Historial de transacciones</h3>
+        </div>
+        <div  layout="row" layout-align="center">
+          <div flex-gt-md="60" flex-md="80" flex-xs="100">
+              <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
+                      <div layout="row" layout-align="center center">
+                          <span>{{filtered.length}} Total de transacciones</span>
+                      </div>           
+                     <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
+                      <grid-pagination max-size="20"
+                                       boundary-links="true"
+                                       class="pagination"
+                                       ng-if="paginationOptions.totalItems  > paginationOptions.itemsPerPage"
+                                       total-items="paginationOptions.totalItems"
+                                       ng-model="paginationOptions.currentPage"
+                                       ng-change="reloadGrid()"
+                                       items-per-page="paginationOptions.itemsPerPage"></grid-pagination>
+                      <md-input-container flex-offset-gt-xs="5" class="items-per-page">
+                          <md-select ng-init="paginationOptions.itemsPerPage = '25'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()"  aria-label="More">
+                          </md-select>
+                      </md-input-container>
+                  </div>
+                  
+
+                  <div>
+                      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                          <thead>
+
+                          <tr>
+                              <th class="sortable">
+                                  <span>Monto</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>Transacciones</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>Fecha</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>Saldo Final</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>Receptor</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>Realizador</span>
+                              </th>
+                              
+                          </tr>
+
+                          </thead>
+                          <tbody>
+                          <tr grid-item>
+                                <td ng-bind="item.operacion"></td>
+                                <td ng-bind="item.montoOp"></td>
+                                <td ng-bind="item.saldoFinal"></td>
+                                <td ng-bind="item.fechaOp"></td>
+                                <td ng-bind="item.rutR"></td>
+                                <td ng-bind="item.rutRE"></td>                              
+                          </tr>
+                          </tbody>
+                      </table>
+                  </div>
+
+                  <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
+                      <grid-pagination max-size="20"
+                                       boundary-links="true"
+                                       class="pagination"
+                                       ng-if="paginationOptions.totalItems  > paginationOptions.itemsPerPage"
+                                       total-items="paginationOptions.totalItems"
+                                       ng-model="paginationOptions.currentPage"
+                                       ng-change="reloadGrid()"
+                                       items-per-page="paginationOptions.itemsPerPage"></grid-pagination>
+                      <md-input-container flex-offset-gt-xs="5" class="items-per-page">
+                          <md-select ng-init="paginationOptions.itemsPerPage = '25'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()"  aria-label="More">
+                          </md-select>
+                      </md-input-container>
+                  </div>
+              </div>
+          </div>
+        </div>
+</md-content>

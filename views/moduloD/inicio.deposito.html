@@ -1,0 +1,47 @@
+<md-content flex class="md-whiteframe-z3">
+<div layout = "row">
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#/moduloD/home">Inicio</a></li>
+      <li class="breadcrumb-item active">Retiro</li>
+    </ol>
+  </div>
+</div>
+      <div>
+        <!-- Formulario -->
+        <form name="deposito">
+          <!-- inputs -->
+          <div layout = "column" layout-align = "center center">
+              <!-- Título -->
+              <div flex layout = "row">
+                <br>
+                <h3>Depósito</<h3>
+                <br>
+              </div>
+              <!-- Título -->
+              <br>
+              <!-- Rut -->
+              <div>
+                <md-input-container>
+                  <label>Saldo actual</label>
+                    <input type="number" name = "saldo" ng-model="sesion.getUserTerminalD().saldoC" disabled>
+                  </md-input-container>
+              </div>
+              <div>
+                <md-input-container>
+                  <label>Monto a depositar</label>
+                  <input type="number" name = "monto"  ng-model="montoD">     
+                </md-input-container>
+              </div>
+          </div>
+          <!-- inputs-->
+          <br>
+          <!-- Botones -->
+          <div layout = "column" layout-align="center center">
+            <md-button class="md-raised md-primary" ng-click="depositarD()">Depositar</md-button>
+          </div>
+          <!-- Botones -->
+        </form>
+        <!-- Formulario -->
+      </div>
+</md-content>

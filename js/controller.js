@@ -1,4 +1,4 @@
-var app = angular.module("mainApp", ["ngRoute", "ngCookies", "ngMaterial", "ngMessages", "dataGrid", "pagination", "ngFileUpload"]);
+var app = angular.module("mainApp", ["ui.router","ngRoute", "ngCookies", "ngMaterial", "ngMessages", "dataGrid", "pagination", "ngFileUpload"]);
 
 app.run(function($rootScope, auth, sesion){
 	$rootScope.auth = auth;
@@ -13,6 +13,14 @@ app.controller("snCtrl", function($rootScope, $scope, $location, $mdToast, $time
 
 	$scope.verC = function(){
 		$location.path("/home/alumno/comunidades");
+	}
+
+	$scope.moduloP = function(){
+		$location.path("/moduloP/inicio");
+	}
+
+	$scope.moduloD = function(){
+		$location.path("/moduloD/inicio");
 	}
 
 	//Funciones administrador
@@ -97,7 +105,27 @@ app.controller("tbCtrl", function($rootScope, $scope, $location, $http, restFact
 		$rootScope.sesion.destroy();
 		$rootScope.sesion.destroyUserToEdit();
 		$rootScope.sesion.destroyUserAux();
+		$rootScope.sesion.destroyUserTerminal();
+		$rootScope.sesion.destroyUserTerminalD();
 		$location.path("/");
+	}
+
+	$scope.closeM = function(){
+		$rootScope.sesion.destroyUserTerminal();
+		$location.path("/moduloP/inicio");
+	}
+
+	$scope.settingsM = function(){
+		$location.path("/moduloP/configurar");
+	}
+
+	$scope.closeD = function(){
+		$location.path("/moduloD/configurar");
+	}
+
+	$scope.settingsD = function(){
+		$rootScope.sesion.destroyUserTerminalD();
+		$location.path("/moduloD/inicio");
 	}
 
 	$scope.editP = function(){
@@ -152,36 +180,10 @@ app.controller("tbCtrl", function($rootScope, $scope, $location, $http, restFact
     }
 });
 /*Inicio Login controllers*/
-app.controller("loginCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdToast){
+app.controller("loginCtrl", function($rootScope, $scope, $location, $http, restFactory, viewFactory){
 	$scope.username = "";
 	$scope.password = "";
 
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
-	
 	$scope.loginF = function(){
 		if($scope.username != "" && $scope.password != ""){
 			restFactory.login($scope.username, $scope.password)
@@ -195,9 +197,9 @@ app.controller("loginCtrl", function($rootScope, $scope, $location, $http, restF
 					             });
 	                    }else{
 	                    	if(resultado == 'i'){
-	                    		$scope.showSimpleToast("E-mail o contraseña incorrecta");
+	                    		viewFactory.showSimpleToast("E-mail o contraseña incorrecta");
 	                    	}else{
-	                    		$scope.showSimpleToast("Cuenta inexistente");
+	                    		viewFactory.showSimpleToast("Cuenta inexistente");
 	                    	}
 	                    }
 	               	});
@@ -208,37 +210,11 @@ app.controller("loginCtrl", function($rootScope, $scope, $location, $http, restF
 		$location.path("/login/olvidoC");
 	}
 });
-app.controller("olvidoCtrl", function($rootScope, $scope, $routeParams, $location, $http, restFactory, $mdToast){
+app.controller("olvidoCtrl", function($rootScope, $scope, $routeParams, $location, $http, restFactory, viewFactory){
 	$scope.email = "";
 	$scope.respuesta = "";
 	$scope.usuario = {};
 	$scope.sh = true;
-
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	  $scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	  };
-
-	  $scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	  };
 
 	$scope.back = function(){
 			$location.path("/");
@@ -249,13 +225,13 @@ app.controller("olvidoCtrl", function($rootScope, $scope, $routeParams, $locatio
 			.success(function (response) {
 				if(response){
 					if(response.estadoidEstado.nombreE == "Cerrada"){
-						$scope.showSimpleToast("Cuenta Cerrada");
+						viewFactory.showSimpleToast("Cuenta Cerrada");
 					}else{
 						$scope.usuario = response;
 						$scope.sh = false;
 					}
 				}else{
-					$scope.showSimpleToast("Cuenta inexistente");
+					viewFactory.showSimpleToast("Cuenta inexistente");
 				}	
 			});
 	}
@@ -263,11 +239,11 @@ app.controller("olvidoCtrl", function($rootScope, $scope, $routeParams, $locatio
 	$scope.send = function(){
 		if($scope.usuario.respuestaU == $scope.respuesta){
 			restFactory.sendEmail($scope.usuario.emailU, "r");
-					$scope.showSimpleToast("Realizando recuperación, se le enviará un correo electrónico");
+					viewFactory.showSimpleToast("Realizando recuperación, se le enviará un correo electrónico");
 					$location.path("/");
 		}
 		else{
-			$scope.showSimpleToast("Respuesta incorrecta");
+			viewFactory.showSimpleToast("Respuesta incorrecta");
 		}
 	}
 });
@@ -285,37 +261,12 @@ app.controller("homeCtrlAlum", function($rootScope, $scope, $location, $http){
 		$location.path("/home/alumno");
 	}
 });
-app.controller("editarAlumCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast, Upload){
+app.controller("editarAlumCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory, Upload){
 	$scope.usuario = $rootScope.sesion.getUser();
 	$scope.pass = "";
 	$scope.passC = "";
 	$scope.fotoP = "";
 	$scope.apodo = $scope.usuario.apodoU;
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 
 	$scope.showAlert = function(contenido) {
 		$mdDialog.show(
@@ -378,7 +329,7 @@ app.controller("editarAlumCtrl", function($rootScope, $scope, $location, $http, 
 										if(response){
 											var user = response;
 											$rootScope.sesion.setUser(user);
-											$scope.showSimpleToast("Edición efectuada, se le notificará por correo electrónico");
+											viewFactory.showSimpleToast("Edición efectuada, se le notificará por correo electrónico");
 											 $location.path("/home/alumno/info");
 										}else{
 											$scope.showAlert("Error al realizar la edición intente más tarde.");
@@ -399,7 +350,7 @@ app.controller("editarAlumCtrl", function($rootScope, $scope, $location, $http, 
 							if(response){
 								var user = response;
 								$rootScope.sesion.setUser(user);
-								$scope.showSimpleToast("Edición efectuada, se le notificará por correo electrónico");
+								viewFactory.showSimpleToast("Edición efectuada, se le notificará por correo electrónico");
 								 $location.path("/home/alumno/info");
 							}else{
 								$scope.showAlert("Error al realizar la edición intente más tarde.");
@@ -426,7 +377,7 @@ app.controller("editarAlumCtrl", function($rootScope, $scope, $location, $http, 
 							.success(function(response){
 								if(response.message == "true"){
 									$rootScope.sesion.destroy();
-									$scope.showSimpleToast("Cerrando cuenta, se le enviará un correo electrónico");
+									viewFactory.showSimpleToast("Cerrando cuenta, se le enviará un correo electrónico");
 									$location.path("/");				
 								}else{
 									$scope.showAlert("Error al realizar el cierre de la cuenta intente más tarde.");
@@ -451,7 +402,7 @@ app.controller("editarAlumCtrl", function($rootScope, $scope, $location, $http, 
 							.success(function(response){
 								if(response){
 									$rootScope.sesion.setUser(response);
-									$scope.showSimpleToast("Cuenta activa, se le enviará un correo electrónico");
+									viewFactory.showSimpleToast("Cuenta activa, se le enviará un correo electrónico");
 									$location.path("/home/alumno");				
 								}else{
 									$scope.showAlert("Error al realizar la activación de la cuenta intente más tarde.");
@@ -471,7 +422,7 @@ app.controller("editarAlumCtrl", function($rootScope, $scope, $location, $http, 
 		$location.path("/home/alumno/info");
 	}
 });
-app.controller("comunidadesCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("comunidadesCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.usuario = $rootScope.sesion.getUser();
 	$scope.gridOptions = {
             data: [],
@@ -483,29 +434,6 @@ app.controller("comunidadesCtrl", function($rootScope, $scope, $location, $http,
 		  	$scope.gridOptions.data = response;	  	
 		});
 
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 	$scope.showAlert = function(contenido) {
 
 		$mdDialog.show(
@@ -574,39 +502,13 @@ app.controller("homeCtrlProfe", function($rootScope, $scope, $location, $http){
 		$location.path("/home/profesor");
 	}
 });
-app.controller("editarProfeCtrl", function($rootScope, $scope, $location, $http, fileUpload, restFactory, $mdDialog, $mdMedia, $mdToast, Upload, $window){
+app.controller("editarProfeCtrl", function($rootScope, $scope, $location, $http, fileUpload, restFactory, $mdDialog, $mdMedia, viewFactory, Upload, $window){
 
 	$scope.usuario = $rootScope.sesion.getUser();
 	$scope.pass = "";
 	$scope.passC = "";
 	$scope.fotoP = "";
 	$scope.apodo = $scope.usuario.apodoU;
-
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 
 	$scope.showAlert = function(contenido) {
 		$mdDialog.show(
@@ -674,7 +576,7 @@ app.controller("editarProfeCtrl", function($rootScope, $scope, $location, $http,
 										if(response){
 											var user = response;
 											$rootScope.sesion.setUser(user);
-											$scope.showSimpleToast("Edición efectuada, se le enviará un correo electrónico");
+											viewFactory.showSimpleToast("Edición efectuada, se le enviará un correo electrónico");
 											$location.path("/home/profesor/perfil");
 										}else{
 											$scope.showAlert("Error al realizar la edición intente más tarde.");
@@ -696,7 +598,7 @@ app.controller("editarProfeCtrl", function($rootScope, $scope, $location, $http,
 							if(response){
 								var user = response;
 								$rootScope.sesion.setUser(user);
-								$scope.showSimpleToast("Edición efectuada, se le enviará un correo electrónico");
+								viewFactory.showSimpleToast("Edición efectuada, se le enviará un correo electrónico");
 								$location.path("/home/profesor/perfil");
 							}else{
 								$scope.showAlert("Error al realizar la edición intente más tarde.");
@@ -723,7 +625,7 @@ app.controller("editarProfeCtrl", function($rootScope, $scope, $location, $http,
 			    	restFactory.cerrar($scope.usuario.rutU, motivo)
 			    		.success(function(response){
 								if(response.message == "true"){
-									$scope.showSimpleToast("Cerrando cuenta, se le enviará un correo electrónico");
+									viewFactory.showSimpleToast("Cerrando cuenta, se le enviará un correo electrónico");
 									$rootScope.sesion.destroy();
 									$location.path("/");				
 								}else{
@@ -749,7 +651,7 @@ app.controller("editarProfeCtrl", function($rootScope, $scope, $location, $http,
 							.success(function(response){
 								if(response){
 									$rootScope.sesion.setUser(response);
-									$scope.showSimpleToast("Cuenta activa, se le enviará un correo electrónico");
+									viewFactory.showSimpleToast("Cuenta activa, se le enviará un correo electrónico");
 									$location.path("/home/profesor");					
 								}else{
 									$scope.showAlert("Error al realizar la activación de la cuenta intente más tarde.");
@@ -765,7 +667,7 @@ app.controller("editarProfeCtrl", function($rootScope, $scope, $location, $http,
 		$location.path("/home/profesor/perfil");
 	}
 });
-app.controller("comunidadesCtrlProfe", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("comunidadesCtrlProfe", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.profesor = $rootScope.sesion.getUser();
 	$scope.profe = $scope.profesor.nombreU +" "+ $scope.profesor.apellidoU;
 	$scope.gridOptions = {
@@ -778,29 +680,6 @@ app.controller("comunidadesCtrlProfe", function($rootScope, $scope, $location, $
 		  	$scope.gridOptions.data = response;	  	
 		});
 
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 	$scope.showAlert = function(contenido) {
 
 		$mdDialog.show(
@@ -820,7 +699,7 @@ app.controller("comunidadesCtrlProfe", function($rootScope, $scope, $location, $
 		restFactory.crearComunidad($scope.nombreCC, $scope.descripcionCC, $scope.profesor.emailU)
 		  .success(function (response){
 		  	if(response.message == "t"){
-		  		$scope.showSimpleToast("Comunidad creada, se le enviará un correo electrónico al Profesor");
+		  		viewFactory.showSimpleToast("Comunidad creada, se le enviará un correo electrónico al Profesor");
 		  		restFactory.getCByProfesor($scope.profesor.idUsuario)
 				  .success(function (response){
 				  	$scope.gridOptions.data = response;	  	
@@ -850,35 +729,12 @@ app.controller("comunidadesCtrlProfe", function($rootScope, $scope, $location, $
 		$location.path("/home/profesor");
 	}
 });
-app.controller("editarCCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("editarCCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.comunidad = $rootScope.sesion.getComunidad();
 	$scope.profe = $scope.comunidad.profesorC.nombreU +" "+ $scope.comunidad.profesorC.apellidoU;
 	$scope.nombreC = $scope.comunidad.nombreC;
 	$scope.descripcionC = $scope.comunidad.descripcionC;	
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
+	
 	$scope.showAlert = function(contenido) {
 
 		$mdDialog.show(
@@ -908,7 +764,7 @@ app.controller("editarCCtrl", function($rootScope, $scope, $location, $http, res
 			    	$scope.comunidad.descripcionC = $scope.descripcionC;
 				    restFactory.editarComunidad($scope.comunidad).success(function(response){
 				    	if(response.message == "true"){	
-				    		$scope.showSimpleToast("Comunidad actualizada, se le enviará un correo electrónico");
+				    		viewFactory.showSimpleToast("Comunidad actualizada, se le enviará un correo electrónico");
 				    		$location.path("/home/profesor/comunidades");
 				    	}else if(response.message == "e"){
 				    		$scope.showAlert("Nombre ingresado existente.");
@@ -934,7 +790,7 @@ app.controller("editarCCtrl", function($rootScope, $scope, $location, $http, res
 			    $mdDialog.show(confirm).then(function() {
 				    restFactory.eliminarComunidad($scope.comunidad).success(function(response){
 				    	if(response.message == "true"){	
-				    		$scope.showSimpleToast("Comunidad eliminada, se le enviará un correo electrónico");
+				    		viewFactory.showSimpleToast("Comunidad eliminada, se le enviará un correo electrónico");
 				    		$location.path("/home/profesor/comunidades");
 				    	}else{
 				    		$scope.showAlert("Error al eliminar la comunidad. Intente más tarde.");
@@ -952,7 +808,7 @@ app.controller("editarCCtrl", function($rootScope, $scope, $location, $http, res
 		$location.path("/home/profesor/comunidades");
 	}
 });
-app.controller("asociadosCCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("asociadosCCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.opciones = {};
 	$scope.opcionSelected = {};
 	$scope.tiposUsuario = {};
@@ -972,30 +828,6 @@ app.controller("asociadosCCtrl", function($rootScope, $scope, $location, $http, 
 		$scope.gridOptions.data = response;
 	});
 	
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 	$scope.showAlert = function(contenido) {
 
 		$mdDialog.show(
@@ -1044,7 +876,7 @@ app.controller("asociadosCCtrl", function($rootScope, $scope, $location, $http, 
 				if(response.message == "e"){
 					$scope.showAlert("Usuario ya se encuentra asociado.");
 				}else if(response.message == "true"){
-					$scope.showSimpleToast("Usuario asociado, se le enviará un correo electrónico");
+					viewFactory.showSimpleToast("Usuario asociado, se le enviará un correo electrónico");
 					restFactory.getAsociadosC($scope.comunidad.idComunidad)
 						.success(function (response){
 						$scope.gridOptions.data = response;
@@ -1066,7 +898,7 @@ app.controller("asociadosCCtrl", function($rootScope, $scope, $location, $http, 
 		$location.path("/home/profesor/comunidades");
 	}
 });
-app.controller("infoCtrlProfe", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("infoCtrlProfe", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 
 	$scope.usuario = $rootScope.sesion.getUserToEdit();
 
@@ -1075,30 +907,6 @@ app.controller("infoCtrlProfe", function($rootScope, $scope, $location, $http, r
 		$location.path("/home/profesor/ver");
 	}
 
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 	$scope.showAlert = function(contenido) {
 
 		$mdDialog.show(
@@ -1122,7 +930,7 @@ app.controller("infoCtrlProfe", function($rootScope, $scope, $location, $http, r
 			    $mdDialog.show(confirm).then(function() {
 				    restFactory.desligar($rootScope.sesion.getUser().rutU, $scope.usuario.rutU).success(function(response){
 						if(response.message == "true"){
-							$scope.showSimpleToast("Usuario desligado, se le enviará un correo electrónico");
+							viewFactory.showSimpleToast("Usuario desligado, se le enviará un correo electrónico");
 							$rootScope.sesion.destroyUserToEdit();
 							$location.path("/home/profesor/ver");
 						}else{
@@ -1137,32 +945,9 @@ app.controller("infoCtrlProfe", function($rootScope, $scope, $location, $http, r
 
 	}
 });
-app.controller("desligarCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("desligarCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.usuario = $rootScope.sesion.getUserAux();
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
 
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 	$scope.showAlert = function(contenido) {
 
 		$mdDialog.show(
@@ -1186,7 +971,7 @@ app.controller("desligarCtrl", function($rootScope, $scope, $location, $http, re
 			    $mdDialog.show(confirm).then(function() {
 				    restFactory.desligar($rootScope.sesion.getComunidad().idComunidad, $scope.usuario.idUsuario).success(function(response){
 						if(response.message == "true"){
-							$scope.showSimpleToast("Usuario desligado, se le enviará un correo electrónico");
+							viewFactory.showSimpleToast("Usuario desligado, se le enviará un correo electrónico");
 							$rootScope.sesion.destroyUserAux();
 							$location.path("/home/profesor/verAsociadosC");
 						}else{
@@ -1218,7 +1003,7 @@ app.controller("homeCtrlAdmin", function($rootScope, $scope, $location, $http){
 		$location.path("/home/administrador");
 	}
 });
-app.controller("editarAdminCtrl", function($rootScope, $scope, $location, $http, fileUpload, restFactory, $mdDialog, $mdMedia, $mdToast, Upload){
+app.controller("editarAdminCtrl", function($rootScope, $scope, $location, $http, fileUpload, restFactory, $mdDialog, $mdMedia, viewFactory, Upload){
 
 	$scope.usuario = $rootScope.sesion.getUser();
 	$scope.pass = "";
@@ -1226,29 +1011,6 @@ app.controller("editarAdminCtrl", function($rootScope, $scope, $location, $http,
 	$scope.fotoP = "";
 	$scope.apodo = $scope.usuario.apodoU;
 
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 	$scope.showAlert = function(contenido) {
 		$mdDialog.show(
 		      $mdDialog.alert()
@@ -1315,7 +1077,7 @@ app.controller("editarAdminCtrl", function($rootScope, $scope, $location, $http,
 									.success(function(response){
 										if(response){
 											$rootScope.sesion.setUser(response);
-											$scope.showSimpleToast("Edición efectuada, se le enviará un correo electrónico");
+											viewFactory.showSimpleToast("Edición efectuada, se le enviará un correo electrónico");
 											$location.path("/home/administrador/perfil");
 										}else{
 											$scope.showAlert("Error al realizar la edición intente más tarde.");
@@ -1336,7 +1098,7 @@ app.controller("editarAdminCtrl", function($rootScope, $scope, $location, $http,
 						.success(function(response){
 							if(response){
 								$rootScope.sesion.setUser(response);
-								$scope.showSimpleToast("Edición efectuada, se le enviará un correo electrónico");
+								viewFactory.showSimpleToast("Edición efectuada, se le enviará un correo electrónico");
 								$location.path("/home/administrador/perfil");
 							}else{
 								$scope.showAlert("Error al realizar la edición intente más tarde.");
@@ -1362,7 +1124,7 @@ app.controller("editarAdminCtrl", function($rootScope, $scope, $location, $http,
 			    	restFactory.cerrar($scope.usuario.rutU, motivo)
 			    		.success(function(response){
 								if(response.message == "true"){
-									$scope.showSimpleToast("Cerrando cuenta, se le enviará un correo electrónico");
+									viewFactory.showSimpleToast("Cerrando cuenta, se le enviará un correo electrónico");
 									$rootScope.sesion.destroy();
 									$location.path("/");				
 								}else{
@@ -1386,7 +1148,7 @@ app.controller("editarAdminCtrl", function($rootScope, $scope, $location, $http,
 			    	restFactory.eliminar($scope.usuario.rutU)
 			    		.success(function(response){
 								if(response.message == "true"){
-									$scope.showSimpleToast("Eliminando cuenta, se le enviará un correo electrónico");
+									viewFactory.showSimpleToast("Eliminando cuenta, se le enviará un correo electrónico");
 									$rootScope.sesion.destroy();
 									$location.path("/");				
 								}else{
@@ -1411,7 +1173,7 @@ app.controller("editarAdminCtrl", function($rootScope, $scope, $location, $http,
 							.success(function(response){
 								if(response){
 									$rootScope.sesion.setUser(response);
-									$scope.showSimpleToast("Cuenta activa, se le enviará un correo electrónico");
+									viewFactory.showSimpleToast("Cuenta activa, se le enviará un correo electrónico");
 									$location.path("/home/administrador");		
 													
 								}else{
@@ -1427,7 +1189,7 @@ app.controller("editarAdminCtrl", function($rootScope, $scope, $location, $http,
 		$location.path("/home/administrador/perfil");
 	}
 });
-app.controller("crearAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("crearAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.newUsuario = {};
 	$scope.passC = "";
 	$scope.tiposUsuario = {};
@@ -1442,32 +1204,6 @@ app.controller("crearAdminCtrl", function($rootScope, $scope, $location, $http, 
 	});
 
 	$scope.nombreTU = "";
-
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 
 	$scope.showAlert = function(contenido) {
 		$mdDialog.show(
@@ -1497,7 +1233,7 @@ app.controller("crearAdminCtrl", function($rootScope, $scope, $location, $http, 
 			restFactory.crearUsuario($scope.newUsuario)
 						.success(function(response){
 							if(response.message == "t"){
-								$scope.showSimpleToast("Usuario creado, se le notificará por correo electrónico esta situación");
+								viewFactory.showSimpleToast("Usuario creado, se le notificará por correo electrónico esta situación");
 								restFactory.getUserByEmail($scope.newUsuario.emailU)
 									.success(function (response){
 										$rootScope.sesion.setUserToEdit(response);
@@ -1513,8 +1249,11 @@ app.controller("crearAdminCtrl", function($rootScope, $scope, $location, $http, 
 							}else if(response.message == "e"){
 								$scope.showAlert("El e-mail ingresado se encuentra registrado.");
 								return "";
-							}else{
+							}else if(response.message == "false"){
 								$scope.showAlert("Rut y e-mail ingresados se encuentran registrados.");
+								return "";
+							}else{
+								$scope.showAlert("Se produjo un error en la creación");
 								return "";
 							}
 					});
@@ -1547,35 +1286,9 @@ app.controller("cuentasCtrlAdmin", function($rootScope, $scope, $location, $http
 		$location.path("/home/administrador");
 	}
 });
-app.controller("infoCtrlAdmin", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("infoCtrlAdmin", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 
 	$scope.userSelected = $rootScope.sesion.getUserToEdit();
-
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 
 	$scope.showAlert = function(contenido) {
 
@@ -1611,7 +1324,7 @@ app.controller("infoCtrlAdmin", function($rootScope, $scope, $location, $http, r
 							.success(function(response){
 								if(response){
 									$rootScope.sesion.setUserToEdit(response);
-									$scope.showSimpleToast("Cuenta activada, se le enviará un correo electrónico");
+									viewFactory.showSimpleToast("Cuenta activada, se le enviará un correo electrónico");
 									$scope.userSelected = $rootScope.sesion.getUserToEdit();	
 									$location.path("/home/administrador/info");					
 								}else{
@@ -1624,38 +1337,12 @@ app.controller("infoCtrlAdmin", function($rootScope, $scope, $location, $http, r
 			    });
 	}
 });
-app.controller("editarSelectedAdmin", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("editarSelectedAdmin", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.userSelected = $rootScope.sesion.getUserToEdit();
 	$scope.pass = "";
 	$scope.passC = "";
 	$scope.fotoP = "";
 	$scope.apodo = $scope.userSelected.apodoU;
-
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 
 	$scope.showAlert = function(contenido) {
 
@@ -1707,12 +1394,12 @@ app.controller("editarSelectedAdmin", function($rootScope, $scope, $location, $h
 						.success(function(response){
 							if(response){
 								if($scope.userSelected.idUsuario == $rootScope.sesion.getUser().idUsuario){;
-									$scope.showSimpleToast("Edición efectuada, se le enviará un correo electrónico");
+									viewFactory.showSimpleToast("Edición efectuada, se le enviará un correo electrónico");
 									$rootScope.sesion.setUserToEdit(response);
 									$rootScope.sesion.setUser(response);
 									$location.path("/home/administrador/info");
 								}else{
-									$scope.showSimpleToast("Edición efectuada, se le enviará un correo electrónico");
+									viewFactory.showSimpleToast("Edición efectuada, se le enviará un correo electrónico");
 									$rootScope.sesion.setUserToEdit(response);
 									$location.path("/home/administrador/info");
 								}				
@@ -1746,11 +1433,11 @@ app.controller("editarSelectedAdmin", function($rootScope, $scope, $location, $h
 									if($scope.userSelected.idUsuario == $rootScope.sesion.getUser().idUsuario){
 										$rootScope.sesion.destroyUserToEdit();
 										$rootScope.sesion.destroy();
-										$scope.showSimpleToast("Cerrando cuenta, se le enviará un correo electrónico");
+										viewFactory.showSimpleToast("Cerrando cuenta, se le enviará un correo electrónico");
 										$location.path("/");
 									}else{
 										$rootScope.sesion.destroyUserToEdit();
-										$scope.showSimpleToast("Cerrando cuenta, se le enviará un correo electrónico");
+										viewFactory.showSimpleToast("Cerrando cuenta, se le enviará un correo electrónico");
 										$location.path("/home/administrador/ver");
 									}				
 								}else{
@@ -1779,11 +1466,11 @@ app.controller("editarSelectedAdmin", function($rootScope, $scope, $location, $h
 									if($scope.userSelected.idUsuario == $rootScope.sesion.getUser().idUsuario){
 										$rootScope.sesion.destroyUserToEdit();
 										$rootScope.sesion.destroy();
-										$scope.showSimpleToast("Eliminando cuenta, se le enviará un correo electrónico");
+										viewFactory.showSimpleToast("Eliminando cuenta, se le enviará un correo electrónico");
 										$location.path("/");
 									}else{
 										$rootScope.sesion.destroyUserToEdit();
-										$scope.showSimpleToast("Eliminando cuenta, se le enviará un correo electrónico");
+										viewFactory.showSimpleToast("Eliminando cuenta, se le enviará un correo electrónico");
 										$location.path("/home/administrador/ver");	
 									}							
 								}else{
@@ -1807,7 +1494,7 @@ app.controller("editarSelectedAdmin", function($rootScope, $scope, $location, $h
 		$location.path("/home/administrador/ver");
 	}
 });
-app.controller("comunidadesAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("comunidadesAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	
 	$scope.gridOptions = {
             data: [],
@@ -1819,30 +1506,6 @@ app.controller("comunidadesAdminCtrl", function($rootScope, $scope, $location, $
 		  	$scope.gridOptions.data = response;	  	
 		});
 
-
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 	$scope.showAlert = function(contenido) {
 
 		$mdDialog.show(
@@ -1869,7 +1532,7 @@ app.controller("comunidadesAdminCtrl", function($rootScope, $scope, $location, $
 		restFactory.crearComunidad($scope.nombreCC, $scope.descripcionCC, $scope.profesorSelected.emailU)
 		  .success(function (response){
 		  	if(response.message == "t"){
-		  		$scope.showSimpleToast("Comunidad creada, se le enviará un correo electrónico al Profesor");
+		  		viewFactory.showSimpleToast("Comunidad creada, se le enviará un correo electrónico al Profesor");
 		  		restFactory.getAllComunidad()
 				  .success(function (response){
 				  	$scope.gridOptions.data = response;	  	
@@ -1900,7 +1563,7 @@ app.controller("comunidadesAdminCtrl", function($rootScope, $scope, $location, $
 		$location.path("/home/administrador");
 	}
 });
-app.controller("asociadosCAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("asociadosCAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.opciones = {};
 	$scope.opcionSelected = {};
 	$scope.tiposUsuario = {};
@@ -1920,30 +1583,6 @@ app.controller("asociadosCAdminCtrl", function($rootScope, $scope, $location, $h
 		$scope.gridOptions.data = response;
 	});
 	
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
 	$scope.showAlert = function(contenido) {
 
 		$mdDialog.show(
@@ -1992,7 +1631,7 @@ app.controller("asociadosCAdminCtrl", function($rootScope, $scope, $location, $h
 				if(response.message == "e"){
 					$scope.showAlert("Usuario ya se encuentra asociado.");
 				}else if(response.message == "true"){
-					$scope.showSimpleToast("Usuario asociado, se le enviará un correo electrónico");
+					viewFactory.showSimpleToast("Usuario asociado, se le enviará un correo electrónico");
 					restFactory.getAsociadosC($scope.comunidad.idComunidad)
 						.success(function (response){
 						$scope.gridOptions.data = response;
@@ -2014,32 +1653,9 @@ app.controller("asociadosCAdminCtrl", function($rootScope, $scope, $location, $h
 		$location.path("/home/administrador/comunidades");
 	}
 });
-app.controller("desligarAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("desligarAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.usuario = $rootScope.sesion.getUserAux();
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
+	
 	$scope.showAlert = function(contenido) {
 
 		$mdDialog.show(
@@ -2063,7 +1679,7 @@ app.controller("desligarAdminCtrl", function($rootScope, $scope, $location, $htt
 			    $mdDialog.show(confirm).then(function() {
 				    restFactory.desligar($rootScope.sesion.getComunidad().idComunidad, $scope.usuario.idUsuario).success(function(response){
 						if(response.message == "true"){
-							$scope.showSimpleToast("Usuario desligado, se le enviará un correo electrónico");
+							viewFactory.showSimpleToast("Usuario desligado, se le enviará un correo electrónico");
 							$rootScope.sesion.destroyUserAux();
 							$location.path("/home/administrador/verAsociadosC");
 						}else{
@@ -2082,35 +1698,12 @@ app.controller("desligarAdminCtrl", function($rootScope, $scope, $location, $htt
 		$location.path("/home/administrador/verAsociadosC");
 	}
 });
-app.controller("editarCAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, $mdToast){
+app.controller("editarCAdminCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.comunidad = $rootScope.sesion.getComunidad();
 	$scope.profe = $scope.comunidad.profesorC.nombreU +" "+ $scope.comunidad.profesorC.apellidoU;
 	$scope.nombreC = $scope.comunidad.nombreC;
 	$scope.descripcionC = $scope.comunidad.descripcionC;	
-	$scope.toastPosition = {
-	    bottom: true,
-	    top: false,
-	    left: false,
-	    right: true,
-	    center: true
-  	};
-
-	$scope.getToastPosition = function() {
-	    return Object.keys($scope.toastPosition)
-	      .filter(function(pos) { return $scope.toastPosition[pos]; })
-	      .join(' ');
-	};
-	$scope.showSimpleToast = function(message) {
-	    $mdToast.show(
-	      $mdToast.simple()
-	        .content(message)
-	        .action("ok")
-	        .highlightAction(true)
-	        .highlightClass("md-accent")
-	        .position($scope.getToastPosition())
-	        .hideDelay(3000)
-	    );
-	};
+	
 	$scope.showAlert = function(contenido) {
 
 		$mdDialog.show(
@@ -2140,7 +1733,7 @@ app.controller("editarCAdminCtrl", function($rootScope, $scope, $location, $http
 			    	$scope.comunidad.descripcionC = $scope.descripcionC;
 				    restFactory.editarComunidad($scope.comunidad).success(function(response){
 				    	if(response.message == "true"){	
-				    		$scope.showSimpleToast("Comunidad actualizada, se le enviará un correo electrónico");
+				    		viewFactory.showSimpleToast("Comunidad actualizada, se le enviará un correo electrónico");
 				    		$location.path("/home/administrador/comunidades");
 				    	}else if(response.message == "e"){
 				    		$scope.showAlert("Nombre ingresado existente.");
@@ -2166,7 +1759,7 @@ app.controller("editarCAdminCtrl", function($rootScope, $scope, $location, $http
 			    $mdDialog.show(confirm).then(function() {
 				    restFactory.eliminarComunidad($scope.comunidad).success(function(response){
 				    	if(response.message == "true"){	
-				    		$scope.showSimpleToast("Comunidad eliminada, se le enviará un correo electrónico");
+				    		viewFactory.showSimpleToast("Comunidad eliminada, se le enviará un correo electrónico");
 				    		$location.path("/home/administrador/comunidades");
 				    	}else{
 				    		$scope.showAlert("Error al eliminar la comunidad. Intente más tarde.");
@@ -2185,3 +1778,405 @@ app.controller("editarCAdminCtrl", function($rootScope, $scope, $location, $http
 	}
 });
 /*Fin Administrador controllers*/
+
+
+/*Inicio módulo práctico controllers*/
+app.controller("loginCtrlM", function($rootScope, $scope, $location, $http, restFactory, viewFactory){
+
+	$scope.loginM = function(){
+		restFactory.loginM($scope.rut, $scope.pass)
+	        .success(function (response) {
+	            var resultado = response.message;
+	            if(resultado != "false" &&  resultado != "i"){
+	               restFactory.getUserByRut($scope.rut)	                    	
+					    .success(function (response) {
+					    	console.log(response);
+					    	$rootScope.sesion.setUserTerminal(response);
+					        $location.path(resultado);
+					});
+	            }else{
+	                if(resultado == 'i'){
+	                   viewFactory.showSimpleToast("Rut o contraseña incorrecta");
+	                }else{
+	                	viewFactory.showSimpleToast("Cuenta inexistente");
+	                }
+	             }
+	        });
+	}
+});
+
+app.controller("homeCtrlM", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
+
+	$scope.nombreM = $rootScope.sesion.getUserTerminal().idU.nombreU+" "+$rootScope.sesion.getUserTerminal().idU.apellidoU;
+
+	$scope.depositarM = function(){
+		$location.path("/moduloP/deposito");
+	}
+
+	$scope.retirarM = function(){
+		$location.path("/moduloP/retiro");
+	}
+
+	$scope.transferirM = function(){
+		$location.path("/moduloP/transferir");
+	}
+
+	$scope.historialM = function(){
+		$location.path("/moduloP/historial");
+	}
+
+	$scope.back = function(){
+		$location.path("/moduloP/home")
+	}
+
+	$scope.showAlert = function(contenido) {
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
+
+	$scope.depositar = function(){
+		if($scope.montoD >= 2147483647 || $scope.montoD <= -2147483647){
+			$scope.showAlert("Montos no soportados por el sistema");
+			return "";
+		}
+
+		restFactory.depositar($rootScope.sesion.getUserTerminal().idU.rutU, $scope.montoD)
+	        .success(function (response) {
+	        	if(response.message == "true"){
+	        		restFactory.getUserByRut($rootScope.sesion.getUserTerminal().idU.rutU)	                    	
+					    .success(function (response) {
+					        $rootScope.sesion.setUserTerminal(response);
+					        viewFactory.showSimpleToast("Depósito realizado con éxito");
+					});
+	        		
+	        	}else if(response.message == "e"){
+	        		$scope.showAlert("No se puede depositar ya que el valor máximo soportado es de $1000000, hable con su ejecutivo de cuentas");
+	        	}else if(response.message == "ex"){
+	        		$scope.showAlert("El monto no puede exceder los $1000000, hable con su ejecutivo de cuentas");
+	        	}else if(response.message == "n"){
+	        		$scope.showAlert("El monto no puede ser menor o igual a $0");
+	        	}else{
+	        		$scope.showAlert("Error al realizar el deposito");
+	        	}	
+	        });
+	}
+
+	$scope.retirar = function(){
+		if($scope.montoD >= 2147483647 || $scope.montoD <= -2147483647){
+			$scope.showAlert("Montos no soportados por el sistema");
+			return "";
+		}
+		restFactory.retirar($rootScope.sesion.getUserTerminal().idU.rutU, $scope.montoD)
+	        .success(function (response) {
+	        	if(response.message == "true"){
+	        		restFactory.getUserByRut($rootScope.sesion.getUserTerminal().idU.rutU)	                    	
+					    .success(function (response) {
+					        $rootScope.sesion.setUserTerminal(response);
+					        viewFactory.showSimpleToast("Retiro realizado con éxito");
+					});
+	        		
+	        	}else if(response.message == "e"){
+	        		$scope.showAlert("El monto ingresado es mayor al saldo disponible. Para realizar la operación hable con su ejecutivo de cuentas");
+	        	}else if(response.message == "ex"){
+	        		$scope.showAlert("El monto no puede exceder los $1000000, hable con su ejecutivo de cuentas");
+	        	}else if(response.message == "n"){
+	        		$scope.showAlert("El monto no puede ser menor o igual a $0");
+	        	}else{
+	        		$scope.showAlert("Error al realizar el deposito");
+	        	}	
+	        });
+	}
+
+	$scope.transferir1 = function(){
+		if($scope.montoD >= 2147483647 || $scope.montoD <= -2147483647){
+			$scope.showAlert("Montos no soportados por el sistema");
+			return "";
+		}
+		restFactory.transferir($rootScope.sesion.getUserTerminal().idU.rutU, $scope.rutT, $scope.montoD)
+	        .success(function (response) {
+	        	if(response.message == "true"){
+	        		restFactory.getUserByRut($rootScope.sesion.getUserTerminal().idU.rutU)	                    	
+					    .success(function (response) {
+					        $rootScope.sesion.setUserTerminal(response);
+					        viewFactory.showSimpleToast("Transferencia realizada con éxito");
+					});
+	        		
+	        	}else if(response.message == "e"){
+	        		$scope.showAlert("El monto a transferir es mayor al saldo disponible");
+	        	}else if(response.message == "c"){
+	        		$scope.showAlert("La cuenta del usuario a transferir no se encuentra activa");
+	        	}else if(response.message == "r"){
+	        		$scope.showAlert("Rut ingresado debe ser distinto al de su cuenta");
+	        	}else if(response.message == "i"){
+	        		$scope.showAlert("No se puede transferir ya que el valor máximo soportado es de $1000000, hable con su ejecutivo de cuentas");
+	        	}else if(response.message == "ex"){
+	        		$scope.showAlert("El monto no puede exceder los $1000000, hable con su ejecutivo de cuentas");
+	        	}else if(response.message == "n"){
+	        		$scope.showAlert("El monto no puede ser menor o igual a $0");
+	        	}else if(response.message == "f"){
+	        		$scope.showAlert("La cuenta del usuario a transferir no existe");
+	        	}else{
+	        		$scope.showAlert("Error al realizar el deposito");
+	        	}	
+	        });
+	}
+});
+
+app.controller("historialCtrlM", function($rootScope, $scope, $location, $http, restFactory, viewFactory){
+
+	$scope.gridOptions = {
+            data: [],
+            urlSync: false
+    };
+	
+	restFactory.getOp($rootScope.sesion.getUserTerminal().idU.rutU)
+		  .success(function (response){
+		  	$scope.gridOptions.data = response;	  	
+		});
+
+
+	$scope.back = function(){
+		$location.path("/moduloP/home")
+	}	
+});
+
+app.controller("configCtrlM", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
+	$scope.estado = "";
+	if($rootScope.sesion.getUserTerminal().estadoC == true){
+		$scope.estado = "Activa";
+	}else{
+		$scope.estado = "Cerrada";
+	}
+
+	$scope.showAlert = function(contenido) {
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
+
+	$scope.back = function(){
+		$location.path("/moduloP/home")
+	}
+
+	$scope.cerrarM = function(){
+		var confirm = $mdDialog.confirm()
+	          .title('Desea cerrar su cuenta?')
+	          .textContent('Su cuenta será cerrada')
+	          .ariaLabel('Lucky day')
+	          .ok('Cerrar')
+	          .cancel('Cancelar');
+
+	          $mdDialog.show(confirm).then(function() {
+			    	
+					restFactory.updateC($rootScope.sesion.getUserTerminal().idU.rutU, "c")
+					  .success(function (response){
+					  	if(response.message == "true"){
+							$rootScope.sesion.destroyUserTerminal();
+							$location.path("/moduloP/inicio");
+							viewFactory.showSimpleToast("Cierre realizado con éxito");
+				        		
+				        }else{
+				        	$scope.showAlert("Error al realizar el cierre, intente más tarde");
+				        }		  	
+					});
+			    	return "";
+			    }, function() {
+			    	return "";
+			    });
+	}
+
+	$scope.activarM = function(){
+		var confirm = $mdDialog.confirm()
+	          .title('Desea activar su cuenta?')
+	          .textContent('Su cuenta será activada')
+	          .ariaLabel('Lucky day')
+	          .ok('Activar')
+	          .cancel('Cancelar');
+
+	          $mdDialog.show(confirm).then(function() {
+			    	
+					restFactory.updateC($rootScope.sesion.getUserTerminal().idU.rutU, "a")
+					  .success(function (response){
+					  	if(response.message == "true"){
+					  		restFactory.getUserByRut($rootScope.sesion.getUserTerminal().idU.rutU)	                    	
+							    .success(function (res) {
+							        $rootScope.sesion.setUserTerminal(res);
+							        $location.path("/moduloP/home");
+							        viewFactory.showSimpleToast("Activación realizada con éxito");
+							});
+				        }else{
+				        	$scope.showAlert("Error al realizar la activación, intente más tarde");
+				        }		  	
+					});
+			    	return "";
+			    }, function() {
+			    	return "";
+			    });
+	}
+});
+/*Fin módulo práctico controllers*/
+
+/*Inicio módulo práctico dañado controllers*/
+app.controller("loginCtrlD", function($rootScope, $scope, $location, $http, restFactory, viewFactory){
+
+	$scope.loginD = function(){
+		restFactory.loginD($scope.rut, $scope.pass)
+	        .success(function (response) {
+	            var resultado = response.message;
+	            if(resultado != "false"){
+	               restFactory.getUserByRutD($scope.rut)	                    	
+					    .success(function (response) {
+					        $rootScope.sesion.setUserTerminalD(response);
+					        $location.path(resultado);
+					});
+	            }
+	        });
+	}
+});
+
+app.controller("homeCtrlD", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
+
+	$scope.nombreD = $rootScope.sesion.getUserTerminalD().idU.nombreU+" "+$rootScope.sesion.getUserTerminalD().idU.apellidoU;
+
+	$scope.depositarDD = function(){
+		$location.path("/moduloD/deposito");
+	}
+
+	$scope.retirarDD = function(){
+		$location.path("/moduloD/retiro");
+	}
+
+	$scope.transferirDD = function(){
+		$location.path("/moduloD/transferir");
+	}
+
+	$scope.historialDD = function(){
+		$location.path("/moduloD/historial");
+	}
+
+	$scope.back = function(){
+		$location.path("/moduloD/home")
+	}
+
+	$scope.showAlert = function(contenido) {
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
+
+	$scope.depositarD = function(){
+
+		restFactory.depositarD($rootScope.sesion.getUserTerminalD().idU.rutU, $scope.montoD)
+	        .success(function (response) {
+	        	if(response.message == "true"){
+	        		restFactory.getUserByRutD($rootScope.sesion.getUserTerminalD().idU.rutU)	                    	
+					    .success(function (response) {
+					        $rootScope.sesion.setUserTerminalD(response);
+					});
+	        	}
+	        });
+	}
+
+	$scope.retirarD = function(){
+		restFactory.retirarD($rootScope.sesion.getUserTerminalD().idU.rutU, $scope.montoD)
+	        .success(function (response) {
+	        	if(response.message == "true"){
+	        		restFactory.getUserByRutD($rootScope.sesion.getUserTerminalD().idU.rutU)	                    	
+					    .success(function (response) {
+					        $rootScope.sesion.setUserTerminalD(response);
+					});
+	        	}
+	        });
+	}
+
+	$scope.transferirD = function(){
+		restFactory.transferirD($rootScope.sesion.getUserTerminalD().idU.rutU, $scope.rutT, $scope.montoD)
+	        .success(function (response) {
+	        	if(response.message == "true"){
+	        		restFactory.getUserByRutD($rootScope.sesion.getUserTerminalD().idU.rutU)	                    	
+					    .success(function (response) {
+					        $rootScope.sesion.setUserTerminalD(response);
+					});
+	        	}
+	        });
+	}
+});
+
+app.controller("historialCtrlD", function($rootScope, $scope, $location, $http, restFactory, viewFactory){
+
+	$scope.gridOptions = {
+            data: [],
+            urlSync: false
+    };
+	
+	restFactory.getOpD($rootScope.sesion.getUserTerminalD().idU.rutU)
+		  .success(function (response){
+		  	$scope.gridOptions.data = response;	  	
+		});
+
+});
+
+app.controller("configCtrlD", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
+	$scope.estado = "";
+	if($rootScope.sesion.getUserTerminalD().estadoC == true){
+		$scope.estado = "Activa";
+	}else{
+		$scope.estado = "Cerrada";
+	}
+
+	$scope.showAlert = function(contenido) {
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
+
+	$scope.back = function(){
+		$location.path("/moduloD/home")
+	}
+
+	$scope.cerrarD = function(){
+		var confirm = $mdDialog.confirm()
+	          .title('Desea cerrar su cuenta?')
+	          .textContent('Su cuenta será activada')
+	          .ariaLabel('Lucky day')
+	          .ok('Cancelar')
+	          .cancel('Activar');
+
+	          $mdDialog.show(confirm).then(function() {
+			    	
+					restFactory.cerrarD($rootScope.sesion.getUserTerminalD().idU.rutU)
+					  .success(function (response){
+					  	if(response.message == "true"){
+							$rootScope.sesion.destroyUserTerminalD();
+							$location.path("/moduloD/inicio");				        		
+				        }	  	
+					});
+			    	return "";
+			    }, function() {
+			    	return "";
+			    });
+	}
+
+});
+/*Fin módulo práctico dañado controllers*/

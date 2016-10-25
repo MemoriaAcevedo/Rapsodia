@@ -1,0 +1,42 @@
+<md-content flex class="md-whiteframe-z3">
+      <div>
+        <!-- Formulario -->
+        <form name="login">
+          <!-- inputs -->
+          <div layout = "column" layout-align = "center center">
+              <!-- Título -->
+              <div flex layout = "row">
+                <br>
+                <h3>Inicio de seción</<h3>
+                <br>
+              </div>
+              <!-- Título -->
+              <br>
+              <!-- Rut -->
+              <div>
+                <md-input-container>
+                  <label>Rut</label>
+                  <input type="text" name = "rut"  ng-model="rut">
+                </md-input-container>
+              </div>
+              <!-- Rut -->
+              <!-- Pass  -->
+              <div>
+                <md-input-container class="md-block" >
+                  <label>Contraseña</label>
+                  <input type="text" name = "pass" ng-model="pass">
+                </md-input-container>
+              </div>
+              <!-- Pass  -->
+          </div>
+          <!-- inputs-->
+          <br>
+          <!-- Botones -->
+          <div layout = "column" layout-align="center center">
+            <md-button class="md-raised md-primary" ng-click="loginD()">Ingresar</md-button>
+          </div>
+          <!-- Botones -->
+        </form>
+        <!-- Formulario -->
+      </div>
+</md-content>

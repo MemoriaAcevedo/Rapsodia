@@ -1,0 +1,50 @@
+<md-content flex class="md-whiteframe-z3">
+      <div>
+        <!-- Formulario -->
+        <form name="login">
+          <!-- inputs -->
+          <div layout = "column" layout-align = "center center">
+              <!-- Título -->
+              <div flex layout = "row">
+                <br>
+                <h3>Inicio de sesión</<h3>
+                <br>
+              </div>
+              <!-- Título -->
+              <br>
+              <!-- Rut -->
+              <div>
+                <md-input-container>
+                  <label>Rut</label>
+                  <input type="text" name = "rut"  ng-maxlength="25" ng-required = "true" ng-directive ng-model="rut">
+                  <div ng-messages="login.rut.$error">
+                    <div ng-message="required">Rut requerido!</div>
+                    <div ng-message="maxlength">Máximo 25 caracteres</div>
+                  </div>
+                  <span ng-show="login.rut.$invalid && login.rut.$dirty && login.rut.$touched" class="md-input-message-animation ng-scope" style = "opacity: 1; margin-top: 0px;">Inválido!, Ej:18486956-k</span>
+                </md-input-container>
+              </div>
+              <!-- Rut -->
+              <!-- Pass  -->
+              <div>
+                <md-input-container class="md-block" >
+                  <label>Contraseña</label>
+                  <input type="password" name = "pass" ng-required = "true" ng-model="pass">
+                  <div ng-messages="login.pass.$error">
+                    <div ng-message="required">Contraseña requerida!</div>
+                  </div>
+                </md-input-container>
+              </div>
+              <!-- Pass  -->
+          </div>
+          <!-- inputs-->
+          <br>
+          <!-- Botones -->
+          <div layout = "column" layout-align="center center">
+            <md-button class="md-raised md-primary" ng-disabled = "login.rut.$invalid || login.pass.$invalid" ng-click="loginM()">Ingresar</md-button>
+          </div>
+          <!-- Botones -->
+        </form>
+        <!-- Formulario -->
+      </div>
+</md-content>

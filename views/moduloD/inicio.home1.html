@@ -1,0 +1,110 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+	<div layout = "row">
+		<div flex = "40">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item active">Inicio</li>
+			</ol>
+		</div>
+		<div >
+		    <h3>Operaciones</h3>
+	    </div>
+	</div>
+	    <div layout-xs="column" flex layout = "row" layout-align = "center center">
+		    <div layout="column">
+			    <div>
+			      <md-card>
+			        <md-card-title>
+			          <md-card-title-text>
+			            <span class="md-headline">Depósito</span>
+			          </md-card-title-text>
+			          <md-card-title-media>
+			            <div class="md-media-lg card-media">
+			            	 <img ng-src="{{'img/deposito.png'}}"  alt="Cinque Terre" width="100" height="100">
+			            </div>
+			          </md-card-title-media>
+			        </md-card-title>
+			        <md-card-actions layout="row" layout-align="end center">
+			          <md-button  ng-click="retirarDD()">Depositar</md-button>
+			        </md-card-actions>
+			      </md-card>
+			    </div>
+			     <div>  
+			      <md-card >
+			        <md-card-title>
+			          <md-card-title-text>
+			            <span class="md-headline">Transferencia</span>
+			          </md-card-title-text>
+			         <md-card-title-media>
+			            <div class="md-media-lg card-media">
+			            	 <img ng-src="{{'img/transferir.png'}}" class="md-card-image" alt="Cinque Terre" width="240" height="240">
+			            </div>
+			          </md-card-title-media>
+			        </md-card-title>
+			        <md-card-actions layout="row" layout-align="end center">
+			          <md-button ng-click="transferirDD()">Transferir</md-button>
+			        </md-card-actions>
+			      </md-card>
+			    </div>   
+		    </div>
+		    <div layout="column">
+			    <div>
+			      <md-card >
+			        <md-card-title>
+			          <md-card-title-text>
+			            <span class="md-headline">Retiro</span>
+			          </md-card-title-text>
+			          <md-card-title-media>
+				            <div class="md-media-lg card-media">
+				            	 <img ng-src="{{'img/retiro.png'}}" class="md-card-image" alt="Cinque Terre" width="240" height="240">
+				            </div>
+				          </md-card-title-media>
+			        </md-card-title>
+			        <md-card-actions layout="row" layout-align="end center">
+			          <md-button ng-click="depositarDD()" >Retirar</md-button>
+			        </md-card-actions>
+			      </md-card>
+				</div>
+				<div>
+			      <md-card >
+			        <md-card-title>
+			          <md-card-title-text>
+			            <span class="md-headline">Historial</span>
+			          </md-card-title-text>
+			         <md-card-title-media>
+				            <div class="md-media-lg card-media">
+				            	 <img ng-src="{{'img/historial.jpg'}}" class="md-card-image" alt="Cinque Terre" width="240" height="240">
+				            </div>
+				          </md-card-title-media>
+			        </md-card-title>
+			        <md-card-actions layout="row" layout-align="end center">
+			          <md-button ng-click="historialDD()">Ver Historial</md-button>
+			        </md-card-actions>
+			      </md-card>
+			    </div>
+		    </div>
+		    <div flex = "5"></div>
+		    <div layout="column">
+		    	<div>
+		    		<h5>Información Básica</h5>
+		    	</div>
+		    	<div>
+                  <md-input-container>
+                  <label>Rut</label>
+                    <input type="text" name = "r" ng-model="sesion.getUserTerminalD().idU.rutU" disabled>
+                  </md-input-container>
+              	</div>
+		    	<div>
+                  <md-input-container>
+                  <label>Nombre</label>
+                    <input type="text" name = "t" ng-model="nombreD" disabled>
+                  </md-input-container>
+              	</div>
+		    	<div>
+                  <md-input-container>
+                  <label>Saldo disponible</label>
+                    <input type="number" name = "saldo" ng-model="sesion.getUserTerminalD().saldoC" disabled>
+                  </md-input-container>
+              	</div>
+		    </div>
+	    </div>
+</md-content>

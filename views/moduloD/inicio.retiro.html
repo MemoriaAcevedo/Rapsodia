@@ -1,0 +1,46 @@
+<md-content flex class="md-whiteframe-z3">
+<div layout = "row">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" >
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+</div>
+      <div>
+        <!-- Formulario -->
+        <form name="retiro">
+          <!-- inputs -->
+          <div layout = "column" layout-align = "center center">
+              <!-- Título -->
+              <div flex layout = "row">
+                <br>
+                <h3>Retiro</<h3>
+                <br>
+              </div>
+              <!-- Título -->
+              <br>
+              <!-- Rut -->
+              <div>
+                <md-input-container>
+                  <label>Saldo actual</label>
+                    <input type="number" name = "saldo" ng-model="sesion.getUserTerminalD().saldoC" disabled>
+                  </md-input-container>
+              </div>
+              <div>
+                <md-input-container>
+                  <label>Monto a retirar</label>
+                  <input type="number" name = "monto" ng-model="montoD">
+                </md-input-container>
+              </div>
+          </div>
+          <!-- inputs-->
+          <br>
+          <!-- Botones -->
+          <div layout = "column" layout-align="center center">
+            <md-button class="md-raised md-primary" ng-click="retirarD()">Retirar</md-button>
+          </div>
+          <!-- Botones -->
+        </form>
+        <!-- Formulario -->
+      </div>
+</md-content>

@@ -1,0 +1,41 @@
+<md-content flex class="md-whiteframe-z3">
+<div layout = "row">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#/moduloD/home">Inicio</a></li>
+      <li class="breadcrumb-item active">Configuración de cuenta</li>
+    </ol>
+  </div>
+</div>
+      <div>
+        <!-- Formulario -->
+          <!-- inputs -->
+          <div layout = "column" layout-align = "center center">
+              <!-- Título -->
+              <div flex layout = "row">
+                <h3>Configuración de cuenta</h3>
+              </div>
+              <!-- Título -->
+              <br>
+              <!-- Rut -->
+              <div>
+                <md-input-container>
+                  <label>Estado de cuenta actual</label>
+                    <input type="text" name = "saldo" ng-model="estado" disabled>
+                  </md-input-container>
+              </div>
+          </div>
+          <!-- inputs-->
+          <!-- Botones -->
+          <div layout = "column" layout-align="center center">
+            <md-button class="md-raised md-primary" ng-click="cerrarD()">Cerrar</md-button>
+          </div>
+          <!-- Botones -->
+        <!-- Formulario -->
+      </div>
+</md-content>
