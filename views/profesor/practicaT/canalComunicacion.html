@@ -1,0 +1,65 @@
+<md-content style="height: 600px;" flex class="md-whiteframe-z3" >
+<div layout = "row">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#/home/profesor/verAsignados">Prácticas Alumno</a></li>
+      <li class="breadcrumb-item"><a href="#/home/profesor/practicaPreliminar">Práctica Alumno</a></li>
+      <li class="breadcrumb-item active">Canal de comunicación</li>
+    </ol>
+  </div>
+</div>
+<div layout="column" flex="" layout-align = "center center">
+   <h4>Canal de comunicación</h4>
+</div>
+<div flex layout = "row" layout-align = "center center">
+        <div>
+          <md-input-container>
+          <label>Comunidad</label>
+           <input type="text" name = "rol" ng-model="sesion.getPracticaT().comunidadidComunidad.nombreC" disabled>
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+          <label>Alumno</label>
+           <input type="text" name = "rol" ng-model="nombreRealizador" disabled>
+          </md-input-container>
+        </div>
+         <div>
+          <md-input-container>
+          <label>Email</label>
+           <input type="text" name = "rol" ng-model="sesion.getPracticaT().realizador.emailU" disabled>
+          </md-input-container>
+        </div>
+      </div>
+<md-content style="height: 450px;" flex class="md-whiteframe-z2 md-padding" >
+<div>
+      <md-list layout-padding md-scroll-y>
+        <md-list-item class="md-3-line" ng-repeat="m in mensajes" >
+            <div class="md-list-item-text">
+              <h4>{{m.realizador.nombreU}} {{m.realizador.apellidoU}} - {{m.fechaRealizado}}</h4> 
+              <p>
+                {{m.mensaje}}
+              </p>
+            </div>
+        </md-list-item>
+      </md-list>  
+</div>
+</md-content>
+<br>
+<div flex layout = "row"  ng-show = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Desarrollo' && sesion.userAux.estadoidEstado.nombreE == 'Abierta'">
+          <md-input-container flex>
+            <label>Mensaje</label>
+            <input ng-model="mensaje">
+          </md-input-container>
+          <div>
+           <md-button id="main" class="m d-icon-button"  aria-label="Show User List" ng-click = "crearMensaje()">
+            <md-icon md-svg-icon="img/icon/ic_send_black_48px.svg" ></md-icon>
+           </md-button>
+          </div>
+</div>
+</md-content>

@@ -1,0 +1,126 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+ <div layout = "row">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#/home/profesor/verAsignados">Prácticas Alumno</a></li>
+      <li class="breadcrumb-item"><a href="#/home/profesor/practicaPreliminar">Práctica Alumno</a></li>
+      <li class="breadcrumb-item active">Inicio Práctica</li>
+    </ol>
+  </div>
+</div>	  
+<div layout-xs="column" flex layout = "column" layout-align = "center center">
+	    <div>
+		    <h3>Enunciado</h3>
+	    </div>
+
+       <div align = "center">
+        <p>La práctica consiste en primer lugar crear casos de prueba funcionales basados en las historias de usuario y pruebas de aceptación del módulo bancario. Una vez confeccionados estos, debe proceder a identificar incidencias dentro del módulo y dejar evidencia de su existencia. Se recomienda previamente haber leído el material teórico y tomar en cuenta los tips que se entregan en cada tópico.</p>
+      </div>
+
+      <div flex layout = "row" layout-align = "center center">
+        <div>
+          <md-input-container>
+          <label>Comunidad</label>
+           <input type="text" name = "rol" ng-model="sesion.getPracticaT().comunidadidComunidad.nombreC" disabled>
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+          <label>Alumno</label>
+           <input type="text" name = "rol" ng-model="nombreRealizador" disabled>
+          </md-input-container>
+        </div>
+         <div>
+          <md-input-container>
+          <label>Email</label>
+           <input type="text" name = "rol" ng-model="sesion.getPracticaT().realizador.emailU" disabled>
+          </md-input-container>
+        </div>
+      </div>
+
+      <div layout = "row" layout-align = "center center">
+        <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Historias de usuario&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Visualize las historias de usuario y <br>pruebas de aceptación del <br>módulo bancario</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="verHU()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+          </div>
+          <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Módulo bancario dañado&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Ingrese al módulo bancario dañado para <br>interactuar con sus funcionalidades<br> e identificar sus incidencias</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="verTerminal()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+          </div>   
+	    </div>
+
+      <div  flex layout = "row" layout-align = "center center">
+      <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Gestión de pruebas funcionales &nbsp &nbsp </span>
+                  <br>
+            <span align = "center" class="md-subhead">Gestione las pruebas funcionales<br> y sus incidencias asociadas</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="verCasos()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+          </div>
+        <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Gestión de incidencias &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Gestione las incidencias encontradas en el <br>módulo bancario<br></span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="verIncidencias()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+          </div>
+      </div>
+
+
+      <div  flex layout = "row" layout-align = "center center">
+        <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Pauta de evaluación &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Visualize la pauta de evaluación <br>de la práctica terminal bancaria<br></span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="verPauta()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+          </div>
+      </div>
+	  </div>    
+</md-content>

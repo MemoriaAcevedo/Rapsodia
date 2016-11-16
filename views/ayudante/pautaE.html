@@ -1,0 +1,53 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+ <div layout = "row">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#/home/ayudante/verAsignados">Prácticas Alumno</a></li>
+      <li class="breadcrumb-item"><a href="#/home/ayudante/practicaPreliminar">Práctica Alumno</a></li>
+      <li class="breadcrumb-item"><a href="#/home/ayudante/practicaHome">Inicio Práctica</a></li>
+      <li class="breadcrumb-item active">Pauta de evaluación</li>
+    </ol>
+  </div>
+</div>	  
+<div layout-xs="column" flex layout = "column" layout-align = "center center">
+	    <div>
+		    <h3>Pauta de evaluación</h3>
+	    </div>
+
+      <div layout = "row" layout-align = "center center">
+      <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Pauta de evaluación&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Visualize las historias de usuario y <br>pruebas de aceptación del <br>módulo bancario</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="verPauta()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+          </div>  
+          <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Módulo bancario correcto&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Ingrese al módulo bancario <br>sin incidencias  <br><br></span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="verTerminal()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+          </div> 
+	    </div>
+	  </div>    
+</md-content>

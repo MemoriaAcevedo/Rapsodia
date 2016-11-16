@@ -1,4 +1,4 @@
-<md-content  class="md-whiteframe-z3" flex >
+<md-content flex class="md-whiteframe-z3 md-padding">
  <div layout = "row">
   <div>
    <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
@@ -7,159 +7,29 @@
   </div>
   <div>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#/home/alumno">Inicio</a></li>
-      <li class="breadcrumb-item"><a href="#/home/alumno/comunidades">Ver Comunidades</a></li>
-      <li class="breadcrumb-item active">Usuarios Comunidad</li>
+      <li class="breadcrumb-item"><a href="#/home/ayudante/verAsignados">Prácticas Alumno</a></li>
+      <li class="breadcrumb-item"><a href="#/home/ayudante/practicaPreliminar">Práctica Alumno</a></li>
+      <li class="breadcrumb-item"><a href="#/home/ayudante/practicahome">Inicio Práctica</a></li>
+      <li class="breadcrumb-item active">Gestión de incidencias</li>
     </ol>
   </div>
-</div>   
-    <div layout = "column" layout-align="center center">
-        <br>
-          <h3>Usuarios Comunidad</h3>
-          <div>
-      <md-input-container>
-        <label>Comunidad: </label>
-        <input type="text" ng-model="comunidad.nombreC" disabled>
-      </md-input-container>
-    </div>
-    <div>
-      <md-input-container>
-        <label>Profesor: </label>
-        <input type="text" ng-model="profe" disabled>
-      </md-input-container>
-    </div>
-    </div>
+</div>
 
-    <div layout = "column" layout-align="center center">
-                <div  layout="row" layout-align="center center">
-                    <div>
-                      <md-icon md-svg-icon="img/icon/ic_search_black_48px.svg"></md-icon>
-                    </div>
-                     <div>
-                        <md-input-container md-no-float md-is-error="false" class="md-block flex-gt-xs flex-xs">
-                          <label>Búsqueda</label>
-                            <input ng-model="apellidoU"
-                                   class="md-input"
-                                   ng-change="gridActions.filter()"
-                                   id="order"
-                                   filter-by="apellidoU"
-                                   filter-type="text"
-                                   aria-invalid="false"
-                                   placeholder = "Búsqueda por apellido">
-                        </md-input-container>
-                    </div>
-                  </div>
-                </div>
-    </div>
-    <div layout="row" layout-align="center">
-          <div flex-gt-md="60" flex-md="80" flex-xs="100">
-              <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
-                  <div layout-gt-sm="row" layout-sm="column" layout-align="center">
-                      <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
-                          <span>{{filtered.length}} Total de usuarios</span>
-                      </div>
-                      <div flex-gt-sm="75" flex-xs="100">
-                          <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
-                              <grid-pagination max-size="20"
-                                               boundary-links="true"
-                                               class="pagination mdl-shadow--2dp"
-                                               
-                                               total-items="paginationOptions.totalItems"
-                                               ng-model="paginationOptions.currentPage"
-                                               ng-change="reloadGrid()"
-                                               items-per-page="paginationOptions.itemsPerPage">
-                              </grid-pagination>
-                              <md-input-container flex-offset-gt-xs="5" class="items-per-page">
-                                  <md-select  ng-init="paginationOptions.itemsPerPage = '5'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()"  aria-label="More">
-                                      <md-option>5</md-option>
-                                      <md-option>10</md-option>
-                                      <md-option>25</md-option>
-                                  </md-select>
-                              </md-input-container>
-                          </div>
-                      </div>
-                  </div>
-                  <div>
-                      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-                          <thead>
-                          <tr>
-                              <th sortable="emailU" class="sortable">
-                                  <span>Email</span>
-                              </th>
-                              <th sortable="nombreU" class="sortable">
-                                  <span>Nombre</span>
-                              </th>
-                              <th th sortable="apellidoU" class="sortable">
-                                  <span>Apellido</span>
-                              </th>
-                              <th sortable="rutU" class="sortable">
-                                  <span>Rut</span>
-                              </th>
-                              <th sortable="tipoUsuarioidTipoUsuario.nombreTU" class="sortable">
-                                  <span>Tipo de usuario</span>
-                              </th>
-                              <th sortable="estadoidEstado.nombreE" class="sortable">
-                                  <span>Estado</span>
-                              </th>
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <tr grid-item ng-click="sendToDes(item)">
-                                <td ng-bind="item.emailU"></td>
-                                <td ng-bind="item.nombreU"></td>
-                                <td ng-bind="item.apellidoU"></td>
-                                <td ng-bind="item.rutU"></td>
-                                <td ng-bind="item.tipoUsuarioidTipoUsuario.nombreTU"></td>
-                                <td ng-bind="item.estadoidEstado.nombreE"></td>
-                          </tr>
-                          </tbody>
-                      </table>
-                  </div>
-                  <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
-                      <grid-pagination max-size="20"
-                                       boundary-links="true"
-                                       class="pagination"
-                                       ng-if="paginationOptions.totalItems  > paginationOptions.itemsPerPage"
-                                       total-items="paginationOptions.totalItems"
-                                       ng-model="paginationOptions.currentPage"
-                                       ng-change="reloadGrid()"
-                                       items-per-page="paginationOptions.itemsPerPage"></grid-pagination>
-                      <md-input-container flex-offset-gt-xs="5" class="items-per-page">
-                          <md-select ng-init="paginationOptions.itemsPerPage = '5'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()"  aria-label="More">
-                              <md-option>5</md-option>
-                              <md-option>10</md-option>
-                              <md-option>25</md-option>
-                          </md-select>
-                      </md-input-container>
-                  </div>
-              </div>
-          </div>
-    </div>
-    <div layout-xs="column" flex layout = "column" layout-align = "center center" ng-show = "sesion.getUser().tipoUsuarioidTipoUsuario.nombreTU == 'Alumno'">
-      <div>
-        <h3>Prácticas</h3>
-      </div>
-      <div layout = "column">
-          <md-card>
-            <md-card-title>
-              <md-card-title-text>
-                <span class="md-headline">Terminal Bancaria &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </span>
-                <br>
-          <span align = "center" class="md-subhead">Pon en práctica tus conocimientos <br>de pruebas de software, creando casos de prueba<br> identificando incidencias y reparando software</span>
-              </md-card-title-text>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-             <md-button  ng-click="terminalB()">Ir</md-button>
-            </md-card-actions>
-          </md-card>
-        </div>
-    </div>  
+	<div layout-xs="column" flex layout = "column" layout-align = "center center" >
+	    <div>
+		    <h3>Gestión de incidencias</h3>
+	    </div>
+  </div>
+  <div flex layout = "column" layout-align = "center center" >
+    <md-button ng-click="toggleLeft()" class="md-raised">
+      Pauta de evaluación
+    </md-button>
+  </div>  
 
-<div ng-show = "sesion.getUser().tipoUsuarioidTipoUsuario.nombreTU == 'Ayudante'">
-    <div layout = "column" layout-align="center center">
+<div layout = "column" layout-align="center center">
           <br>
-          <h3>Alumnos asignados</h3>
-    </div>
+          <h3>Incidencias encontradas</h3>
+        </div>
 
             <div layout = "column" layout-align="center center">
                 <div  layout="row" layout-align="center center">
@@ -169,25 +39,26 @@
                      <div>
                         <md-input-container md-no-float md-is-error="false" class="md-block flex-gt-xs flex-xs">
                           <label>Búsqueda</label>
-                            <input ng-model="identificadorPractica"
+                            <input ng-model="nombreI"
                                    class="md-input"
                                    ng-change="gridActions1.filter()"
                                    id="order"
-                                   filter-by="identificadorPractica"
+                                   filter-by="nombreI"
                                    filter-type="text"
                                    aria-invalid="false"
-                                   placeholder = "Búsqueda por identificador">
+                                   placeholder = "Búsqueda por nombre">
                         </md-input-container>
                     </div>
                   </div>
                 </div>
+            </div>
 
         <div  layout="row" layout-align="center">
           <div flex-gt-md="60" flex-md="80" flex-xs="100">
-              <div grid-data id='test' grid-options="gridOptions1" grid-actions="gridActions1">
+              <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions1">
                   <div layout-gt-sm="row" layout-sm="column" layout-align="center">
                       <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
-                          <span>{{filtered.length}} Total de prácticas</span>
+                          <span>{{filtered.length}} Total de incidencias</span>
                       </div>
 
 
@@ -214,24 +85,21 @@
 
                   </div>
 
-                  <div layout="column" layout-align="center center">
+                  <div>
                       <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                           <thead>
 
                            <tr>
-                              <th sortable="emailU" class="sortable">
-                                  <span>Email</span>
+                              <th class="sortable">
+                                  <span>Identificador</span>
                               </th>
-                              <th sortable="nombreU" class="sortable">
+                              <th class="sortable">
                                   <span>Nombre</span>
                               </th>
-                              <th th sortable="apellidoU" class="sortable">
-                                  <span>Apellido</span>
+                              <th class="sortable">
+                                  <span>Fecha creación</span>
                               </th>
-                              <th sortable="rutU" class="sortable">
-                                  <span>Rut</span>
-                              </th>
-                              <th sortable="estadoidEstado.nombreE" class="sortable">
+                              <th class="sortable">
                                   <span>Estado</span>
                               </th>
                           </tr>
@@ -239,12 +107,11 @@
 
                           </thead>
                           <tbody>
-                          <tr grid-item ng-click = "verInfo(item)">
-                                <td ng-bind="item.emailU"></td>
-                                <td ng-bind="item.nombreU"></td>
-                                <td ng-bind="item.apellidoU"></td>
-                                <td ng-bind="item.rutU"></td>
-                                <td ng-bind="item.estadoidEstado.nombreE"></td>
+                          <tr grid-item ng-click = "sendIInfo(item)">
+                                <td ng-bind="item.identificadorI"></td>
+                                <td ng-bind="item.nombreI"></td>
+                                <td ng-bind="item.fechaCI"></td>
+                                <td ng-bind="item.estadoIidEstadoI.nombre"></td>
                           </tr>
                           </tbody>
                       </table>
@@ -271,6 +138,120 @@
               </div>
           </div>
         </div>
-        </div>  
+
+
+        <div layout = "column" layout-align="center center">
+          <br>
+          <h3>Incidencias pruebas funcionales</h3>
+        </div>
+
+            <div layout = "column" layout-align="center center">
+                <div  layout="row" layout-align="center center">
+                    <div>
+                      <md-icon md-svg-icon="img/icon/ic_search_black_48px.svg"></md-icon>
+                    </div>
+                     <div>
+                        <md-input-container md-no-float md-is-error="false" class="md-block flex-gt-xs flex-xs">
+                          <label>Búsqueda</label>
+                            <input ng-model="nombreICP"
+                                   class="md-input"
+                                   ng-change="gridActions.filter()"
+                                   id="order"
+                                   filter-by="nombreICP"
+                                   filter-type="text"
+                                   aria-invalid="false"
+                                   placeholder = "Búsqueda por nombre">
+                        </md-input-container>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+        <div  layout="row" layout-align="center">
+          <div flex-gt-md="60" flex-md="80" flex-xs="100">
+              <div grid-data id='test' grid-options="gridOptions1" grid-actions="gridActions">
+                  <div layout-gt-sm="row" layout-sm="column" layout-align="center">
+                      <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
+                          <span>{{filtered.length}} Total de incidencias</span>
+                      </div>
+
+
+                      <div flex-gt-sm="75" flex-xs="100">
+                          <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
+                              <grid-pagination max-size="20"
+                                               boundary-links="true"
+                                               class="pagination mdl-shadow--2dp"
+                                               
+                                               total-items="paginationOptions.totalItems"
+                                               ng-model="paginationOptions.currentPage"
+                                               ng-change="reloadGrid()"
+                                               items-per-page="paginationOptions.itemsPerPage">
+                              </grid-pagination>
+                              <md-input-container flex-offset-gt-xs="5" class="items-per-page">
+                                  <md-select  ng-init="paginationOptions.itemsPerPage = '5'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()"  aria-label="More">
+                                      <md-option>5</md-option>
+                                      <md-option>10</md-option>
+                                      <md-option>25</md-option>
+                                  </md-select>
+                              </md-input-container>
+                          </div>
+                      </div>
+
+                  </div>
+
+                  <div>
+                      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                          <thead>
+
+                           <tr>
+                              <th class="sortable">
+                                  <span>Identificador</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>Nombre</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>Fecha creación</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>Estado</span>
+                              </th>
+                          </tr>
+
+
+                          </thead>
+                          <tbody>
+                          <tr grid-item ng-click = "sendICPInfo(item)">
+                                <td ng-bind="item.casoPruebaidCp.identificadorCaso"></td>
+                                <td ng-bind="item.nombreICP"></td>
+                                <td ng-bind="item.fechaCICP"></td>
+                                <td ng-bind="item.estadoIidEstadoI.nombre"></td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </div>
+
+                  <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
+                      <grid-pagination max-size="20"
+                                       boundary-links="true"
+                                       class="pagination"
+                                       ng-if="paginationOptions.totalItems  > paginationOptions.itemsPerPage"
+                                       total-items="paginationOptions.totalItems"
+                                       ng-model="paginationOptions.currentPage"
+                                       ng-change="reloadGrid()"
+                                       items-per-page="paginationOptions.itemsPerPage"></grid-pagination>
+                      <md-input-container flex-offset-gt-xs="5" class="items-per-page">
+                          <md-select ng-init="paginationOptions.itemsPerPage = '5'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()"  aria-label="More">
+                              <md-option>5</md-option>
+                              <md-option>10</md-option>
+                              <md-option>25</md-option>
+                          </md-select>
+                      </md-input-container>
+                  </div>
+
+              </div>
+          </div>
+        </div>
+
 
 </md-content>

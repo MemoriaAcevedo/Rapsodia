@@ -1,4 +1,4 @@
-<md-content flex class="md-whiteframe-z3">
+<md-content flex class="md-whiteframe-z3 md-padding">
  <div layout = "row">
   <div>
    <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
@@ -7,58 +7,18 @@
   </div>
   <div>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#/home/administrador">Inicio</a></li>
-      <li class="breadcrumb-item active">Gestión de Comunidades </li>
+      <li class="breadcrumb-item"><a href="#/home/profesor/verAsignados">Prácticas Alumno</a></li>
+      <li class="breadcrumb-item"><a href="#/home/profesor/practicaPreliminar">Práctica Alumno</a></li>
+      <li class="breadcrumb-item"><a href="#/home/profesor/practicahome">Inicio Práctica</a></li>
+      <li class="breadcrumb-item active">Historias de usuario</li>
     </ol>
   </div>
 </div>
-
-        <div layout = "column" layout-align="center center"> 
+  <div layout = "column" layout-align="center center">
           <br>
-          <h3>Crear comunidad</h3>
-          <form name = "crear">
-            <div>
-              <md-input-container>
-                <label>Nombre</label>
-                <input type="text" name = "nombre" ng-required = "true" ng-model="nombreCC" ng-maxlength="20">
-                <div ng-messages="crear.nombre.$error">
-                  <div ng-message="required">Nombre requerido!</div>
-                  <div ng-message="maxlength">Máximo 20 caracteres</div> 
-                </div>
-              </md-input-container>
-            </div>
-            <div>
-              <md-input-container>
-                <label>Descripción</label>
-                <input type="text" name = "descripcion" ng-required = "true" ng-model="descripcionCC" ng-maxlength="50">
-                <div ng-messages="crear.descripcion.$error">
-                  <div ng-message="required">Descripción requerida!</div>
-                  <div ng-message="maxlength">Máximo 50 caracteres</div> 
-                </div>
-              </md-input-container>
-            </div>
-            <div>
-              <md-input-container>
-                <label>Profesor</label>
-                <md-select ng-model="profesorSelected">
-                  <md-option ng-value = "profesor" ng-repeat="profesor in profesores">
-                    {{profesor.nombreU}} {{profesor.apellidoU}} - {{profesor.rutU}}
-                  </md-option>
-                </md-select>
-              </md-input-container>
-            </div>
-            <div layout = "column" layout-align="center center">
-              <md-button class="md-raised md-primary" ng-disabled = "crear.nombre.$invalid || crear.descripcion.$invalid || profesorSelected.emailU == undefined" ng-click="crearC()">Crear Comunidad</md-button>
-            </div>
-          </form>
-        </div>
-        
+          <h3>Historias de usuario</h3>
+  </div>
         <div layout = "column" layout-align="center center">
-          <br>
-          <h3>Gestión de Comunidades</h3>
-        </div>
-
-            <div layout = "column" layout-align="center center">
                 <div  layout="row" layout-align="center center">
                     <div>
                       <md-icon md-svg-icon="img/icon/ic_search_black_48px.svg"></md-icon>
@@ -66,29 +26,27 @@
                      <div>
                         <md-input-container md-no-float md-is-error="false" class="md-block flex-gt-xs flex-xs">
                           <label>Búsqueda</label>
-                            <input ng-model="nombreC"
+                            <input ng-model="nombreHU"
                                    class="md-input"
                                    ng-change="gridActions.filter()"
                                    id="order"
-                                   filter-by="nombreC"
+                                   filter-by="nombreHU"
                                    filter-type="text"
                                    aria-invalid="false"
-                                   placeholder = "Búsqueda por comunidad">
+                                   placeholder = "Búsqueda por nombre">
                         </md-input-container>
                     </div>
                   </div>
                 </div>
-            </div>
+        </div>
 
         <div  layout="row" layout-align="center">
           <div flex-gt-md="60" flex-md="80" flex-xs="100">
               <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
                   <div layout-gt-sm="row" layout-sm="column" layout-align="center">
                       <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
-                          <span>{{filtered.length}} Total de comunidades</span>
+                          <span>{{filtered.length}} Total de historias de usuario</span>
                       </div>
-
-
                       <div flex-gt-sm="75" flex-xs="100">
                           <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
                               <grid-pagination max-size="20"
@@ -109,54 +67,27 @@
                               </md-input-container>
                           </div>
                       </div>
-
                   </div>
 
-                  <div  layout="column"  layout-align="center center">
+                  <div>
                       <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                           <thead>
 
-                          <tr>
-                              <th sortable="nombreC" class="sortable">
-                                  <span>Comunidad</span>
+                           <tr>
+                              <th class="sortable">
+                                  <span>Identificador</span>
                               </th>
-                              <th sortable="descripcionC" class="sortable">
-                                  <span>Descripción</span>
-                              </th>
-                              <th sortable="profesorC.nombreU" class="sortable">
-                                  <span>Nombre Profesor</span>
-                              </th>
-                              <th sortable="profesorC.apellidoU" class="sortable">
-                                  <span>Apellido Profesor</span>
-                              </th>
-                              <th sortable="profesorC.emailU" class="sortable">
-                                  <span>Email Profesor</span>
-                              </th>
-                              <th sortable="estadoidEstado.nombreE" class="sortable">
-                                  <span>Estado Profesor</span>
+                              <th class="sortable">
+                                  <span>Nombre</span>
                               </th>
                           </tr>
 
+
                           </thead>
                           <tbody>
-                          <tr grid-item>
-                                <td ng-bind="item.nombreC"></td>
-                                <td ng-bind="item.descripcionC"></td>
-                                <td ng-bind="item.profesorC.nombreU"></td>
-                                <td ng-bind="item.profesorC.apellidoU"></td>
-                                <td ng-bind="item.profesorC.emailU"></td>
-                                <td ng-bind="item.profesorC.estadoidEstado.nombreE"></td>
-                                <td>
-                                  <div ng-click = "sendEdicion(item)">
-                                    <md-icon md-svg-icon="img/icon/ic_edit_black_48px.svg"></md-icon>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div ng-click = "sendSupervision(item)">
-                                    <md-icon md-svg-icon="img/icon/ic_supervisor_account_black_48px.svg"></md-icon>
-                                  </div>
-                                </td>
-
+                          <tr grid-item ng-click = "verPA(item)">
+                                <td ng-bind="item.identificadorHU"></td>
+                                <td ng-bind="item.nombreHU"></td>
                           </tr>
                           </tbody>
                       </table>
@@ -179,8 +110,8 @@
                           </md-select>
                       </md-input-container>
                   </div>
-
               </div>
           </div>
         </div>
+ 
 </md-content>

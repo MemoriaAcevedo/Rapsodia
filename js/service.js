@@ -22,7 +22,12 @@ app.service('sesion',['$window',function($window) {
     this.userAux  = JSON.parse($window.localStorage.getItem('sesion.userAux'));
     this.comunidad  = JSON.parse($window.localStorage.getItem('sesion.comunidad'));
     this.userTerminal  = JSON.parse($window.localStorage.getItem('sesion.userTerminal'));
-    this.userTerminalD  = JSON.parse($window.localStorage.getItem('sesion.userTerminalD'));              
+    this.userTerminalD  = JSON.parse($window.localStorage.getItem('sesion.userTerminalD'));
+    this.practicaT = JSON.parse($window.localStorage.getItem('sesion.practicaT'));
+    this.iCP = JSON.parse($window.localStorage.getItem('sesion.iCP'));
+    this.i = JSON.parse($window.localStorage.getItem('sesion.i'));
+    this.cp = JSON.parse($window.localStorage.getItem('sesion.cp'));
+    this.hu = JSON.parse($window.localStorage.getItem('sesion.hu'));                            
     //GETS
     this.getUser = function(){
         return this.user;
@@ -46,6 +51,26 @@ app.service('sesion',['$window',function($window) {
 
     this.getUserTerminalD = function(){
         return this.userTerminalD;
+    };
+
+    this.getPracticaT = function(){
+        return this.practicaT;
+    };
+
+    this.getICP = function(){
+        return this.iCP;
+    };
+
+    this.getI = function(){
+        return this.i;
+    };
+
+    this.getCP = function(){
+        return this.cp;
+    };
+
+     this.getHU = function(){
+        return this.hu;
     };
 
     //SETS
@@ -79,9 +104,39 @@ app.service('sesion',['$window',function($window) {
         return this;
     };
 
-    this.setUserTerminalD = function(userT){
-        this.userTerminalD = userT;
-        $window.localStorage.setItem('sesion.userTerminalD', JSON.stringify(userT));
+    this.setUserTerminalD = function(userTD){
+        this.userTerminalD = userTD;
+        $window.localStorage.setItem('sesion.userTerminalD', JSON.stringify(userTD));
+        return this;
+    };
+
+    this.setPracticaT = function(practica){
+        this.practicaT = practica;
+        $window.localStorage.setItem('sesion.practicaT', JSON.stringify(practica));
+        return this;
+    };
+
+    this.setICP= function(incidenciacp){
+        this.iCP = incidenciacp;
+        $window.localStorage.setItem('sesion.iCP', JSON.stringify(incidenciacp));
+        return this;
+    };
+
+    this.setI= function(incidencia){
+        this.i = incidencia;
+        $window.localStorage.setItem('sesion.i', JSON.stringify(incidencia));
+        return this;
+    };
+
+    this.setCP= function(cp){
+        this.cp = cp;
+        $window.localStorage.setItem('sesion.cp', JSON.stringify(cp));
+        return this;
+    };
+
+    this.setHU= function(hu){
+        this.hu = hu;
+        $window.localStorage.setItem('sesion.hu', JSON.stringify(hu));
         return this;
     };
 
@@ -110,6 +165,28 @@ app.service('sesion',['$window',function($window) {
     this.destroyUserTerminalD = function destroyUserTerminalD(){
         this.setUserTerminalD(null);
     };
+
+    this.destroyPracticaT = function destroyPracticaT(){
+        this.setPracticaT(null);
+    };
+
+    this.destroyICP = function destroyICP(){
+        this.setICP(null);
+    };
+
+    this.destroyI = function destroyI(){
+        this.setI(null);
+    };
+
+    this.destroyCP = function destroyCP(){
+        this.setCP(null);
+    };
+
+    this.destroyHU = function destroyHU(){
+        this.setHU(null);
+    };
+
+
  }]);
 
 app.service('auth',['$http', 'sesion', '$location', function($http, sesion, $location) {

@@ -1,0 +1,117 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+	<div layout = "row">
+	  <div>
+	   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+	    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+	   </md-button>
+	  </div>
+		<div flex>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/home/alumno/verAsociadosC">Usuarios Comunidad</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/terminal">Práctica terminal bancaria</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicahome">Inicio Práctica</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicacasoprueba">Gestión pruebas funcionales</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicaCPI">Prueba funcional</a></li>
+        <li class="breadcrumb-item active">Edición prueba funcional</li>
+      </ol>
+    </div>  
+	</div>
+	<div layout-xs="column" flex layout = "column" layout-align = "center center">
+      <div>
+        <h3>Edición prueba funcional</h3>
+      </div>
+
+      <div layout = "column" layout-align="center center">
+        <form name="cp1">
+          <div layout = "column">
+            <div>
+              <md-input-container>
+              <label>Nombre</label>
+                <textarea type="text" name = "nombre" ng-required = "true" ng-maxlength="45" rows="3" ng-model="cp.nombre"></textarea>
+                <div ng-messages="cp1.nombre.$error">
+                  <div ng-message="required">Nombre requerido!</div>
+                  <div ng-message="maxlength">Máximo 45 caracteres</div>
+                </div>
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container>
+              <label>Descripción</label>
+                <textarea type="text" name = "descripcion" ng-required = "true" ng-maxlength="200" rows="3" ng-model="cp.descripcion"></textarea>
+                <div ng-messages="cp1.descripcion.$error">
+                  <div ng-message="required">Descripción requerida!</div>
+                  <div ng-message="maxlength">Máximo 200 caracteres</div>
+                </div>
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container>
+              <label>Precondición</label>
+                <textarea type="text" name = "preC" ng-required = "true" ng-maxlength="300" rows="3" ng-model="cp.precondicion"></textarea>
+                <div ng-messages="cp1.preC.$error">
+                  <div ng-message="required">Precondición requerida!</div>
+                  <div ng-message="maxlength">Máximo 300 caracteres</div>
+                </div>
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container>
+              <label>Pasos</label>
+                <textarea type="text" name = "pasos" ng-required = "true" ng-maxlength="500" rows="3" ng-model="cp.pasos"></textarea>
+                <div ng-messages="cp1.pasos.$error">
+                  <div ng-message="required">Pasos requeridos!</div>
+                  <div ng-message="maxlength">Máximo 500 caracteres</div>
+                </div>
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container>
+              <label>Resultados Esperados</label>
+                <textarea type="text" name = "re" ng-required = "true" ng-maxlength="200" rows="3" ng-model="cp.resultadosE"></textarea>
+                <div ng-messages="cp1.re.$error">
+                  <div ng-message="required">Resultados requeridos!</div>
+                  <div ng-message="maxlength">Máximo 200 caracteres</div>
+                </div>
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container>
+              <label>Resultados Obtenidos</label>
+                <textarea type="text" name = "ro" ng-required = "true" ng-maxlength="200" rows="3" ng-model="cp.resultadosO"></textarea>
+                <div ng-messages="cp1.ro.$error">
+                  <div ng-message="required">Resultados requeridos!</div>
+                  <div ng-message="maxlength">Máximo 200 caracteres</div>
+                </div>
+              </md-input-container>
+            </div>
+             <div>
+              <md-input-container>
+              <label>Estado</label>
+                <md-select ng-model="estadoS">
+                  <md-option ng-value = "estado" ng-repeat="estado in estados">
+                    {{estado.nombre}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          <br>
+          <div layout = "column" layout-align="center center">
+            <md-button class="md-raised md-primary" ng-disabled = "cp1.nombre.$invalid || cp1.descripcion.$invalid || cp1.preC.$invalid || cp1.pasos.$invalid || cp1.re.$invalid " ng-click = "actualizarCP()">Actualizar</md-button>
+          </div>
+        </form>
+      </div>
+
+      <div>
+          <form>
+            <div layout = "column" layout-align="center center">
+            <br>
+            <h3>Eliminar prueba funcional</h3>
+            <div layout = "column" layout-align="center center">
+              <md-button class="md-raised md-primary"  ng-click="eliminarCP()">Eliminar</md-button>
+            </div>
+            </div>
+           </form>
+       </div>
+
+  </div>
+</md-content>  

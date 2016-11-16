@@ -1,0 +1,131 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+ <div layout = "row">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#/home/ayudante/verAsignados">Prácticas Alumno</a></li>
+      <li class="breadcrumb-item active">Práctica Alumno</li>
+    </ol>
+  </div>
+</div>
+	<div layout-xs="column" flex layout = "column" layout-align = "center center">
+	    <div>
+		    <h3>Información Práctica</h3>
+	    </div>
+      <div>
+        <div>
+          <md-input-container>
+          <label>Comunidad</label>
+            <input type="text" name = "comunidad" ng-model="sesion.getPracticaT().comunidadidComunidad.nombreC" disabled>
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+          <label>Alumno</label>
+            <input type="text" ng-model="realizadorCompleto" disabled>
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+          <label>Email</label>
+            <input type="text" name = "email" ng-model="realizador.emailU" disabled>
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+          <label>Fecha inicio</label>
+            <input type="text" name = "fechai" ng-model="practica.fechaInicio" disabled>
+          </md-input-container>
+        </div>
+        <div ng-if = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregir' || sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida'">
+          <md-input-container>
+          <label>Fecha Termino</label>
+            <input type="text" name = "fechat" ng-model="practica.fechaTermino" disabled>
+          </md-input-container>
+        </div>
+        <div >
+          <md-input-container>
+          <label>Estado</label>
+            <input type="text" name = "fechat" ng-model="practica.estadoPidEstadoP.nombre" disabled>
+          </md-input-container>
+        </div>
+        <div ng-if = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida'">
+          <md-input-container>
+          <label>Nota</label>
+            <input type="text" name = "fechat" ng-model="practica.calificacion" disabled>
+          </md-input-container>
+        </div>
+        <div ng-if = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida'">
+          <md-input-container>
+          <label>Observación</label>
+            <textarea type="text" name = "observacion" ng-model="practica.observacion" rows = "3" disabled></textarea>
+          </md-input-container>
+        </div>
+      </div>
+	    <div layout = "row">
+        <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Ver Práctica&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Visualiza la práctica realizada <br>en la terminal bancaria</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="verP()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+          </div>
+          <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Eliminar&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Elimina los registros de la práctica <br>en la terminal bancaria</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="eliminarP()">Eliminar</md-button>
+              </md-card-actions>
+            </md-card>
+          </div>
+      </div>
+      <div layout = "row">
+      <div layout = "column" ng-if = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregir' && sesion.userAux.estadoidEstado
+      .nombreE == 'Abierta'">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Evaluar práctica&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Evalua la práctica realizada <br>en la terminal bancaria</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="evaluar()">Evaluar</md-button>
+              </md-card-actions>
+            </md-card>
+          </div>
+          <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Canal de comunicación&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp&nbsp </span>
+                  <br>
+            <span align = "center" class="md-subhead">Comuniquese con sus alumnos <br>para resolver sus dudas</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="verCanal()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+          </div>
+      </div>
+  </div>
+</md-content>

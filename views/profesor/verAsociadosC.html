@@ -170,6 +170,123 @@
               </div>
           </div>
     </div>
-    -->
+    <div>
+    <div layout = "column" layout-align="center center">
+          <br>
+          <h3>Alumnos asignados</h3>
+    </div>
+
+            <div layout = "column" layout-align="center center">
+                <div  layout="row" layout-align="center center">
+                    <div>
+                      <md-icon md-svg-icon="img/icon/ic_search_black_48px.svg"></md-icon>
+                    </div>
+                     <div>
+                        <md-input-container md-no-float md-is-error="false" class="md-block flex-gt-xs flex-xs">
+                          <label>Búsqueda</label>
+                            <input ng-model="identificadorPractica"
+                                   class="md-input"
+                                   ng-change="gridActions1.filter()"
+                                   id="order"
+                                   filter-by="identificadorPractica"
+                                   filter-type="text"
+                                   aria-invalid="false"
+                                   placeholder = "Búsqueda por identificador">
+                        </md-input-container>
+                    </div>
+                  </div>
+                </div>
+
+        <div  layout="row" layout-align="center">
+          <div flex-gt-md="60" flex-md="80" flex-xs="100">
+              <div grid-data id='test' grid-options="gridOptions1" grid-actions="gridActions1">
+                  <div layout-gt-sm="row" layout-sm="column" layout-align="center">
+                      <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
+                          <span>{{filtered.length}} Total de alumnos</span>
+                      </div>
+
+
+                      <div flex-gt-sm="75" flex-xs="100">
+                          <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
+                              <grid-pagination max-size="20"
+                                               boundary-links="true"
+                                               class="pagination mdl-shadow--2dp"
+                                               
+                                               total-items="paginationOptions.totalItems"
+                                               ng-model="paginationOptions.currentPage"
+                                               ng-change="reloadGrid()"
+                                               items-per-page="paginationOptions.itemsPerPage">
+                              </grid-pagination>
+                              <md-input-container flex-offset-gt-xs="5" class="items-per-page">
+                                  <md-select  ng-init="paginationOptions.itemsPerPage = '5'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()"  aria-label="More">
+                                      <md-option>5</md-option>
+                                      <md-option>10</md-option>
+                                      <md-option>25</md-option>
+                                  </md-select>
+                              </md-input-container>
+                          </div>
+                      </div>
+
+                  </div>
+
+                  <div layout="column" layout-align="center center">
+                      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                          <thead>
+
+                           <tr>
+                              <th sortable="emailU" class="sortable">
+                                  <span>Email</span>
+                              </th>
+                              <th sortable="nombreU" class="sortable">
+                                  <span>Nombre</span>
+                              </th>
+                              <th th sortable="apellidoU" class="sortable">
+                                  <span>Apellido</span>
+                              </th>
+                              <th sortable="rutU" class="sortable">
+                                  <span>Rut</span>
+                              </th>
+                              <th sortable="estadoidEstado.nombreE" class="sortable">
+                                  <span>Estado</span>
+                              </th>
+                          </tr>
+
+
+                          </thead>
+                          <tbody>
+                          <tr grid-item ng-click = "verInfo(item)">
+                                <td ng-bind="item.emailU"></td>
+                                <td ng-bind="item.nombreU"></td>
+                                <td ng-bind="item.apellidoU"></td>
+                                <td ng-bind="item.rutU"></td>
+                                <td ng-bind="item.estadoidEstado.nombreE"></td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </div>
+
+                  <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
+                      <grid-pagination max-size="20"
+                                       boundary-links="true"
+                                       class="pagination"
+                                       ng-if="paginationOptions.totalItems  > paginationOptions.itemsPerPage"
+                                       total-items="paginationOptions.totalItems"
+                                       ng-model="paginationOptions.currentPage"
+                                       ng-change="reloadGrid()"
+                                       items-per-page="paginationOptions.itemsPerPage"></grid-pagination>
+                      <md-input-container flex-offset-gt-xs="5" class="items-per-page">
+                          <md-select ng-init="paginationOptions.itemsPerPage = '5'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()"  aria-label="More">
+                              <md-option>5</md-option>
+                              <md-option>10</md-option>
+                              <md-option>25</md-option>
+                          </md-select>
+                      </md-input-container>
+                  </div>
+
+              </div>
+          </div>
+        </div>
+        </div>  
+
   
 </md-content>

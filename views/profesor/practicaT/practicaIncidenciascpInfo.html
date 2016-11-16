@@ -1,0 +1,99 @@
+<md-content class="md-whiteframe-z3" flex id="content">
+ <div layout = "row">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#/home/profesor/verAsignados">Prácticas Alumno</a></li>
+      <li class="breadcrumb-item"><a href="#/home/profesor/practicaPreliminar">Práctica Alumno</a></li>
+      <li class="breadcrumb-item"><a href="#/home/profesor/practicahome">Inicio Práctica</a></li>
+      <li class="breadcrumb-item"><a href="#/home/profesor/practicaincidencias">Gestión de incidencias</a></li>
+      <li class="breadcrumb-item active">Incidencia</li>
+    </ol>
+  </div>
+</div>
+  <div layout = "row" layout-align="center center">
+                      <div layout = "column" layout-align="center center">
+                      <br>
+                      <div>
+                        <h3>Información Incidencia</h3>
+                      </div>
+                        <br>
+                          <div flex layout = "column" layout-align = "center center" >
+                            <md-button ng-click="toggleLeft()" class="md-raised">
+                              Pauta de evaluación
+                            </md-button>
+                          </div>
+                          <br>  
+                          <div>
+                            <md-input-container>
+                              <label>Caso de prueba</label>
+                              <input type="text" ng-model="incidenciacp.casoPruebaidCp.identificadorCaso" disabled>
+                            </md-input-container>
+                          </div>
+                          <div>
+                            <md-input-container>
+                              <label>Nombre caso de prueba</label>
+                              <input type="text" ng-model="incidenciacp.casoPruebaidCp.nombre" disabled>
+                            </md-input-container>
+                          </div>
+                          <div>
+                            <md-input-container>
+                              <label>Identificador</label>
+                              <input type="text" ng-model="incidenciacp.identificadorICP" disabled>
+                            </md-input-container>
+                          </div>
+                          <div>
+                            <md-input-container>
+                              <label>Nombre</label>
+                              <input type="text"  ng-model="incidenciacp.nombreICP" disabled>
+                            </md-input-container>
+                          </div>
+                          <div>
+                            <md-input-container>
+                              <label>Descripción</label>
+                              <input type="text" ng-model="incidenciacp.descripcionICP" disabled>
+                            </md-input-container>
+                          </div>
+                          <div>
+                            <md-input-container>
+                              <label>Pasos</label>
+                              <input type="text" ng-model="incidenciacp.pasosICP" disabled>
+                            </md-input-container>
+                          </div>
+                           <div>
+                            <md-input-container>
+                              <label>Resultados Esperados</label>
+                              <input type="text"  ng-model="incidenciacp.resultadoEICP" disabled>
+                            </md-input-container>
+                          </div>
+                          <div>
+                            <md-input-container>
+                              <label>Resultados Obtenidos</label>
+                              <input type="text"  ng-model="incidenciacp.resultadoOICP" disabled>
+                            </md-input-container>
+                          </div>
+                          <div>
+                            <md-input-container>
+                              <label>Fecha Creación</label>
+                              <input type="text" ng-model="incidenciacp.fechaCICP" disabled>
+                            </md-input-container>
+                          </div>
+                          <div>
+                            <md-input-container>
+                              <label>Fecha Edición</label>
+                              <input type="text" ng-model="incidenciacp.fechaE" disabled>
+                            </md-input-container>
+                          </div>
+                          <div>
+                            <md-input-container>
+                              <label>Estado</label>
+                              <input type="text" ng-model="incidenciacp.estadoIidEstadoI.nombre" disabled>
+                            </md-input-container>
+                          </div>
+                      </div>
+  </div>
+</md-content>

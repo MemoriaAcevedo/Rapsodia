@@ -1,0 +1,34 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+	<div layout = "row">
+		<div>
+		   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+		    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+		   </md-button>
+	    </div>
+		<div flex>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="#/home/alumno">Inicio</a></li>
+				<li class="breadcrumb-item active">Prácticas</li>
+			</ol>
+		</div>	
+	</div>
+	<div layout-xs="column" flex layout = "column" layout-align = "center center">
+	    <div>
+		    <h3>Prácticas</h3>
+	    </div>
+	    <div layout = "column">
+		      <md-card>
+		        <md-card-title>
+		          <md-card-title-text>
+		            <span class="md-headline">Terminal Bancaria &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </span>
+		            <br>
+					<span align = "center" class="md-subhead">Pon en práctica tus conocimientos <br>de pruebas de software, creando casos de prueba<br> identificando incidencias y reparando software</span>
+		          </md-card-title-text>
+		        </md-card-title>
+		        <md-card-actions layout="row" layout-align="end center">
+		         <md-button  ng-click="practicaT()">Ir</md-button>
+		        </md-card-actions>
+		      </md-card>
+      	</div>
+	</div>
+</md-content>

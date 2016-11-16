@@ -1,0 +1,216 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+	<div layout = "row">
+	  <div>
+	   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+	    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+	   </md-button>
+	  </div>
+		<div flex>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/home/alumno/verAsociadosC">Usuarios Comunidad</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/terminal">Práctica terminal bancaria</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicahome">Inicio Práctica</a></li>
+        <li class="breadcrumb-item active">Gestión pruebas funcionales</li>
+      </ol>
+    </div>  
+	</div>
+	<div layout-xs="column" flex layout = "column" layout-align = "center center">
+	    <div>
+		    <h3>Gestión pruebas funcionales</h3>
+	    </div>
+        <div flex layout = "column" layout-align = "center center" ng-show = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida'">
+          <md-button ng-click="toggleLeft()" class="md-raised">
+            Pauta de evaluación
+          </md-button>
+        </div>  
+
+      <div layout = "column" layout-align="start start" ng-show = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Desarrollo' && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
+        <form name="cp">
+      
+            <h4>Crear prueba funcional</h4>
+            <br>
+            <div>
+              <md-input-container class="md-block" flex>
+              <label>HU</label>
+                <md-select ng-model="huS">
+                  <md-option ng-value = "hu" ng-repeat="hu in hus">
+                    {{hu.identificadorHU}} {{hu.nombreHU}}
+                  </md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container class="md-block">
+              <label>Nombre</label>
+                <textarea type="text" name = "nombre" ng-required = "true" ng-maxlength="45" rows="3" ng-model="nombreC"></textarea>
+                <div ng-messages="cp.nombre.$error">
+                  <div ng-message="required">Nombre requerido!</div>
+                  <div ng-message="maxlength">Máximo 45 caracteres</div>
+                </div>
+              </md-input-container>
+            </div>
+            <div>
+               <md-input-container class="md-block">
+                  <label>Descripción</label>
+                  <textarea ng-model="descripcion" name = "descripcion" ng-required = "true" ng-maxlength="500" rows="3" md-select-on-focus=""></textarea>
+                  <div ng-messages="cp.descripcion.$error">
+                  <div ng-message="required">Descripción requerida!</div>
+                  <div ng-message="maxlength">Máximo 200 caracteres</div>
+                </div>
+                </md-input-container>
+            </div>
+            <div>
+              <md-input-container class="md-block">
+              <label>Precondición</label>
+                <textarea type="text" name = "preC" ng-required = "true" ng-maxlength="300" rows="3" ng-model="precondicion"></textarea>
+                <div ng-messages="cp.preC.$error">
+                  <div ng-message="required">Precondición requerida!</div>
+                  <div ng-message="maxlength">Máximo 300 caracteres</div>
+                </div>
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container class="md-block">
+              <label>Pasos</label>
+                <textarea type="text" name = "pasos" ng-required = "true" ng-maxlength="500" rows="3" ng-model="pasos"></textarea>
+                <div ng-messages="cp.pasos.$error">
+                  <div ng-message="required">Pasos requeridos!</div>
+                  <div ng-message="maxlength">Máximo 500 caracteres</div>
+                </div>
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container class="md-block">
+              <label>Resultados Esperados</label>
+                <textarea type="text" name = "re" ng-required = "true" ng-maxlength="200" rows="3" ng-model="rE"></textarea>
+                <div ng-messages="cp.re.$error">
+                  <div ng-message="required">Resultados requeridos!</div>
+                  <div ng-message="maxlength">Máximo 200 caracteres</div>
+                </div>
+              </md-input-container>
+            </div>            
+            <br>
+            <div layout = "column" layout-align="center center">
+              <md-button class="md-raised md-primary" ng-disabled = "cp.nombre.$invalid || cp.descripcion.$invalid || cp.preC.$invalid || cp.pasos.$invalid || cp.re.$invalid" ng-click = "crearCP()">Crear</md-button>
+            </div>
+          
+        </form>
+      </div>
+  </div>
+  <div layout = "column" layout-align="center center">
+          <br>
+          <h3>Pruebas funcionales</h3>
+  </div>
+
+  <div layout = "column" layout-align="center center">
+                <div  layout="row" layout-align="center center">
+                    <div>
+                      <md-icon md-svg-icon="img/icon/ic_search_black_48px.svg"></md-icon>
+                    </div>
+                     <div>
+                        <md-input-container md-no-float md-is-error="false" class="md-block flex-gt-xs flex-xs">
+                          <label>Búsqueda</label>
+                            <input ng-model="nombre"
+                                   class="md-input"
+                                   ng-change="gridActions.filter()"
+                                   id="order"
+                                   filter-by="nombre"
+                                   filter-type="text"
+                                   aria-invalid="false"
+                                   placeholder = "Búsqueda por nombre">
+                        </md-input-container>
+                    </div>
+                  </div>
+                </div>
+  </div>
+
+  <div  layout="row" layout-align="center">
+          <div flex-gt-md="60" flex-md="80" flex-xs="100">
+              <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
+                  <div layout-gt-sm="row" layout-sm="column" layout-align="center">
+                      <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
+                          <span>{{filtered.length}} Total de pruebas funcionales</span>
+                      </div>
+
+
+                      <div flex-gt-sm="75" flex-xs="100">
+                          <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
+                              <grid-pagination max-size="20"
+                                               boundary-links="true"
+                                               class="pagination mdl-shadow--2dp"
+                                               
+                                               total-items="paginationOptions.totalItems"
+                                               ng-model="paginationOptions.currentPage"
+                                               ng-change="reloadGrid()"
+                                               items-per-page="paginationOptions.itemsPerPage">
+                              </grid-pagination>
+                              <md-input-container flex-offset-gt-xs="5" class="items-per-page">
+                                  <md-select  ng-init="paginationOptions.itemsPerPage = '5'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()"  aria-label="More">
+                                      <md-option>5</md-option>
+                                      <md-option>10</md-option>
+                                      <md-option>25</md-option>
+                                  </md-select>
+                              </md-input-container>
+                          </div>
+                      </div>
+
+                  </div>
+
+                  <div>
+                      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                          <thead>
+
+                           <tr>
+                              <th class="sortable">
+                                  <span>Identificador</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>Nombre</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>HU</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>Fecha creación</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>Estado</span>
+                              </th>
+                          </tr>
+
+
+                          </thead>
+                          <tbody>
+                          <tr grid-item ng-click = "sendCPInfo(item)">
+                              <td ng-bind="item.identificadorCaso"></td>
+                              <td ng-bind="item.nombre"></td>
+                              <td ng-bind="item.HUidHU.identificadorHU"></td>
+                              <td ng-bind="item.fechaC"></td>
+                              <td ng-bind="item.estadoCidEstadoC.nombre"></td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </div>
+
+                  <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
+                      <grid-pagination max-size="20"
+                                       boundary-links="true"
+                                       class="pagination"
+                                       ng-if="paginationOptions.totalItems  > paginationOptions.itemsPerPage"
+                                       total-items="paginationOptions.totalItems"
+                                       ng-model="paginationOptions.currentPage"
+                                       ng-change="reloadGrid()"
+                                       items-per-page="paginationOptions.itemsPerPage"></grid-pagination>
+                      <md-input-container flex-offset-gt-xs="5" class="items-per-page">
+                          <md-select ng-init="paginationOptions.itemsPerPage = '5'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()"  aria-label="More">
+                              <md-option>5</md-option>
+                              <md-option>10</md-option>
+                              <md-option>25</md-option>
+                          </md-select>
+                      </md-input-container>
+                  </div>
+
+              </div>
+          </div>
+  </div>
+</md-content>

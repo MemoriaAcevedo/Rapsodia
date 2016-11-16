@@ -1,20 +1,42 @@
-<md-content flex class="md-whiteframe-z3">
- <div layout = "row">
-  <div>
-   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
-    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
-   </md-button>
-  </div>
-  <div>
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#/home/alumno">Inicio</a></li>
-      <li class="breadcrumb-item active">Ver Comunidades </li>
-    </ol>
-  </div>
-</div>
-        <div layout = "column" layout-align="center center">
+<md-content flex class="md-whiteframe-z3 md-padding">
+	<div layout = "row">
+	  <div>
+	   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+	    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+	   </md-button>
+	  </div>
+		<div flex>
+			<ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/home/alumno/verAsociadosC">Usuarios Comunidad</a></li>
+      	<li class="breadcrumb-item active">Práctica terminal bancaria</li>
+			</ol>
+		</div>		
+	</div>
+	  <div layout-xs="column" flex layout = "column" layout-align = "center center">
+	    <div>
+		    <h3>Práctica terminal bancaria</h3>
+	    </div>
+      <div>
+        <div layout = "column" ng-show= "sesion.getUser().tipoUsuarioidTipoUsuario.nombreTU == 'Alumno'">
+          <md-card>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">Iniciar Práctica&nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                <br>
+          <span align = "center" class="md-subhead">Comienza una nueva práctica <br>de la terminal bancaria</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+             <md-button  ng-click="crearP()">Iniciar</md-button>
+            </md-card-actions>
+          </md-card>
+        </div>
+      </div>
+	  </div>
+
+	  <div layout = "column" layout-align="center center">
           <br>
-          <h3>Comunidades</h3>
+          <h3>Prácticas realizadas</h3>
         </div>
 
             <div layout = "column" layout-align="center center">
@@ -25,14 +47,14 @@
                      <div>
                         <md-input-container md-no-float md-is-error="false" class="md-block flex-gt-xs flex-xs">
                           <label>Búsqueda</label>
-                            <input ng-model="nombreC"
+                            <input ng-model="identificadorPractica"
                                    class="md-input"
                                    ng-change="gridActions.filter()"
                                    id="order"
-                                   filter-by="nombreC"
+                                   filter-by="identificadorPractica"
                                    filter-type="text"
                                    aria-invalid="false"
-                                   placeholder = "Búsqueda por comunidad">
+                                   placeholder = "Búsqueda por identificador">
                         </md-input-container>
                     </div>
                   </div>
@@ -44,7 +66,7 @@
               <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
                   <div layout-gt-sm="row" layout-sm="column" layout-align="center">
                       <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
-                          <span>{{filtered.length}} Total de comunidades</span>
+                          <span>{{filtered.length}} Total de prácticas</span>
                       </div>
 
 
@@ -71,41 +93,45 @@
 
                   </div>
 
-                  <div layout="column" layout-align="center center"> 
+                  <div layout="column" layout-align="center center">
                       <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
                           <thead>
 
                            <tr>
-                              <th sortable="nombreC" class="sortable">
-                                  <span>Comunidad</span>
+                              <th class="sortable">
+                                  <span>Identificador</span>
                               </th>
-                              <th sortable="descripcionC" class="sortable">
-                                  <span>Descripción</span>
+                              <th class="sortable">
+                                  <span>Nombre corrector</span>
                               </th>
-                              <th sortable="profesorC.nombreU" class="sortable">
-                                  <span>Nombre Profesor</span>
+                              <th class="sortable">
+                                  <span>Rol corrector</span>
                               </th>
-                              <th sortable="profesorC.apellidoU" class="sortable">
-                                  <span>Apellido Profesor</span>
+                              <th class="sortable">
+                                  <span>Estado corrector</span>
                               </th>
-                              <th sortable="profesorC.emailU" class="sortable">
-                                  <span>Email Profesor</span>
+                              <th class="sortable">
+                                  <span>Fecha inicio</span>
                               </th>
-                              <th sortable="estadoidEstado.nombreE" class="sortable">
-                                  <span>Estado Profesor</span>
+                              <th class="sortable">
+                                  <span>Fecha termino</span>
+                              </th>
+                              <th class="sortable">
+                                  <span>Estado</span>
                               </th>
                           </tr>
 
 
                           </thead>
                           <tbody>
-                          <tr grid-item ng-click = "sendSupervision(item)">
-                               <td ng-bind="item.nombreC"></td>
-                                <td ng-bind="item.descripcionC"></td>
-                                <td ng-bind="item.profesorC.nombreU"></td>
-                                <td ng-bind="item.profesorC.apellidoU"></td>
-                                <td ng-bind="item.profesorC.emailU"></td>
-                                <td ng-bind="item.profesorC.estadoidEstado.nombreE"></td>
+                          <tr grid-item ng-click = "verInfo(item)">
+                                <td ng-bind="item.identificadorPractica"></td>
+                                <td ng-bind="item.corrector.nombreU"></td>
+                                <td ng-bind="item.corrector.tipoUsuarioidTipoUsuario.nombreTU"></td>
+                                <td ng-bind="item.corrector.estadoidEstado.nombreE"></td>
+                                <td ng-bind="item.fechaInicio"></td>
+                                <td ng-bind="item.fechaTermino"></td>
+                                <td ng-bind="item.estadoPidEstadoP.nombre"></td>
                           </tr>
                           </tbody>
                       </table>

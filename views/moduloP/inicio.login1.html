@@ -1,4 +1,26 @@
 <md-content flex class="md-whiteframe-z3">
+      <div layout = "row">
+        <div ng-if = "sesion.getUser().tipoUsuarioidTipoUsuario.nombreTU == 'Alumno'">
+         <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+          <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+         </md-button>
+        </div>
+        <div ng-if = "sesion.getUser().tipoUsuarioidTipoUsuario.nombreTU == 'Ayudante'">
+         <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back1()">
+          <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+         </md-button>
+        </div>
+        <div ng-if = "sesion.getUser().tipoUsuarioidTipoUsuario.nombreTU == 'Profesor'">
+         <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back2()">
+          <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+         </md-button>
+        </div>
+        <div flex>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Práctica</li>
+          </ol>
+        </div>  
+      </div>
       <div>
         <!-- Formulario -->
         <form name="login">

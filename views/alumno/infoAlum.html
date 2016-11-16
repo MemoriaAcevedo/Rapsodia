@@ -11,13 +11,13 @@
       <li class="breadcrumb-item active">Perfil Usuario</li>
     </ol>
   </div>
-</div>
+</div>    
+                <div layout = "column" layout-align="center center">
+                  <h3>Información Básica</h3>
+                </div>
                 <div layout = "row" layout-align="center center">
                     <div flex-offset = "10" layout = "column" id = "test">
                     <br>
-                      <h3>Información Básica</h3>
-                      <br>
-                      <br>
                         <div>
                           <md-input-container>
                             <label>E-mail</label>
@@ -54,10 +54,9 @@
                             <input type="text" name = "apodo" ng-model="usuario.tipoUsuarioidTipoUsuario.nombreTU" disabled>
                           </md-input-container>
                         </div>
-                        <div layout = "column" layout-align="center center">
-                          <md-button class="md-raised md-primary" ng-click="editP()">Editar</md-button>
-                        </div>
+                        
                     </div>
+                    <div>&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp</div>
                     <div>
                       <div layout = "column">
                       <br>
@@ -65,4 +64,7 @@
                       </div>
                     </div>
                 </div>
+                <div layout = "column" layout-align="center center">
+                          <md-button class="md-raised md-primary" ng-click="editP()">Editar</md-button>
+                        </div>
 </md-content>
