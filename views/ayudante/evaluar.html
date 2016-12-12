@@ -13,13 +13,11 @@
     </ol>
   </div>
 </div>
-  <div layout = "row" layout-align="center center">
-                      <div layout = "column" layout-align="center center">
-                      <br>
+      <div layout = "column" layout-align="center center"  ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P1' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregir P1' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1'">
+                        <br>
                         <div>
                           <h3>Evaluar práctica</h3>
                         </div>
-                        <br>
                         <br>
                           <div>
                             <md-input-container>
@@ -35,8 +33,59 @@
                           </div>
                           <div>
                             <md-input-container>
+                              <label>Estado</label>
+                              <input type="text" ng-model="practica.estadoPidEstadoP.nombre" disabled>
+                            </md-input-container>
+                          </div>
+                          <div layout = "column">
+                            <form name="ev">
+                            <div>
+                              <md-input-container>
+                                    <label>Nota</label>
+                                      <input type="number" name = "nota" ng-required = "true" ng-model="nota">
+                                      <div ng-messages="ev.nota.$error">
+                                        <div ng-message="required">Nota requerida!</div>
+                                      </div>
+                              </md-input-container>
+                            </div>
+                            <div>
+                              <md-input-container>
+                                    <label>Observaciones</label>
+                                      <textarea type="text" name = "obs" ng-required = "true" ng-maxlength="10000" rows = "3" ng-model="observaciones"></textarea>
+                                      <div ng-messages="ev.obs.$error">
+                                         <div ng-message="required">Observaciones requeridas!</div>
+                                         <div ng-message="maxlength">Máximo 1000 caracteres</div>
+                                      </div>
+                              </md-input-container>
+                            </div>
+                            <div layout = "column" layout-align="center center">
+                                  <md-button class="md-raised md-primary" ng-disabled = "ev.nota.$invalid || ev.obs.$invalid " ng-click = "evaluarP1()">Evaluar</md-button>
+                                </div>    
+                            </form>
+                          </div>                    
+      </div>
+      <div layout = "column" layout-align="center center" ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregir P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizado'">
+                        <br>
+                        <div>
+                          <h3>Evaluar práctica 2</h3>
+                        </div>
+                        <br>
+                          <div>
+                            <md-input-container>
+                              <label>Alumno</label>
+                              <input type="text" ng-model="realizadorCompleto" disabled>
+                            </md-input-container>
+                          </div>
+                          <div>
+                            <md-input-container>
+                              <label>Fecha Inicio</label>
+                              <input type="text"  ng-model="sesion.practicaT2.fechaInicio" disabled>
+                            </md-input-container>
+                          </div>
+                          <div ng-show = " sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizado'">
+                            <md-input-container>
                               <label>Fecha Termino</label>
-                              <input type="text" ng-model="practica.fechaTermino" disabled>
+                              <input type="text" ng-model="sesion.practicaT2.fechaTermino" disabled>
                             </md-input-container>
                           </div>
                           <div>
@@ -67,10 +116,9 @@
                               </md-input-container>
                             </div>
                             <div layout = "column" layout-align="center center">
-                                  <md-button class="md-raised md-primary" ng-disabled = "ev.nota.$invalid || ev.obs.$invalid " ng-click = "evaluarP()">Evaluar</md-button>
+                                  <md-button class="md-raised md-primary" ng-disabled = "ev.nota.$invalid || ev.obs.$invalid " ng-click = "evaluarP2()">Evaluar</md-button>
                                 </div>    
                             </form>
                           </div>                    
-                      </div>
-  </div>
+      </div>
 </md-content>

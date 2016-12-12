@@ -16,7 +16,8 @@ app.controller("loginCtrlM", function($rootScope, $scope, $location, $http, rest
 
 
 	$scope.loginM = function(){
-		restFactory.loginM($scope.rut, $scope.pass)
+
+		restFactory.test($scope.rut, $scope.pass)
 	        .success(function (response) {
 	            var resultado = response.message;
 	            if(resultado != "false" &&  resultado != "i"){
@@ -34,6 +35,25 @@ app.controller("loginCtrlM", function($rootScope, $scope, $location, $http, rest
 	             }
 	        });
 	}
+
+		/*restFactory.loginM($scope.rut, $scope.pass)
+	        .success(function (response) {
+	            var resultado = response.message;
+	            if(resultado != "false" &&  resultado != "i"){
+	               restFactory.getUserByRut($scope.rut)	                    	
+					    .success(function (response) {
+					    	$rootScope.sesion.setUserTerminal(response);
+					        $location.path(resultado);
+					});
+	            }else{
+	                if(resultado == 'i'){
+	                   viewFactory.showSimpleToast("Rut o contraseña incorrecta");
+	                }else{
+	                	viewFactory.showSimpleToast("Cuenta inexistente");
+	                }
+	             }
+	        });
+	}*/
 });
 
 app.controller("homeCtrlM", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){

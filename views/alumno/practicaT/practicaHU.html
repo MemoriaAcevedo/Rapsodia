@@ -9,6 +9,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#/home/alumno/verAsociadosC">Usuarios Comunidad</a></li>
         <li class="breadcrumb-item"><a href="#/home/alumno/terminal">Práctica terminal bancaria</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicainfo">Información Práctica</a></li>
         <li class="breadcrumb-item"><a href="#/home/alumno/practicahome">Inicio Práctica</a></li>
         <li class="breadcrumb-item active">Historias de usuario</li>
       </ol>
@@ -18,100 +19,533 @@
                 <br>
                 <h3>Historias de usuario</h3>
         </div>
-        <div layout = "column" layout-align="center center">
-                <div  layout="row" layout-align="center center">
-                    <div>
-                      <md-icon md-svg-icon="img/icon/ic_search_black_48px.svg"></md-icon>
-                    </div>
-                     <div>
-                        <md-input-container md-no-float md-is-error="false" class="md-block flex-gt-xs flex-xs">
-                          <label>Búsqueda</label>
-                            <input ng-model="nombreHU"
-                                   class="md-input"
-                                   ng-change="gridActions.filter()"
-                                   id="order"
-                                   filter-by="nombreHU"
-                                   filter-type="text"
-                                   aria-invalid="false"
-                                   placeholder = "Búsqueda por nombre">
+    <md-tabs md-dynamic-height="" md-border-bottom="">
+              <md-tab label="HU-1">
+                <md-content class="md-padding">
+                   <div flex layout = "column" layout-align = "center center">
+                      <h4>HU-1</h4>
+                    </div> 
+                    <br>
+                    <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Identificador</label>
+                          <input ng-model="hu[0].identificadorHU" disabled>
                         </md-input-container>
                     </div>
-                  </div>
-                </div>
-        </div>
-
-        <div  layout="row" layout-align="center">
-          <div flex-gt-md="60" flex-md="80" flex-xs="100">
-              <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
-                  <div layout-gt-sm="row" layout-sm="column" layout-align="center">
-                      <div flex-gt-sm="25" flex-sm="100" layout="row" layout-align="start center">
-                          <span>{{filtered.length}} Total de historias de usuario</span>
-                      </div>
-                      <div flex-gt-sm="75" flex-xs="100">
-                          <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
-                              <grid-pagination max-size="20"
-                                               boundary-links="true"
-                                               class="pagination mdl-shadow--2dp"
-                                               
-                                               total-items="paginationOptions.totalItems"
-                                               ng-model="paginationOptions.currentPage"
-                                               ng-change="reloadGrid()"
-                                               items-per-page="paginationOptions.itemsPerPage">
-                              </grid-pagination>
-                              <md-input-container flex-offset-gt-xs="5" class="items-per-page">
-                                  <md-select  ng-init="paginationOptions.itemsPerPage = '5'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()"  aria-label="More">
-                                      <md-option>5</md-option>
-                                      <md-option>10</md-option>
-                                      <md-option>25</md-option>
-                                  </md-select>
-                              </md-input-container>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div>
-                      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-                          <thead>
-
-                           <tr>
-                              <th class="sortable">
-                                  <span>Identificador</span>
-                              </th>
-                              <th class="sortable">
-                                  <span>Nombre</span>
-                              </th>
-                          </tr>
-
-
-                          </thead>
-                          <tbody>
-                          <tr grid-item ng-click = "verPA(item)">
-                                <td ng-bind="item.identificadorHU"></td>
-                                <td ng-bind="item.nombreHU"></td>
-                          </tr>
-                          </tbody>
-                      </table>
-                  </div>
-
-                  <div layout-xs="column" layout="row" layout-align-xs="end end" layout-align="end center">
-                      <grid-pagination max-size="20"
-                                       boundary-links="true"
-                                       class="pagination"
-                                       ng-if="paginationOptions.totalItems  > paginationOptions.itemsPerPage"
-                                       total-items="paginationOptions.totalItems"
-                                       ng-model="paginationOptions.currentPage"
-                                       ng-change="reloadGrid()"
-                                       items-per-page="paginationOptions.itemsPerPage"></grid-pagination>
-                      <md-input-container flex-offset-gt-xs="5" class="items-per-page">
-                          <md-select ng-init="paginationOptions.itemsPerPage = '5'" ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()"  aria-label="More">
-                              <md-option>5</md-option>
-                              <md-option>10</md-option>
-                              <md-option>25</md-option>
-                          </md-select>
+                     <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Nombre</label>
+                          <input ng-model="hu[0].nombreHU" disabled>
+                        </md-input-container>
+                    </div>
+                      <md-input-container flex class="md-block" >
+                      <label>Descripción</label>
+                         <textarea ng-model="hu[0].descripcionHU" md-detect-hidden = "true" disabled></textarea>
                       </md-input-container>
-                  </div>
-              </div>
-          </div>
-        </div>
 
+                       <div flex layout = "column" layout-align = "center center">
+                          <h4>Prueba de aceptación</h4>
+                        </div>  
+                        <br>
+                        <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Identificador</label>
+                              <input ng-model="pas[0].identificadorPA" disabled>
+                            </md-input-container>
+                        </div>
+                         <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Nombre</label>
+                              <input ng-model="pas[0].nombrePA" disabled>
+                            </md-input-container>
+                        </div>
+                          <md-input-container flex class="md-block" >
+                          <label>Descripción</label>
+                             <textarea ng-model="pas[0].descripcionPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pre-condiciones</label>
+                             <textarea ng-model="pas[0].precondicionesPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pasos</label>
+                             <textarea ng-model="pas[0].pasosPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Resultados esperados</label>
+                             <textarea ng-model="pas[0].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+
+
+                      <div flex layout = "column" layout-align = "center center">
+                          <h4>Prueba de aceptación</h4>
+                        </div>
+                        <br>  
+                        <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Identificador</label>
+                              <input ng-model="pas[1].identificadorPA" disabled>
+                            </md-input-container>
+                        </div>
+                         <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Nombre</label>
+                              <input ng-model="pas[1].nombrePA" disabled>
+                            </md-input-container>
+                        </div>
+                          <md-input-container flex class="md-block" >
+                          <label>Descripción</label>
+                             <textarea ng-model="pas[1].descripcionPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pre-condiciones</label>
+                             <textarea ng-model="pas[1].precondicionesPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pasos</label>
+                             <textarea ng-model="pas[1].pasosPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Resultados esperados</label>
+                             <textarea ng-model="pas[1].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                </md-content>
+              </md-tab>
+              <md-tab label="HU-2">
+                <md-content class="md-padding">
+                   <!-- HU 2-->  
+                    <div flex layout = "column" layout-align = "center center">
+                      <h4>HU-2</h4>
+                    </div>
+                    <br>
+                    <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Identificador</label>
+                          <input ng-model="hu[1].identificadorHU" disabled>
+                        </md-input-container>
+                    </div>
+                     <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Nombre</label>
+                          <input ng-model="hu[1].nombreHU" disabled>
+                        </md-input-container>
+                    </div>
+                      <md-input-container flex class="md-block" >
+                      <label>Descripción</label>
+                         <textarea ng-model="hu[1].descripcionHU" md-detect-hidden = "true" disabled></textarea>
+                      </md-input-container>
+
+                      <div flex layout = "column" layout-align = "center center">
+                          <h4>Prueba de aceptación</h4>
+                        </div>
+                        <br>  
+                        <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Identificador</label>
+                              <input ng-model="pas[2].identificadorPA" disabled>
+                            </md-input-container>
+                        </div>
+                         <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Nombre</label>
+                              <input ng-model="pas[2].nombrePA" disabled>
+                            </md-input-container>
+                        </div>
+                          <md-input-container flex class="md-block" >
+                          <label>Descripción</label>
+                             <textarea ng-model="pas[2].descripcionPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pre-condiciones</label>
+                             <textarea ng-model="pas[2].precondicionesPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pasos</label>
+                             <textarea ng-model="pas[2].pasosPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Resultados esperados</label>
+                             <textarea ng-model="pas[2].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                </md-content>
+              </md-tab>
+              <md-tab label="HU-3">
+                <md-content class="md-padding">
+                   <!-- HU 3-->    
+                    <div flex layout = "column" layout-align = "center center">
+                      <h4>HU-3</h4>
+                    </div>
+                    <br>  
+                    <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Identificador</label>
+                          <input ng-model="hu[2].identificadorHU" disabled>
+                        </md-input-container>
+                    </div>
+                     <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Nombre</label>
+                          <input ng-model="hu[2].nombreHU" disabled>
+                        </md-input-container>
+                    </div>
+                      <md-input-container flex class="md-block" >
+                      <label>Descripción</label>
+                         <textarea ng-model="hu[2].descripcionHU" md-detect-hidden = "true" disabled></textarea>
+                      </md-input-container>
+
+                        <div flex layout = "column" layout-align = "center center">
+                          <h4>Prueba de aceptación</h4>
+                        </div>
+                        <br>  
+                        <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Identificador</label>
+                              <input ng-model="pas[2].identificadorPA" disabled>
+                            </md-input-container>
+                        </div>
+                         <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Nombre</label>
+                              <input ng-model="pas[2].nombrePA" disabled>
+                            </md-input-container>
+                        </div>
+                          <md-input-container flex class="md-block" >
+                          <label>Descripción</label>
+                             <textarea ng-model="pas[2].descripcionPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pre-condiciones</label>
+                             <textarea ng-model="pas[2].precondicionesPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pasos</label>
+                             <textarea ng-model="pas[2].pasosPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Resultados esperados</label>
+                             <textarea ng-model="pas[2].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>  
+                </md-content>
+              </md-tab>
+              <md-tab label="HU-4">
+                <md-content class="md-padding">
+                   <!-- HU 4-->   
+                    <div flex layout = "column" layout-align = "center center">
+                      <h4>HU-4</h4>
+                    </div>
+                    <br>  
+                    <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Identificador</label>
+                          <input ng-model="hu[5].identificadorHU" disabled>
+                        </md-input-container>
+                    </div>
+                     <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Nombre</label>
+                          <input ng-model="hu[3].nombreHU" disabled>
+                        </md-input-container>
+                    </div>
+                      <md-input-container flex class="md-block" >
+                      <label>Descripción</label>
+                         <textarea ng-model="hu[3].descripcionHU" md-detect-hidden = "true" disabled></textarea>
+                      </md-input-container>
+
+                      <div flex layout = "column" layout-align = "center center">
+                          <h4>Prueba de aceptación</h4>
+                        </div>
+                        <br>  
+                        <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Identificador</label>
+                              <input ng-model="pas[3].identificadorPA" disabled>
+                            </md-input-container>
+                        </div>
+                         <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Nombre</label>
+                              <input ng-model="pas[3].nombrePA" disabled>
+                            </md-input-container>
+                        </div>
+                          <md-input-container flex class="md-block" >
+                          <label>Descripción</label>
+                             <textarea ng-model="pas[3].descripcionPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pre-condiciones</label>
+                             <textarea ng-model="pas[3].precondicionesPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pasos</label>
+                             <textarea ng-model="pas[3].pasosPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Resultados esperados</label>
+                             <textarea ng-model="pas[3].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                </md-content>
+              </md-tab>
+              <md-tab label="HU-5">
+                <md-content class="md-padding">
+                  <!-- HU 5-->    
+                    <div flex layout = "column" layout-align = "center center">
+                      <h4>HU-5</h4>
+                    </div>
+                    <br>  
+                    <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Identificador</label>
+                          <input ng-model="hu[4].identificadorHU" disabled>
+                        </md-input-container>
+                    </div>
+                     <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Nombre</label>
+                          <input ng-model="hu[4].nombreHU" disabled>
+                        </md-input-container>
+                    </div>
+                      <md-input-container flex class="md-block" >
+                      <label>Descripción</label>
+                         <textarea ng-model="hu[4].descripcionHU" md-detect-hidden = "true" disabled></textarea>
+                      </md-input-container>
+                    
+                    <div flex layout = "column" layout-align = "center center">
+                          <h4>Prueba de aceptación</h4>
+                        </div> 
+                        <br> 
+                        <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Identificador</label>
+                              <input ng-model="pas[4].identificadorPA" disabled>
+                            </md-input-container>
+                        </div>
+                         <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Nombre</label>
+                              <input ng-model="pas[4].nombrePA" disabled>
+                            </md-input-container>
+                        </div>
+                          <md-input-container flex class="md-block" >
+                          <label>Descripción</label>
+                             <textarea ng-model="pas[4].descripcionPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pre-condiciones</label>
+                             <textarea ng-model="pas[4].precondicionesPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pasos</label>
+                             <textarea ng-model="pas[4].pasosPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Resultados esperados</label>
+                             <textarea ng-model="pas[4].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>    
+                </md-content>
+              </md-tab>
+              <md-tab label="HU-6">
+                <md-content class="md-padding">
+                  <!-- HU 6-->  
+                    <div flex layout = "column" layout-align = "center center">
+                      <h4>HU-6</h4>
+                    </div>
+                    <br>  
+                    <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Identificador</label>
+                          <input ng-model="hu[5].identificadorHU" disabled>
+                        </md-input-container>
+                    </div>
+                     <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Nombre</label>
+                          <input ng-model="hu[5].nombreHU" disabled>
+                        </md-input-container>
+                    </div>
+                      <md-input-container flex class="md-block" >
+                      <label>Descripción</label>
+                         <textarea ng-model="hu[5].descripcionHU" md-detect-hidden = "true" disabled></textarea>
+                      </md-input-container>
+
+                      <div flex layout = "column" layout-align = "center center">
+                          <h4>Prueba de aceptación</h4>
+                        </div>
+                        <br>  
+                        <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Identificador</label>
+                              <input ng-model="pas[5].identificadorPA" disabled>
+                            </md-input-container>
+                        </div>
+                         <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Nombre</label>
+                              <input ng-model="pas[5].nombrePA" disabled>
+                            </md-input-container>
+                        </div>
+                          <md-input-container flex class="md-block" >
+                          <label>Descripción</label>
+                             <textarea ng-model="pas[5].descripcionPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pre-condiciones</label>
+                             <textarea ng-model="pas[5].precondicionesPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pasos</label>
+                             <textarea ng-model="pas[5].pasosPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Resultados esperados</label>
+                             <textarea ng-model="pas[5].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                      <div flex layout = "column" layout-align = "center center">
+                          <h4>Prueba de aceptación</h4>
+                        </div>
+                        <br>  
+                        <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Identificador</label>
+                              <input ng-model="pas[6].identificadorPA" disabled>
+                            </md-input-container>
+                        </div>
+                         <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Nombre</label>
+                              <input ng-model="pas[6].nombrePA" disabled>
+                            </md-input-container>
+                        </div>
+                          <md-input-container flex class="md-block" >
+                          <label>Descripción</label>
+                             <textarea ng-model="pas[6].descripcionPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pre-condiciones</label>
+                             <textarea ng-model="pas[6].precondicionesPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pasos</label>
+                             <textarea ng-model="pas[6].pasosPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Resultados esperados</label>
+                             <textarea ng-model="pas[6].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                </md-content>
+              </md-tab>
+              <md-tab label="HU-7">
+                <md-content class="md-padding">
+                   <!-- HU-7-->  
+                    <div flex layout = "column" layout-align = "center center">
+                      <h4>HU-7</h4>
+                    </div>
+                    <br>  
+                    <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Identificador</label>
+                          <input ng-model="hu[6].identificadorHU" disabled>
+                        </md-input-container>
+                    </div>
+                     <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Nombre</label>
+                          <input ng-model="hu[6].nombreHU" disabled>
+                        </md-input-container>
+                    </div>
+                      <md-input-container flex class="md-block" >
+                      <label>Descripción</label>
+                         <textarea ng-model="hu[6].descripcionHU" md-detect-hidden = "true" disabled></textarea>
+                      </md-input-container>
+                       <div flex layout = "column" layout-align = "center center">
+                          <h4>Prueba de aceptación</h4>
+                        </div>
+                        <br>  
+                        <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Identificador</label>
+                              <input ng-model="pas[7].identificadorPA" disabled>
+                            </md-input-container>
+                        </div>
+                         <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Nombre</label>
+                              <input ng-model="pas[7].nombrePA" disabled>
+                            </md-input-container>
+                        </div>
+                          <md-input-container flex class="md-block" >
+                          <label>Descripción</label>
+                             <textarea ng-model="pas[7].descripcionPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                                                    <md-input-container flex class="md-block" >
+                            <label>Pre-condiciones</label>
+                             <textarea ng-model="pas[7].precondicionesPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pasos</label>
+                             <textarea ng-model="pas[7].pasosPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Resultados esperados</label>
+                             <textarea ng-model="pas[7].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+
+                </md-content>
+              </md-tab>
+              <md-tab label="HU-8">
+                <md-content class="md-padding">
+                  <div flex layout = "column" layout-align = "center center">
+                      <h4>HU-8</h4>
+                    </div>
+                    <br>  
+                    <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Identificador</label>
+                          <input ng-model="hu[7].identificadorHU" disabled>
+                        </md-input-container>
+                    </div>
+                     <div flex layout = "row">
+                        <md-input-container flex>
+                          <label>Nombre</label>
+                          <input ng-model="hu[7].nombreHU" disabled>
+                        </md-input-container>
+                    </div>
+                      <md-input-container flex class="md-block" >
+                      <label>Descripción</label>
+                         <textarea ng-model="hu[7].descripcionHU" md-detect-hidden = "true" rows = "4" disabled></textarea>
+                      </md-input-container>
+                      <div flex layout = "column" layout-align = "center center">
+                          <h4>Prueba de aceptación</h4>
+                        </div>
+                        <br>  
+                        <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Identificador</label>
+                              <input ng-model="pas[8].identificadorPA" disabled>
+                            </md-input-container>
+                        </div>
+                         <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Nombre</label>
+                              <input ng-model="pas[8].nombrePA" disabled>
+                            </md-input-container>
+                        </div>
+                          <md-input-container flex class="md-block" >
+                          <label>Descripción</label>
+                             <textarea ng-model="pas[8].descripcionPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                         <md-input-container flex class="md-block" >
+                            <label>Pre-condiciones</label>
+                             <textarea ng-model="pas[8].precondicionesPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Pasos</label>
+                             <textarea ng-model="pas[8].pasosPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <md-input-container flex class="md-block" >
+                            <label>Resultados esperados</label>
+                             <textarea ng-model="pas[8].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>   
+                </md-content>
+              </md-tab>
+            </md-tabs>   
 </md-content>

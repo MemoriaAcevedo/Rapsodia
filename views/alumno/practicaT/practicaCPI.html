@@ -9,6 +9,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#/home/alumno/verAsociadosC">Usuarios Comunidad</a></li>
         <li class="breadcrumb-item"><a href="#/home/alumno/terminal">Práctica terminal bancaria</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicainfo">Información Práctica</a></li>
         <li class="breadcrumb-item"><a href="#/home/alumno/practicahome">Inicio Práctica</a></li>
         <li class="breadcrumb-item"><a href="#/home/alumno/practicacasoprueba">Gestión pruebas funcionales</a></li>
         <li class="breadcrumb-item active">Prueba funcional</li>
@@ -21,7 +22,7 @@
                           <h3>Información prueba funcional</h3>
                         </div>
                         <br>
-                            <div flex layout = "row" layout-align = "center center" ng-show = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida'">
+                            <div flex layout = "row" layout-align = "center center" ng-show = "(sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida P1' || sesion.getPracticaT().estadoPidEstadoP.nombre == 'Finalizada') && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
                               <md-button ng-click="toggleLeft()" class="md-raised">
                                 Pauta de evaluación
                               </md-button>
@@ -81,7 +82,7 @@
                                 <textarea type="text" ng-model="cp.estadoCidEstadoC.nombre" rows="3" disabled></textarea>
                               </md-input-container>
                             </div>
-                            <div layout = "column" layout-align="center center" ng-show = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Desarrollo' && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
+                            <div layout = "column" layout-align="center center" ng-show = "(sesion.getPracticaT().estadoPidEstadoP.nombre == 'Desarrollo P1' || sesion.getPracticaT().estadoPidEstadoP.nombre == 'Desarrollo P2') && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
                               <md-button class="md-raised md-primary" ng-click="editCP()">Editar</md-button>
                             </div>
                         </div>

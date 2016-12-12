@@ -9,6 +9,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#/home/alumno/verAsociadosC">Usuarios Comunidad</a></li>
         <li class="breadcrumb-item"><a href="#/home/alumno/terminal">Práctica terminal bancaria</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicainfo">Información Práctica</a></li>
         <li class="breadcrumb-item"><a href="#/home/alumno/practicahome">Inicio Práctica</a></li>
         <li class="breadcrumb-item active">Canal de comunicación</li>
       </ol>
@@ -58,7 +59,7 @@
 </div>
 </md-content>
 <br>
-<div flex layout = "row"  ng-show = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Desarrollo' && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
+<div flex layout = "row"  ng-hide = "sesion.practicaT.corrector.estadoidEstado.nombreE == 'Cerrada'">
           <md-input-container flex>
             <label>Mensaje</label>
             <input ng-model="mensaje">

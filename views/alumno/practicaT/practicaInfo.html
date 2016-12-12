@@ -13,15 +13,15 @@
 			</ol>
 		</div>		
 	</div>
-	<div layout-xs="column" flex layout = "column" layout-align = "center center">
+	<div flex layout = "column" layout-align = "center center" ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P1' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregir P1' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1'">
 	    <div>
 		    <h3>Información Práctica</h3>
 	    </div>
       <div layout = "column">
-      <div>
+        <div>
           <md-input-container>
           <label>Comunidad</label>
-            <input type="text" name = "comunidad" ng-model="sesion.getPracticaT().comunidadidComunidad.nombreC" disabled>
+            <input type="text" name = "comunidad" ng-model="sesion.practicaT.comunidadidComunidad.nombreC" disabled>
           </md-input-container>
         </div>
         <div>
@@ -42,33 +42,33 @@
             <input type="text" name = "fechai" ng-model="practica.fechaInicio" disabled>
           </md-input-container>
         </div>
-        <div ng-show = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregir' || sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida' ">
+        <div ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1' ">
           <md-input-container>
           <label>Fecha Termino</label>
-            <input type="text" name = "fechat" ng-model="practica.fechaTermino" disabled>
+            <input type="text" name = "fechat" ng-model="sesion.practicaT1.fechaTermino" disabled>
           </md-input-container>
         </div>
-        <div >
+        <div>
           <md-input-container>
           <label>Estado</label>
-            <input type="text" name = "fechat" ng-model="practica.estadoPidEstadoP.nombre" disabled>
+            <input type="text" name = "estado" ng-model="practica.estadoPidEstadoP.nombre" disabled>
           </md-input-container>
         </div>
-        <div ng-show = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida'">
+        <div ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1'">
           <md-input-container>
           <label>Nota</label>
-            <input type="text" name = "fechat" ng-model="practica.calificacion" disabled>
+            <input type="text" name = "nota" ng-model="sesion.practicaT1.calificacion" disabled>
           </md-input-container>
         </div>
-        <div ng-if = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida'">
+        <div ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1'">
           <md-input-container>
           <label>Observación</label>
-            <input type="text" name = "fechat" ng-model="practica.observacion" disabled>
+            <textarea type="text" name = "observacion" ng-model="sesion.practicaT1.observacion" rows = "2" disabled></textarea>
           </md-input-container>
         </div>
       </div>
 	    <div layout = "row">
-        <div layout = "column" ng-if = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Desarrollo' && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
+        <div layout = "column" ng-if = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P1' && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
             <md-card>
               <md-card-title>
                 <md-card-title-text>
@@ -81,8 +81,8 @@
                <md-button  ng-click="reanudar()">Ir</md-button>
               </md-card-actions>
             </md-card>
-          </div>
-        <div layout = "column" ng-if = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregir' || sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida' || sesion.practicaT.corrector.estadoidEstado.nombreE == 'Cerrada'">
+        </div>
+        <div layout = "column" ng-if = "sesion.practicaT.estadoPidEstadoP.nombre == 'Corregir P1' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1' || sesion.practicaT.corrector.estadoidEstado.nombreE == 'Cerrada'">
             <md-card>
               <md-card-title>
                 <md-card-title-text>
@@ -95,38 +95,8 @@
                <md-button  ng-click="reanudar()">Ir</md-button>
               </md-card-actions>
             </md-card>
-          </div>
-        <div layout = "column" ng-if = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida' || sesion.practicaT.corrector.estadoidEstado.nombreE == 'Cerrada'">
-            <md-card>
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-headline">Eliminar&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
-                  <br>
-            <span align = "center" class="md-subhead">Elimina los registros <br>de la práctica</span>
-                </md-card-title-text>
-              </md-card-title>
-              <md-card-actions layout="row" layout-align="end center">
-               <md-button  ng-click="eliminarP()">Eliminar</md-button>
-              </md-card-actions>
-            </md-card>
-          </div>
-      </div>
-      <div layout = "row">
-        <div layout = "column" ng-if = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida' && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
-            <md-card>
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-headline">Iniciar Práctica 2&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
-                  <br>
-            <span align = "center" class="md-subhead">Continua aplicando tus conocimientos <br>en la siguiente práctica</span>
-                </md-card-title-text>
-              </md-card-title>
-              <md-card-actions layout="row" layout-align="end center">
-               <md-button  ng-click="">Iniciar</md-button>
-              </md-card-actions>
-            </md-card>
-          </div>
-          <div layout = "column" ng-if = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida'">
+        </div>
+        <div layout = "column" ng-if = "sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1' && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
             <md-card>
               <md-card-title>
                 <md-card-title-text>
@@ -139,7 +109,268 @@
                <md-button  ng-click="verPauta()">Ir</md-button>
               </md-card-actions>
             </md-card>
+        </div>
+      </div>
+      <div layout = "row">
+      <div layout = "column" ng-if = "sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1' && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Iniciar Práctica 2&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Continua aplicando tus conocimientos <br>en la siguiente práctica</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="practica2()">Iniciar</md-button>
+              </md-card-actions>
+            </md-card>
+        </div>
+        <div layout = "column" ng-if = "sesion.practicaT.corrector.estadoidEstado.nombreE == 'Cerrada'">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Eliminar&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp&nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Elimina los registros <br>de la práctica</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="eliminarP()">Eliminar</md-button>
+              </md-card-actions>
+            </md-card>
+        </div>
+      </div>
+  </div>
+  <div layout-xs="column" flex layout = "column" layout-align = "center center" ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregir P2'">
+      <div>
+        <h3>Información Práctica</h3>
+      </div>
+      <div layout = "column">
+        <div>
+          <md-input-container>
+          <label>Comunidad</label>
+            <input type="text" name = "comunidad" ng-model="sesion.practicaT.comunidadidComunidad.nombreC" disabled>
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+          <label>Corrector</label>
+            <input type="text" name = "corrector" ng-model="correctorCompleto" disabled>
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+          <label>Email</label>
+            <input type="text" name = "email" ng-model="practica.corrector.emailU" disabled>
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+          <label>Fecha inicio</label>
+            <input type="text" name = "fechai" ng-model="sesion.practicaT2.fechaInicio" disabled>
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+          <label>Estado</label>
+            <input type="text" name = "estado" ng-model="practica.estadoPidEstadoP.nombre" disabled>
+          </md-input-container>
+        </div>
+        <div ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizada'">
+          <md-input-container>
+          <label>Nota</label>
+            <input type="text" name = "nota" ng-model="sesion.practicaT2.calificacion" disabled>
+          </md-input-container>
+        </div>
+        <div ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizada'">
+          <md-input-container>
+          <label>Observación</label>
+            <textarea type="text" name = "observacion" ng-model="sesion.practicaT2.observacion" rows = "2" disabled></textarea>
+          </md-input-container>
+        </div>
+      </div>
+      <div layout = "row">
+        <div layout = "column" ng-if = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P2' && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Reanudar&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Reanuda la práctica <br>en la terminal bancaria</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="reanudar()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+        </div>
+        <div layout = "column" ng-if = "sesion.practicaT.estadoPidEstadoP.nombre == 'Corregir P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizada' || sesion.practicaT.corrector.estadoidEstado.nombreE == 'Cerrada'">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Ver Práctica&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Visualiza la práctica realizada <br>en la terminal bancaria</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="reanudar()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+        </div>
+        <div layout = "column" ng-if = "sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizada' || sesion.practicaT.corrector.estadoidEstado.nombreE == 'Cerrada'">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Eliminar&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Elimina los registros <br>de la práctica</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="eliminarP()">Eliminar</md-button>
+              </md-card-actions>
+            </md-card>
+        </div>
+      </div>
+  </div>
+  <div layout-xs="column" flex layout = "column" layout-align = "center center" ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizada'">
+      <div>
+        <h3>Información Práctica</h3>
+      </div>
+      <div layout = "column" layout-align = "center center">
+          <div layout = "row">
+            <div>
+              <md-input-container>
+              <label>Comunidad</label>
+                <input type="text" name = "comunidad" ng-model="sesion.practicaT.comunidadidComunidad.nombreC" disabled>
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container>
+              <label>Corrector</label>
+                <input type="text" name = "corrector" ng-model="correctorCompleto" disabled>
+              </md-input-container>
+            </div>
+            <div>
+              <md-input-container>
+              <label>Email</label>
+                <input type="text" name = "email" ng-model="practica.corrector.emailU" disabled>
+              </md-input-container>
+            </div>
           </div>
+          <br>
+          <div layout = "row" layout-align = "center center">
+            <div layout = "column">
+            <div>
+              <h5>Práctica 1</h5>
+            </div>
+              <div>
+                <md-input-container>
+                <label>Fecha inicio</label>
+                  <input type="text" name = "fechai" ng-model="sesion.practicaT1.fechaInicio" disabled>
+                </md-input-container>
+              </div>
+              <div>
+                <md-input-container>
+                <label>Fecha Termino</label>
+                  <input type="text" name = "fechat" ng-model="sesion.practicaT1.fechaTermino" disabled>
+                </md-input-container>
+              </div>
+              <div>
+                <md-input-container>
+                <label>Estado</label>
+                  <input type="text" name = "estado" ng-model="practica.estadoPidEstadoP.nombre" disabled>
+                </md-input-container>
+              </div>
+              <div>
+                <md-input-container>
+                <label>Nota</label>
+                  <input type="text" name = "nota" ng-model="sesion.practicaT1.calificacion" disabled>
+                </md-input-container>
+              </div>
+              <div>
+                <md-input-container>
+                <label>Observación</label>
+                  <textarea type="text" name = "observacion" ng-model="sesion.practicaT1.observacion" rows = "1" disabled></textarea>
+                </md-input-container>
+              </div>
+            </div>
+            <div layout = "column">
+              <div>
+                <h5>Práctica 2</h2>
+              </div>
+              <div>
+                <md-input-container>
+                <label>Fecha inicio</label>
+                  <input type="text" name = "fechai" ng-model="sesion.practicaT2.fechaInicio" disabled>
+                </md-input-container>
+              </div>
+              <div>
+                <md-input-container>
+                <label>Fecha Termino</label>
+                  <input type="text" name = "fechat" ng-model="sesion.practicaT2.fechaTermino" disabled>
+                </md-input-container>
+              </div>
+              <div>
+                <md-input-container>
+                <label>Estado</label>
+                  <input type="text" name = "estado" ng-model="practica.estadoPidEstadoP.nombre" disabled>
+                </md-input-container>
+              </div>
+              <div>
+                <md-input-container>
+                <label>Nota</label>
+                  <input type="text" name = "nota" ng-model="sesion.practicaT2.calificacion" disabled>
+                </md-input-container>
+              </div>
+              <div>
+                <md-input-container>
+                <label>Observación</label>
+                  <textarea type="text" name = "observacion" ng-model="sesion.practicaT2.observacion" rows = "1" disabled></textarea>
+                </md-input-container>
+              </div>
+            </div>
+          </div>
+          <div layout = "row">
+            <div>
+              <md-input-container>
+              <label>Nota final</label>
+                <input type="text" name = "notaF" ng-model="sesion.practicaT.calificacion" disabled>
+              </md-input-container>
+            </div>
+          </div>
+      </div>
+      <div layout = "row">
+        <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Ver Práctica&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Visualiza la práctica realizada <br>en la terminal bancaria</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="reanudar()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+        </div>
+        <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Eliminar&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Elimina los registros <br>de la práctica</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="eliminarP()">Eliminar</md-button>
+              </md-card-actions>
+            </md-card>
+        </div>
       </div>
   </div>
 </md-content>

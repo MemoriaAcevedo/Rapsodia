@@ -1,5 +1,5 @@
 <md-content flex class="md-whiteframe-z3 md-padding">
- <div layout = "row">
+ <div layout = "row" ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1'">
   <div>
    <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back1()">
     <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
@@ -12,6 +12,24 @@
         <li class="breadcrumb-item"><a href="#/home/alumno/practicainfo">Información Práctica</a></li>
       <li class="breadcrumb-item"><a href="#/home/alumno/pautaE">Pauta de evaluación</a></li>
       <li class="breadcrumb-item active">Incidencias Práctica</li>
+    </ol>
+  </div>
+</div>
+
+<div layout = "row" ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregir P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizada'">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back1()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/home/alumno/verAsociadosC">Usuarios Comunidad</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/terminal">Práctica terminal bancaria</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicainfo">Información Práctica</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicahome">Inicio Práctica</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/pautaE">Pauta de evaluación</a></li>
+        <li class="breadcrumb-item active">Incidencias Práctica</li>
     </ol>
   </div>
 </div>  
@@ -545,6 +563,6 @@
                 </md-content>
               </md-tab>
             </md-tabs>
-</md-content>
+    </md-content>
 
 </md-content>

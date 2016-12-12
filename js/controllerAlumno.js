@@ -282,7 +282,22 @@ app.controller("practicasAlumnoAsignadoAyudanteCtrl", function($rootScope, $scop
 	
 	$scope.verInfo = function(item){
 		$rootScope.sesion.setPracticaT(item);
-		$location.path("/home/ayudante/practicaPreliminar");
+		restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+			.success(function (practica1){
+				if(practica1){
+					$rootScope.sesion.setPracticaT1(practica1);	
+					restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+						.success(function (practica2){
+							if(practica2){
+								$rootScope.sesion.setPracticaT2(practica2);	
+								
+							}
+							$location.path("/home/ayudante/practicaPreliminar");
+					});
+				}else{
+					$scope.showAlert("Error al cargar la práctica, intente más tarde");
+				}
+		});
 	}
 
 	$scope.gridOptions = {
@@ -301,7 +316,6 @@ app.controller("practicasAlumnoAsignadoAyudanteCtrl", function($rootScope, $scop
 	}
 });
 /*Fin Alumno controllers*/
-
 /*Inicio Terminal*/
 app.controller("terminalHomeCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.usuario = $rootScope.sesion.getUser();
@@ -310,7 +324,7 @@ app.controller("terminalHomeCtrl", function($rootScope, $scope, $location, $http
 	}
 	
 	$scope.crearP = function(){
-		restFactory.crearP($scope.usuario.rutU, $rootScope.sesion.getComunidad().idComunidad)
+		restFactory.crearP($scope.usuario.rutU, $rootScope.sesion.comunidad.idComunidad)
 		  .success(function (response){
 		  	if(response.message == "f"){
 		  		$scope.showAlert("Error al crear la práctica, intente más tarde");
@@ -320,12 +334,21 @@ app.controller("terminalHomeCtrl", function($rootScope, $scope, $location, $http
 		  	}else if(response.message == "n"){
 		  		$scope.showAlert("No puede iniciar una nueva práctica mientras no haya finalizado la actual");
 		  	}else{
-		  		restFactory.getPracticaByIdentificadorComunidad(response.message, $rootScope.sesion.getComunidad().idComunidad)
-				  .success(function (response){
-				  	if(response){
-				  		viewFactory.showSimpleToast("Práctica creada con éxito, se le enviará un correo electrónico");
-				  		$rootScope.sesion.setPracticaT(response);
-		  				$location.path("/home/alumno/practicahome");
+		  		restFactory.getPracticaByIdentificadorComunidad(response.message, $rootScope.sesion.comunidad.idComunidad)
+				  .success(function (practica){
+				  	if(practica){
+				  		$rootScope.sesion.setPracticaT(practica);
+				  		restFactory.getPractica1ByIdentificadorP(response.message, $rootScope.sesion.comunidad.idComunidad)
+						  .success(function (practica1){
+						  	if(practica1){
+						  		$rootScope.sesion.setPracticaT1(practica1);
+						  		viewFactory.showSimpleToast("Práctica creada con éxito, se le enviará un correo electrónico");
+				  				$location.path("/home/alumno/practicainfo");
+						  	}else{
+						  		$scope.showAlert("Error al crear la práctica, intente más tarde");
+						  	}
+						  	   	
+						});
 				  	}else{
 				  		$scope.showAlert("Error al crear la práctica, intente más tarde");
 				  	}
@@ -340,7 +363,7 @@ app.controller("terminalHomeCtrl", function($rootScope, $scope, $location, $http
             urlSync: false
     };
 	
-	restFactory.getPracticasByAlumnoComunidad($scope.usuario.idUsuario, $rootScope.sesion.getComunidad().idComunidad)
+	restFactory.getPracticasByAlumnoComunidad($scope.usuario.idUsuario, $rootScope.sesion.comunidad.idComunidad)
 		  .success(function (response){
 		  	$scope.gridOptions.data = response;	  	
 	});
@@ -360,16 +383,32 @@ app.controller("terminalHomeCtrl", function($rootScope, $scope, $location, $http
 
 	$scope.verInfo = function(item){
 		$rootScope.sesion.setPracticaT(item);
-		$location.path("/home/alumno/practicainfo");
+		restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+			.success(function (practica1){
+				if(practica1){
+					$rootScope.sesion.setPracticaT1(practica1);
+					restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+						.success(function (practica2){
+							if(practica2){
+								$rootScope.sesion.setPracticaT2(practica2);	
+							}
+							$location.path("/home/alumno/practicainfo");
+					});
+				}else{
+					$scope.showAlert("Error al cargar la práctica, intente más tarde");
+				}
+		});
+		
 	}	
 });
 app.controller("terminalInfoCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.usuario = $rootScope.sesion.getUser();
 	$scope.practica = $rootScope.sesion.getPracticaT();
 	$scope.correctorCompleto = $scope.practica.corrector.nombreU +" "+$scope.practica.corrector.apellidoU;
-
 	$scope.back = function(){
 		$rootScope.sesion.destroyPracticaT();
+		$rootScope.sesion.destroyPracticaT1();
+		$rootScope.sesion.destroyPracticaT2();
 		$location.path("/home/alumno/terminal");
 	}
 	
@@ -391,6 +430,36 @@ app.controller("terminalInfoCtrl", function($rootScope, $scope, $location, $http
 
 	$scope.verPauta = function(){
 		$location.path("/home/alumno/pautaE");
+	}
+
+	$scope.practica2 = function(){
+		restFactory.crearPractica2($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+			.success(function(response){
+				if(response.message == "t"){
+					restFactory.getPracticaByIdentificadorComunidad($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+						  .success(function (practica){
+						  	if(practica){
+						  		$rootScope.sesion.setPracticaT(practica);
+						  		restFactory.getPractica2ByIdentificadorP($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+								  .success(function (practica2){
+								  	if(practica2){
+								  		$rootScope.sesion.setPracticaT2(practica2);
+								  		viewFactory.showSimpleToast("Práctica 2 creada con éxito, se le enviará un correo electrónico");
+						  				$location.path("/home/alumno/practicahome");
+								  	}else{
+								  		$scope.showAlert("Error al crear la práctica, intente más tarde");
+								  	}
+								  	   	
+								});
+						  	}else{
+						  		$scope.showAlert("Error al crear la práctica, intente más tarde");
+						  	}
+						  	   	
+						});			
+				}else{
+					$scope.showAlert("Error al crear la práctica, intente más tarde");
+				}
+		});
 	}
 
 	$scope.eliminarP = function(){
@@ -420,14 +489,17 @@ app.controller("terminalInfoCtrl", function($rootScope, $scope, $location, $http
 });
 app.controller("practicaHomeCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.usuario = $rootScope.sesion.getUser();
-	$scope.nombreCorrector = $rootScope.sesion.getPracticaT().corrector.nombreU + " " + $rootScope.sesion.getPracticaT().corrector.apellidoU;
+	$scope.nombreCorrector = $rootScope.sesion.practicaT.corrector.nombreU + " " + $rootScope.sesion.practicaT.corrector.apellidoU;
 	$scope.back = function(){
-		$rootScope.sesion.destroyPracticaT();
-		$location.path("/home/alumno/terminal");
+		$location.path("/home/alumno/practicainfo");
 	}
 	
 	$scope.verHU = function(){
 		$location.path("/home/alumno/practicahu");
+	}
+
+	$scope.pauta = function(){
+		$location.path("/home/alumno/pautaE");
 	}
 
 	$scope.verTerminal = function(){
@@ -446,6 +518,22 @@ app.controller("practicaHomeCtrl", function($rootScope, $scope, $location, $http
 		$location.path("/home/alumno/practicacanal");
 	}
 
+	$scope.verReparacion = function(){
+		$location.path("/home/alumno/practica2");
+	}
+
+	$scope.showAlert = function(contenido) {
+
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
+
 	$scope.enviarCoreccion = function(){
 		var confirm = $mdDialog.confirm()
 			          .title('Desea enviar la práctica a corrección?')
@@ -455,15 +543,68 @@ app.controller("practicaHomeCtrl", function($rootScope, $scope, $location, $http
 			          .cancel('Cancelar');
 
 			    $mdDialog.show(confirm).then(function() {
-			    	restFactory.correccionP($rootScope.sesion.getPracticaT().idPractica)
+			    	restFactory.correccionP($rootScope.sesion.getPracticaT1().idPractica1)
+			    		.success(function(response){
+
+								if(response.message == "t"){							
+									restFactory.getPracticaByIdentificadorComunidad($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+							    		.success(function(response){
+												if(response){	
+													restFactory.getPractica1ByIdentificadorP($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+													  .success(function (practica1){
+													  	if(practica1){
+													  		viewFactory.showSimpleToast("Práctica enviada a corrección, se le notificará al corrector por correo electrónico");
+															$rootScope.sesion.setPracticaT(response);
+													  		$rootScope.sesion.setPracticaT1(practica1);
+															$location.path("/home/alumno/practicainfo");	
+													  	}else{
+													  		$scope.showAlert("Error al crear la práctica, intente más tarde");
+													  	}
+													  	   	
+													});
+																
+												}else{
+													$scope.showAlert("Error al cargar la práctica, intente más tarde");
+												}
+									});			
+								}else{
+									$scope.showAlert("Error al enviar a corrección, intente más tarde");
+								}
+						});
+			    	return "";
+			    }, function() {
+			    	return "";
+			    });	
+	}
+
+	$scope.enviarCoreccion2 = function(){
+		var confirm = $mdDialog.confirm()
+			          .title('Desea enviar la práctica a corrección?')
+			          .textContent('La práctica será enviada a corrección')
+			          .ariaLabel('Lucky day')
+			          .ok('Enviar')
+			          .cancel('Cancelar');
+
+			    $mdDialog.show(confirm).then(function() {
+			    	restFactory.correccionP2($rootScope.sesion.getPracticaT2().idPractica2)
 			    		.success(function(response){
 								if(response.message == "t"){							
 									restFactory.getPracticaByIdentificadorComunidad($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
 							    		.success(function(response){
-												if(response){
-													viewFactory.showSimpleToast("Práctica enviada a corrección con éxito");
-													$rootScope.sesion.setPracticaT(response);
-													$location.path("/home/alumno/practicainfo");				
+												if(response){	
+													restFactory.getPractica2ByIdentificadorP($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+													  .success(function (practica2){
+													  	if(practica2){
+													  		viewFactory.showSimpleToast("Práctica enviada a corrección, se le notificará al corrector por correo electrónico");
+															$rootScope.sesion.setPracticaT(response);
+													  		$rootScope.sesion.setPracticaT2(practica2);
+															$location.path("/home/alumno/practicainfo");	
+													  	}else{
+													  		$scope.showAlert("Error al crear la práctica, intente más tarde");
+													  	}
+													  	   	
+													});
+																
 												}else{
 													$scope.showAlert("Error al cargar la práctica, intente más tarde");
 												}
@@ -543,6 +684,11 @@ app.controller("practicaCPCtrl", function($rootScope, $scope, $location, $http, 
             data: [],
             urlSync: false
     };
+
+    $scope.gridOptions1 = {
+            data: [],
+            urlSync: false
+    };
     
     restFactory.getHU()
 		  .success(function (response){
@@ -552,7 +698,8 @@ app.controller("practicaCPCtrl", function($rootScope, $scope, $location, $http, 
 	
 	restFactory.getCPByPractica($rootScope.sesion.getPracticaT().idPractica)
 		.success(function (response){
-		 $scope.gridOptions.data = response;	  	
+		 $scope.gridOptions.data = response;
+		 $scope.gridOptions1.data = response;	  	
 	});
 	
 	$scope.crearCP = function(){
@@ -578,6 +725,7 @@ app.controller("practicaCPCtrl", function($rootScope, $scope, $location, $http, 
 				restFactory.getCPByPractica($rootScope.sesion.getPracticaT().idPractica)
 					.success(function (response){
 					 $scope.gridOptions.data = response;
+					 $scope.gridOptions1.data = response;
 					 viewFactory.showSimpleToast("Caso de prueba creado con éxito");	  	
 				});	
 			}else{
@@ -825,6 +973,17 @@ app.controller("practicaIncidenciasCtrl", function($rootScope, $scope, $location
             data: [],
             urlSync: false
     };
+
+    $scope.gridOptions2 = {
+            data: [],
+            urlSync: false
+    };
+
+    $scope.gridOptions3 = {
+            data: [],
+            urlSync: false
+    };
+
     restFactory.getCasosP($rootScope.sesion.getPracticaT().idPractica)
 		  .success(function (response){
 		  	$scope.ninguno = new Object();
@@ -842,12 +1001,14 @@ app.controller("practicaIncidenciasCtrl", function($rootScope, $scope, $location
 	
 	restFactory.getIncidenciasP($rootScope.sesion.getPracticaT().idPractica)
 		  .success(function (response){
-		  $scope.gridOptions.data = response;	  	
+		  $scope.gridOptions.data = response;
+		  $scope.gridOptions2.data = response;	  	
 	});
 
 	restFactory.getIncidenciasCP($rootScope.sesion.getPracticaT().idPractica)
 		  .success(function (response){
-		  	$scope.gridOptions1.data = response;	  	
+		  	$scope.gridOptions1.data = response;
+		  	$scope.gridOptions3.data = response;		  	
 	});
 	
 	$scope.crearI = function(){
@@ -869,7 +1030,8 @@ app.controller("practicaIncidenciasCtrl", function($rootScope, $scope, $location
 			  		restFactory.getIncidenciasP($rootScope.sesion.getPracticaT().idPractica)
 					  .success(function (response){
 					  	viewFactory.showSimpleToast("Incidencia creada con éxito");
-					  	$scope.gridOptions.data = response;	  	
+					  	$scope.gridOptions.data = response;	
+					  	$scope.gridOptions2.data = response;	  	  	
 					});
 				}else{
 					$scope.showAlert("Error al crear la incidencia, intente más tarde");
@@ -889,7 +1051,8 @@ app.controller("practicaIncidenciasCtrl", function($rootScope, $scope, $location
 			  		restFactory.getIncidenciasCP($rootScope.sesion.getPracticaT().idPractica)
 					  .success(function (response){
 					  	viewFactory.showSimpleToast("Incidencia de caso de prueba creada con éxito");
-					  	$scope.gridOptions1.data = response;	  	
+					  	$scope.gridOptions1.data = response;
+					  	$scope.gridOptions3.data = response;			  	
 					});
 				}else{
 					$scope.showAlert("Error al crear la incidencia, intente más tarde");
@@ -1229,11 +1392,16 @@ app.controller("practicaCCCtrl", function($rootScope, $scope, $location, $http, 
 				$scope.showAlert("El mensaje no puede tener más de 1000 caracteres");
 				return "";
 			}
-			restFactory.crearMensaje($rootScope.sesion.getPracticaT().idPractica, $scope.mensaje, "r")
+
+			$scope.mensaje1 = new Object();
+			$scope.mensaje1.idP = $rootScope.sesion.practicaT.idPractica;
+			$scope.mensaje1.mensaje = $scope.mensaje;
+			$scope.mensaje1.tipo = "r";
+			restFactory.crearMensaje($scope.mensaje1)
 				.success(function(response){
 				if(response.message == "true"){
 					viewFactory.showSimpleToast("Mensaje enviado con éxito");
-					restFactory.getMensajesP($rootScope.sesion.getPracticaT().idPractica)
+					restFactory.getMensajesP($rootScope.sesion.practicaT.idPractica)
 						.success(function(response){
 							$scope.mensajes = response;
 					});
@@ -1244,41 +1412,6 @@ app.controller("practicaCCCtrl", function($rootScope, $scope, $location, $http, 
 		}
 	}
 });
-app.controller("practicaHUCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
-	$scope.back = function(){
-		$location.path("/home/alumno/practicahome");
-	}
-
-	$scope.hu = {};
-	$scope.gridOptions = {
-            data: [],
-            urlSync: false
-    };
-
-	restFactory.getHU()
-			.success(function(response){
-				$scope.gridOptions.data = response;
-	});
-
-
-	$scope.verPA = function(item){
-		$rootScope.sesion.setHU(item);
-		$location.path("/home/alumno/practicapa");
-	}	
-});
-app.controller("practicaPACtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
-	$scope.back = function(){
-		$rootScope.sesion.destroyHU();
-		$location.path("/home/alumno/practicahu");
-	}
-
-	$scope.pas = {};
-	
-	restFactory.getPA($rootScope.sesion.hu.idHU)
-			.success(function(response){
-				$scope.gridOptions.data = response;
-	});		
-});
 app.controller("alumnoPautaECtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 
 	$scope.back = function(){
@@ -1287,6 +1420,11 @@ app.controller("alumnoPautaECtrl", function($rootScope, $scope, $location, $http
 
 	$scope.back1 = function(){
 		$location.path("/home/alumno/pautaE");
+	}
+
+	
+	$scope.back2 = function(){
+		$location.path("/home/alumno/practicahome");
 	}
 
 	$scope.verTerminal = function(){
@@ -1338,4 +1476,91 @@ app.controller("alumnoPautaECtrl", function($rootScope, $scope, $location, $http
 	$scope.iPA5 = [{idI: "I-1", descripcion: "Función de cierre de cuenta no cambia el estado del usuario, estando siempre activo"}, {idI: "I-2", descripcion: "No notificar al usuario sobre la realización de operaciones"},
 	{idI: "I-3", descripcion: "Ventana emergente se encuentra mal escrito, además tiene las funcionalidad de botones cambiadas. El botón “cancelar” sirve para cerrar la cuenta y “activar” para cancelar el cierre."}];
 });
+app.controller("practicaHUCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
+	$scope.back = function(){
+		$location.path("/home/alumno/practicahome");
+	}
+
+	$scope.hu = {};
+	restFactory.getHU()
+			.success(function(response){
+				$scope.hu = response;
+	});
+
+	$scope.pas = {};
+	restFactory.getPAS()
+			.success(function(response){
+				$scope.pas = response;
+	});
+});
 /*Fin Terminal*/
+/*Práctica 2 terminal inicio*/
+app.controller("alumnoPractica2Ctrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
+
+	$scope.practica2 = $rootScope.sesion.practicaT2;
+	$scope.githubURL = $rootScope.sesion.practicaT2.urlGithub;
+	$scope.codenvyURL = $rootScope.sesion.practicaT2.urlCodenvy;
+	$scope.github = $scope.practica2.urlGithub;
+	$scope.codenvy = $scope.practica2.urlCodenvy;
+	$scope.back = function(){
+		$location.path("/home/alumno/practicahome");
+	}
+
+	$scope.back1 = function(){
+		$location.path("/home/alumno/practica2");
+	}
+
+	$scope.instrucciones = function(){
+		$location.path("/home/alumno/practica2Instrucciones");
+	}
+
+	$scope.repositorio = function(){
+		$location.path("/home/alumno/practica2Repositorio");
+	}
+
+	$scope.showAlert = function(contenido) {
+
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
+
+	$scope.codenvyF = function(){
+		window.open($rootScope.sesion.practicaT2.urlCodenvy);
+	}
+
+	$scope.githubF = function(){
+		window.open($rootScope.sesion.practicaT2.urlGithub);
+	}
+
+	$scope.guardar = function(){
+		$scope.practica2.urlGithub = $scope.github;
+		$scope.practica2.urlCodenvy = $scope.codenvy;
+		restFactory.guardarAR($scope.practica2)
+			.success(function(response){
+				if(response.message == "e"){
+					$scope.showAlert("No hay URLs para guardar");
+				}else if(response.message == "i"){
+					$scope.showAlert("Formato URLs incorrecto, Ej: https://www.google.cl");
+					$rootScope.sesion.practicaT2.urlGithub = $scope.githubURL;
+					$rootScope.sesion.practicaT2.urlCodenvy = $scope.codenvyURL;
+				}else{
+					restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+								  .success(function (practica2){
+								  	if(practica2){
+								  		$rootScope.sesion.setPracticaT2(practica2);
+								  		viewFactory.showSimpleToast("URLs guardadas, se le enviará un correo electrónico al corrector");
+						  				$location.path("/home/alumno/practica2Repositorio");
+								  	}   	
+					});
+					
+				}
+		});
+	}
+});
+/*Práctica 2 terminal fin*/

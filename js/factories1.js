@@ -257,8 +257,8 @@ app.factory("restFactory", ["$http", function($http){
 		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getMensajesP/"+idP);
 	};
 
-	restFactory.crearMensaje = function(idP, mensaje, tipo){ 
-		return $http.post("http://localhost:8080/MockRapso-war/webresources/practicaT/crearMensaje/"+idP+"/"+mensaje+"/"+tipo);
+	restFactory.crearMensaje = function(mensaje){ 
+		return $http.post("http://localhost:8080/MockRapso-war/webresources/practicaT/crearMensaje", mensaje);
 	};
 
 	restFactory.getAlumnosByCorrectorComunidad = function(idC, idComunidad){ 
@@ -291,5 +291,32 @@ app.factory("restFactory", ["$http", function($http){
 
 	//Sprint 3.3
  
+	//Sprint 3.4
+	restFactory.getPractica1ByIdentificadorP = function(idP1, idC){ 
+		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getPractica1ByIdentificadorP/"+idP1+"/"+idC);
+	};
+
+	restFactory.getPractica2ByIdentificadorP = function(idP2, idC){ 
+		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getPractica2ByIdentificadorP/"+idP2+"/"+idC);
+	};
+
+	restFactory.crearPractica2 = function(identificadorP, idC){ 
+		return $http.post("http://localhost:8080/MockRapso-war/webresources/practicaT/crearPractica2/"+identificadorP+"/"+idC);
+	};
+
+	restFactory.correccionP2 = function(idP2){ 
+		return $http.post("http://localhost:8080/MockRapso-war/webresources/practicaT/correccionP2/"+idP2);
+	};
+
+	restFactory.guardarAR = function(practica2){ 
+		return $http.post("http://localhost:8080/MockRapso-war/webresources/practicaT/guardarAR", practica2);
+	};
+
+	restFactory.evaluarP2 = function(idP2, nota, obs){ 
+		return $http.post("http://localhost:8080/MockRapso-war/webresources/practicaT/evaluarP2/"+idP2+"/"+nota+"/"+obs);
+	};
+	//Sprint 3.4
+
+	//Sprint 3.5
 	return restFactory;
 }]);

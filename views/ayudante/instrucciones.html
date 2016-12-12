@@ -1,0 +1,349 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+  <div layout = "row">
+    <div>
+     <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back1()">
+      <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+     </md-button>
+    </div>
+    <div flex>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/home/ayudante/verAsignados">Prácticas Alumno</a></li>
+        <li class="breadcrumb-item"><a href="#/home/ayudante/practicaPreliminar">Práctica Alumno</a></li>
+        <li class="breadcrumb-item"><a href="#/home/ayudante/practicahome">Inicio Práctica</a></li>
+        <li class="breadcrumb-item"><a href="#/home/ayudante/practica2">Gestión de reparación módulo bancario</a></li>
+        <li class="breadcrumb-item active">Instrucciones de configuración</li>
+      </ol>
+    </div>  
+  </div>
+      <div flex layout = "column" layout-align = "center center">
+        <h3>Instrucciones de configuración alumnos</h3>
+      </div>
+
+      <md-content>
+              <md-tabs md-dynamic-height="" md-border-bottom="">
+                <md-tab label="1. Creación Cuenta">
+                  <md-content class="md-padding">
+                      <div flex layout = "column" layout-align = "center center">
+                        <h4>Creación de cuenta</h4>
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                      <div align = "center">
+                          <p>1. Ingrese a la página oficial de codenvy, y diríjase a la opción "login".</p>
+                        <img  src="img/codenvy/cc1.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                          <div align = "center">
+                          <br>
+                          <br>
+                            <p>2. Seleccione la opción "Create One" e registrese con el e-mail con el cual se registró en Rapsodia. En el caso que usted posea una cuenta en Google+ con el e-mail de Rapsodia, seleccione el ícono de "Google+".</p>
+                          </div>
+                        <div layout = "row" layout-align = "center center">
+                          <div layout = "column" layout-align = "center center">
+                          <br>
+                            <img  src="img/codenvy/cc2.png" class="img-thumbnail" alt="Cinque Terre" width="420" height="420"> 
+                          </div>
+                          <div layout = "column" layout-align = "center center">
+                          <br>
+                            <img  src="img/codenvy/cc3.png" class="img-thumbnail" alt="Cinque Terre" width="400" height="400"> 
+                          </div> 
+                        </div>
+                      </div> 
+                      <div layout = "column" layout-align = "center center">
+                          <br>
+                            <img  src="img/codenvy/cc2.1.png" class="img-thumbnail" alt="Cinque Terre" width="600" height="600"> 
+                          </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                          <div align = "center">
+                          <br>
+                            <p>3. Una vez registrado será notificado a su e-mail para confirmar su cuenta en codenvy".</p>
+                          </div>
+                        <img  src="img/codenvy/cc4.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                          <div align = "center">
+                            <br>
+                              <p>4. Para finalizar el registro de la cuenta, debe ingresar los datos solicitados en el formulario y seleccionar la opción "Get Started".</p>
+                          </div>
+                        <img  src="img/codenvy/cc5.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>5. Página de inicio cuenta de usuario.</p>
+                          </div>
+                        <img  src="img/codenvy/cc6.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>     
+                  </md-content>
+                </md-tab>
+                <md-tab label="2. Creación ambiente de trabajo">
+                  <md-content class="md-padding">
+                      <div flex layout = "column" layout-align = "center center">
+                        <h4>Creación de ambiente de trabajo</h4>
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                      <div align = "center">
+                          <p>1. Como pre-requisito debe poseer y estar autenticado en su cuenta en github. A continuación se realizará una copia del repositorio de práctica del módulo bancario donde se encuentra el código a reparar (URL Repositorio: https://github.com/sebastiancevedo/practicaRapsodia), a un repositorio propio. Para realizar esto seleccione la opción "Fork".</p>
+                      </div>
+                        <img  src="img/codenvy/a1.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                          <div layout = "column" layout-align = "center center">
+                          <br>
+                          <div align = "center">
+                            <p>2. Seleccione el contexto de su cuenta de github donde desea copiar el repositorio.</p>
+                          </div>
+                            <img  src="img/codenvy/a2.png" class="img-thumbnail" alt="Cinque Terre" width="501" height="501"> 
+                          </div>
+                          <div layout = "column" layout-align = "center center">
+                          <br>
+                          <div align = "center">
+                            <p>3. Una vez copiado el repositorio a nuesta cuenta de github, se procede a configurar el ambiente de trabajo. Para comenzar le indicamos a la plataforma que utilizaremos código que proviene desde nuestra cuenta de github seleccionando así las opciones "Import from existing location" y 
+                            "Github". Ya seleccionadas estas opciones debe conectar la plataforma con github utilizando la opción "Connect Your Github Account"</p>
+                          </div>
+                            <img  src="img/codenvy/a3.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                          </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                          <div align = "center">
+                          <br>
+                            <p>4. Una vez que la plataforma se haya conectado con github, debe indicar el contexto de su repositorio donde copió el código de práctica y seleccionar el repositorio con el código a utilizar en la plataforma.</p>
+                          </div>
+                        <img  src="img/codenvy/a4.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                          <div align = "center">
+                            <br>
+                              <p>5. Seleccione el recipiente el cual posee las características necesarias para la actividad, para este caso debe seleccionar "Java".</p>
+                          </div>
+                        <img  src="img/codenvy/a5.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>6. Seleccione la pila de librerias necesarias para el recipiente, para este caso debe seleccionar "Java".</p>
+                          </div>
+                        <img  src="img/codenvy/a6.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div> 
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>7. Especifique el nombre del ambiente de trabajo, con el siguiente formato (rut del usuario)p(número de práctica) Ejemplo: 18486956-kp1. Además especifique la cantidad de RAM para el ambiente con 2GB de RAM</p>
+                          </div>
+                        <img  src="img/codenvy/a7.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>8. Finalmente indique el nombre de su proyecto, este debe poseer el mismo nombre que su repositorio en github, y seleccione la opción "Create".</p>
+                          </div>
+                        <img  src="img/codenvy/a8.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>9. A continuación para que su corrector pueda llevar un siguimiento de su trabajo, este será invitado a colaborar dentro del ambiente de trabajo creado, para esto diríjase a "Workspaces" y seleccione su ambiente de trabajo.</p>
+                          </div>
+                        <img  src="img/codenvy/a9.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>10. Dentro de la configuración del ambiente, dirijirse a "Share" y "Add Developer".</p>
+                          </div>
+                        <img  src="img/codenvy/a10.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>11. Indique el email del corrector y al final de este finalizar con punto y coma para que se active la opción "Share". Ejemplo acevedoc.sebastian@gmail.com;.</p>
+                          </div>
+                        <img  src="img/codenvy/a11.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>12. Seleccione el ambiente de práctica para ingresar a este.</p>
+                          </div>
+                        <img  src="img/codenvy/a12.png" class="img-thumbnail" alt="Cinque Terre" width="300" height="300"> 
+                      </div> 
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>13. Ambiente de práctica.</p>
+                          </div>
+                        <img  src="img/codenvy/a13.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>            
+                  </md-content>
+                </md-tab>
+                <md-tab label="3. Configuración de ambiente de trabajo">
+                  <md-content class="md-padding">
+                      <div flex layout = "column" layout-align = "center center">
+                        <h4>Configuración de ambiente de trabajo</h4>
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                      <div align = "center">
+                          <p>1. Ingrese a su ambiente de trabajo.</p>
+                      </div>
+                        <img  src="img/codenvy/a13.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                          <div layout = "column" layout-align = "center center">
+                          <br>
+                          <div align = "center">
+                            <p>2. Seleccione "practicaRapsodia [console-java-simple]" para ver la organización de las carpetas del proyecto.</p>
+                          </div>
+                            <img  src="img/codenvy/a14.png" class="img-thumbnail" alt="Cinque Terre" width="501" height="501"> 
+                          </div>
+                          <div layout = "column" layout-align = "center center">
+                          <br>
+                          <div align = "center">
+                            <p>3. Seleccione el paquete "org.eclipse.che.examples" para ver las clases del proyecto.</p>
+                          </div>
+                            <img  src="img/codenvy/a15.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                          </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                          <div align = "center">
+                          <br>
+                            <p>4. Seleccione el paquete "com.codenvy.example.java" para ver las clases para confeccionar las pruebas.</p>
+                          </div>
+                        <img  src="img/codenvy/a16.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                          <div align = "center">
+                            <br>
+                              <p>5. Para guardar su progreso en su repositorio de github. En primera instancia debe indicar al ambiente de trabajo sus credenciales de github, para esto diríjase a Profile -> Preferences.</p>
+                          </div>
+                        <img  src="img/codenvy/a20.1.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>6. Seleccione Git -> Committer, y especifique su nombre y e-mail de su cuenta de github.</p>
+                          </div>
+                        <img  src="img/codenvy/a21.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div> 
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>7. Para guardar el progreso en su repositorio, diríjase a "Git".</p>
+                          </div>
+                        <img  src="img/codenvy/a17.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>8. Seleccione "Add To Index..." para agregar los cambios realizados al repositorio de github</p>
+                          </div>
+                        <img  src="img/codenvy/a18.png" class="img-thumbnail" alt="Cinque Terre" width="300" height="300"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>9. Seleccione "Commit..." para confirmar los archivos que serán registrados en el repositorio.</p>
+                          </div>
+                        <img  src="img/codenvy/a19.png" class="img-thumbnail" alt="Cinque Terre" width="300" height="300"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>10. Ingrese un comentario para identificar el commit a realizar y presione "Commit".</p>
+                          </div>
+                        <img  src="img/codenvy/a22.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>11. Seleccione "Remotes..." y "Push", de esta forma se envía el progreso a su repositorio de github.</p>
+                          </div>
+                        <img  src="img/codenvy/a23.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>12. Seleccione "Push".</p>
+                          </div>
+                        <img  src="img/codenvy/a24.png" class="img-thumbnail" alt="Cinque Terre" width="800" height="800"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>13. Push realizado con éxito a su repositorio.</p>
+                          </div>
+                        <img  src="img/codenvy/a25.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>14. A continuación se configurará el comando para ejecutar el proyecto. Para esto seleccione "Edit Commands..."</p>
+                          </div>
+                        <img  src="img/codenvy/a26.png" class="img-thumbnail" alt="Cinque Terre" width="800" height="800"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>15. Cree un nuevo comando presionando el ícono ubicado al lado derecho del título Maven. Posteriormente ingrese los datos especificados en la imagen en la definición del comando.</p>
+                          </div>
+                        <img  src="img/codenvy/a27.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>16. Seleccione en la sección de comandos "build" y presione el botón especificado en la imagen. De esta manera las clases del proyecto serán compiladas y se ejecutarán las pruebas automatizadas implementadas.</p>
+                          </div>
+                        <img  src="img/codenvy/a28.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>17. Terminal del ambiente de trabajo donde puede visualizar las acciones ejecutados por el comando "Build" y sus respectivos resultados.</p>
+                          </div>
+                        <img  src="img/codenvy/a29.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>18. Seleccione en la sección de comandos "practicaRapsodia: run" y presione el botón especificado en la imagen. Con esto el proyecto será ejecutado.</p>
+                          </div>
+                        <img  src="img/codenvy/a30.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                      <br>
+                        <div align = "center">
+                            <br>
+                              <p>19. Terminal con el resultado de la ejecución del proyecto.</p>
+                          </div>
+                        <img  src="img/codenvy/a31.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>               
+                  </md-content>
+                </md-tab>
+              </md-tabs>
+      </md-content>
+</md-content>

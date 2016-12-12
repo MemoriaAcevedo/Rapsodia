@@ -1,0 +1,72 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+	<div layout = "row">
+	  <div>
+	   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+	    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+	   </md-button>
+	  </div>
+		<div flex>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/home/alumno/verAsociadosC">Usuarios Comunidad</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/terminal">Práctica terminal bancaria</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicainfo">Información Práctica</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicahome">Inicio Práctica</a></li>
+        <li class="breadcrumb-item active">Gestión de reparación módulo bancario</li>
+      </ol>
+    </div>  
+	</div>
+	  <div layout-xs="column" flex layout = "column" layout-align = "center center">
+	    <div>
+		    <h3>Gestión de reparación módulo bancario</h3>
+	    </div>
+
+      <div align = "center">
+        <p>A continuación se presentan dos secciones donde en la primera se entregan las instrucciones y pasos necesarios para la configuración del entorno de desarrollo y repositorios. En la segunda sección deberá especificar la URL de su ambiente de trabajo y repositorio para que el corrector pueda visualizar su avance a lo largo de la práctica.</p>
+      </div>
+        <br>
+      <div layout = "column" layout-align = "center center" ng-show = "sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
+        <div>
+          <h5>Acceso directo al ambiente de desarrollo y repositorio del usuario</h5>
+        </div>
+        <div layout = "row" layout-align = "center center">
+          <div>
+            <md-button  class="md-raised" ng-disabled = "sesion.practicaT2.urlCodenvy == ''" ng-click="codenvyF()">Codenvy</md-button>
+          </div>
+          <div>
+            <md-button  class="md-raised" ng-disabled = "sesion.practicaT2.urlGithub == ''" ng-click="githubF()">Github</md-button>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div layout = "row" layout-align = "center center">
+        <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Instrucciones de configuración&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Visualize las instrucciones <br>para configurar el ambiente de trabajo</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="instrucciones()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+        </div>
+        <div layout = "column" ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P2' && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Ambiente de trabajo y repositorio&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Visualize la URL <br>de su ambiente de trabajo y repositorio</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="repositorio()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+        </div>
+	    </div>
+</md-content>

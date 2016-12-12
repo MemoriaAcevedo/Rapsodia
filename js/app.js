@@ -231,7 +231,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
         .state("alumnopracticahome", {
             url: "/home/alumno/practicahome",
-            templateUrl: "views/alumno/practicaT/practicahome.html",
+            templateUrl: "views/alumno/practicaT/practicaHome.html",
 			controller: "practicaHomeCtrl",
 			resolve: {
 			"check": function($location,$rootScope){
@@ -269,24 +269,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: "/home/alumno/practicahu",
             templateUrl: "views/alumno/practicaT/practicaHU.html",
 			controller: "practicaHUCtrl",
-			resolve: {
-			"check": function($location,$rootScope){
-				if( !$rootScope.auth.isLoggedIn()){
-					$location.path('/');
-				}else{
-					if($rootScope.auth.isProfesor()){
-						$location.path('/home/profesor');
-					}else if($rootScope.auth.isAdministrador()){
-						$location.path('/home/administrador');
-					}
-				}
-			}	
-			}
-        })
-        .state("alumnopracticapa", {
-            url: "/home/alumno/practicapa",
-            templateUrl: "views/alumno/practicaT/practicaPA.html",
-			controller: "practicaPACtrl",
 			resolve: {
 			"check": function($location,$rootScope){
 				if( !$rootScope.auth.isLoggedIn()){
@@ -467,6 +449,64 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: "/home/alumno/pautaIncidencias",
             templateUrl: "views/alumno/practicaT/pautaIncidencias.html",
 			controller: "alumnoPautaECtrl",
+			resolve: {
+			"check": function($location,$rootScope){
+				if( !$rootScope.auth.isLoggedIn()){
+					$location.path('/');
+				}else{
+					if($rootScope.auth.isProfesor()){
+						$location.path('/home/profesor');
+					}else if($rootScope.auth.isAdministrador()){
+						$location.path('/home/administrador');
+					}
+				}
+			}	
+			}
+        })
+
+        //GESTIÓN PRÁCTICA 2
+        .state("alumnopractica2", {
+            url: "/home/alumno/practica2",
+            templateUrl: "views/alumno/practicaT/practica2.html",
+			controller: "alumnoPractica2Ctrl",
+			resolve: {
+			"check": function($location,$rootScope){
+				if( !$rootScope.auth.isLoggedIn()){
+					$location.path('/');
+				}else{
+					if($rootScope.auth.isProfesor()){
+						$location.path('/home/profesor');
+					}else if($rootScope.auth.isAdministrador()){
+						$location.path('/home/administrador');
+					}
+				}
+			}	
+			}
+        })
+
+        .state("alumnopracticainstrucciones", {
+            url: "/home/alumno/practica2Instrucciones",
+            templateUrl: "views/alumno/practicaT/instrucciones.html",
+			controller: "alumnoPractica2Ctrl",
+			resolve: {
+			"check": function($location,$rootScope){
+				if( !$rootScope.auth.isLoggedIn()){
+					$location.path('/');
+				}else{
+					if($rootScope.auth.isProfesor()){
+						$location.path('/home/profesor');
+					}else if($rootScope.auth.isAdministrador()){
+						$location.path('/home/administrador');
+					}
+				}
+			}	
+			}
+        })
+
+        .state("alumnopracticarepositorio", {
+            url: "/home/alumno/practica2Repositorio",
+            templateUrl: "views/alumno/practicaT/repositorio.html",
+			controller: "alumnoPractica2Ctrl",
 			resolve: {
 			"check": function($location,$rootScope){
 				if( !$rootScope.auth.isLoggedIn()){
@@ -699,24 +739,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			}	
 			}
         })
-        .state("ayudantepracticapa", {
-            url: "/home/ayudante/practicapa",
-            templateUrl: "views/ayudante/verPA.html",
-			controller: "ayudantePracticaPACtrl",
-			resolve: {
-			"check": function($location,$rootScope){
-				if( !$rootScope.auth.isLoggedIn()){
-					$location.path('/');
-				}else{
-					if($rootScope.auth.isProfesor()){
-						$location.path('/home/profesor');
-					}else if($rootScope.auth.isAdministrador()){
-						$location.path('/home/administrador');
-					}
-				}
-			}	
-			}
-        })
         .state("ayudantepautae", {
             url: "/home/ayudante/pautaE",
             templateUrl: "views/ayudante/pautaE.html",
@@ -748,6 +770,64 @@ app.config(function($stateProvider, $urlRouterProvider) {
 						$location.path('/home/administrador');
 					}else if($rootScope.auth.isProfesor() && !$rootScope.auth.isComunidad()){
 						$location.path('/home/profesor');
+					}
+				}
+			}	
+			}
+        })
+
+        //GESTIÓN PRÁCTICA 2
+        .state("ayudantepractica2", {
+            url: "/home/ayudante/practica2",
+            templateUrl: "views/ayudante/practica2.html",
+			controller: "ayudantePractica2Ctrl",
+			resolve: {
+			"check": function($location,$rootScope){
+				if( !$rootScope.auth.isLoggedIn()){
+					$location.path('/');
+				}else{
+					if($rootScope.auth.isProfesor()){
+						$location.path('/home/profesor');
+					}else if($rootScope.auth.isAdministrador()){
+						$location.path('/home/administrador');
+					}
+				}
+			}	
+			}
+        })
+
+        .state("ayudantepracticainstrucciones", {
+            url: "/home/ayudante/practica2Instrucciones",
+            templateUrl: "views/ayudante/instrucciones.html",
+			controller: "ayudantePractica2Ctrl",
+			resolve: {
+			"check": function($location,$rootScope){
+				if( !$rootScope.auth.isLoggedIn()){
+					$location.path('/');
+				}else{
+					if($rootScope.auth.isProfesor()){
+						$location.path('/home/profesor');
+					}else if($rootScope.auth.isAdministrador()){
+						$location.path('/home/administrador');
+					}
+				}
+			}	
+			}
+        })
+
+        .state("ayudantepracticainstruccionesC", {
+            url: "/home/ayudante/practica2InstruccionesC",
+            templateUrl: "views/ayudante/instruccionesC.html",
+			controller: "ayudantePractica2Ctrl",
+			resolve: {
+			"check": function($location,$rootScope){
+				if( !$rootScope.auth.isLoggedIn()){
+					$location.path('/');
+				}else{
+					if($rootScope.auth.isProfesor()){
+						$location.path('/home/profesor');
+					}else if($rootScope.auth.isAdministrador()){
+						$location.path('/home/administrador');
 					}
 				}
 			}	
@@ -1166,17 +1246,37 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			}	
 			}
         })
-        .state("profesorpracticapa", {
-            url: "/home/profesor/practicapa",
-            templateUrl: "views/profesor/practicaT/verPA.html",
-			controller: "profesorPracticaPACtrl",
+        //GESTIÓN PRÁCTICA 2
+        .state("profesorpractica2", {
+            url: "/home/profesor/practica2",
+            templateUrl: "views/profesor/practicaT/practica2.html",
+			controller: "profesorPractica2Ctrl",
 			resolve: {
 			"check": function($location,$rootScope){
 				if( !$rootScope.auth.isLoggedIn()){
 					$location.path('/');
 				}else{
 					if($rootScope.auth.isAlumnoAyudante()){
-						$location.path('/home/alumno');
+						$location.path('/home/profesor');
+					}else if($rootScope.auth.isAdministrador()){
+						$location.path('/home/administrador');
+					}
+				} 
+			}	
+			}
+        })
+
+        .state("profesorpracticainstrucciones", {
+            url: "/home/profesor/practica2Instrucciones",
+            templateUrl: "views/profesor/practicaT/instrucciones.html",
+			controller: "profesorPractica2Ctrl",
+			resolve: {
+			"check": function($location,$rootScope){
+				if( !$rootScope.auth.isLoggedIn()){
+					$location.path('/');
+				}else{
+					if($rootScope.auth.isAlumnoAyudante()){
+						$location.path('/home/profesor');
 					}else if($rootScope.auth.isAdministrador()){
 						$location.path('/home/administrador');
 					}
@@ -1184,7 +1284,25 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			}	
 			}
         })
-        
+
+        .state("profesorpracticainstruccionesC", {
+            url: "/home/profesor/practica2InstruccionesC",
+            templateUrl: "views/profesor/practicaT/instruccionesC.html",
+			controller: "profesorPractica2Ctrl",
+			resolve: {
+			"check": function($location,$rootScope){
+				if( !$rootScope.auth.isLoggedIn()){
+					$location.path('/');
+				}else{
+					if($rootScope.auth.isAlumnoAyudante()){
+						$location.path('/home/profesor');
+					}else if($rootScope.auth.isAdministrador()){
+						$location.path('/home/administrador');
+					}
+				}
+			}	
+			}
+        })
         //MODULO DE PRÁCTICA SIN BUGS
         .state("moduloP", {
             url: "/moduloP",

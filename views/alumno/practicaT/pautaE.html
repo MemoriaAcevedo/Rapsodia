@@ -1,5 +1,5 @@
 <md-content flex class="md-whiteframe-z3 md-padding">
- <div layout = "row">
+<div layout = "row" ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1'">
   <div>
    <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
     <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
@@ -13,7 +13,25 @@
       <li class="breadcrumb-item active">Pauta de evaluación</li>
     </ol>
   </div>
-</div>	  
+</div>	 
+
+<div layout = "row" ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregir P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizada'">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back2()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/home/alumno/verAsociadosC">Usuarios Comunidad</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/terminal">Práctica terminal bancaria</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicainfo">Información Práctica</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicahome">Inicio Práctica</a></li>
+        <li class="breadcrumb-item active">Pauta de evaluación</li>
+    </ol>
+  </div>
+</div>
+
 <div layout-xs="column" flex layout = "column" layout-align = "center center">
 	    <div>
 		    <h3>Pauta de evaluación</h3>
@@ -34,7 +52,7 @@
               </md-card-actions>
             </md-card>
           </div>  
-          <div layout = "column">
+          <div layout = "column" ng-hide = "sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizada'">
             <md-card>
               <md-card-title>
                 <md-card-title-text>
@@ -49,5 +67,5 @@
             </md-card>
           </div>  
 	    </div>
-	  </div>    
+</div>    
 </md-content>

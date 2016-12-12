@@ -1,0 +1,66 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+ <div layout = "row">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#/home/ayudante/verAsignados">Prácticas Alumno</a></li>
+      <li class="breadcrumb-item"><a href="#/home/ayudante/practicaPreliminar">Práctica Alumno</a></li>
+      <li class="breadcrumb-item"><a href="#/home/ayudante/practicahome">Inicio Práctica</a></li>
+      <li class="breadcrumb-item active">Gestión de reparación módulo bancario</li>
+    </ol>
+  </div>
+</div>   
+    <div layout-xs="column" flex layout = "column" layout-align = "center center">
+      <div>
+        <h3>Gestión de reparación módulo bancario</h3>
+      </div>
+      <br>
+      <div layout = "column" layout-align = "center center">
+        <div>
+          <h5>Acceso directo al ambiente de desarrollo y repositorio del usuario</h5>
+        </div>
+        <div layout = "row" layout-align = "center center">
+          <div>
+            <md-button  class="md-raised" ng-disabled = "sesion.practicaT2.urlCodenvy == ''" ng-click="codenvyF()">Codenvy</md-button>
+          </div>
+          <div>
+            <md-button  class="md-raised" ng-disabled = "sesion.practicaT2.urlGithub == ''" ng-click="githubF()">Github</md-button>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div layout = "row" layout-align = "center center">
+        <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Instrucciones de configuración correctores&nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Visualize las instrucciones <br>para configurar el ambiente de trabajo <br>para los correctores</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="instruccionesC()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+        </div>
+        <div layout = "column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Instrucciones de configuración alumnos&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</span>
+                  <br>
+            <span align = "center" class="md-subhead">Visualize las instrucciones <br>para configurar el ambiente de trabajo <br>para los alumnos</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="instrucciones()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+        </div>
+      </div>
+</md-content>

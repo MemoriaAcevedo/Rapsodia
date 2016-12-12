@@ -20,7 +20,7 @@
         <div>
           <md-input-container>
           <label>Comunidad</label>
-           <input type="text" name = "rol" ng-model="sesion.getPracticaT().comunidadidComunidad.nombreC" disabled>
+           <input type="text" name = "rol" ng-model="sesion.practicaT.comunidadidComunidad.nombreC" disabled>
           </md-input-container>
         </div>
         <div>
@@ -32,7 +32,7 @@
          <div>
           <md-input-container>
           <label>Email</label>
-           <input type="text" name = "rol" ng-model="sesion.getPracticaT().corrector.emailU" disabled>
+           <input type="text" name = "rol" ng-model="sesion.practicaT.corrector.emailU" disabled>
           </md-input-container>
         </div>
       </div>
@@ -51,7 +51,7 @@
 </div>
 </md-content>
 <br>
-<div flex layout = "row"  ng-show = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Desarrollo' && sesion.userAux.estadoidEstado.nombreE == 'Abierta'">
+<div flex layout = "row"  ng-hide = "sesion.userAux.estadoidEstado.nombreE == 'Cerrada'">
           <md-input-container flex>
             <label>Mensaje</label>
             <input ng-model="mensaje">

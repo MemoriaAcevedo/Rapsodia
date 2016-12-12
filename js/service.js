@@ -24,10 +24,11 @@ app.service('sesion',['$window',function($window) {
     this.userTerminal  = JSON.parse($window.localStorage.getItem('sesion.userTerminal'));
     this.userTerminalD  = JSON.parse($window.localStorage.getItem('sesion.userTerminalD'));
     this.practicaT = JSON.parse($window.localStorage.getItem('sesion.practicaT'));
+    this.practicaT1 = JSON.parse($window.localStorage.getItem('sesion.practicaT1'));
+    this.practicaT2 = JSON.parse($window.localStorage.getItem('sesion.practicaT2'));
     this.iCP = JSON.parse($window.localStorage.getItem('sesion.iCP'));
     this.i = JSON.parse($window.localStorage.getItem('sesion.i'));
-    this.cp = JSON.parse($window.localStorage.getItem('sesion.cp'));
-    this.hu = JSON.parse($window.localStorage.getItem('sesion.hu'));                            
+    this.cp = JSON.parse($window.localStorage.getItem('sesion.cp'));                        
     //GETS
     this.getUser = function(){
         return this.user;
@@ -57,6 +58,14 @@ app.service('sesion',['$window',function($window) {
         return this.practicaT;
     };
 
+    this.getPracticaT1 = function(){
+        return this.practicaT1;
+    };
+
+    this.getPracticaT2 = function(){
+        return this.practicaT2;
+    };
+
     this.getICP = function(){
         return this.iCP;
     };
@@ -69,9 +78,6 @@ app.service('sesion',['$window',function($window) {
         return this.cp;
     };
 
-     this.getHU = function(){
-        return this.hu;
-    };
 
     //SETS
     this.setUser = function(user){
@@ -116,6 +122,18 @@ app.service('sesion',['$window',function($window) {
         return this;
     };
 
+    this.setPracticaT1 = function(practica1){
+        this.practicaT1 = practica1;
+        $window.localStorage.setItem('sesion.practicaT1', JSON.stringify(practica1));
+        return this;
+    };
+
+    this.setPracticaT2 = function(practica2){
+        this.practicaT2 = practica2;
+        $window.localStorage.setItem('sesion.practicaT2', JSON.stringify(practica2));
+        return this;
+    };
+
     this.setICP= function(incidenciacp){
         this.iCP = incidenciacp;
         $window.localStorage.setItem('sesion.iCP', JSON.stringify(incidenciacp));
@@ -134,11 +152,6 @@ app.service('sesion',['$window',function($window) {
         return this;
     };
 
-    this.setHU= function(hu){
-        this.hu = hu;
-        $window.localStorage.setItem('sesion.hu', JSON.stringify(hu));
-        return this;
-    };
 
     //DESTROY
 
@@ -170,6 +183,14 @@ app.service('sesion',['$window',function($window) {
         this.setPracticaT(null);
     };
 
+    this.destroyPracticaT1 = function destroyPracticaT1(){
+        this.setPracticaT1(null);
+    };
+
+    this.destroyPracticaT2 = function destroyPracticaT2(){
+        this.setPracticaT2(null);
+    };
+
     this.destroyICP = function destroyICP(){
         this.setICP(null);
     };
@@ -181,12 +202,6 @@ app.service('sesion',['$window',function($window) {
     this.destroyCP = function destroyCP(){
         this.setCP(null);
     };
-
-    this.destroyHU = function destroyHU(){
-        this.setHU(null);
-    };
-
-
  }]);
 
 app.service('auth',['$http', 'sesion', '$location', function($http, sesion, $location) {

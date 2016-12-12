@@ -529,7 +529,21 @@ app.controller("practicasAlumnoAsignadoCtrl", function($rootScope, $scope, $loca
 	
 	$scope.verInfo = function(item){
 		$rootScope.sesion.setPracticaT(item);
-		$location.path("/home/profesor/practicaPreliminar");
+		restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+			.success(function (practica1){
+				if(practica1){
+					$rootScope.sesion.setPracticaT1(practica1);	
+					restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+						.success(function (practica2){
+							if(practica2){
+								$rootScope.sesion.setPracticaT2(practica2);	
+							}
+							$location.path("/home/profesor/practicaPreliminar");
+					});
+				}else{
+					$scope.showAlert("Error al cargar la práctica, intente más tarde");
+				}
+		});	
 	}
 
 	$scope.gridOptions = {
@@ -585,6 +599,8 @@ app.controller("preliminarPracticaProfeCtrl", function($rootScope, $scope, $loca
 								if(response.message == "t"){
 									viewFactory.showSimpleToast("Práctica eliminada con éxito, se le enviará un correo electrónico");
 									$rootScope.sesion.destroyPracticaT();
+									$rootScope.sesion.destroyPracticaT1();
+									$rootScope.sesion.destroyPracticaT2();
 									$location.path("/home/profesor/verAsignados");				
 								}else{
 									$scope.showAlert("Error al realizar la eliminación de la práctica, intente más tarde.");
@@ -627,7 +643,11 @@ app.controller("profesorCCtrl", function($rootScope, $scope, $location, $http, r
 				$scope.showAlert("El mensaje no puede tener más de 1000 caracteres");
 				return "";
 			}
-			restFactory.crearMensaje($rootScope.sesion.getPracticaT().idPractica, $scope.mensaje, "c")
+			$scope.mensaje1 = new Object();
+			$scope.mensaje1.idP = $rootScope.sesion.practicaT.idPractica;
+			$scope.mensaje1.mensaje = $scope.mensaje;
+			$scope.mensaje1.tipo = "c";
+			restFactory.crearMensaje($scope.mensaje1)
 				.success(function(response){
 				if(response.message == "true"){
 					viewFactory.showSimpleToast("Mensaje enviado con éxito");
@@ -668,42 +688,27 @@ app.controller("profesorPHomeCtrl", function($rootScope, $scope, $location, $htt
 	$scope.verPauta = function(){
 		$location.path("/home/profesor/pautaE");
 	}
+
+	$scope.reparacion = function(){
+		$location.path("/home/profesor/practica2");
+	}
 });
 app.controller("profesorPracticaHUCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.back = function(){
 		$location.path("/home/profesor/practicahome");
 	}
 
-	$scope.gridOptions = {
-            data: [],
-            urlSync: false
-    };
 	$scope.hu = {};
 	restFactory.getHU()
 			.success(function(response){
-				$scope.gridOptions.data = response;
+				$scope.hu = response;
 	});
-
-	$scope.verPA = function(item){
-		$rootScope.sesion.setHU(item);
-		$location.path("/home/profesor/practicapa");
-	}	
-});
-app.controller("profesorPracticaPACtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
-	$scope.back = function(){
-		$location.path("/home/profesor/practicahu");
-	}
 
 	$scope.pas = {};
-	$scope.gridOptions = {
-            data: [],
-            urlSync: false
-    };
-
-	restFactory.getPA($rootScope.sesion.hu.idHU)
+	restFactory.getPAS()
 			.success(function(response){
 				$scope.pas = response;
-	});
+	});	
 });
 app.controller("profesorPracticaCPCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory, $timeout, $mdSidenav){
 	$scope.closeSide = function(sideId) {
@@ -939,9 +944,46 @@ app.controller("profesorPracticaIECtrl", function($rootScope, $scope, $location,
 		$location.path("/home/profesor/practicaincidencias");
 	}
 });
-app.controller("profesorPracticaICPCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
+app.controller("profesorPracticaICPCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory, $timeout, $mdSidenav){
 	$scope.incidenciacp = $rootScope.sesion.getICP();
+	$scope.closeSide = function(sideId) {
+      $mdSidenav(sideId).close()
+        .then(function () {
+        });
+    }
 
+	$scope.toggleLeft = buildDelayedToggler('right');
+	function debounce(func, wait, context) {
+      var timer;
+
+      return function debounced() {
+        var context = $scope,
+            args = Array.prototype.slice.call(arguments);
+        $timeout.cancel(timer);
+        timer = $timeout(function() {
+          timer = undefined;
+          func.apply(context, args);
+        }, wait || 10);
+      };
+    }
+
+    function buildDelayedToggler(navID) {
+      return debounce(function() {
+        $mdSidenav(navID)
+          .toggle()
+          .then(function () {
+          });
+      }, 200);
+    }
+
+    function buildToggler(navID) {
+      return function() {
+        $mdSidenav(navID)
+          .toggle()
+          .then(function () {
+          });
+      }
+    }
 	$scope.back = function(){
 		$rootScope.sesion.destroyICP();
 		$location.path("/home/profesor/practicaincidencias");
@@ -1064,21 +1106,31 @@ app.controller("evaluarProfesorCtrl", function($rootScope, $scope, $location, $h
 		    );
 	};
 
-	$scope.evaluarP = function(){
+	$scope.evaluarP1 = function(){
+
 		if($scope.nota >= 2147483647 || $scope.nota <= -2147483647){
 			$scope.showAlert("Valores no soportados por el sistema");
 		}else if(Math.ceil($scope.nota) != $scope.nota){
 			$scope.showAlert("Formato de nota incorrecto, Ej: 55");
 		}else{
 
-			restFactory.evaluarP($scope.practica.idPractica, $scope.nota, $scope.observaciones)
+			restFactory.evaluarP($rootScope.sesion.practicaT1.idPractica1, $scope.nota, $scope.observaciones)
 				.success(function (response){
 				if(response.message == "t"){
 					restFactory.getPById($scope.practica.idPractica)
 						.success(function (response1){
-						$rootScope.sesion.setPracticaT(response1);
-							viewFactory.showSimpleToast("Evaluación realizada con éxito, se le enviará un correo electrónico");
-							$location.path("/home/profesor/practicaPreliminar");	  	
+							restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+								.success(function (practica1){
+									if(practica1){
+										$rootScope.sesion.setPracticaT(response1);
+										viewFactory.showSimpleToast("Evaluación realizada con éxito, le enviará un correo electrónico");
+										$location.path("/home/profesor/practicaPreliminar");
+										$rootScope.sesion.setPracticaT1(practica1);	
+									}else{
+										$scope.showAlert("Error al crear la práctica, intente más tarde");
+									}
+							});
+							  	
 					});
 				}else if(response.message == "e"){
 					$scope.showAlert("La nota no puede ser superior a 70");	
@@ -1087,8 +1139,76 @@ app.controller("evaluarProfesorCtrl", function($rootScope, $scope, $location, $h
 				}else{
 					$scope.showAlert("Error al evaluar la práctica, intente más tarde");	
 				}	  	
+		
+			});
+		}
+	}
+
+	$scope.evaluarP2 = function(){
+
+		if($scope.nota >= 2147483647 || $scope.nota <= -2147483647){
+			$scope.showAlert("Valores no soportados por el sistema");
+		}else if(Math.ceil($scope.nota) != $scope.nota){
+			$scope.showAlert("Formato de nota incorrecto, Ej: 55");
+		}else{
+			
+			restFactory.evaluarP2($rootScope.sesion.practicaT2.idPractica2, $scope.nota, $scope.observaciones)
+				.success(function (response){
+				if(response.message == "t"){
+					restFactory.getPById($scope.practica.idPractica)
+						.success(function (response1){
+							restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+								.success(function (practica2){
+									if(practica2){
+										$rootScope.sesion.setPracticaT(response1);
+										viewFactory.showSimpleToast("Evaluación realizada con éxito, le enviará un correo electrónico");
+										$location.path("/home/profesor/practicaPreliminar");
+										$rootScope.sesion.setPracticaT2(practica2);
+									}else{
+										$scope.showAlert("Error al crear la práctica, intente más tarde");
+									}
+							});
+							  	
+					});
+				}else if(response.message == "e"){
+					$scope.showAlert("La nota no puede ser superior a 70");	
+				}else if(response.message == "i"){
+					$scope.showAlert("La nota no puede ser inferior a 10");	
+				}else{
+					$scope.showAlert("Error al evaluar la práctica, intente más tarde");	
+				}	  	
+		
 			});
 		}
 	}
 });
-/**/
+/*SPRINT 3.3*/
+
+/*PRÁCTICA 2*/
+app.controller("profesorPractica2Ctrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
+
+	$scope.back = function(){
+		$location.path("/home/profesor/practicahome");
+	}
+
+	$scope.back1 = function(){
+		$location.path("/home/profesor/practica2");
+	}
+
+	$scope.instrucciones = function(){
+		$location.path("/home/profesor/practica2Instrucciones");
+	}
+
+	$scope.instruccionesC = function(){
+		$location.path("/home/profesor/practica2InstruccionesC");
+	}
+
+	$scope.codenvyF = function(){
+		window.open($rootScope.sesion.practicaT2.urlCodenvy);
+	}
+
+	$scope.githubF = function(){
+		window.open($rootScope.sesion.practicaT2.urlGithub);
+	}
+});
+/*PRÁCTICA 2*/

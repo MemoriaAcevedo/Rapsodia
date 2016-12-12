@@ -1,0 +1,55 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+	<div layout = "row">
+	  <div>
+	   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back1()">
+	    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+	   </md-button>
+	  </div>
+		<div flex>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/home/alumno/verAsociadosC">Usuarios Comunidad</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/terminal">Práctica terminal bancaria</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicainfo">Información Práctica</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practicahome">Inicio Práctica</a></li>
+        <li class="breadcrumb-item"><a href="#/home/alumno/practica2">Gestión de reparación módulo bancario</a></li>
+        <li class="breadcrumb-item active">Ambiente de trabajo y repositorios</li>
+      </ol>
+    </div>  
+	</div>
+	    <div flex layout = "column" layout-align = "center center">
+		    <h3>Ambiente de trabajo y repositorio</h3>
+	    </div>
+
+      <div align = "center">
+        <p>A continuación debe especificar la URL de su ambiente de trabajo y repositorio para que su corrector pueda acceder directamente a estos y visualizar su progreso.</p>
+      </div>
+
+      <div layout = "column" layout-align="center center">
+          <form name="url">
+            <div>
+                <md-input-container class="md-block">
+                <label>URL Codenvy</label>
+                  <input type="text" name = "codenvy" ng-required = "true" ng-maxlength="100" ng-model="codenvy">
+                  <div ng-messages="url.codenvy.$error">
+                    <div ng-message="required">URL requerida!</div>
+                    <div ng-message="maxlength">Máximo 100 caracteres</div>
+                  </div>
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container class="md-block">
+                    <label>URL Repositorio</label>
+                    <input type = "text" ng-model="github" name = "github" ng-required = "true" ng-maxlength="60" >
+                    <div ng-messages="url.github.$error">
+                    <div ng-message="required">URL requerida!</div>
+                    <div ng-message="maxlength">Máximo 60 caracteres</div>
+                </md-input-container>
+            </div>
+              <br>
+              <div layout = "column" layout-align="center center">
+                <md-button class="md-raised md-primary" ng-disabled = "url.github.$invalid || url.codenvy.$invalid" ng-click = "guardar()">Guardar</md-button>
+              </div>      
+          </form>
+        </div>
+
+</md-content>
