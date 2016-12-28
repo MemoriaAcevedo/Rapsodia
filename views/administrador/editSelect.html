@@ -57,29 +57,9 @@
                               </div>
                             </md-input-container>
                           </div>
-                          <div>
-                            <md-input-container>
-                              <label>Contraseña</label>
-                              <input type="password" name = "pass" ng-model="pass" ng-maxlength="45">
-                              <div ng-messages="edita.pass.$error">
-                                <div ng-message="maxlength">Máximo 45 caracteres</div>
-                            </div>
-                            </md-input-container>
-                            
-                          </div>
-                          <div>
-                            <md-input-container>
-                              <label>Confirmar Contraseña</label>
-                              <input type="password" name = "passC" ng-model="passC" ng-maxlength="45">
-                              <div ng-messages="edita.passC.$error">
-                                <div ng-message="maxlength">Máximo 45 caracteres</div>
-                            </div>
-                            </md-input-container>
-                            
-                          </div>
                           <br>
                           <div layout = "column" layout-align = "center center">
-                            <md-button class="md-raised md-primary" ng-disabled = "edita.pass.$invalid || edita.passC.$invalid || edita.apodo.$invalid" ng-click="editar()">Actualizar</md-button>
+                            <md-button class="md-raised md-primary" ng-disabled = "edita.apodo.$invalid" ng-click="editar()">Actualizar</md-button>
                             <md-button ng-click= "cancelar()">Cancelar</md-button>
                           </div>
                       </div>

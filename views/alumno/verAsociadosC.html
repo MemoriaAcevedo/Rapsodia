@@ -16,18 +16,18 @@
     <div layout = "column" layout-align="center center">
         <br>
           <h3>Usuarios Comunidad</h3>
-          <div>
-      <md-input-container>
-        <label>Comunidad: </label>
-        <input type="text" ng-model="comunidad.nombreC" disabled>
-      </md-input-container>
-    </div>
-    <div>
-      <md-input-container>
-        <label>Profesor: </label>
-        <input type="text" ng-model="profe" disabled>
-      </md-input-container>
-    </div>
+        <div>
+          <md-input-container>
+            <label>Comunidad: </label>
+            <input type="text" ng-model="comunidad.nombreC" disabled>
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+            <label>Profesor: </label>
+            <input type="text" ng-model="profe" disabled>
+          </md-input-container>
+        </div>
     </div>
 
     <div layout = "column" layout-align="center center">
@@ -139,21 +139,39 @@
       <div>
         <h3>Prácticas</h3>
       </div>
+      <div layout = "row" layout-align="center center">
       <div layout = "column">
-          <md-card>
-            <md-card-title>
-              <md-card-title-text>
-                <span class="md-headline">Terminal Bancaria &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </span>
-                <br>
-          <span align = "center" class="md-subhead">Pon en práctica tus conocimientos <br>de pruebas de software, creando casos de prueba<br> identificando incidencias y reparando software</span>
-              </md-card-title-text>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-             <md-button  ng-click="terminalB()">Ir</md-button>
-            </md-card-actions>
-          </md-card>
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Prueba Teórica &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp</span>
+                  <br>
+                  <br>
+            <span align = "center" class="md-subhead">Pon a prueba tus conocimientos teóricos <br>de las pruebas de sofware</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="pruebaTeo()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
         </div>
-    </div>  
+        <div layout = "column" ng-show = "accesoP">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Terminal Bancaria &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </span>
+                  <br>
+            <span align = "center" class="md-subhead">Pon en práctica tus conocimientos <br>de pruebas de software, creando casos de prueba<br> identificando incidencias y reparando software</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+               <md-button  ng-click="terminalB()">Ir</md-button>
+              </md-card-actions>
+            </md-card>
+        </div>
+         
+      </div>
+    </div>
 
 <div ng-show = "sesion.getUser().tipoUsuarioidTipoUsuario.nombreTU == 'Ayudante'">
     <div layout = "column" layout-align="center center">

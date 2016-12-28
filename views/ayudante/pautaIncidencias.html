@@ -541,7 +541,45 @@
                       <md-input-container flex class="md-block" >
                       <label>Descripción</label>
                          <textarea ng-model="hu[7].descripcionHU" md-detect-hidden = "true" rows = "4" disabled></textarea>
-                      </md-input-container>   
+                      </md-input-container>
+                      <div flex layout = "column" layout-align = "center center">
+                          <h5>Prueba de aceptación</h5>
+                        </div>
+                        <br>  
+                        <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Identificador</label>
+                              <input ng-model="pas[8].identificadorPA" disabled>
+                            </md-input-container>
+                        </div>
+                         <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Nombre</label>
+                              <input ng-model="pas[8].nombrePA" disabled>
+                            </md-input-container>
+                        </div>
+                          <md-input-container flex class="md-block" >
+                          <label>Descripción</label>
+                             <textarea ng-model="pas[8].descripcionPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <div layout-xs="column" flex layout = "column" layout-align = "center center">
+                          <h5>Incidencias</h5>
+                        </div>
+                        <br>
+                        <div layout = "column" ng-repeat="i in iPA6">
+                          <div layout = "row">
+                              <md-input-container flex>
+                              <label>Identificador</label>
+                                <input type="text" ng-model="i.idI" disabled>
+                              <md-input-container>
+                          </div>
+                          <div layout = "row">
+                              <md-input-container flex>
+                              <label>Descripción</label>
+                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="6" disabled></textarea>
+                              <md-input-container>
+                          </div>
+                        </div>    
                 </md-content>
               </md-tab>
             </md-tabs>

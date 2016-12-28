@@ -1,0 +1,49 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+	<div layout = "row">
+	  <div>
+	   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+	    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+	   </md-button>
+	  </div>
+		<div flex>
+			<ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#/home/alumno/verAsociadosC">Usuarios Comunidad</a></li>
+      	<li class="breadcrumb-item"><a href="#/home/alumno/preliminarpt">Prueba Teórica</a></li>
+        <li class="breadcrumb-item active">Enunciado</li>
+			</ol>
+		</div>		
+	</div>
+	<div  layout = "column" layout-align = "center center" >
+            <h3>Enunciado</h3>
+  </div>
+
+  <div align = "center">
+        <p>A continuación se presenta un cuestionario de 10 preguntas de verdadero y falso, relacionadas con los tópicos vistos en Rapsodia sobre las pruebas de software. Buena suerte!</p>
+  </div>
+
+  <form name="prueba">
+    <div layout = "column" ng-repeat="p in preguntasPT">
+        <div layout = "column">
+          <md-input-container >
+            <label>Pregunta</label>
+            <input type="text" ng-model="p.pregunta" disabled>
+          <md-input-container>
+        </div>
+        <div>
+          <md-input-container>
+             <md-radio-group ng-model="p.respuesta"
+                             name="r"
+                             ng-required="true">
+               <md-radio-button value="V" class="md-primary">Verdadero</md-radio-button>
+               <md-radio-button value="F"> Falso </md-radio-button>
+          </md-radio-group>
+          </md-input-container>
+
+        </div>
+        <br>
+    </div>
+    <div  layout = "column" layout-align = "center center" >
+      <md-button class="md-raised md-primary"  ng-disabled = "prueba.r.$invalid" ng-click="corregir()">Corregir</md-button>
+    </div>
+  </form> 
+</md-content>	

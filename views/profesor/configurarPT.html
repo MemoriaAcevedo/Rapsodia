@@ -1,0 +1,44 @@
+<md-content  class="md-whiteframe-z3" flex >
+ <div layout = "row">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#/home/profesor">Inicio</a></li>
+      <li class="breadcrumb-item"><a href="#/home/profesor/comunidades">Gestión de Comunidades</a></li>
+      <li class="breadcrumb-item"><a href="#/home/profesor/verAsociadosC">Usuarios Comunidad</a></li>
+      <li class="breadcrumb-item active">Configurar Prueba Teórica</li>
+    </ol>
+    </ol>
+  </div>
+ </div>
+ <div layout = "column" layout-align="center center">
+    <br>
+    <h3>Configurar Prueba Teórica</h3>
+    <div>
+      <md-input-container>
+        <label>Nota mínima actual: </label>
+        <input type="text" ng-model="sesion.comunidad.notaMinima" disabled>
+      </md-input-container>
+    </div>
+    <div layout = "column">
+                            <form name="cf">
+                            <div>
+                              <md-input-container>
+                                    <label>Nota Mínima</label>
+                                      <input type="number" name = "notaM" ng-required = "true" ng-model="notaM">
+                                      <div ng-messages="cf.notaM.$error">
+                                        <div ng-message="required">Nota requerida!</div>
+                                      </div>
+                              </md-input-container>
+                            </div>
+                            <div layout = "column" layout-align="center center">
+                                  <md-button class="md-raised md-primary" ng-disabled = "cf.notaM.$invalid " ng-click = "configurar()">Configurar</md-button>
+                                </div>    
+                            </form>
+                          </div> 
+  </div>
+</md-content>

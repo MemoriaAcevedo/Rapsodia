@@ -419,6 +419,10 @@ app.controller("asociadosCCtrl", function($rootScope, $scope, $location, $http, 
 		$rootScope.sesion.destroyComunidad();
 		$location.path("/home/profesor/comunidades");
 	}
+
+	$scope.configurar = function(){
+		$location.path("/home/profesor/configurarPT");
+	}
 });
 app.controller("infoCtrlProfe", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 
@@ -527,6 +531,24 @@ app.controller("practicasAlumnoAsignadoCtrl", function($rootScope, $scope, $loca
 		    );
 	};
 	
+	$scope.pruebaTeorica = {};
+	$scope.areasReforzar = {};
+	restFactory.getPracticaTeorica($scope.usuario.idUsuario, $rootScope.sesion.comunidad.idComunidad)
+			.success(function (prueba){
+				if(prueba){
+					$scope.pruebaTeorica = prueba;
+					restFactory.getAreasReforzar($scope.pruebaTeorica.idPT)
+							.success(function (areas){
+								if(areas){
+									$scope.areasReforzar = areas;
+								}
+					});	
+
+				}
+	});	
+
+
+
 	$scope.verInfo = function(item){
 		$rootScope.sesion.setPracticaT(item);
 		restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
@@ -1057,34 +1079,36 @@ app.controller("pautaEProfesorCtrl", function($rootScope, $scope, $location, $ht
 				$scope.pas = response;
 	});		
 	
-	$scope.iPA1 = [{idI: "I-1", descripcion: "No indica el formato del rut que se debe utilizar"}, {idI: "I-2", descripcion: "No esconde la "+
-	"contraseña"}, {idI: "I-3", descripcion: "No notifica al usuario sobre respuestas que entregue el sistema"}, {idI: "I-3", descripcion: "Nombre "+
-	"del título inicio sesión mal 'escrito'"}];
+	$scope.iPA1 = [{idI: "I-1", descripcion: "No valida el formato del rut, y no indica el usuario el formato que debe utilizar"}, {idI: "I-2", descripcion: "No esconde la "+
+	"contraseña al momento de ingresarla"}, {idI: "I-3", descripcion: "Si los datos ingresados son incorrectos, no notifica al usuario"}, {idI: "I-3", descripcion: "Nombre "+
+	"del título inicio sesión mal escrito dice 'seción'"}];
 	
-	$scope.iPA12 = [{idI: "I-1", descripcion: "Icono de configuración toma la funcionalidad de cerrar sesión y de cerrar sesión la de configuración"}];
+	$scope.iPA12 = [{idI: "I-1", descripcion: "Icono de configuración toma la funcionalidad de cerrar sesión y de cerrar sesión toma la funcionalidad de configuración"}];
 	
-	$scope.iPA2 = [{idI: "I-1", descripcion: "Deja depositar valor 0 y números negativos"}, {idI: "I-2", descripcion: "No respeta el valor límite impuesto por el sistema: 1.000.000"},
-	{idI: "I-3", descripcion: "Sobrepasar capacidad de los campos a guardar en la base de datos, impidiendo la realización de la operación"}, 
-	{idI: "I-4", descripcion: "No avisar al cliente sobre la realización de una operación"}, {idI: "I-5", descripcion: "Migas de pan muestran la ubicación equivocada del usuario"},
-	{idI: "I-6", descripcion: "Sin botón de atrás"}, {idI: "I-7", descripcion: "Botones cambiados Retiro usa la funcionalidad de depósito"}];
+	$scope.iPA2 = [{idI: "I-1", descripcion: "Deja depositar un monto 0 y negativos"}, {idI: "I-2", descripcion: "No respeta el monto límite impuesto por el sistema: 1.000.000"},
+	{idI: "I-3", descripcion: "Sobrepasa el valor máximo del campo monto soportado por la base de datos del sistema, impidiendo la realización de la operación"}, 
+	{idI: "I-4", descripcion: "No notifica al usuario sobre el estado de la operación realizada"}, {idI: "I-5", descripcion: "Las migas de pan muestran que el usuario se encuentra en la página para hacer 'retiro', cuando se encuentra en la de 'depósito'"},
+	{idI: "I-6", descripcion: "No posee el botón para ir atrás"}, {idI: "I-7", descripcion: "Al dirigirse a realizar la operación depósito, redirecciona a la de retiro."}];
 	
-	$scope.iPA3 = [{idI: "I-1", descripcion: "Retirar valor 0 y números negativos"}, {idI: "I-2", descripcion: "Retirar a pesar de no tener saldo"},
-	{idI: "I-3", descripcion: "No respeta el valor límite impuesto por el sistema: 1.000.000"}, {idI: "I-4", descripcion: "No avisar al cliente sobre la realización de una operación"}, 
-	{idI: "I-5", descripcion: "Botón de atrás no funciona"}, {idI: "I-6", descripcion: "No mostrar las migas de pan"}];
+	$scope.iPA3 = [{idI: "I-1", descripcion: "Deja retirar el monto 0 y negativos"}, {idI: "I-2", descripcion: "Deja retirar a pesar de no tener saldo"},
+	{idI: "I-3", descripcion: "No respeta el monto límite impuesto por el sistema: 1.000.000"}, {idI: "I-4", descripcion: "No notifica al usuario sobre el estado de la operación realizada"}, 
+	{idI: "I-5", descripcion: "Botón de atrás no funciona"}, {idI: "I-6", descripcion: "No muestra las migas de pan"}];
 
-	$scope.iPA4 = [{idI: "I-1", descripcion: "No verificar el rut"}, {idI: "I-2", descripcion: "Transferir 0 y numero negativos, además de un monto mayor al saldo disponible"},
-	{idI: "I-3", descripcion: "No avisar al cliente sobre la realización de una operación"}, {idI: "I-4", descripcion: "Botón de atrás no funciona"}, 
-	{idI: "I-5", descripcion: "Migas de pan, botón de inicio direcciona a configuración en lugar del inicio"}, {idI: "I-6", descripcion: "Transferir y no descontar "+
-	"saldo del que realiza la transferencia, en el caso que el rut del destinatario sea distinto al del realizador"}, {idI: "I-7", descripcion: "Transferir aunque la otra cuenta este cerrada"}, 
-	{idI: "I-8", descripcion: "Transferir a la misma cuenta"}, {idI: "I-9", descripcion: "Retorna el historial de otro usuario"},  {idI: "I-10", descripcion: "Valores de las columnas no relacionados con las filas"},
-	{idI: "I-11", descripcion: "Sin botón de atrás"}, {idI: "I-12", descripcion: "Sin migas de pan"}];
+	$scope.iPA4 = [{idI: "I-1", descripcion: "No valida el formato del rut, y no indica el usuario el formato que debe utilizar"}, {idI: "I-2", descripcion: "Deja transferir el monto 0 y negativos, además de un monto mayor al saldo disponible"},
+	{idI: "I-3", descripcion: "No notifica al usuario sobre el estado de la operación realizada"}, {idI: "I-4", descripcion: "Botón de atrás no funciona en la transferencia"}, 
+	{idI: "I-5", descripcion: "En las migas de pan el botón de inicio direcciona a configuración en lugar del inicio"}, {idI: "I-6", descripcion: "Deja transferir y no descuenta "+
+	"el monto del saldo del que realiza la transferencia"}, {idI: "I-7", descripcion: "Deja transferir aunque la cuenta del destinatario este cerrada"}, {idI: "I-8", descripcion: "Deja transferir a la misma cuenta del realizador"}, 
+	{idI: "I-9", descripcion: "Deja transferir a la misma cuenta"}, {idI: "I-10", descripcion: "No se ven las transacciones realizadas en el historial"},
+	{idI: "I-11", descripcion: "Sin el botón de atrás en el historial"}, {idI: "I-12", descripcion: "Sin migas de pan en el historial"}];
 
 	$scope.iPA41 = [{idI: "I-1", descripcion: "No se puede seleccionar rango de transacciones"}];
 
 	$scope.iPA42 = [{idI: "I-1", descripcion: "No ordena los campos"}];
 
-	$scope.iPA5 = [{idI: "I-1", descripcion: "Función de cierre de cuenta no cambia el estado del usuario, estando siempre activo"}, {idI: "I-2", descripcion: "No notificar al usuario sobre la realización de operaciones"},
-	{idI: "I-3", descripcion: "Ventana emergente se encuentra mal escrito, además tiene las funcionalidad de botones cambiadas. El botón “cancelar” sirve para cerrar la cuenta y “activar” para cancelar el cierre."}];
+	$scope.iPA5 = [{idI: "I-1", descripcion: "Función de cierre de cuenta no cambia el estado del usuario, estando siempre activo"}, {idI: "I-2", descripcion: "No notifica al usuario sobre el estado de las operaciones realizadas"},
+	{idI: "I-3", descripcion: "Ventana emergente se encuentra mal escrita, además tiene las funcionalidad de botones cambiadas. El botón “cancelar” sirve para cerrar la cuenta y “activar” para cancelar el cierre."}];
+
+	$scope.iPA6 = [{idI: "I-1", descripcion: "No permite activar la cuenta del usuario"}];
 });
 app.controller("evaluarProfesorCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
 	$scope.realizador = $rootScope.sesion.getUserAux();
@@ -1108,7 +1132,15 @@ app.controller("evaluarProfesorCtrl", function($rootScope, $scope, $location, $h
 
 	$scope.evaluarP1 = function(){
 
-		if($scope.nota >= 2147483647 || $scope.nota <= -2147483647){
+			var confirm = $mdDialog.confirm()
+	          .title('Desea evaluar la práctica?')
+	          .textContent('La práctica del alumno será evaluada')
+	          .ariaLabel('Lucky day')
+	          .ok('Evaluar')
+	          .cancel('Cancelar');
+
+	          $mdDialog.show(confirm).then(function() {
+	          		if($scope.nota >= 2147483647 || $scope.nota <= -2147483647){
 			$scope.showAlert("Valores no soportados por el sistema");
 		}else if(Math.ceil($scope.nota) != $scope.nota){
 			$scope.showAlert("Formato de nota incorrecto, Ej: 55");
@@ -1142,11 +1174,23 @@ app.controller("evaluarProfesorCtrl", function($rootScope, $scope, $location, $h
 		
 			});
 		}
+			    	return "";
+			    }, function() {
+			    	return "";
+			    });
 	}
 
 	$scope.evaluarP2 = function(){
 
-		if($scope.nota >= 2147483647 || $scope.nota <= -2147483647){
+			var confirm = $mdDialog.confirm()
+	          .title('Desea evaluar la práctica')
+	          .textContent('La práctica del alumno será evaluada')
+	          .ariaLabel('Lucky day')
+	          .ok('Evaluar')
+	          .cancel('Cancelar');
+
+	          $mdDialog.show(confirm).then(function() {
+	          		if($scope.nota >= 2147483647 || $scope.nota <= -2147483647){
 			$scope.showAlert("Valores no soportados por el sistema");
 		}else if(Math.ceil($scope.nota) != $scope.nota){
 			$scope.showAlert("Formato de nota incorrecto, Ej: 55");
@@ -1180,6 +1224,11 @@ app.controller("evaluarProfesorCtrl", function($rootScope, $scope, $location, $h
 		
 			});
 		}
+			    	return "";
+			    }, function() {
+			    	return "";
+			    });
+
 	}
 });
 /*SPRINT 3.3*/
@@ -1212,3 +1261,75 @@ app.controller("profesorPractica2Ctrl", function($rootScope, $scope, $location, 
 	}
 });
 /*PRÁCTICA 2*/
+
+
+/*SPRINT 3.5*/
+app.controller("configurarProfeCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){
+
+	$scope.comunidad = $rootScope.sesion.getComunidad();
+	$scope.profe = $scope.comunidad.profesorC.nombreU +" "+ $scope.comunidad.profesorC.apellidoU;
+
+	$scope.showAlert = function(contenido) {
+
+		$mdDialog.show(
+		      $mdDialog.alert()
+		        .clickOutsideToClose(true)
+		        .title('Información')
+		        .textContent(contenido)
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Entendido!')
+		    );
+	};
+
+	$scope.configurar = function(){
+
+		var confirm = $mdDialog.confirm()
+	          .title('Desea configurar la nota mínima?')
+	          .textContent('La nota mínima será configurada')
+	          .ariaLabel('Lucky day')
+	          .ok('Configurar')
+	          .cancel('Cancelar');
+			    $mdDialog.show(confirm).then(function() {
+			    	if($scope.notaM >= 2147483647 || $scope.notaM <= -2147483647){
+			$scope.showAlert("Valores no soportados por el sistema");
+			return "";
+		}else if(Math.ceil($scope.notaM) != $scope.notaM){
+			$scope.showAlert("Formato de nota incorrecto, Ej: 55");
+			return "";
+		}else{
+
+			restFactory.configurar($scope.comunidad.idComunidad, $scope.notaM)
+				.success(function (response){
+				if(response.message == "true"){
+					restFactory.getComunidad($scope.comunidad.idComunidad)
+						.success(function(response1){
+							viewFactory.showSimpleToast("Nota configurada con éxito, se enviará un correo electrónico a los ayudantes");
+							$rootScope.sesion.setComunidad(response1);	
+							$location.path("/home/profesor/configurarPT");							
+						});
+					
+				}else if(response.message == "e"){
+					$scope.showAlert("La nota no puede ser superior a 70");	
+				}else if(response.message == "i"){
+					$scope.showAlert("La nota no puede ser inferior a 10");	
+				}else if(response.message == "eq"){
+					$scope.showAlert("La nota es igual a la actual");	
+				}else{
+					$scope.showAlert("Error al evaluar la práctica, intente más tarde");	
+				}	  	
+		
+			});
+		}
+			      	return "";
+			    }, function() {	
+			    	return "";
+			     
+			    });
+		
+	}
+
+	$scope.back = function(){
+		$location.path("/home/profesor/verAsociadosC");
+	}
+});
+/*SPRINT 3.5*/

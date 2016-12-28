@@ -1,0 +1,32 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+ <div layout = "row">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#/home/alumno">Inicio</a></li>
+      <li class="breadcrumb-item active">Material Teórico</li>
+    </ol>
+  </div>
+</div>
+
+<div layout = "column" layout-align = "center center">
+	<h3>Material Teórico</h3>
+</div>
+<br>
+<div>
+	<p align="center">A continuación se presentan los principales tópicos tratados dentro de Rapsodia. </p>
+</div>
+<br>    
+<md-list>
+    <md-subheader class="md-no-sticky">Contenido</md-subheader>
+    <div ng-repeat="m in menu">
+      <md-list-item ng-click = "sendTo(m.url)">
+        <p>{{m.title}}</p>
+      </md-list-item>
+    </div>
+  </md-list>
+</md-content>

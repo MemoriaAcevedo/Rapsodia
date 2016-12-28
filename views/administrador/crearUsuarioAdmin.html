@@ -72,26 +72,6 @@
                           </div>
                           <div>
                             <md-input-container>
-                              <label>Contraseña</label>
-                              <input type="password" name = "pass" ng-required = "true" ng-model="newUsuario.contrasenaU" ng-maxlength="45">
-                              <div ng-messages="crear.pass.$error">
-                                <div ng-message="required">Contraseña requerida!</div>
-                                <div ng-message="maxlength">Máximo 45 caracteres</div> 
-                              </div>
-                            </md-input-container>
-                          </div>
-                          <div>
-                            <md-input-container>
-                              <label>Confirmar Contraseña</label>
-                              <input type="password" name = "passC" ng-required = "true" ng-model="passC" ng-maxlength="45">
-                              <div ng-messages="crear.passC.$error">
-                                <div ng-message="required">Confirmación requerida!</div>
-                                <div ng-message="maxlength">Máximo 45 caracteres</div> 
-                              </div>
-                            </md-input-container>
-                          </div>
-                          <div>
-                            <md-input-container>
                               <label>Pregunta Secreta</label>
                               <input type="text" name = "ps" ng-required = "true" ng-model="newUsuario.preguntaU" ng-maxlength="45">
                               <div ng-messages="crear.ps.$error">
@@ -124,7 +104,7 @@
                       <br>
                       <div layout = "column" layout-align="center center">
 
-                        <md-button class="md-raised md-primary" ng-disabled = "crear.email.$invalid || crear.rut.$invalid || crear.nombre.$invalid || crear.apellido.$invalid || crear.apodo.$invalid || crear.pass.$invalid || crear.passC.$invalid || crear.ps.$invalid || crear.res.$invalid" ng-click="crearU()">Crear Usuario</md-button>
+                        <md-button class="md-raised md-primary" ng-disabled = "crear.email.$invalid || crear.rut.$invalid || crear.nombre.$invalid || crear.apellido.$invalid || crear.apodo.$invalid || crear.ps.$invalid || crear.res.$invalid" ng-click="crearU()">Crear Usuario</md-button>
 
                         <md-button ng-click= "back()">Cancelar</md-button>
 

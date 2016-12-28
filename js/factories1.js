@@ -318,5 +318,33 @@ app.factory("restFactory", ["$http", function($http){
 	//Sprint 3.4
 
 	//Sprint 3.5
+	restFactory.configurar = function(idC, nota){ 
+		return $http.post("http://localhost:8080/MockRapso-war/webresources/practicaT/configurarPT/"+idC+"/"+nota);
+	};
+
+	restFactory.getComunidad = function(idC){ 
+		return $http.get("http://localhost:8080/MockRapso-war/webresources/usuario/getComunidad/"+idC);
+	};
+
+	restFactory.getPracticaTeorica = function(idU, idC){ 
+		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getPracticaTeorica/"+idU+"/"+idC);
+	};
+
+	restFactory.getAreasReforzar = function(idPT){ 
+		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getAreasReforzar/"+idPT);
+	};
+
+	restFactory.getPreguntas = function(){ 
+		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getPreguntas");
+	};
+
+	restFactory.corregirPT = function(respuestas){ 
+		return $http.post("http://localhost:8080/MockRapso-war/webresources/practicaT/corregirPT", respuestas);
+	};
+
+	restFactory.accesoPractica = function(idC, idU){ 
+		return $http.get("http://localhost:8080/MockRapso-war/webresources/usuario/accesoPractica/"+idC+"/"+idU);
+	};
+	//Sprint 3.5
 	return restFactory;
 }]);

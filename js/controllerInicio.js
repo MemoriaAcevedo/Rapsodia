@@ -8,6 +8,10 @@ app.controller("snCtrl", function($rootScope, $scope, $location, $mdToast, $time
 		$location.path("/home/alumno/comunidades");
 	}
 
+	$scope.verMaterial = function(){
+		$location.path("/home/alumno/materialTeorico");
+	}
+
 
 	//Funciones administrador
 	$scope.perfilPA = function(){

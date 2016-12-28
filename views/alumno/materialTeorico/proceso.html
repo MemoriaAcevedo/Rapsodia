@@ -1,0 +1,1889 @@
+<md-content flex class="md-whiteframe-z3 md-padding">
+ <div layout = "row">
+  <div>
+   <md-button id="main" class="md-icon-button"  aria-label="Show User List" ng-click = "back1()">
+    <md-icon md-svg-icon="img/icon/ic_arrow_back_black_48px.svg" ></md-icon>
+   </md-button>
+  </div>
+  <div>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#/home/alumno">Inicio</a></li>
+      <li class="breadcrumb-item"><a href="#/home/alumno/materialTeorico">Material Teórico</a></li>
+      <li class="breadcrumb-item active">Proceso para el control de calidad del software usando pruebas</li>
+    </ol>
+  </div>
+</div>
+
+<div layout = "column" layout-align = "center center">
+  <h3>Proceso para el control de calidad del software usando pruebas</h3>
+</div>
+<br>
+
+<md-content>
+            <md-tabs md-dynamic-height="" md-border-bottom="">
+              <md-tab label="1. Fundamentos">
+                <md-content class="md-padding">
+                  <div layout ="column" layout-align = "center center"><h5><strong>Fundamentos</strong></h5></div>
+                  <!-- 1.1 Objetivo-->
+                  <div>
+                    <div><h6><strong>1.1 Objetivo</strong></h6></div>
+                    <p align="justify">Controlar el proceso de desarrollo y pruebas de software para entregar un producto de calidad a los usuarios.</p>
+                  </div>
+                  <br>
+                  <!-- 1.2 Definición del proceso -->
+                  <div>
+                    <div><h6><strong>1.2 Definición del proceso</strong></h6></div>
+                    <p align="justify">El proceso se constituye por 4 fases los cuales tienen un rol asignado que ejecuta diferentes actividades:</p>
+                  </div>
+                  <br>
+                  <!-- 1.3 Fases del proceso -->
+                  <div>
+                    <div><h6><strong>1.3 Fases del proceso</strong></h6></div>
+                    <p align="justify">El proceso propuesto para el control de calidad del software es un conjunto de roles, actividades, prácticas, metodologías, herramientas para desarrollar y confeccionar pruebas al software de forma temprana.</p>
+                  </div>
+
+                  <!-- 1.3.1 Desarrollo -->
+                  <div>
+                    <div><h6><strong>1.3.1 Desarrollo</strong></h6></div>
+                    <p align="justify">La fase de desarrollo es donde los programadores implementan las historias de usuario requeridas por los usuarios.</p>
+
+                    <p align="justify">El rol asignado a esta fase es el Programador.</p>
+                  </div>
+
+                  <!-- 1.3.2 Pruebas funcionales -->
+                  <div>
+                    <div><h6><strong>1.3.2 Pruebas funcionales</strong></h6></div>
+                    <p align="justify">La fase de pruebas funcionales es donde los QA verifican el correcto funcionamiento de las funcionalidades de la historia de usuario.</p>
+
+                    <p align="justify">El rol asignado a esta fase es el QA Interno.</p>
+                  </div>
+
+                  <!-- 1.3.3 Verificación y chequeo  -->
+                  <div>
+                    <div><h6><strong>1.3.3 Verificación y chequeo</strong></h6></div>
+                    <p align="justify">La fase de verificación y chequeo es donde los encargados del equipo verifican el correcto funcionamiento de las funcionalidades básicas y críticas de la historia de usuario, asimismo chequean la reparación de las incidencias reportadas durante el desarrollo.</p>
+
+                    <p align="justify">El rol asignado a esta fase es el Encargado del equipo.</p>
+                  </div>
+
+                  <!-- 1.3.4 Validación  -->
+                  <div>
+                    <div><h6><strong>1.3.4 Validación</strong></h6></div>
+                    <p align="justify">La fase de validación es donde los usuarios finales determinan si la historia de usuario satisface sus necesidades de negocio.</p>
+
+                    <p align="justify">El rol asignado a esta fase es el QA Usuario.</p>
+                  </div>
+                  <br>
+                  <!-- 1.4 Roles  -->
+                  <div>
+                    <div><h6><strong>1.4 Roles</strong></h6></div>
+                    <p align="justify">Los roles encargados de ejecutar las actividades de cada una de las fases previamente mencionadas son los siguientes:</p>
+                        <ol>
+                            <li value="1"><p align="justify"><strong>Programador:</strong> Ente encargado de implementar las funcionalidades que satisfagan las historias de usuario y criterios de aceptación solicitados por el usuario.</p></li>
+                            <li><p align="justify"><strong>QA Interno:</strong> Ente encargado de verificar la satisfacción de los criterios de aceptación de las historias de usuarios.</p></li>
+                            <li><p align="justify"><strong>Encargado del equipo:</strong> Ente encargado de verificar y chequear el correcto funcionamiento de las funcionalidades básicas, críticas e incidencias de las historias de usuario. </p></li>
+                            <li><p align="justify"><strong>QA Usuario:</strong> Ente encargado de validar las historias de usuario desarrolladas por el equipo de trabajo.</p></li>
+                        </ol>
+                  </div>
+
+                  <!-- 1.5 Descripción general del proceso  -->
+                  <div>
+                    <div><h6><strong>1.5 Descripción general del proceso</strong></h6></div>
+                    <p align="justify">La descripción del proceso general para el control de calidad del software se muestra en el siguiente video:</p>
+                    <div layout = "column" layout-align = "center center">
+                      <video width="320" height="240" controls>
+                        <source src="video/ProcesoGeneral.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                </md-content>
+              </md-tab>
+              <md-tab label="2. Proceso utilizando taiga">
+                <md-content class="md-padding">
+                  <div>
+                  <div layout ="column" layout-align = "center center"><h5><strong>Proceso para el control de calidad del software utilizando taiga</strong></h5></div>
+                     <!-- 2. Proceso para el control de calidad del software utilizando taiga -->
+                    <div>
+                    <br>
+                      <p align="justify">Para ejecutar el proceso previamente descrito se utilizará taiga. Esta es una plataforma web flexible para la gestión de proyectos la cual permite configurar y administrar su funcionamiento adecuándose a las necesidades del equipo de trabajo.</p>
+                      <p align="justify">En el siguiente video se explican el proceso reflejado en actividades y tareas que deben realizar cada uno de los roles dentro de taiga para gestionar el desarrollo y la realización de pruebas de software: </p>
+                      <div layout = "column" layout-align = "center center">
+                        <video width="320" height="240" controls>
+                          <source src="video/bpmFinalTaiga.mp4" type="video/mp4">
+                        </video>
+                      </div>
+                    </div>
+
+                    <!-- 2.1 Configuración de taiga -->
+                    <div>
+                      <div><h6><strong>2.1 Configuración de taiga</strong></h6></div>
+
+                      <p align="justify"><strong>Creación de cuenta</strong><br>A continuación se explica como crear una cuenta dentro de Taiga:</p>
+                        <div layout = "column" layout-align = "center center">
+                          <video width="320" height="240" controls>
+                            <source src="video/crearCuentaTaiga.mp4" type="video/mp4">
+                          </video>
+                      </div>
+                      <p align="justify"><strong>Configuración interna</strong><br>Para utilizar el proceso en la plataforma taiga se debe previamente configurar esta de forma interna lo cual se explica en el siguiente video:</p>
+
+                      <div layout = "column" layout-align = "center center">
+                        <video width="320" height="240" controls>
+                          <source src="video/configTaigaFinal.mp4" type="video/mp4">
+                        </video>
+                      </div>
+                    </div>
+
+                    <!-- 2.2 Descripción práctica de la utilización del proceso en taiga -->
+                    <div>
+                      <div><h6><strong>2.2 Descripción práctica de la utilización del proceso en taiga</strong></h6></div>
+
+                      <p align="justify">A continuación se entrega un ejemplo donde se pone en práctica el uso del proceso en taiga:</p>
+                        <div layout = "column" layout-align = "center center">
+                          <video width="320" height="240" controls>
+                            <source src="video/taigaVideoFinal.mp4" type="video/mp4">
+                          </video>
+                      </div>
+                    </div>
+
+                  </div>
+                </md-content>
+              </md-tab>
+              <md-tab label="3. Programador">
+                <md-content class="md-padding">
+                  <div>
+                    <div layout ="column" layout-align = "center center"><h5><strong>Programador</strong></h5></div>
+                     <!-- 3.1 Objetivo -->
+                    <div>
+                      <div><h6><strong>3.1 Objetivo</strong></h6></div>
+                      <p align="justify">Implementar las funcionalidades que satisfagan la historias de usuario y criterios de aceptación solicitados por el usuario.</p>
+                    </div>
+
+                    <!-- 3.2 Pruebas a efectuar -->
+                    <div>
+                      <div><h6><strong>3.2 Pruebas a efectuar</strong></h6></div>
+                      <p align="justify">En fase de desarrollo del software es recomendable que los programadores apliquen 2 niveles de prueba para certificar el código que están implementando antes de enviarlo a QA, los cuales son:</p>
+                      <ol>
+                            <li value="1"><p align="justify">Unitaria</p></li>
+                            <li><p align="justify">Integración</p></li>
+                        </ol>
+                      <p align="justify">Las pruebas unitarias permiten al programador comprobar de forma rápida el funcionamiento de sus métodos y clases implementadas. Por otro lado las pruebas de integración permiten comprobar el comportamiento de componentes de los software especificados en los criterios de aceptación. </p>
+                    </div>
+
+                   <!-- 3.3 Técnicas para dirigir el desarrollo del software -->
+                    <div>
+                      <div><h6><strong>3.3 Técnicas para dirigir el desarrollo del software</strong></h6></div>
+                      <p align="justify">Para cumplir con ambos niveles de pruebas se recomienda el uso de 3 técnicas las cuales fomentan la utilización de pruebas para dirigir el desarrollo del software, permitiendo tener un amplio conjunto de pruebas que cubran las funcionalidades del software de forma temprana:</p>
+                      <ol>
+                            <li value="1"><p align="justify">Test Driven Development (TDD)</p></li>
+                            <li><p align="justify">Acceptance Driven Development (ATDD)</p></li>
+                            <li><p align="justify">Behavior Driven Development (BDD)</p></li>
+                        </ol>
+                      <p align="justify">Las técnicas BDD y ATDD tienen como objetivo obtener un entendimiento común entre los clientes y el equipo de desarrollo sobre qué es lo que se va a implementar evitando las ambigüedades. Por lo tanto son candidatos para comenzar el desarrollo. </p>
+                    </div>
+
+                    <!-- 3.3.1 Técnicas para dirigir el desarrollo del software -->
+                    <div>
+                      <div><h6><strong>3.3.1  Proceso general para el desarrollo del software utilizando 3 técnicas de la familia TDD</strong></h6></div>
+                      <p align="justify">A continuación se muestra el flujo general que se debe seguir para aplicar las técnicas mencionadas:</p>
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/bpm/programador.png" class="img-thumbnail" alt="Cinque Terre" width="800" height="800"> 
+                      </div>
+                    </div>
+
+                    <!-- 3.3.2 Behavior driven development -->
+                    <div>
+                      <div><h6><strong>3.3.2 Behavior driven development</strong></h6></div>
+                      <div><h6><strong>3.3.2.1 Definición</strong></h6></div>
+                      <p align="justify">Es una técnica de desarrollo de software que busca fomentar la comunicación entre las partes involucradas del proyecto con el objetivo de obtener un entendimiento común de lo que se está desarrollando. De esta forma se evitan ambigüedades y se especifica el comportamiento deseado del software a desarrollar.</p>
+                    </div>
+
+                    <!-- 3.3.2.2 Proceso de BDD -->
+                    <div>
+                      <div><h6><strong>3.3.2.2 Proceso de BDD</strong></h6></div>
+                      <ol>
+                            <li value="1"><p align="justify">Escribir historias de usuario</p></li>
+                            <li><p align="justify">Escribir escenarios utilizando el lenguaje Gherkin</p></li>
+                            <li><p align="justify">Automatizar los escenario utilizando frameworks de BDD</p></li>
+                            <li><p align="justify">Aplicar ciclo TDD para desarrollar el comportamiento</p></li>
+                      </ol>
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/bpm/cicloBDD.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+                    </div>
+
+                    <!-- 3.3.2.3 Planteamientos de BDD-->
+                    <div>
+                      <div><h6><strong>3.3.2.3 Planteamientos de BDD</strong></h6></div>
+                      <p align="justify">Esta técnica plantea que en lugar de pensar en pruebas basadas en clases y métodos como lo hace TDD, se debe pensar en pruebas sobre los comportamientos del sistema. <br>BDD plantea lo siguiente para orientar la confección de pruebas a comportamientos:</p>
+
+                      <p align="justify"><strong>1. Expresar el nombre de los métodos de prueba como oraciones:</strong> Permite el uso de las pruebas como documentación para los programadores y encargados del negocio. Además permite el rápido reconocimiento del propósito de las pruebas. Ejemplo testEncontrarClientePorId, testFallaPorClienteDuplicado</p>
+
+                      <p align="justify"><strong>2. Comenzar los nombres de los métodos de prueba con la palabra debe (should): </strong>Permite entender que es lo que se está probando y las causas de porqué una prueba falla. Ejemplo testDeberiaEncontrarElClientePorId, testDeberiaFallarPorNoIngresarNombre</p>
+
+                      <p align="justify"><strong>3. Hablar de comportamiento en lugar de pruebas:</strong> Facilita la selección del nombre de las pruebas, enfocándose en el siguiente comportamiento a implementar. Asimismo la decisión de qué probar, ya que se debe probar solo el comportamiento en desarrollo. </p>
+
+                      <p align="justify">También facilita la comprensión de la falla de una prueba, indicando que esta se puede dar por  3 razones:</p>
+                        <ol>
+                            <li value="1"><p align="justify">Se introdujo un error</p></li>
+                            <li><p align="justify">El comportamiento cambio</p></li>
+                            <li><p align="justify">La prueba ya no es relevante para el negocio</p></li>
+                      </ol>
+                      <p align="justify"><strong>4. Determinar el próximo comportamiento a desarrollar:</strong> Facilita la determinación de lo que se debe implementar, enfocándose en los comportamientos que le entregan mayor valor de negocio a los usuarios.</p>
+
+                       <p align="justify"><strong>5. Generación de un lenguaje ubicuo llamado Gherkin:</strong> Este lenguaje es creado especialmente para describir el comportamiento que deberían tener los requisitos del sistema. Este sirve para especificar lo que el código debería hacer, automatizar las pruebas de comportamiento utilizando frameworks que comprendan el lenguaje y documentar el proyecto.</p>
+                    </div>
+
+                    <!-- 3.3.2.4 Especificación de historias de usuario y criterios de aceptación-->
+                    <div>
+                      <div><h6><strong>3.3.2.4 Especificación de historias de usuario y criterios de aceptación</strong></h6></div>
+                      <p align="justify">BDD para especificar los requerimientos hace uso de historias de usuario con el formato:<br><strong>Como</strong> [Rol]<br><strong>Quiero</strong> [Característica]<br><strong>Para</strong> [Objetivo]</p>
+
+                      <p align="justify">Los criterios de aceptación los cuales representan el comportamiento de una historia de usuario, se especifican haciendo uso del lenguaje Gherkin utilizando escenarios con el siguiente formato:</p>
+
+                      <p align="justify"><strong>Feature:</strong> Texto descriptivo de lo que se desea (Historia de usuario)<br>
+                      <strong>Scenario:</strong> Situación de negocio determinable (Criterio de aceptación)<br>
+                      <strong>Given:</strong> [Contexto inicial]<br>
+                      <strong>When:</strong> [Ocurre un evento]<br>
+                      <strong>Then:</strong> [Asegurar que se obtiene lo esperado]<br></p>
+
+                      <p align="justify">Los escenarios se centran en el qué, explicando cómo una determinada característica debe comportarse en diferentes situaciones. Deben focalizarse en el comportamiento que se quiere que la historia de usuario posea, de modo que el lector capte el propósito de la prueba rápidamente</p>
+
+                      <p align="justify"><strong>Ejemplos de escenario</strong></p>
+
+                      <p align="justify">Utilizar <strong>“AND”</strong> para conectar múltiples datos o resultados.</p>
+
+                      <p align="justify"><strong>Feature:</strong> Devolver items al stock de modo de mantener trazabilidad del stock de los items. <br> Como dueño de la tienda quiero agregar items al stock cuando son devueltos para mantener registro de estos.</p>
+
+                      <p align="justify"><strong>Scenario:</strong> Item devuelto deberia ser retornado al stock.
+                      <strong>Given</strong> Un cliente previamente compró una chaqueta negra desde mi tienda AND Actualmente tengo 3 chaquetas negras en el stock <br>
+                      <strong>When</strong> El cliente devuelve la chaqueta <br>
+                     <strong>Then</strong> Debería tener 4 chaquetas negras en el stock</p>
+
+                     <p align="justify"><strong>Scenario:</strong> Los artículos cambiados deben ser devueltos al stock 
+                      <strong>Given</strong> Un cliente compra una chaqueta azul AND tengo 2 chaquetas azules en stock AND tengo 4 chaquetas negras en stock <br>  
+                      <strong>When</strong> El cliente devuelve la chaqueta azul para ser cambiada por una chaqueta negra <br>
+                      <strong>Then</strong> Debería tener 3 chaquetas azules en stock AND 3 chaquetas negras</p>
+                    </div>
+
+                    <!-- 3.3.2.5 Automatización de los escenarios-->
+                    <div>
+                      <div><h6><strong>3.3.2.5 Automatización de los escenarios</strong></h6></div>
+                      <p align="justify">Una vez que se tienen especificadas las historias de usuario y los criterios de aceptación utilizando el lenguaje Gherkin, se automatizan las pruebas haciendo uso de un framework que apoye el desarrollo de BDD.</p>
+
+                      <p align="justify">Para esto se recomienda el uso de <strong>Cucumber</strong></p>
+
+                      <p align="justify">El flujo de trabajo que utiliza Cucumber para automatizar las pruebas es el siguiente:</p>
+                      <ol>
+                            <li value="1"><p align="justify">Especificar los criterios de aceptación del software en los archivos <strong>Feature</strong></p></li>
+                            <li><p align="justify">Implementar el código que mapee el comportamiento especificado en los archivos <strong>Feature</strong> para ejecutar la prueba. </p></li>
+                      </ol>
+
+                      <p align="justify"><a href="https://cucumber.io/docs/reference/jvm#java">Descargar Cucumber</a></p>  
+                    </div>
+
+                    <!-- 3.3.2.5.1 Especificación de los criterios de aceptación del software en archivos Feature-->
+                    <div>
+                      <div><h6><strong>3.3.2.5.1 Especificación de los criterios de aceptación del software en archivos Feature</strong></h6></div>
+                      <p align="justify">Una vez definido el criterio de aceptación a implementar se especifica en el archivo Feature. Este es un archivo de extensión “.feature” que albergar los criterios de aceptación del software especificados con el formato de Gherkin funcionando como fuente de información para la automatización de la prueba.</p>
+
+                      <p align="justify"><strong>Ejemplo archivo Feature</strong></p>
+
+                      <p align="justify"><strong>Feature</strong> Como usuario quiero autenticarme en la red social para acceder a sus funcionalidades.<br>
+                      <strong>Scenario</strong> Iniciar sesión en un sitio de redes sociales <br>  
+                      <strong>Given</strong> Usuario de un sitio de redes sociales <br>
+                      <strong>When</strong> Ingreso nombre de usuario como nombre de pepito AND Ingreso contraseña como pepito1 <br>
+                      <strong>Then</strong> Debería ser redirigido a la página principal del sitio.</p>
+
+                      <p align="justify">Cucumber entrega la facilidad de especificar múltiples datos con las cuales se ejecutará una prueba evitando crear varios escenarios para cada dato.</p>
+
+                      <p align="justify">Los datos de entrada se denominan <strong>scenario outline</strong> y se especifican con el siguiente formato en el archivo Feature:</p>
+
+                      <p align="justify"><strong>| entrada1| entrada2 |<br>| valor1    | valor1      | <br>| valor2    | valor2      |</strong></p>
+
+                      <p align="justify">Para relacionar el scenario outline con los scenario correspondientes, se deben especificar en los scenario los valores de entrada con el siguiente formato: <strong>“valorDeEntrada”</strong></p>
+
+                      <p align="justify"><strong>Ejemplo</strong></p>
+
+                      <p align="justify"><strong>Scenario </strong> Autenticación en facebook<br>
+                      <strong>Given </strong>  Usuario en la página de autenticación de facebook <br>
+                      <strong>When</strong> El usuario se autentifica con el nombre de usuario como "username" AND La contraseña como "password" <br>
+                      <strong>Then</strong> La autenticación debe ser exitosa</p>
+
+                      <p align="justify"><strong>| username| password |</strong><br>| pepito    | pepito123      | <br>| pepino   | pepino123      |</p>
+                    </div>
+
+                    <!-- 3.3.2.5.2 Creación de los archivos de definición de pasos-->
+                    <div>
+                      <div><h6><strong>3.3.2.5.2 Creación de los archivos de definición de pasos</strong></h6></div>
+                      <p align="justify">Una vez que se tiene el archivo Feature especificado se debe crear el archivo de definición de pasos. Este es una clase en java que se encarga de relacionar cada paso de un scenario definido en el archivo feature con un código de función que Cucumber ejecutará.</p>
+
+                      <p align="justify">La relación se realiza utilizando las siguientes notaciones:</p>
+                      <ol>
+                            <li value="1"><p align="justify">@Given(“^ Paso Given del scenario $”)</li>
+                            <li><p align="justify">@When(“^ Paso When del scenario $”)</p></li>
+                            <li><p align="justify">@Then (“^ Paso Then del scenario $”)</p></li>
+                      </ol>
+
+                      <p align="justify">Los pasos especificados en el archivo Feature deben coincidir con los que se escribirán en las notaciones.</p>
+
+                      <p align="justify">Los datos de entrada especificados en el scenario outline se mapean en las notaciones usando la siguientes sintaxis: <strong>\"([^\"]*)\"</strong></p>
+
+                      <p align="justify"><strong>Ejemplo</strong></p>
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/archivoPasos.png" class="img-thumbnail" alt="Cinque Terre" width="700" height="700"> 
+                      </div>
+                    </div>
+
+                    <!-- 3.3.2.5.3 Etiquetas en Cucumber-->
+                    <div>
+                      <div><h6><strong>3.3.2.5.3 Etiquetas en Cucumber</strong></h6></div>
+                      <p align="justify">Cucumber permite etiquetar las pruebas para que sean ejecutadas según su propósito (Prueba de humo / Regresión) o perspectiva (Programador / QA Interno / Encargado /Usuario).</p>
+
+                      <p align="justify">La etiqueta posee el siguiente formato: <strong>@NombreEtiqueta</strong> y debe etiquetarse al principio de un escenario. </p>
+
+                      <p align="justify"><strong>Ejemplo</strong><br> Se desea ejecutar un escenario como parte de una prueba de humo por lo tanto se debe etiquetar con la siguiente etiqueta <strong>@SmokeTest</strong> de la siguiente forma:</p>
+
+                      <p align="justify"><strong>@SmokeTest</strong><br>
+                      <strong>Scenario:</strong> Autenticación para una red social <br>
+                      <strong>Given</strong> Usuario en la página de autenticación de facebook <br>
+                      <strong>When</strong> El usuario se autentifica con el nombre de usuario como "username" AND La contraseña como "password" <br>
+                      <strong>Then</strong> La autenticación debe ser exitosa
+                      </p>
+
+                      <p align="justify">En el caso que se desee excluir de la prueba todos los scenario con cierta etiqueta se puede utilizar el símbolo <strong>"~"</strong>  en la clase <strong>JUnit runner.</strong></p>
+
+                       <p align="justify"><strong>Ejemplo</strong> <br>
+                        Excluimos todos los scenarios que se ejecutarán como prueba de humo. Para esto se utiliza el siguiente formato:
+                        <strong>@Cucumber.Options (tags = { "~ @ SmokeTest"})</strong>
+                        </p>
+
+                        <p align="justify">Además se permite definir operaciones lógicas.</p>
+                        <ol>
+                            <li value="1"><p align="justify"><strong>Operación “AND”:</strong> Si los escenarios coinciden con ambas etiquetas deben ejecutarse. <strong>Sintaxis</strong> [@Tag1, ~ @Tag2]</p></li>
+                            <li><p align="justify"><strong>Operación “OR”:</strong> Si los escenarios coinciden con cualquier de las etiquetas deben ejecutarse. <strong>Sintaxis</strong> @Tag1, @Tag2</p></li>
+                      </ol>
+                    </div>
+
+                    <!-- 3.3.2.6 Aplicación ciclo TDD para desarrollar los escenarios-->
+                    <div>
+                      <div><h6><strong>3.3.2.6 Aplicación ciclo TDD para desarrollar los escenarios</strong></h6></div>
+                      <p align="justify">Finalmente cuando los pasos del scenario están relacionados con los métodos del Feature , debe ejecutar la prueba. Esta fallará dado que el código aún no está implementado, por lo tanto hay que implementar el código que haga pasar la prueba haciendo uso de la técnica <strong>Test Driven Development</strong>. </p>
+                    </div>
+                    <!-- Más información -->
+                    <div>
+                      <p align="justify"><strong>Más información</strong></p>
+                      <p>Teoría</p>
+                      <ol>
+                              <li value="1"><p align="justify"><a href="https://www.tutorialspoint.com/cucumber/index.htm">Tutorialspoint</a></p></li>
+                        </ol>
+                        <p>Práctica</p>
+                      <ol>
+                              <li value="1"><p align="justify"><a href="https://www.youtube.com/playlist?list=PL_noPv5wmuO_t6yYbPfjwhJFOOcio89tI">QAShanin Java Cucumber Tutorial</a></p></li>
+                        </ol>
+                    </div>
+
+                    <!-- 3.3.3 Acceptance Driven Development-->
+                    <div>
+                      <div><h6><strong>3.3.3 Acceptance Driven Development</strong></h6></div>
+                    </div>
+                     <!-- 3.3.3.1 Definición -->
+                    <div>
+                      <div><h6><strong>3.3.3.1 Definición</strong></h6></div>
+                      <p align="justify">Es una práctica de diseño de software que desarrolla el producto a partir de pruebas de aceptación.  </p>
+
+                      <p align="justify">El objetivo es tomar cada requerimiento, en la forma de historia de usuario, construir pruebas de aceptación de usuario, y a partir de ellas construir las pruebas automatizadas de aceptación, para luego escribir el código. </p>
+                    </div>
+
+                    <!-- 3.3.3.2 Proceso de ATDD-->
+                    <div>
+                      <div><h6><strong>3.3.3.2 Proceso de ATDD</strong></h6></div>
+                        <ol>
+                           <li value="1"><p align="justify">Escribir la historia de usuario</p></li>
+                            <li><p align="justify">Escribir la prueba de aceptación</p></li>
+                            <li><p align="justify">Automatizar la prueba de aceptación</p></li>
+                            <li><p align="justify">Aplicar ciclo de TDD para desarrollar la HU</p></li>
+                        </ol>
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/cicloATDD.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>    
+                    </div>
+
+                    <!-- 3.3.3.3  Especificación de historias de usuario-->
+                    <div>
+                      <div><h6><strong>3.3.3.3  Especificación de historias de usuario</strong></h6></div>
+                      <p align="justify">Durante la reunión de planificación entre el equipo de trabajo y los clientes, se deben capturar las historias de usuario y sus respectivos criterios de aceptación, de esta manera todo el equipo comprende que es lo que hay que hacer y porque.</p>
+
+                      <p align="justify"><strong>Formato de una historia de usuario:</strong></p>
+                      <p align="justify"><strong>Como</strong> [Rol]<br>
+                      <strong>Quiero</strong> [Característica] <br>
+                      <strong>Para</strong> [Objetivo]</p>
+
+                       <p align="justify"><strong>Ejemplo</strong></p>
+                       <p align="justify"><strong>Título</strong> Autenticación para una red social<br>
+                       <strong>Como</strong> Usuario<br>
+                      <strong>Quiero</strong> Autenticarme en red social ingresando mi nombre de usuario y contraseña  <br>
+                      <strong>Para</strong> Acceder a sus funcionalidades</p>
+
+                       <p align="justify">Por otro lado los criterios de aceptación son un conjunto de condiciones que una historia debe cumplir para ser aceptada. Para su especificación se recomienda el uso del lenguaje Gherkin.</p>
+
+                       <p align="justify"><strong>Formato Gherkin</strong></p>
+
+                       <ol>
+                           <li value="1"><p align="justify"><strong>Feature:</strong> Texto descriptivo de lo que se desea (Historia de usuario)</p></li>
+                            <li><p align="justify"><strong>Scenario:</strong> Situación de negocio determinable (Criterio de aceptación)</p></li>
+                            <li><p align="justify"><strong>Given</strong> [Contexto inicial]</p></li>
+                            <li><p align="justify"><strong>When</strong>  [Ocurre un evento]</p></li>
+                            <li><p align="justify"><strong>Then</strong>  [Asegurar que se obtiene lo deseado]</p></li>
+                        </ol>
+
+                        <p align="justify"><strong>Ejemplo de criterio de aceptación</strong></p>
+                        <p align="justify"><strong>Feature:</strong> Como usuario quiero autenticarme en red social ingresando mi nombre de usuario y contraseña para acceder a sus funcionalidades <br> 
+                        <strong>Scenario:</strong> Autenticación para una red social <br>
+                        <strong>Given</strong> Usuario en la página de autenticación de la red social <br>
+                        <strong>When</strong> El usuario se autentifica con el nombre de usuario y la contraseña <br>
+                        <strong>Then</strong> La autenticación debe ser exitosa</p> 
+                    </div>
+
+                    <!-- 3.3.3.4 Especificación de pruebas de aceptación-->
+                    <div>
+                      <div><h6><strong>3.3.3.4 Especificación de pruebas de aceptación</strong></h6></div>
+                      <p align="justify">Una vez que se tienen especificados los criterios de aceptación, se comienza a esbozar las pruebas de aceptación en colaboración con el cliente. </p>
+
+                      <p align="justify">Las pruebas de aceptación son el criterio escrito en lenguaje natural que las historias de usuario deben cumplir para dar por finalizada una historia y satisfacer los requisitos de negocio del cliente. <strong>Estas se componen de criterios de aceptación acompañadas por ejemplos (datos + escenarios de ejecución).</strong></p>
+
+                        <p align="justify"><strong>Ejemplo de prueba de aceptación</strong></p>
+                        <p align="justify"><strong>Feature:</strong> Como usuario quiero autenticarme en red social ingresando mi nombre de usuario y contraseña para acceder a sus funcionalidades <br> 
+                        <strong>Scenario:</strong> Autenticación para una red social <br>
+                        <strong>Given</strong> Usuario en la página de autenticación de la red social <br>
+                        <strong>When</strong> El usuario se autentifica con el nombre de usuario <strong>pepito</strong> y la contraseña <strong>pepito123</strong> <br>
+                        <strong>Then</strong> La autenticación debe ser exitosa</p>
+
+                      <p align="justify">En este ejemplo el cliente dio como ejemplo el dato de entrada para el nombre de usuario <strong>pepito</strong>, para la contraseña <strong>pepito123</strong> y como resultado <strong>Autenticación exitosa</strong>.</p> 
+                    </div>
+
+                    <!-- 3.3.3.5 Automatización de las pruebas de aceptación-->
+                    <div>
+                      <div><h6><strong>3.3.3.5 Automatización de las pruebas de aceptación</strong></h6></div>
+                      <p align="justify">Con las pruebas de aceptación esbozadas, se procede a automatizarlas. Para esto se hará uso del framework <strong>FitNesse</strong>.</p>
+
+                      <p align="justify"><a href="http://fitnesse.org/FitNesseDownload">Descargar FitNesse</a></p>
+                    </div>
+
+                    <!-- 3.3.3.5.1 FitNesse-->
+                    <div>
+                      <div><h6><strong>3.3.3.5.1 FitNesse</strong></h6></div>
+                      <p align="justify">FitNesse es una herramienta para especificar y verificar los criterios de aceptación del software.</p>
+
+                      <p align="justify">Para la ejecución de las pruebas se debe realizar 2 pasos:</p>
+                      <ol>
+                              <li value="1"><p align="justify">Crear una página web en la wiki que provee FitNessedonde se debe especificar:
+                                <ol>
+                                    <li value="A"><p align="justify">Ruta donde se encuentra el proyecto que tiene la funcionalidades a probar</p></li>
+                                    <li><p align="justify">Ruta de la clase a probar</p></li>
+                                    <li><p align="justify">Datos de entrada</p></li>
+                                    <li><p align="justify">Método a probar</p></li>
+                              </ol>
+
+                              </li>
+                              <li><p align="justify">Crear el <strong>Fixture</strong> en el proyecto que posee la funcionalidades a probar.</li>
+                      </ol>
+                    </div>
+
+                    <!-- 3.3.3.5.2 Funcionamiento de FitNesse-->
+                    <div>
+                      <div><h6><strong>3.3.3.5.2 Funcionamiento de FitNesse</strong></h6></div>
+                      <p align="justify">Cuando se ejecuta una prueba:</p>
+
+                      <p align="justify">Para la ejecución de las pruebas se debe realizar 2 pasos:</p>
+                      <ol>
+                              <li value="1"><p align="justify">FitNesse envía la tabla de decisión a <strong>Slim</strong>, el cual es un protocolo que realiza llamadas a procedimientos remotos que permite a FitNesse comunicarse con el código a probar.</p></li>
+                              <li><p align="justify"><strong>Slim</strong> busca y ejecuta el código de la <strong>Fixture</strong> correspondiente a los atributos especificados en la tabla de decisión.</p></li>
+                              <li><p align="justify">El código de la <strong>Fixture</strong> llama a algún código de aplicación subyacente para hacer el trabajo real, y retorna los resultados al <strong>Fixture</strong>.</p></li>
+                              <li><p align="justify"><strong>Slim</strong> entrega a FitNesse los resultados obtenidos de la ejecución de la <strong>Fixture</strong>.</p></li>
+                              <li><p align="justify">FitNesse calcula si se debe pintar las celdas de la tabla rojo o verde <strong>(amarillo, si se ha lanzado una excepción)</strong> y se muestran los resultados en la página.</p></li>
+                      </ol>
+                    </div>
+
+                    <!-- 3.3.3.5.3 Creación de pruebas de aceptación en FitNesse-->
+                    <div>
+                      <div><h6><strong>3.3.3.5.3 Creación de pruebas de aceptación en FitNesse</strong></h6></div>
+                      <p align="justify">Para confeccionar la prueba debe crear una página web en la wiki que entrega de FitNesse.</p>
+
+                      <p align="justify">Con la siguiente sentencia se especifica la ruta del proyecto que será sometido a prueba: <strong>!path rutaDelProyecto</strong></p>
+
+                      <p align="justify">Para especificar las pruebas se hace uso de <strong>tablas de decisión</strong> las cuales poseen el siguiente formato: </p>
+
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/fitnesse1.png" class="img-thumbnail" alt="Cinque Terre" width="600" height="600"> 
+                      </div>
+                      <br>
+                      <p align="justify"><strong>ClassPath:</strong> Corresponde a la ruta en donde se encuentra la clase a ser probada. <br>
+                      <strong>Entrada1 y Entrada2:</strong> Atributo que representa los valores de entrada necesarios para la ejecución del método de prueba. <br>
+                      <strong>metodoDePrueba?:</strong> Atributo que representa el método a ser probado.</p> 
+
+                      <p align="justify"><strong>Ejemplo tabla de decisión </strong></p>   
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/fitnesse2.png" class="img-thumbnail" alt="Cinque Terre" width="600" height="600"> 
+                      </div>
+                    </div>
+
+                    <!-- 3.3.3.5.4 Creación de Fixture-->
+                    <div>
+                      <div><h6><strong>3.3.3.5.4 Creación de Fixture</strong></h6></div>
+                      <p align="justify">Teniendo la prueba de aceptación implementada en FITnesse se codifica el <strong>Fixture</strong> el cual tiene como objeto procesar los atributos de la tabla de decisión y retorna el resultado de la prueba de aceptación. </p>
+
+                      <p align="justify">El Fixture es una clase que esta compuesta por:</p>
+                      <ol>
+                              <li value="1"><p align="justify">Valores de entrada para el método a probar</p>
+                                <ol>
+                                        <li value="1"><p align="justify">Métodos <strong>set</strong> correspondiente a los atributos relacionados a los valores de entrada. (Este método es utilizado por FITnesse para mapear los valores </p></li>
+                                </ol>
+                              </li>
+
+                              <li><p align="justify">Método a probar</p></li>
+                      </ol>
+
+                      <p align="justify"><strong>Importante</strong><br>Fixture no contiene lógica de negocio solamente invoca los métodos y prepara los valores de entrada para la prueba. </p>
+
+
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/fitnesse3.png" class="img-thumbnail" alt="Cinque Terre" width="400" height="400"> 
+                      </div>
+                    </div>
+
+                    <!-- 3.3.3.6 Aplicación ciclo TDD para desarrollar la historia de usuario-->
+                    <div>
+                      <div><h6><strong>3.3.3.6 Aplicación ciclo TDD para desarrollar la historia de usuario</strong></h6></div>
+                      <p align="justify">Una vez implementado el Fixture se corre la prueba de aceptación desde la página web. Esta fallará dado que el código de autenticación aún no es implementado. </p>
+
+                      <p align="justify">Por lo tanto se procede a implementar el código necesario para hacer pasar la prueba utilizando TDD.</p>
+                    </div>
+
+                    <!-- Más información -->
+                    <div>
+                      <p align="justify"><strong>Más información</strong></p>
+                      <p>Teoría</p>
+                      <ol>
+                              <li value="1"><p align="justify"><a href="http://fitnesse.org/FitNesse.UserGuide">Guía para el usuario de FitNesse</a></p></li>
+                              <li><p align="justify"><a href="http://www.softwaretestinghelp.com/getting-started-with-fitnesse-a-collaboration-tool-for-testers-and-developers/">Comienza con FitNesse</a></p></li>
+                        </ol>
+                        <p>Práctica</p>
+                      <ol>
+                              <li value="1"><p align="justify"><a href="https://www.youtube.com/watch?v=KQa3kJIyOS8">FitNesse Tutorial</a></p></li>
+                        </ol>
+                    </div>
+
+                    <!--3.3.4 Test Driven Development-->
+                    <div>
+                      <div><h6><strong>3.3.4 Test Driven Development</strong></h6></div>
+
+                    </div>
+
+                    <!--3.3.4.1 Definición-->
+                    <div>
+                      <div><h6><strong>3.3.4.1 Definición</strong></h6></div>
+                      <p align="justify">Es una técnica de diseño e implementación de software orientado a objetos incluida dentro de la metodología XP.</p>
+                      <p align="justify">Esta se enfoca en 3 factores primordiales:</p>
+                      <ol>
+                        <li value="1"><p align="justify">Implementar solo lo que el cliente necesita y nada más.</p></li>
+                        <li><p align="justify">Minimizar la cantidad de defectos en fases finales del desarrollo.</p></li>
+                        <li><p align="justify">Implementar código modular, reutilizable y preparado para el cambio. </p></li>
+                      </ol>
+
+                      <p align="justify">Para su aplicación incluye 3 prácticas:</p>
+                      <ol>
+                        <li value="1"><p align="justify"><strong>Automatización:</strong> Las pruebas del software deben ser confeccionadas en código con el objetivo de tener rápida retroalimentación sobre el funcionamiento del software.</p></li>
+                        <li><p align="justify"><strong>Test-First:</strong> Las pruebas se escriban antes que el código a probar.</p></li>
+                        <li><p align="justify"><strong>Refactorización:</strong> Cambiar el diseño del código sin cambiar la funcionalidad. </p></li>
+                      </ol>
+                    </div>
+
+                     <!--3.3.4.2 Proceso de TDD-->
+                    <div>
+                      <div><h6><strong>3.3.4.2 Proceso de TDD</strong></h6></div>
+                      <p align="justify">El proceso utilizado por TDD para cada porción de código a desarrollar, es el siguiente:</p>
+                      <ol>
+                        <li value="1"><p align="justify">Escribir la prueba de software.</p></li>
+                        <li><p align="justify">Implementar el mínimo código que haga pasar la prueba.</p></li>
+                        <li><p align="justify">Refactorizar para eliminar duplicidad y hacer mejoras. </p></li>
+                      </ol>
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/cicloTDD.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+                      <br>
+                       <p align="justify"><strong>Reglas de Test Driven Development:</strong></p>
+                       <ol>
+                        <li value="1"><p align="justify">Nunca escribir una funcionalidad sin una prueba que falle antes.</p></li>
+                        <li><p align="justify">Escribir de a una prueba por vez.</p></li>
+                      </ol>
+                    </div>
+
+                    <!--3.3.4.3 Confección de las pruebas unitarias-->
+                    <div>
+                      <div><h6><strong>3.3.4.3 Confección de las pruebas unitarias</strong></h6></div>
+                      <p align="justify">Para la implementación de las funcionalidades debe hacer uso de las historias de usuario y sus criterios de aceptación más ejemplos certeros entregados por el cliente.</p>
+
+                      <p align="justify">Teniendo claro el el criterio de aceptación a implementar debe proceder a confeccionar la prueba unitaria automatizada que probará el método. Para la confección se recomienda el uso de los frameworks <strong>JUnit</strong> y <strong>Mockito</strong>.</p>
+
+                      <p align="justify"><a href="https://github.com/junit-team/junit4/wiki/Download-and-Install">Descargar JUnit</a></p>
+                      <p align="justify"><a href="https://github.com/mockito/mockito">Descargar Mockito</a></p>
+                    </div>
+
+                    <!--3.3.4.3.1 Características de una prueba unitaria-->
+                    <div>
+                      <div><h6><strong>3.3.4.3.1 Características de una prueba unitaria</strong></h6></div>
+                      <p align="justify">Una prueba unitaria debe poseer las siguientes características:</p>
+                      <ol>
+                        <li value="1"><p align="justify"><strong>Atómica:</strong> Prueba un solo camino de ejecución de la funcionalidad.</p></li>
+                        <li><p align="justify"><strong>Independiente:</strong> No depende de otras pruebas para entregar un resultado. </p></li>
+                        <li><p align="justify"><strong>Inicua:</strong> No altera el estado del sistema.</p></li>
+                         <li><p align="justify"><strong>Rápida:</strong> Obtener retroalimentación lo más pronto posible sobre el funcionamiento del código. </p></li>
+                          <li><p align="justify"><strong>Informativa:</strong> El nombre de la prueba debe informar al usuario que es lo que se está haciendo además de ser consistente con su objetivo.</p></li>
+                      </ol>
+                    </div>
+
+                    <!--3.3.4.3.2 Etapas para  confección de una prueba unitaria-->
+                    <div>
+                      <div><h6><strong>3.3.4.3.2 Etapas para  confección de una prueba unitaria</strong></h6></div>
+                      <p align="justify">Para confeccionar la prueba unitaria debe contemplar las siguientes 3 etapas:</p>
+                      <ol>
+                        <li value="1"><p align="justify">Preparación</li>
+                        <li>Acto</p></li>
+                        <li>Afirmación</li>
+                      </ol>
+
+                      <p align="justify"><strong>1. Preparación</strong> <br>
+                        Es donde se especifican e inicializan los valores necesarios para que una prueba se pueda ejecutar. Esta información se puede especificar en el método <strong>setUp</strong> entregado por JUnit si es común para todos los casos de prueba de la clase. 
+                      </p>
+                      <p align="justify"><strong>2. Acto</strong> <br>
+                        Consiste en hacer la llamada al código que se desea probar. 
+                      </p>
+
+                      <p align="justify"><strong>3. Afirmación </strong>  <br>
+                        Se hace sobre el resultado de la ejecución de la prueba verificando si  se obtuvo lo esperado haciendo uso de la clase <strong>Assert</strong>. 
+                      </p>
+                    </div>
+
+                    <!--3.3.4.3.3 Definición del nombre de la prueba -->
+                    <div>
+                      <div><h6><strong>3.3.4.3.3 Definición del nombre de la prueba</strong></h6></div>
+                      <p align="justify">Para comenzar el nombre de la prueba debe ser autoexplicativo, por lo tanto se recomienda hacer uso de la nomenclatura propuesta por BDD la cual dice que el nombre debe comenzar con la palabra should y lo que se pondrá a prueba escribirlo como una oración. <strong>Ejemplo</strong> shouldEncontrarUnClientePorId.</p>
+
+                      <p align="justify">El método de la prueba siempre es de tipo void y no posee parámetros. Se debe utilizar clases diferentes conjuntos de pruebas distintos para probar grupos de funcionalidad distinta. 
+                      </p>
+                    </div>
+
+                    <!--3.3.4.3.4 Especificación método de prueba -->
+                    <div>
+                      <div><h6><strong>3.3.4.3.4 Especificación método de prueba</strong></h6></div>
+                      <p align="justify">Para especificar el método que se pondrá a prueba debe pensar en cómo será su interfaz e imaginar el comportamiento que tendría este si estuviera implementado. </p>
+
+                      <p align="justify">Teniendo claro la interfaz del método y el comportamiento esperado de este, definimos la etapa de <strong>preparación</strong> inicializando las variables necesarias para ejecutar la prueba, y luego definimos el <strong>acto</strong> llamando al método y guardando su retorno en una variable. 
+                      </p>
+
+                      <p align="justify">Finalmente definimos la <strong>afirmación</strong> haciendo uso de los métodos assert entregados por JUnit para verificar si el resultado entregado por el método es el esperado. 
+ 
+                      <p align="justify"><strong>Ejemplo haciendo uso de JUnit</strong></p>
+
+                      <p align="justify"><strong>Feature:</strong> Como usuario quiero autenticarme en red social ingresando mi nombre de usuario y contraseña para acceder a sus funcionalidades. <br>
+                      <strong>Scenario:</strong> Autenticación para una red social <br>
+                      <strong>Given</strong> Usuario en la página de autenticación de la red social <br>
+                      <strong>When</strong> El usuario se autentifica con el nombre de usuario como juan AND La contraseña como juan123 <br>
+                      <strong>Then</strong> La autenticación debe ser exitosa
+                      </p>
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/tdd1.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+                    </div>
+
+                    <!--3.3.4.3.5 Formas de validar una prueba unitaria-->
+                    <div>
+                      <div><h6><strong>3.3.4.3.5 Formas de validar una prueba unitaria</strong></h6></div>
+                      <p align="justify">Existen dos formas de validar el resultado de la ejecución de una prueba:</p>
+                      <ol>
+                        <li value = "1"><p align="justify">Estado</p></li>
+                        <li><p align="justify">Interacción</p></li>
+                      </ol>
+                    </div>
+
+                    <!--3.3.4.3.5.1 Estado-->
+                    <div>
+                      <div><h6><strong>3.3.4.3.5.1 Estado</strong></h6></div>
+                      <p align="justify">Valida el resultado de una prueba en base al estado de una variable, haciendo uso de la clase <strong>Assert</strong> de JUnit.</p>
+
+                      <p align="justify"><strong>Ejemplo</strong> <br> Se llama a un método a poner a prueba el cual retornará un valor. Para verificar que el método realmente entrega el resultado esperado se compara el resultado retornado con el resultado esperado. Así la validación es en base al estado o valor que posea el retorno del método de prueba. </p>
+                    </div>
+
+                    <!--3.3.4.3.5.2 Interacción-->
+                    <div>
+                      <div><h6><strong>3.3.4.3.5.2 Interacción</strong></h6></div>
+                      <p align="justify">Se utiliza cuando no es posible realizar una validación de estado. Esto ocurre cuando los métodos alteran el estado del sistema. Por ejemplo clases que acceden a la base de datos, envío de mensajes a través de servicios web, clases que interactúan con la clase de prueba, comunicación que sea con un sistema externo al nuestro o crear datos en un sistema de ficheros. </p>
+
+                      <p align="justify">Para validar la interacción entre los componentes externos y no violar las características de una prueba unitaria se debe hacer uso de dobles de prueba <strong>(Mock)</strong>. Para esto se utilizará el framework Mockito en conjunto con sus funciones <strong>when()</strong> y <strong>verify()</strong>.</p>
+                    </div>
+
+                    <!--3.3.4.3.5.2.1 Mocks-->
+                    <div>
+                      <div><h6><strong>3.3.4.3.5.2.1 Mocks</strong></h6></div>
+                      <p align="justify">Los <strong>mocks</strong>  son objetos ficticios que devuelven valores fijos los cuales especifica el usuario interesado. <strong>Un mock siempre debe ser especificado en base a una clase interfaz.</strong></p>
+
+                      <ol>
+                        <li value="1">Mocks</li>
+                        <li>Stub</li>
+                      </ol>
+
+                      <p align="justify">La principal diferencia entre un <strong>mock</strong> y <strong>stub</strong>, es que en un mock define expectativas con lujo de detalles en cambio en un stub tan solo devuelve respuestas preprogramadas a las llamadas. </p>
+                    </div>
+
+                    <!--3.3.4.3.5.2.2 Determinación del uso de un mock o stub-->
+                    <div>
+                      <div><h6><strong>3.3.4.3.5.2.2 Determinación del uso de un mock o stub</strong></h6></div>
+                      <p align="justify">El factor determinante es el nivel de detalle que se requiere en la colaboración.</p>
+
+                      <ol>
+                        <li value="1">Si se desea demostrar la comunicación entre la aplicación y una dependencias externa se debe usar un <strong>mock</strong>.</li>
+                        <li>Si solo se necesita obtener los datos y trabajar con ellos es apto el uso de un <strong>stub</strong>.</li>
+                      </ol>
+
+                      <p align="justify">Otro criterio utilizado es el siguiente:</p>
+
+                      <ol>
+                        <li value="1">Si el método cambia el mundo exterior utilizar <strong>mock.</strong></li>
+                        <li>Si el método solo realiza consultas utilizar <strong>stubs</strong></li>
+                      </ol>
+
+                       <p align="justify"><strong>Ejemplo haciendo uso de JUnit y Mockito</strong></p>
+
+                       <p align="justify"><strong>Feature:</strong> Como usuario quiero autenticarme en red social ingresando mi nombre de usuario y contraseña para acceder a sus funcionalidades. <br> 
+                        <strong>Scenario:</strong> Autenticación para una red social <br>
+                        <strong>Given</strong> Usuario en la página de autenticación de la red social <br>
+                        <strong>When</strong> El usuario se autentifica con el nombre de usuario como juan AND La contraseña como juan123 <br>
+                        <strong>Then</strong> La autenticación debe ser exitosa</p>
+
+                        <p align="justify"><strong>Contexto</strong> <br> El cliente declara que la aplicación se debe comunicar con un sistema externo para verificar que el usuario se encuentra registrado.</p>
+
+                        <p align="justify">En este caso se debe hacer uso de <strong>mocks</strong> para manejar las dependencias externas de la aplicación.  Por lo tanto el código de prueba sería el siguiente:</p>
+
+                        <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/tdd2.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+                    </div>
+
+                    <!--3.3.4.3.6 Implementación el mínimo código que haga pasar la prueba-->
+                    <div>
+                      <div><h6><strong>3.3.4.3.6 Implementación el mínimo código que haga pasar la prueba</strong></h6></div>
+                      <p align="justify">Cuando la prueba unitaria automatizada se encuentra implementada se ejecuta obteniendo el fallo de prueba ya que el código aún no se encuentra codificado, por lo tanto se procede a implementar el mínimo código necesario para que la prueba pase.</p>
+
+                      <p align="justify"><strong>Ejemplo haciendo uso de JUnit</strong></p>
+
+                      <ol>
+                        <li value="1">Se crea la clase UsuarioService</li>
+                        <li>Se crea el mínimo código necesario para que la prueba pase.</li>
+                      </ol>
+
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/tdd3.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+                       
+                       <p align="justify"><strong>Ejemplo haciendo uso de JUnit y Mockito</strong></p>
+
+                      <ol>
+                        <li value="1">Se crea la interfaz ServiceAutentication con su método autenticar.</li>
+                        <li>Se modifica la clase UsuarioService</li>
+                        <li>Se crea el mínimo código necesario para que la prueba pase.</li>
+                      </ol> 
+
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/tdd4.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+
+                      <p align="justify">En el caso que se vayan encontrando escenarios que no estaban contemplados dentro de los ejemplos entregados por el cliente, se debe acudir inmediatamente al Scrum Master o Product Owner para discutir si los escenarios son válidos y obtener los ejemplos respectivos.</p>
+                    </div>
+
+                    <!--3.3.4.3.7 Refactorización para eliminar duplicidad y hacer mejoras-->
+                    <div>
+                      <div><h6><strong>3.3.4.3.7 Refactorización para eliminar duplicidad y hacer mejoras</strong></h6></div>
+                      <p align="justify">Si el código implementado posee malos olores entonces se modifica en la etapa de refactorización, donde el objetivo es modificar el diseño del código sin alterar su comportamiento. En esta se verifica que código no posea malos olores tales como líneas duplicadas, bucles, declaraciones sin utilizar, código inalcanzable y si cumple con principios de diseño.</p>
+
+                      <p align="justify">Una prueba unitaria también puede ser factorizada como se ve a continuación:</p>
+
+                     
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/tdd5.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+
+                      <p align="justify">Si se realiza una refactorización de una porciones de código debe correr todas las pruebas para verificar que no se haya roto ningún método de otros componentes del sistema.</p>
+
+                      <p align="justify">Una vez finalizado los 3 pasos de TDD, se vuelve a tomar otro ejemplo y aplicar el ciclo nuevamente hasta implementar el código que satisfaga el criterio de aceptación.</p>          
+                    </div>
+
+                    <!--3.3.4.4 Proceso aplicación TDD -->
+                    <div>
+                      <div><h6><strong>3.3.4.3.7 Refactorización para eliminar duplicidad y hacer mejoras</strong></h6></div>
+
+                      <p align="justify">A continuación se presenta el flujo utilizado para la aplicación de TDD en el desarrollo.</p>
+
+                     
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/tdd6.png" class="img-thumbnail" alt="Cinque Terre" width="700" height="700"> 
+                      </div>         
+                    </div>
+
+                    <!--3.3.4.5 Implementación utilizando BDD y TDD-->
+                    <div>
+                      <div><h6><strong>3.3.4.5 Implementación utilizando BDD y TDD</strong></h6></div>
+
+                      <p align="justify">Cuando el criterio de aceptación se encuentra implementado, el programador debe ejecutar el conjunto de pruebas unitarias para certificar el funcionamiento del código.</p>
+
+                       <p align="justify">Si el código pasa toda las pruebas, entonces se encuentra apto para ser utilizado en <strong>Cucumber</strong>.</p>
+
+                       <p align="justify"><strong>Ejemplo</strong> <br> Asuma que la clase ServiceAutenticacion se encuentra implementada.</p>
+                     
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/tdd7.png" class="img-thumbnail" alt="Cinque Terre" width="800" height="800"> 
+                      </div>
+
+                      <p align="justify">Una vez implementado el código se ejecuta la prueba para verificar su funcionamiento. Si la prueba pasa, entonces se continúa con el siguiente scenario aplicando el ciclo BDD y TDD hasta implementarlos todos.</p>
+
+                      <p align="justify">Finalmente cuando todos los criterios de aceptación se encuentran implementados, se realiza una prueba de regresión con el objetivo de certificar el código.</p>        
+                      <p align="justify">Si pasa todas la prueba de regresión se declara la HU lista para aplicar QA. Por lo tanto el programador debe enviar una solicitud a QA Interno para que verifique el código desde una perspectiva funcional.</p>
+                    </div>
+
+                    <!--3.3.4.5.1 Proceso aplicación BDD y TDD-->
+                    <div>
+                      <div><h6><strong>3.3.4.5.1 Proceso aplicación BDD y TDD</strong></h6></div>
+
+                      <p align="justify">A continuación se presenta el flujo utilizado para la aplicación de BDD y TDD en el desarrollo.</p>
+
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/tdd8.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                    </div>
+
+                    <!--3.3.4.6 Implementaciónn utilizando ATDD y TDD-->
+                    <div>
+                      <div><h6><strong>3.3.4.6 Implementaciónn utilizando ATDD y TDD</strong></h6></div>
+
+                      <p align="justify">Cuando los criterios de aceptación se encuentra implementado, el programador debe ejecutar el conjunto de pruebas unitarias para certificar el funcionamiento del código. </p>
+
+                      <p align="justify">Si el código pasa toda las pruebas, entonces se encuentra apto para ser utilizado en el Fixture.</p>
+
+                      <p align="justify"><strong>Ejemplo</strong></p>
+
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/tdd9.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500"> 
+                      </div>
+
+                      <p align="justify">Una vez implementado el código se ejecuta la prueba de aceptación desde FitNesse para verificar su funcionamiento. Si la prueba pasa, entonces se continúa con el siguiente criterio de aceptación aplicando el ciclo ATDD y TDD hasta implementarlos todos.  .</p>
+
+                      <p align="justify">Finalmente cuando todos los criterios de aceptación se encuentran implementados, se realiza una prueba de regresión con el objetivo de certificar el código implementado.</p>
+
+                      <p align="justify">Si pasa todas la prueba de regresión se declara la HU lista para aplicar QA. Por lo tanto el programador debe enviar una solicitud a QA Interno para que verifique el código desde una perspectiva funcional. </p>
+                    </div>
+
+                    <!--3.3.4.6.1 Proceso aplicación ATDD y TDD-->
+                    <div>
+                      <div><h6><strong>3.3.4.6.1 Proceso aplicación ATDD y TDD</strong></h6></div>
+
+                      <p align="justify">A continuación se presenta el flujo utilizado para la aplicación de ATDD y TDD en el desarrollo.</p>
+
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/programador/tdd10.png" class="img-thumbnail" alt="Cinque Terre" width="1000" height="1000"> 
+                      </div>
+                    </div>
+
+                    <!--3.4 Material complementario JUnit-->
+                    <div>
+                      <div><h6><strong>3.4 Material complementario JUnit</strong></h6></div>
+
+                      <p align="justify">Este posee 4 características esenciales para la confección de las pruebas:</p>
+                      <ol>
+                        <li value = "1">Fixtures</li>
+                        <li>Test suites</li>
+                        <li>Test runners</li>
+                        <li>Junit classes</li>
+                      </ol>
+                    </div>
+
+                    <!--3.4.1 Fixtures-->
+                    <div>
+                      <div><h6><strong>3.4.1 Fixtures</strong></h6></div>
+
+                      <p align="justify">Permite definir los datos de contexto que son necesarios para que una prueba se ejecute. Para definir las fixtures Junit provee 2 métodos:</p>
+                      <ol>
+                        <li value = "1"><strong style="font-family:Courier;">setUp():</strong> Se ejecuta antes que invoque a una prueba.</li>
+                        <li><strong style="font-family:Courier;">tearDown():</strong> Se ejecuta después de la ejecución de una prueba.</li>
+                      </ol>
+                    </div>
+
+                    <!--3.4.2 Test suites-->
+                    <div>
+                      <div><h6><strong>3.4.2 Test suites</strong></h6></div>
+
+                      <p align="justify">Permite agrupar clases de prueba para ejecutarlas juntas. Para definir las Test suites Junit provee las siguientes notaciones:</p>
+                      <ol>
+                        <li value = "1"><p align="justify"><strong style="font-family:Courier;">@RunWith:</strong> Notación que permite definir la clase encargada de ejecutar el conjunto de clases de prueba. <strong>Sintaxis</strong> <p style="font-family:Courier;">@RuntWith(Suite.class).</p></p></li>
+                        <li><p align="justify"><strong style="font-family:Courier;">@Suite:</strong> Notación que permite definir las clases que se ejecutarán juntas. <strong>Sintaxis</strong> <p style="font-family:Courier;">@Suite.SuiteClasses({Clase1.class, Clase2.class}).</p></p></li>
+                      </ol>
+                    </div>
+
+                    <!--3.4.3 Test runners-->
+                    <div>
+                      <div><h6><strong>3.4.3 Test runners</strong></h6></div>
+
+                      <p align="justify">Permite ejecutar las clases de prueba. Comúnmente se ejecuta en la clase main del proyecto. En el caso de usar <strong>Maven</strong> el conjunto de pruebas se ejecuta al momento de construir el proyecto. <br> <strong>Sintaxis</strong> <p style="font-family:Courier;">JUnitCore.runClasses(<strong>"nombre clase de prueba a ejecutar"</strong>.class).</p></p>
+                    </div>
+
+                    <!-- 3.4.4 Junit classes-->
+                    <div>
+                      <div><h6><strong>3.4.4 Junit classes</strong></h6></div>
+
+                      <p align="justify">JUnit provee clases que apoyan la confección de los casos de prueba. Dentro de las más utilizadas se encuentran:</p>
+                      <ol>
+                        <li value = "1"><p align="justify"><strong>Assert:</strong> Contiene el conjunto de métodos para verificar el resultado de un método o clase puesto a prueba</p></li>
+                        <li><p align="justify"><strong>TestCase:</strong> Clase abstracta que permite definir el fixture para correr múltiples pruebas. </p></li>
+                      </ol>
+                    </div>
+
+                    <!-- 3.4.5 Notaciones para configurar métodos de prueba-->
+                    <div>
+                      <div><h6><strong>3.4.5 Notaciones para configurar métodos de prueba</strong></h6></div>
+
+                      <p align="justify">JUnit provee notaciones para marcar métodos de prueba y configurarlos según sus necesidades. A continuación se muestran las notaciones más importantes:</p>
+                      <ol>
+                        <li value = "1"><p align="justify"><strong style="font-family:Courier;">@Test:</strong> Define el método de una clase como una prueba. </li>
+                        <li><p align="justify"><strong style="font-family:Courier;">@Test (expected = Exception.class):</strong> Se espera que el método lance la excepción especificadas.</p></li>
+                        <li><p align="justify"><strong style="font-family:Courier;">@Test(timeout=100):</strong> Se espera que el método se ejecute en un rango de tiempo menor o igual a 100 milisegundos. </p></li>
+                        <li><p align="justify"><strong style="font-family:Courier;">@Before:</strong> Define que el método se ejecute antes de cada prueba. </p></li>
+                        <li><p align="justify"><strong style="font-family:Courier;"><strong>@After:</strong> Define que el método se ejecute después de cada prueba.</p></li>
+                        <li><p align="justify"><strong style="font-family:Courier;">@BeforeClass:</strong> Define que el método se ejecute una vez, antes del inicio de todas las pruebas. Esta notación se utiliza generalmente para actividades que requieren tiempo tal como la conexión a una base de datos. El método marcado con esta debe ser definido como estático. </p></li>
+                        <li><p align="justify"><strong style="font-family:Courier;">@AfterClass:</strong> Define que el método se ejecute una vez, cuando hayan finalizado todas las pruebas. Comúnmente es utilizada para realizar actividades de limpieza, por ejemplo, desconectarse de una base de datos. El método marcado con esta notación debe ser definido como estático. </p></li>
+                        <li><p align="justify"><strong style="font-family:Courier;">@Ignore:</strong> Permite ignorar el método de prueba. Es útil cuando se ha cambiado el código relacionado a una prueba y esta última no ha sido modificada.</p></li>
+                      </ol>
+                    </div>
+
+                    <!-- 3.4.6 Métodos Assert-->
+                    <div>
+                      <div><h6><strong>3.4.6 Métodos Assert</strong></h6></div>
+
+                      <p align="justify">Son métodos estáticos que provee JUnit para verificar los resultados de los métodos bajo prueba. Un método assert compara el valor real entregado por la prueba y el valor esperado, en el caso que la comparación falle lanza la excepción <strong style="font-family:Courier;">AssertionException.</strong></p>
+
+                      <p align="justify">Los métodos más utilizados son los siguientes:</p>
+                      <ol>
+                        <li value = "1"><p align="justify"><strong style="font-family:Courier;">fail(mensaje):</strong> Deja que el método falle. Puede ser utilizado para comprobar que una cierta parte del código es inalcanzable.</li>
+                        <li><p align="justify"><strong style="font-family:Courier;">assertTrue([mensaje,] boolean condicion):</strong> Verifica que la condición ingresada sea verdadera. </p></li>
+                        <li><p align="justify"><strong style="font-family:Courier;">assertFalse([mensaje,] boolean condicion):</strong> Verifica que la condición ingresada sea falsa.</li>
+                        <li><p align="justify"><strong style="font-family:Courier;">assertEquals([mensaje,] esperado, actual):</strong> Verifica que el valor esperado sea igual al actual.</p></li>
+                        <li><p align="justify"><strong style="font-family:Courier;">assertNull([mensaje,] objeto):</strong> Verifica que un objeto es nulo.</p></li>
+                        <li><p align="justify"><strong style="font-family:Courier;">assertNotNull([mensaje,] objeto):</strong> Verifica que un objeto no es nulo.</p></li>
+                        <li><p align="justify"><strong style="font-family:Courier;">assertSame([mensaje,] esperado, actual):</strong> Verifica que la variable esperado y actual referencien el mismo objeto.</li>
+                        <li><p align="justify"><strong style="font-family:Courier;">assertNotSame([mensaje,] esperado, actual):</strong> Verifica que la variable esperado y actual no referencien el mismo objeto.</li>
+                        <li><p align="justify"><strong style="font-family:Courier;">assertArrayEquals([mensaje,] ArrayEsperado, ArrayActual):</strong> Verifica que el ArrayEsperado y ArrayActual sean iguales.</li>
+                      </ol>
+                    </div>
+
+                    <!-- 3.4.7 Pruebas parametrizadas-->
+                    <div>
+                      <div><h6><strong>3.4.7 Pruebas parametrizadas</strong></h6></div>
+
+                      <p align="justify">JUnit 4 provee el uso de pruebas parametrizadas las cuales permiten ejecutar la mismas prueba una y otra vez haciendo uso de diferentes variables para su ejecución.</p>
+
+                      <p align="justify">Para crear una prueba parametrizada debe realizar 4 pasos:</p>
+                      <ol>
+                        <li value = "1"><p align="justify">Utilizar la notación <strong style="font-family:Courier;">@RunWith(Parameterized.class)</strong> en la clase de prueba.</li>
+                        <li><p align="justify">Crear un método público estático con la notación @Parameters que retorne una colección de objetos como Array que posea el conjunto de datos de prueba.</p></li>
+                        <li><p align="justify">Crear un constructor que se inicialice con una cantidad de variables igual a la cantidad de variables que posee un objeto del conjunto de datos.</li>
+                        <li><p align="justify">Crear casos de prueba utilizando las variables inicializada en el constructor como fuente de datos de prueba.</p></li>
+                      </ol>
+                    </div>
+
+                    <!-- Más información -->
+                    <div>
+                      <p align="justify"><strong>Más información</strong></p>
+                      <p>Teoría</p>
+                      <ol>
+                              <li value="1"><p align="justify"><a href="http://junit.org/junit4/">Página oficial JUnit 4</a></p></li>
+                              <li><p align="justify"><a href="https://www.tutorialspoint.com/junit/junit_test_framework.htm">Tutorialspoint JUnit</a></p></li>
+                              <li><p align="justify"><a href="http://www.vogella.com/tutorials/JUnit/article.html">Tutorial JUnit</a></p></li>
+                        </ol>
+                        <p>Práctica</p>
+                      <ol>
+                              <li value="1"><p align="justify"><a href="https://www.youtube.com/playlist?list=PL83C941BB0D27A6AF">in28minutes JUnit Tutorial</a></p></li>
+                        </ol>
+                    </div>
+
+                    <!-- 3.5 Mockito-->
+                    <div>
+                      <div><h6><strong>3.5 Mockito</strong></h6></div>
+
+                      <p align="justify">Mockito es un framework para crear dobles en java, este se encarga de reemplazar un componente interno o externo del software con un objeto que posee un comportamiento predefinido denominado objeto mock, solo para ejecutar la prueba. Un objeto mock es un objeto que está configurado para retornar una salida específica para una entrada específica, sin realizar una acción real.</p>
+                    </div>
+
+                    <!-- 3.5.1 Formas de declarar un mock-->
+                    <div>
+                      <div><h6><strong>3.5.1 Formas de declarar un mock</strong></h6></div>
+
+                      <p align="justify">Mockito provee varias formas de declarar un objeto mock, las cuales son:</p>
+
+                        <ol>
+                              <li value="1"><p align="justify"><strong style="font-family:Courier;">mock("Clase a generar un mock".class):</strong> Permite declarar la clase que se desea que sea un mock. <strong>Sintaxis</strong> <p style="font-family:Courier;">Objeto obj = mock(claseMock.class)</p></p></li>
+                              <li><p align="justify"><strong>Notaciones</strong></p></li>
+                                <ol>
+                                      <li value="1"><p align="justify"><strong style="font-family:Courier;">@InjectMocks:</strong> Permite definir la clase que hara uso del objeto mock. <strong>Sintaxis</strong> <p style="font-family:Courier;">@InjectMocks public Object obj.</p></p></li>
+                                      <li><p align="justify"><strong style="font-family:Courier;">@Mock:</strong> Permite definir la clase que se desea que sea un mock. <strong>Sintaxis</strong> <p style="font-family:Courier;">@Mock public Object objMock.</p></p></li>
+                                </ol>
+                        </ol>
+
+                        <p align="justify">Haciendo uso de las notaciones mencionadas se evita el uso de la función <strong>mock()</strong>.</p>
+                    </div>
+
+                    <!-- 3.5.2 Agregar comportamiento a un mock-->
+                    <div>
+                      <div><h6><strong>3.5.2 Agregar comportamiento a un mock</strong></h6></div>
+
+                      <p align="justify">Mockito provee la función <strong>when()</strong> para entregar el comportamiento.</p>
+                      <p align="justify"><strong>Sintaxis</strong> <p style="font-family:Courier;">when(objetoMock.funcion(X)).thenReturn(Y);</p></p>
+
+                        <ol>
+                              <li value="1"><p align="justify"><strong style="font-family:Courier;">mock("Clase a generar un mock".class):</strong> Permite declarar la clase que se desea que sea un mock. <strong>Sintaxis</strong> <p style="font-family:Courier;">Objeto obj = mock(claseMock.class)</p></p></li>
+                              <li><p align="justify"><strong>Notaciones</strong></p></li>
+                                <ol>
+                                      <li value="1"><p align="justify">En el parámetro del <strong>when()</strong> se especifica la función del objeto mock con sus respectivos parámetros de entrada, la cual se le entregará un comportamiento.</p></li>
+                                      <li><p align="justify">En el parámetro de <strong>thenReturn()</strong> se especifica el retorno que debe entregar el objeto mock cada vez que sea invocado.</p></li>
+                                </ol>
+                        </ol>
+
+                        <p align="justify"><strong>Verificar el comportamiento de un mock</strong></p>
+                        <p align="justify">Mockito provee la función <strong>verify()</strong> para verificar si un método de un mock ha sido llamado o no con los argumentos requeridos.</p>
+
+                        <p align="justify"><strong>Sintaxis</strong> <p style="font-family:Courier;">verify(objetoMock).funcion(X);</p></p>
+
+                        <ol>
+                              <li value="1"><p align="justify"><strong style="font-family:Courier;">mock("Clase a generar un mock".class):</strong> Permite declarar la clase que se desea que sea un mock. <strong>Sintaxis</strong> <p style="font-family:Courier;">Objeto obj = mock(claseMock.class)</p></p></li>
+                              <li><p align="justify"><strong>Notaciones</strong></p></li>
+                                <ol>
+                                      <li value="1"><p align="justify">El parámetro de la función <strong>verify()</strong> es el objeto mock al cual se desea verificar su comportamiento.</p></li>
+                                      <li><p align="justify"><strong>funcion(X):</strong> Es la función del objeto mock a verificar si fue llamada con los parámetros <strong>X</strong> requeridos. </p></li>
+                                </ol>
+                        </ol>
+                    </div>
+
+                    <!-- 3.5.3 Verificar el comportamiento de un mock-->
+                    <div>
+                      <div><h6><strong>3.5.2 Verificar el comportamiento de un mock</strong></h6></div>
+
+                        <p align="justify"><strong>Verificar el comportamiento de un mock</strong></p>
+                        <p align="justify">Mockito provee la función <strong>verify()</strong> para verificar si un método de un mock ha sido llamado o no con los argumentos requeridos.</p>
+
+                        <p align="justify"><strong>Sintaxis</strong> <p style="font-family:Courier;">verify(objetoMock).funcion(X);</p></p>
+
+                        <ol>
+                              <li value="1"><p align="justify"><strong style="font-family:Courier;">mock("Clase a generar un mock".class):</strong> Permite declarar la clase que se desea que sea un mock. <strong>Sintaxis</strong> <p style="font-family:Courier;">Objeto obj = mock(claseMock.class)</p></p></li>
+                              <li><p align="justify"><strong>Notaciones</strong></p></li>
+                                <ol>
+                                      <li value="1"><p align="justify">El parámetro de la función <strong>verify()</strong> es el objeto mock al cual se desea verificar su comportamiento.</p></li>
+                                      <li><p align="justify"><strong>funcion(X):</strong> Es la función del objeto mock a verificar si fue llamada con los parámetros <strong>X</strong> requeridos. </p></li>
+                                </ol>
+                        </ol>
+                    </div>
+
+                    <!-- 3.5.4 Manejo de excepciones de un mock-->
+                    <div>
+                      <div><h6><strong>3.5.4 Manejo de excepciones de un mock</strong></h6></div>
+
+                      <p align="justify">Mockito provee la función <strong>doThrow()</strong> para que un objeto mock pueda lanzar excepciones.</p>
+                      <p align="justify"><strong>Sintaxis</strong> <p style="font-family:Courier;">doThrow(new RuntimeException("Función no implementada")).when(objetoMock).funcion(X);</p></p>
+
+                        <ol>
+                              <li value="1"><p align="justify">El parámetro de la función <strong>doThrow()</strong> es un objeto tipo RunTimeException con un parámetro que debe ser un mensaje que informe la causa del lanzamiento de la excepción.</li>
+                              <li><p align="justify"><strong>Notaciones</strong></p></li>
+                                <ol>
+                                      <li value="1"><p align="justify">En el parámetro del <strong>when()</strong> se especifica la función del objeto mock con sus respectivos parámetros de entrada, la cual se le entregará un comportamiento.</p></li>
+                                      <li><p align="justify">El parámetro de la función <strong>when()</strong> es el objeto mock del cual uno de sus métodos lanzará la excepción.</p></li>
+                                      <li><p align="justify"><strong>funcion(X)</strong> es el método que lanzará la excepción al ser invocado.</p></li>
+                                </ol>
+                        </ol>
+                    </div>
+
+                    <!-- 3.5.5 Verificar el orden de llamadas a métodos de un mock-->
+                    <div>
+                      <div><h6><strong> 3.5.5 Verificar el orden de llamadas a métodos de un mock</strong></h6></div>
+
+                      <p align="justify">Mockito provee la clase <strong>InOrder</strong> para verificar que los métodos de un objeto mock hayan sido llamados en un orden específico. </p>
+                      <p align="justify"><strong>Sintaxis</strong> <p style="font-family:Courier;"> InOrder inOrder = inOrder(objetoMock); <br>X = inOrder.verify(objetoMock).funcion(X);<br>X1 = inOrder.verify(objetoMock).funcion1(X1);</p></p>
+
+                        <ol>
+                              <li value="1"><p align="justify"><strong style="font-family:Courier;">inOrder(objetoMock):</strong> Define el objeto mock del cual se verificará el orden de sus llamadas.</p></li>
+                              <li><p align="justify"><strong style="font-family:Courier;">inOrder.verify(objetoMock).funcion(X):</strong> El parámetro de <strong>verify()</strong> especifica el objeto mock a verificar y <strong>funcion(X)</strong> representa la función a llamar con sus respectivos parámetros. El orden en el que se escriba las sentencias de verificación define el orden en el cual deben ser llamados los métodos. Es decir si se especifica en primer lugar X y luego X1, entonces primero debería ser llamado X y luego X1.</p></li>
+                        </ol>
+                    </div>
+
+                    <!-- 3.5.6 Mockito y BDD-->
+                    <div>
+                      <div><h6><strong> 3.5.6 Mockito y BDD</strong></h6></div>
+
+                      <p align="justify">Mockito soporta el formato del lenguaje Gherkin utilizandolo de la siguiente manera:</p>
+                      <p align="justify"><strong>Sintáxis Given</strong> <p style="font-family:Courier;"> given(objetoMock.funcion(X)).willReturn(Y)</p></p>
+
+                        <ol>
+                              <li value="1"><p align="justify"><strong style="font-family:Courier;"><strong>given()</strong> define el método del objeto mock a llamar con sus respectivos parámetros.</p></li>
+                              <li><p align="justify"><strong style="font-family:Courier;"><strong>willReturn(Y)</strong> define lo que debe retornar la llamada al método. </p></li>
+                        </ol>
+
+                        <p align="justify">Dada la función del método objetoMock.funcion(X) que retorna Y.</p>
+
+                        <p align="justify"><strong>Sintáxis When</strong> <p style="font-family:Courier;"> double resultado = objetoMock.funcion(X);</p></p>
+                        <ol>
+                              <li value="1"><p align="justify">La llamada al método del objeto mock representa la acción a realizar.</p></li>
+                        </ol>
+                        <p align="justify">Cuando se llama al método objetoMock.funcion(X)</p>
+
+                        <p align="justify"><strong>Sintáxis Then</strong> <p style="font-family:Courier;"> Assert.assertEquals(resultado, esperado);</p></p>
+                        <ol>
+                              <li value="1"><p align="justify">La función assertEquals permite verificar que resultado es igual a esperado.</p></li>
+                        </ol>
+                        <p align="justify">Entonces resultado es igual a esperado. </p>
+                    </div>
+
+                    <!-- Más información -->
+                    <div>
+                      <p align="justify"><strong>Más información</strong></p>
+                      <p>Teoría</p>
+                      <ol>
+                              <li value="1"><p align="justify"><a href="http://site.mockito.org/">Página oficial Mockito</a></p></li>
+                              <li><p align="justify"><a href="http://www.tutorialspoint.com/mockito/">Tutorialspoint Mockito</a></p></li>
+                              <li><p align="justify"><a href="http://www.vogella.com/tutorials/Mockito/article.html">Tutorial Mockito</a></p></li>
+                        </ol>
+                        <p>Práctica</p>
+                      <ol>
+                              <li value="1"><p align="justify"><a href="https://www.youtube.com/watch?v=d2KwvXQgQx4&t=2763s">in28minutes Mockito Tutorial</a></p></li>
+                        </ol>
+                    </div>
+                </md-content>
+              </md-tab>
+              <md-tab label="4. QA Interno">
+                <md-content class="md-padding">
+                  <!-- 4.1 Objetivo -->
+                  <div layout ="column" layout-align = "center center"><h5><strong>QA Interno</strong></h5></div>
+                  <div>
+                    <div><h6><strong>4.1 Objetivo</strong></h6></div>
+                    <p align="justify">Realizar pruebas funcionales para verificar la satisfacción de los criterios de aceptación de las historias de usuario, utilizando un enfoque de caja negra para su confección.</p>
+                  </div>
+                  <!-- 4.2 Pruebas a efectuar -->
+                  <div>
+                    <div><h6><strong>4.2 Pruebas a efectuar</strong></h6></div>
+                    <ol>
+                      <li value="1">Pruebas automatizadas unitarias e integración.</li>
+                      <li>Pruebas de humo</li>
+                      <li>Pruebas funcionales</li>
+                    </ol>
+                  </div>
+                  <!-- 4.2.1 Pruebas automatizadas unitarias e integración -->
+                  <div>
+                    <div><h6><strong>4.2.1 Pruebas automatizadas unitarias e integración</strong></h6></div>
+                    <p align="justify">Cuando llega una solicitud por parte del programador para que el QA Interno realice pruebas a la historia de usuario, este debe ejecutar las pruebas unitarias e integración automatizadas para verificar el correcto funcionamiento del código implementado por el programador. </p>
+
+                    <p align="justify"><strong>Recomendación</strong><br>El QA Interno no debe realizar las pruebas funcionales si el código implementado por los programadores no pasa las pruebas de regresión.</p>
+                  </div>
+                  <!-- 4.2.2 Pruebas de humo -->
+                  <div>
+                    <div><h6><strong>4.2.2 Pruebas de humo</strong></h6></div>
+                    <p align="justify">Luego de verificar el funcionamiento del código debe verificar que las funcionalidades básicas y críticas estén funcionando correctamente haciendo. Para esto utiliza las pruebas de humo. </p>
+                    <p align="justify">Las pruebas de humo son determinadas por el equipo de desarrollo completo, teniendo en cuenta cuales son las funcionalidades básicas y críticas del software que se probarán.</p>
+                    <p align="justify">Todas las pruebas que se ejecutarán en la prueba de humo, deben tener la misma etiqueta específica sobre los <strong>scenarios</strong> en los archivo <strong>Feature</strong></p>
+
+                    <p align="justify"><strong>Ejemplo</strong><br>Las pruebas de humo que se ejecutarán por el QA Interno utilizarán la etiqueta <strong>@SmokeTestQAInterno</strong> de la siguiente forma:</p>
+
+                    <p align="justify">@SmokeTestQAInterno <br>
+                      <strong>Scenario:</strong> Autenticación para una red social <br>
+                      <strong>Given</strong> Usuario en la página de autenticación de facebook <br>
+                      <strong>When</strong> El usuario se autentifica con el nombre de usuario como "username" AND La contraseña como "password" <br>
+                      <strong>Then</strong> La autenticación debe ser exitosa
+                    </p>
+                  </div>
+
+                  <!-- 4.2.3 Pruebas funcionales -->
+                  <div>
+                    <div><h6><strong>4.2.3 Pruebas funcionales</strong></h6></div>
+                    <p align="justify">Una vez que el código pasa las pruebas mencionadas previamente el QA Interno comienza la confección de pruebas funcionales. </p>
+                    <p align="justify">Para la confección de las pruebas funcionales el QA Interno necesita los siguientes artefactos: </p>
+                    <ol>
+                      <li value="1"> <p align="justify"> Historias de usuario, criterios de aceptación y sus ejemplos. </p></li>
+                      <li><p align="justify"> Manual de usuario (En el caso que exista)</p></li>
+                      <li><p align="justify"> Diagramas asociadas tales como clases, arquitectura, secuencias (En el caso que existan).</p></li>
+                    </ol>
+                  </div>
+
+                  <!-- 4.2.3.1 Criterios para la confección de las pruebas funcionales -->
+                  <div>
+                    <div><h6><strong>4.2.3.1 Criterios para la confección de las pruebas funcionales</strong></h6></div>
+                  </div>
+
+                  <!-- 4.2.3.1.1 Priorizar y focalizar las pruebas -->
+                  <div>
+                    <div><h6><strong>4.2.3.1.1 Priorizar y focalizar las pruebas</strong></h6></div>
+                    <p align="justify">Dado que el tiempo para realizar pruebas al software es limitado el QA Interno debe priorizar los casos de prueba de una funcionalidad. Por lo tanto debe focalizarse en probar sectores de las funcionalidades que sean críticos para el negocio del cliente al comienzo.</p>
+
+                    <p align="justify"><strong>Ejemplo</strong></p>
+
+                    <p align="justify">El Departamento de Ingeniería en Informática necesita un sistema para que sus alumnos se puedan inscribir en cursos. El QA Interno debe focalizarse en pruebas que verifiquen los flujos que debe seguir un alumno para inscribir cursos, en lugar de la validación de campos de entrada de este. <br> <br>Al priorizar y focalizar sus pruebas de esta manera, si llega a existir algún problema en el flujo de inscripción a los cursos que es lo que le entrega valor al cliente, se solicite reparación lo más pronto posible. <br><br>Caso contrario sería comenzar por las validaciones en primer lugar y luego los flujos, el problema que puede causar esta priorización y focalización es no identificar incidencias en los flujos de inscripción de cursos que entregan valor ya que se dejó para el final, dedicando menos tiempo para su verificación.</p>
+                  </div>
+
+                  <!--4.2.3.1.2 Nada a interpretación -->
+                  <div>
+                    <div><h6><strong>4.2.3.1.2 Nada a interpretación</strong></h6></div>
+                    <p align="justify">Es primordial que el QA Interno no deje nada a interpretación propia, su rol debe comunicarse constantemente con el Scrum Master o Product Owner para resolver sus dudas y obtener ejemplos concretos de que es lo que se debe probar, de lo contrario el QA puede realizar casos de prueba para situaciones que nunca se darán en el software y al mismo tiempo perdiendo tiempo que podría ser utilizado para probar funcionalidades con mayor valor para el usuario.</p>
+                  </div>
+
+                  <!--4.2.3.2 Formato de un caso de prueba funcional -->
+                  <div>
+                    <div><h6><strong>4.2.3.2 Formato de un caso de prueba funcional</strong></h6></div>
+                    <p align="justify">Una prueba funcional posee siguiente formato:</p>
+                    <ol>
+                      <li value="1"><strong>Nombre del caso de prueba:</strong> Nombre representativo del caso de prueba que indique que es lo que se probará.</li>
+                      <li><strong>Descripción:</strong> Breve descripción indicando que es lo que se realizará en la prueba.</li>
+                      <li><strong>Precondiciones:</strong> Especificación del estado en el cual se debe encontrar el usuario y el sistema para la ejecución de la prueba. </li>
+                      <li><strong>Pasos:</strong> Pasos necesarios para replicar la prueba. </li>
+                      <li><strong>Resultados esperados:</strong> Especificación del estado en el que queda el sistema y el usuario, una vez ejecutada la prueba. </li>
+                      <li><strong>Datos necesarios para replicar el caso de prueba:</strong> Se especifica la información necesaria complementaria a la prueba para que otra persona lo pueda ejecutar, por ejemplo datos, repositorio del código y servicios web (Si es requerido). </li>
+                    </ol>
+
+                    <p align="justify"><strong>Ejemplo de caso de prueba</strong></p>
+
+                    <p align="justify"><strong>Historia de usuario</strong><br>
+                    <strong>Título:</strong> Autenticarse en una red social.<br>
+                    <strong>Como</strong> Usuario <br>
+                    <strong>Quiero</strong> Autenticarme en red social ingresando mi nombre de usuario y contraseña  <br>
+                    <strong>Para</strong> Acceder a sus funcionalidades</p>
+
+                    <p align="justify"><strong>Criterio de aceptación</strong><br>
+                    <strong>Scenario:</strong> Autenticación para una red social<br>
+                    <strong>Given </strong> Usuario en la página de autenticación de la red social <br>
+                    <strong>When </strong>El usuario se autentifica con el nombre de usuario como pepito AND La contraseña como pepito123  <br>
+                    <strong>Then </strong> Usuario en la página de inicio de la red social.</p>
+
+                    <p align="justify"><strong>Caso de prueba</strong></p>
+                    <p align="justify"><strong>Nombre del caso de prueba:</strong>El usuario se autentica en la red social.</p>
+                    <p align="justify"><strong>Precondiciones:</strong><br>
+                    Usuario registrado en la red social. <br>
+                    Usuario con cuenta activa. <br>
+                    Usuario en la página de autenticación.</p>
+                    <p align="justify"><strong>Pasos:</strong><br>
+                    Ingresar el nombre de usuario y contraseña. <br>
+                    Autenticarse en el sistema.</p>
+                    <p align="justify"><strong>Resultados esperados:</strong><br>
+                    Usuario en la página de inicio de la red social.</p>
+                    <p align="justify"><strong>Datos necesarios para replicar el caso de prueba: </strong><br>
+                    <strong>Datos de prueba:</strong> pepito y pepito123 <br>  
+                    <strong>URL del repositorio del código fuente:</strong> github.com/prueba   <br>
+                    <strong>URL donde se encuentran las instrucciones de compilación y despliegue del proyecto
+                    </p>
+                  </div>
+
+                  <!--4.2.3.3 Datos de prueba -->
+                  <div>
+                    <div><h6><strong>4.2.3.3 Datos de prueba</strong></h6></div>
+                    <p align="justify">Los datos de prueba a utilizar son acorde a la funcionalidad que se desea verificar. Se deben probar no sólo los datos válidos sino que también los inválidos que produzcan alguna excepción.  Si estos no se encuentran especificados en los criterios de aceptación de una funcionalidad, entonces el QA interno se debe encargar de consultar directamente al Scrum Master o Product Owner, el conjunto de datos válidos e inválidos que la funcionalidad soportará. Además se puede apoyar haciendo uso del modelo de datos del sistema identificado el formato que deben soportar.</p>
+
+                    <p align="justify">Una vez que se tienen claro los datos a utilizar se puede hacer uso de 2 técnicas para la selección de datos de prueba:</p>
+                  </div>
+
+                  <!--4.2.3.3.1 Partición de equivalencias -->
+                  <div>
+                    <div><h6><strong>4.2.3.3.1 Partición de equivalencias</strong></h6></div>
+                    <p align="justify">Consiste en clasificar las entradas de los datos del sistema en grupos que presentan un comportamiento similar. A partir de estos se definen las pruebas para cubrir los grupos de datos.</p>
+
+                    <p align="justify">Una vez que se tienen claro los datos a utilizar se puede hacer uso de 2 técnicas para la selección de datos de prueba:</p>
+
+                    <p align="justify"><strong>Pasos para identificar particiones de equivalencia</strong></p>
+                    <ol>
+                      <li value="1">Identificar de las condiciones de entradas del programa tales como restricciones de formato o contenido de los datos de entrada.</li>
+                      <li>A partir de ellas se identifican particiones de equivalencia:</li>
+                        <ol>
+                          <li value="1">Datos válidos</li>
+                          <li>Datos inválidos</li>
+                        </ol>
+                      <li>Reglas para identificar particiones:</li>
+                        <ol>
+                          <li value="1">Si se especifica un rango de valores para los datos de entrada, se creará una partición válida y dos no válidas.</li>
+                          <li>Si se especifica un número finito y consecutivo de valores, se creará una partición válida y dos no válidas.</li>
+                          <li>Si se especifica una situación del tipo booleana se identifican una partición válida y una no válida.</li>
+                          <li>Si se especifica un conjunto de valores admitidos y se sabe que el sistema los trata de forma diferente cada uno de ellos, se identifica una partición válida para cada valor y una no válida.</li>
+                          <li>Si se sospecha que ciertos elementos de una partición no se tratan igual que el resto de la misma, deben dividirse en particiones menores.</li>
+                        </ol>
+                    </ol>
+
+                    <p align="justify"><strong>Ejemplo</strong><br>Condición de entrada número de 3 dígitos que no empiece con 1. Partición de datos válidos: (200 <= Código <= 999). Partición de datos inválidos: código < 200, código > 999, no es número. </p>
+                  </div>
+
+                  <!--4.2.3.3.2 Valores límites -->
+                  <div>
+                    <div><h6><strong>4.2.3.3.2 Valores límites</strong></h6></div>
+                    <p align="justify">Consiste en explorar condiciones límite de un sistema, seleccionando de uno o más elementos de los extremos de una partición de datos. </p>
+
+                    <p align="justify"><strong>Reglas para identificar valores límites</strong></p>
+                    <ol>
+                      <li value="1">Si una condición de entrada especifica un rango de valores, se deben generar casos para los extremos el rango y casos no válidos para situaciones justo más allá de los extremos.</li>
+                      <li>Si la condición de entrada especifica un número finito y consecutivo de valores, hay que escribir casos para los números máximos, mínimo y uno más del máximo y uno menos del mínimo.</li>
+                    </ol>
+
+                    <p align="justify"><strong>Ejemplo</strong><br>Condición de entrada número de 3 dígitos que no empiece con ni 1. Partición de datos válidos: (200 <= Código <= 999). Partición de datos inválidos: código < 200, código > 999, no es número. Datos a límites: 199, 200, 999, 1000.</p>
+
+                    <p align="justify">Estas técnicas son muy utilizadas ya que el tiempo para realizar las pruebas de software son acotadas, por lo tanto es ideal tomar datos representativos en lugar de probar todo el universo, reduciendo la cantidad de casos de prueba permitiendo utilizar el tiempo para probar funcionalidades de mayor valor de negocio. </p>
+                  </div>
+
+                  <!--4.2.3.4 Automatización de casos de prueba funcionales -->
+                  <div>
+                    <div><h6><strong>4.2.3.4 Automatización de casos de prueba funcionales</strong></h6></div>
+                    <p align="justify">Cuando los casos de prueba se encuentran especificados, se procede a automatizarlos. Para esto se recomienda el uso del framework <strong>Cucumber</strong> y <strong>Selenium Web-driver</strong>.</p>
+
+                    <p align="justify"><a href="https://cucumber.io/docs/reference/jvm#java">Descargar Cucumber</a></p>
+                    <p align="justify"><a href="http://www.seleniumhq.org/docs/03_webdriver.jsp">Descargar Selenium</a></p>
+                  </div>
+
+                  <!--4.2.3.4.1 Automatización con Cucumber  -->
+                  <div>
+                    <div><h6><strong>4.2.3.4.1 Automatización con Cucumber</strong></h6></div>
+                    <p align="justify">En primer lugar debe especificar los criterios de aceptación en el archivo <strong>Feature</strong> en Cucumber:</p>
+
+                    <p align="justify"><strong>Ejemplo</strong><br>
+                    <strong>Feature:</strong> Como Usuario Quiero Autenticarme en red social ingresando mi nombre de usuario y contraseña Para Acceder a sus funcionalidades<br>
+                    <strong>Scenario:</strong> Autenticación para una red social<br>
+                    <strong>Given </strong> Usuario en la página de autenticación de la red social <br>
+                    <strong>When </strong>El usuario se autentifica con el nombre de usuario como <strong>"pepito"</strong> AND La contraseña como <strong>"pepito123"</strong>  <br>
+                    <strong>Then </strong> Usuario en la página de inicio de la red social.</p>
+
+                    <p align="justify">Luego se crea el <strong>archivo de definición de pasos</strong> utilizando Cucumber y Selenium Web-driver.</p>
+
+                    <p align="justify"><strong>Ejemplo</strong></p>
+
+                    <div layout = "column" layout-align = "center center">
+                            <img src="img/qa/qa1.png" class="img-thumbnail" alt="Cinque Terre" width="800" height="800"> 
+                      </div>
+                      <div layout = "column" layout-align = "center center">
+                            <img src="img/qa/qa2.png" class="img-thumbnail" alt="Cinque Terre" width="800" height="800"> 
+                      </div>
+
+                      <p align="justify">Una vez creado el archivo de definición de pasos, se ejecutan las pruebas automatizadas.</p>
+                  </div> 
+
+                  <!--4.3 Reporte de incidencias  -->
+                  <div>
+                    <div><h6><strong>4.3 Reporte de incidencias </strong></h6></div>
+                    <p align="justify">En el caso que una de las pruebas falle, se debe reportar una incidencia para que un programador la repare.</p>
+
+                    <p align="justify">El reporte de una incidencia se encuentra compuesta por:</p>
+                    <ol>
+                      <li value="1"><strong>Caso de prueba:</strong> Se indica el caso de prueba con el cual se produjo la incidencia.</li>
+                      <li><strong>Precondiciones:</strong> Estado en el que se debe encontrar el sistema y el usuario para reproducir la incidencia.</li>
+                      <li><strong>Descripción:</strong> Breve descripción de lo que se busca probar y lo que se obtiene.</li>
+                      <li><strong>Pasos:</strong> Pasos a realizar para reproducir la incidencia.</li>
+                      <li><strong>Resultados esperados:</strong> Estado final del sistema y usuario esperado.</li>
+                      <li><strong>Resultados obtenidos:</strong> Estado del sistema obtenido dado a la aparición de la incidencia.</li>
+                      <li><strong>Severidad:</strong> Indicar la severidad incidencia, es decir el grado en el que influye su existencia (Baja, Normal, Crítica, Bloqueante).</li>
+                      <li><strong>Evidencia:</strong> Para dejar evidencia de la incidencia encontrada, se deben utilizar fotos, donde se indiquen los pasos a seguir y el resultado que se obtuvo.</li>
+                    </ol>
+
+                    <p align="justify"><strong>Recomendación</strong><br>Si se detecta una incidencia debe existir un caso de prueba automatizado que lo demuestre, de esta manera se puede verificar su estado de reparación rápidamente.</p>
+
+                    <p align="justify"><strong>Ejemplo</strong></p>
+                    <p align="justify"><strong>Caso de prueba:</strong> Autenticarse en la red social con datos validos.</p>
+                    <p align="justify"><strong>Precondiciones:</strong><br>
+                    Usuario registrado en la red social. <br>
+                    Usuario con cuenta activa. <br>
+                    Usuario en la página de autenticación
+                    </p>
+                     <p align="justify"><strong>Descripción:</strong> El usuario trata de autenticarse en la red social pero no puede ingresar a la página de inicio</p>
+                     <p align="justify"><strong>Pasos:</strong> <br>
+                      Ingresar el nombre de usuario y contraseña <br>
+                      Autenticarse en el sistema
+                      </p>
+                      <p align="justify"><strong>Resultados esperados:</strong> <br>
+                      Usuario en la página de inicio de la red social.<br>
+                      </p>
+                      <p align="justify"><strong>Resultados obtenidos:</strong> <br>
+                      Usuario en la página de autenticación de la red social.<br>
+                      <p align="justify"><strong>Severidad:</strong> Crítica</p>
+                      <p align="justify"><strong>Evidencia:</strong> [Imagen que muestre la incidencia]</p>
+                  </div>
+
+                  <!--4.4 Proceso general del QA Interno  -->
+                  <div>
+                    <div><h6><strong>4.4 Proceso general del QA Interno</strong></h6></div>
+                    <p align="justify">En el diagrama se muestran las actividades y flujos generales que sigue un QA Interno durante su verificación</p>
+
+                    <ol>
+                      <li value="1">Llega solicitud por parte de los programadores para realizar pruebas a una historia de usuario.</li>
+                      <li>Ejecutar pruebas unitarias e integración.</li>
+                      <li>Si el código implementado no pasa las pruebas unitarias y de integración, el QA Interno no aplica pruebas funcionales hasta que el código pase dichas pruebas. </li>
+                      <li>Una vez que el código pase las pruebas mencionadas, se ejecutan las pruebas de humo.</li>
+                      <li>Si la historia de usuario no pasa la verificación utilizando las pruebas de humo, se debe registrar la incidencia y notificar al programador para que la repare. </li>
+                      <li>En el caso que pase la verificación, se comienza con la confección y ejecución de pruebas funcionales. Si los resultados entregados por las pruebas funcionales indican que una de las incidencias no ha sido resuelta, nuevamente se debe registrar y notificar para que el programador la repare. </li>
+                      <li>Finalmente si la historia pasa la verificación efectuada por el QA Interno haciendo uso de las pruebas funcionales, se notifica al encargado que la historia de usuario se encuentra lista para su verificación. </li>
+                    </ol>
+
+                    <div layout = "column" layout-align = "center center">
+                            <img src="img/qa/qa3.png" class="img-thumbnail" alt="Cinque Terre" width="800" height="800"> 
+                      </div>
+                  </div> 
+
+                  <!--4.5 Información complementaria Selenium Web-driver  -->
+                  <div>
+                    <div><h6><strong>4.5 Información complementaria Selenium Web-driver</strong></h6></div>
+                    <p align="justify">Selenium Web-Driver es una herramienta para automatizar pruebas de aplicaciones web, la cual simula  interacciones de un usuario con la aplicación bajo prueba.</p>
+                    <p align="justify">Para la automatización de pruebas funcionales esta será utilizada en conjunto de Cucumber.</p>
+
+                    <p align="justify">Esta provee dos tipos de comandos fundamentales para realizar la comunicación:</p>
+
+                    <ol>
+                      <li value="1">Localizadores</li>
+                      <li>Simuladores de interacciones con GUI</li>
+                    </ol>
+                  </div>
+
+                  <!--4.5.1 Localizadores  -->
+                  <div>
+                    <div><h6><strong>4.5.1 Localizadores</strong></h6></div>
+                    <p align="justify">Permiten localizar elementos dentro de una página HTML con la ayuda de los métodos:</p>
+
+                    <ol>
+                      <li value="1"><strong style="font-family:Courier;">findElement():</strong> Este devuelve un objeto WebElement basado en un criterio de búsqueda especificado o lanza una excepción si no encuentra ningún elemento que coincida con los criterios de búsqueda.</li>
+                      <li><strong style="font-family:Courier;">findElements():</strong> Este devuelve una lista de WebElements que coinciden con los criterios de búsqueda. Si no se encuentran elementos, devuelve una lista vacía.</li>
+                    </ol>
+                  </div> 
+
+                  <!--4.5.1.1 Sintaxis en Java para localizar elementos en una página HTML   -->
+                  <div>
+                    <div><h6><strong>4.5.1.1 Sintaxis en Java para localizar elementos en una página HTML</strong></h6></div>
+                    <p align="justify">Permiten localizar elementos dentro de una página HTML con la ayuda de los métodos:</p>
+
+                    <ol>
+                      <li value="1"><strong style="font-family:Courier;">findElement():</strong> Este devuelve un objeto WebElement basado en un criterio de búsqueda especificado o lanza una excepción si no encuentra ningún elemento que coincida con los criterios de búsqueda.</li>
+                      <li><strong style="font-family:Courier;">findElements():</strong> Este devuelve una lista de WebElements que coinciden con los criterios de búsqueda. Si no se encuentran elementos, devuelve una lista vacía.</li>
+                    </ol>
+
+                    <p><strong>1. Método: </strong>By Id</p>
+                    <p><strong>Sintaxis:</strong> <p style="font-family:Courier;">driver.findElement(By.id(“id”))</p> 
+                    <p><strong>Descripción:</strong> <p style="font-family:Courier;">Localiza un elemento utilizando el atributo id</p>
+
+                     <p><strong>Ejemplo:</strong> <p style="font-family:Courier;">&lt;input id = “username” type = “text”&gt; WebElement element = driver.findElement(By.id(“username”)) </p>
+
+                     <p><strong>2. Método: </strong>By Name</p>
+                    <p><strong>Sintaxis:</strong> <p style="font-family:Courier;">driver.findElement(By.name(“nombre”))</p> 
+                    <p><strong>Descripción:</strong> <p style="font-family:Courier;">Localiza un elemento utilizando el atributo name</p>
+
+                     <p><strong>Ejemplo:</strong> <p style="font-family:Courier;">&lt;input id = “username” type = “text” name = “username”&gt; WebElement element = driver.findElement(By.name(“username”))  </p>
+
+                    <p><strong>3. Método: </strong>By class name</p>
+                    <p><strong>Sintaxis:</strong> <p style="font-family:Courier;">driver.findElement(By.className(“class”))</p> 
+                    <p><strong>Descripción:</strong> <p style="font-family:Courier;">Localiza un elemento utilizando el atributo class</p>
+
+                     <p><strong>Ejemplo:</strong> <p style="font-family:Courier;">&lt; div class="login"&gt;... &lt;/div&gt; List&lt;WebElement&gt; login= driver.findElement(By.className(“login”)) </p>
+
+                     <p><strong>4. Método: </strong>By tag name</p>
+                    <p><strong>Sintaxis:</strong> <p style="font-family:Courier;">driver.findElement(By.tagName(“htmltag”))</p> 
+                    <p><strong>Descripción:</strong> <p style="font-family:Courier;">Localiza un elemento utilizando la etiqueta de HTML</p>
+
+                     <p><strong>Ejemplo:</strong> <p style="font-family:Courier;">
+                      &lt;iframe src="..."&gt; &lt;/iframe&gt WebElement frame = driver.findElement(By.tagName("iframe"));
+                    </p>
+
+                     <p><strong>5. Método: </strong>By link text</p>
+                    <p><strong>Sintaxis:</strong> <p style="font-family:Courier;">driver.findElement(By.linkText(&lt;linktext&gt;))</p> 
+                    <p><strong>Descripción:</strong> <p style="font-family:Courier;">Localiza un link utilizando el texto del link</p>
+
+                     <p><strong>Ejemplo:</strong> <p style="font-family:Courier;">
+                     &lt;a href="http://www.google.com"&gt;google&lt;/a&gt; WebElement google= driver.findElement(By.linkText("google"));</p>
+                  </div>
+
+                  <!--4.5.2 Simuladores de interacciones en la interfaz gráfica   -->
+                  <div>
+                    <div><h6><strong>4.5.2 Simuladores de interacciones en la interfaz gráfica</strong></h6></div>
+                  </div>
+
+                  <!--4.5.2.1 Interacción con un Text Box   -->
+                  <div>
+                    <div><h6><strong>4.5.2.1 Interacción con un Text Box</strong></h6></div>
+                    <p align="justify"><strong>Métodos:</strong></p>
+                    <p><strong style="font-family:Courier;">1. sendKeys(“value”): </strong>Permite poner un valor a un Text Box.</p>
+                    <p><strong>Sintaxis:</strong> <p style="font-family:Courier;">driver.findElement(By.id("id")).sendKeys("10")</p>
+
+                    <p><strong style="font-family:Courier;">2. getAttribute(“value”): </strong>Permite recuperar el valor de un Text Box.</p>
+                    <p><strong>Sintaxis:</strong> <p style="font-family:Courier;">String result = driver.findElement(By.id("id")).getAttribute("value")</p>  
+                  </div>
+
+                  <!--4.5.2.2 Interacción con Radio Button Selection y Check Box Selection   -->
+                  <div>
+                    <div><h6><strong>4.5.2.2 Interacción con Radio Button Selection y Check Box Selection</strong></h6></div>
+                    <p align="justify"><strong>Métodos:</strong></p>
+                    <p><strong style="font-family:Courier;">1. click(): </strong>Permite seleccionar una opción y deshacer la selección.</p>
+                    <p><strong>Sintaxis:</strong> <p style="font-family:Courier;">driver.findElement(By.id("ejemplo")).click())</p>
+                  </div>
+
+                  <!--4.5.2.3 Interacción con Drop Down Item Selection  -->
+                  <div>
+                    <div><h6><strong>4.5.2.3 Interacción con Drop Down Item Selection</strong></h6></div>
+                    <p align="justify"><strong>Métodos:</strong></p>
+                    <p><strong style="font-family:Courier;">1. selectByVisibleText: </strong>Método para seleccionar la opción visible.</p>
+                    <p><strong>Sintaxis:</strong> <p style="font-family:Courier;">Select dropdown = new Select(driver.findElement(By.id("dropdown")));<br>
+                    dropdown.selectByVisibleText("continuously");</p>
+
+                    <p><strong style="font-family:Courier;">2. selectByIndex: </strong>Método para seleccionar una opción utilizando el índice.</p>
+                    <p><strong>Sintaxis:</strong> <p style="font-family:Courier;">Select dropdown = new Select(driver.findElement(By.id("dropdown"))); <br>dropdown.selectByIndex(1);</p>
+
+                    <p><strong style="font-family:Courier;">3. selectByValue: </strong>Método para seleccionar una opción utilizando su valor.</p>
+                    <p><strong>Sintaxis:</strong> <p style="font-family:Courier;">Select dropdown = new Select(driver.findElement(By.id("dropdown"))); <br>dropdown.selectByValue("annually");</p>
+                  </div>
+
+                  <!--4.5.3 Sincronización  -->
+                  <div>
+                    <div><h6><strong>4.5.3 Sincronización </strong></h6></div>
+                    <p align="justify">Permite sincronizar la ejecución de Selenium con la aplicación. Provee 3 formas diferentes de sincronizar:</p>
+                  </div>   
+
+                   <!--4.5.3.1 Espera explicita  -->
+                  <div>
+                    <div><h6><strong>4.5.3.1 Espera explicita </strong></h6></div>
+                    <p align="justify">Espera que se produzca una cierta condición antes de continuar. Se utiliza principalmente cuando queremos hacer clic o actuar sobre un objeto una vez que es visible.</p>
+                    <p align="justify"><strong>Ejemplo</strong></p>
+                    <p align="justify" style="font-family:Courier;">WebDriver driver = new FirefoxDriver();<br>
+                    WebElement DynamicElement = (new WebDriverWait(driver, 10))<br>.until(ExpectedConditions.presenceOfElementLocated(By.id("DynamicElement")));</p>
+                  </div> 
+
+                  <!--4.5.3.2 Espera implícita  -->
+                  <div>
+                    <div><h6><strong>4.5.3.2 Espera implícita </strong></h6></div>
+                    <p align="justify">Se utiliza en los casos en que el WebDriver no puede localizar un objeto inmediatamente debido a su indisponibilidad. El WebDriver esperará un tiempo de espera implícito especificado y no intentará encontrar el elemento de nuevo durante el período de tiempo especificado.</p>
+                    <p align="justify">Finalizado el tiempo de espera, busca el elemento. Si lo encuentra procede la ejecución de lo contrario lanza una excepción.</p>
+
+                    <p align="justify"><strong>Ejemplo</strong></p>
+                    <p align="justify" style="font-family:Courier;">WebDriver driver = new FirefoxDriver();<br>
+                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);<br>
+                    driver.get("Enter an URL");<br>
+                    WebElement DynamicElement = driver.findElement(By.id("DynamicElement"));</p>
+                  </div> 
+
+                  <!--4.5.3.3 Espera fluida  -->
+                  <div>
+                    <div><h6><strong>4.5.3.3 Espera fluida</strong></h6></div>
+                    <p align="justify">Permite definir la cantidad máxima de tiempo que debe esperar para que se produzca una condición y la frecuencia con la que se comprueba la existencia de la condición del objeto.</p>
+                    <p align="justify">Finalizado el tiempo de espera, busca el elemento. Si lo encuentra procede la ejecución de lo contrario lanza una excepción.</p>
+
+                    <p align="justify"><strong>Ejemplo</strong><br>Se esperarán 15 segundos para que un elemento esté disponible en la página, y se comprobará su existencia cada 10 segundos.</p>
+                    <p align="justify" style="font-family:Courier;">Wait wait = new FluentWait(driver).withTimeout(60, SECONDS).pollingEvery(10, SECONDS) .ignoring(NoSuchElementException.class); <br>
+                    WebElement dynamicelement = wait.until(new Function&lt;webdriver,webElement&gt;() {
+                    public WebElement apply(WebDriver driver) {
+                      return driver.findElement(By.id("dynamicelement"));
+                      }
+                   });
+                   </p>
+                  </div>
+
+                  <!--4.5.4 Acciones de teclado  -->
+                  <div>
+                    <div><h6><strong>4.5.4 Acciones de teclado</strong></h6></div>
+                    <p align="justify">Selenium Web-Driver provee funcionalidades para simular acciones realizadas por un usuario en su teclado.</p>
+                  </div>
+
+                  <!--4.5.4 Acciones de teclado  -->
+                  <div>
+                    <div><h6><strong>4.5.4.1 Métodos para realizar acciones de teclado</strong></h6></div>
+
+                    <ol>
+                      <li value="1"><p align="justify"><strong style="font-family:Courier;">sendKeys(): </strong>Envía las claves a la representación del teclado en el navegador. Las teclas especiales que no son texto, representadas como teclas, se reconocen como parte de secuencias de caracteres o individualmente.</p></li>
+                      <li><p align="justify"><strong style="font-family:Courier;">pressKey(): </strong> Presiona una tecla del teclado que NO es texto. Las teclas como las teclas de función "F1", "F2", "Tab", "Control", etc. Si keyToPress es una secuencia de caracteres, las diferentes implementaciones de controladores pueden optar por lanzar una excepción o leer sólo el primer carácter en la secuencia.</p></li>
+                      <li> <p align="justify"><strong style="font-family:Courier;">releaseKey(): </strong>Suelta una tecla en el teclado después de ejecutar el evento keypress. Normalmente es válido para caracteres que no son de texto.</p></li>
+                    </ol> 
+
+                  </div> 
+
+                  <!--4.5.5 Acciones de ratón  -->
+                  <div>
+                    <div><h6><strong>4.5.5 Acciones de ratón</strong></h6></div>
+                    <p align="justify">Selenium Web-Driver provee funcionalidades para simular acciones realizadas por un usuario en su ratón. </p>
+                  </div>
+
+                  <!--4.5.5.1 Métodos para realizar acciones del mouse  -->
+                  <div>
+                    <div><h6><strong>4.5.5.1 Métodos para realizar acciones del mouse</strong></h6></div>
+                    <ol>
+                      <li value="1"><strong>click(): </strong> Permite realizar un click.</li>
+                      <li><strong>contextClick():</strong> Permite realizar click derecho.</li>
+                      <li><strong>doubleClick():</strong> Permite realizar un doble click.</li>
+                    </ol> 
+
+                  </div> 
+
+                   <!--4.5.6 Comandos get  -->
+                  <div>
+                    <div><h6><strong>4.5.6 Comandos get</strong></h6></div>
+                    <p align="justify">Comandos que permiten obtener información de las páginas web: </p>
+                    <ol>
+                      <li value="1"><strong>get(“URL”):</strong> Abre una nueva ventana con el sitio especificado en los parámetros</li>
+                      <li><strong>getTitle():</strong> Entrega el nombre de la página actual. Si no encuentra retorna nulo.</li>
+                      <li><strong>getPageSource():</strong> Entrega el código fuente de la página en formato String.</li>
+                      <li><strong>getCurrentUrl():</strong> Retorna la URL de la página en la que se encuentra actualmente en formato String.</li>
+                      <li><strong>getText():</strong> Entrega el texto de un elemento que se especifique.</li>
+                    </ol>
+                  </div>
+                  
+                  <!-- 4.5.7 Comandos de navegación  -->
+                  <div>
+                    <div><h6><strong>4.5.7 Comandos de navegación</strong></h6></div>
+                    <p align="justify">Comandos que realizan acciones de navegación sobre una página web:</p>
+                    <ol>
+                      <li value="1"><strong>navigate().to(“URL”): </strong> Abre una nueva ventana con el sitio especificado en los parámetros.</li>
+                      <li><strong>navigate().refresh():</strong> Refresca la página actual.</li>
+                      <li><strong>navigate().back():</strong> Vuelve a la página anterior. </li>
+                      <li><strong>navigate().forward():</strong>  Adelanta a la siguiente página.</li>
+                    </ol>
+                  </div>
+
+                  <!-- 4.5.8 Comandos de cierre  -->
+                  <div>
+                    <div><h6><strong>4.5.8 Comandos de cierre</strong></h6></div>
+                    <ol>
+                      <li value="1"><strong>close(): </strong> Cierra solo la última ventana del navegador en la cual Selenium trabajo.</li>
+                      <li><strong>quit():</strong> Cierra todas las ventanas que Selenium abrió.</li>
+                    </ol>
+                  </div>
+
+                  <!-- Más información -->
+                    <div>
+                      <p align="justify"><strong>Más información</strong></p>
+                      <p>Teoría</p>
+                      <ol>
+                              <li value="1"><p align="justify"><a href="http://www.seleniumhq.org/docs/03_webdriver.jsp">Página oficial Selenium</a></p></li>
+                              <li><p align="justify"><a href="https://www.tutorialspoint.com/selenium/selenium_webdriver.htm">Tutorialspoint Selenium</a></p></li>
+                        </ol>
+                        <p>Práctica</p>
+                      <ol>
+                              <li value="1"><p align="justify"><a href="https://www.youtube.com/watch?v=lYXuDDo63MU&t=667s">QAShanin Cucumber con Selenium</a></p></li>
+                        </ol>
+                    </div>                     
+                </md-content>
+              </md-tab>
+              <md-tab label="5. Encargado">
+                <md-content class="md-padding">
+                  <!-- 5.1 Objetivo -->
+                  <div>
+                    <div layout ="column" layout-align = "center center"><h5><strong>Encargado del equipo</strong></h5></div>
+                    <div><h6><strong>5.1 Objetivo</strong></h6></div>
+                    <p align="justify">Verificar y chequear el correcto funcionamiento de las funcionalidades básicas, críticas e incidencias.</p>
+                  </div>
+
+                  <!-- 5.2 Pruebas a efectuar -->
+                  <div>
+                    <div><h6><strong>5.2 Pruebas a efectuar</strong></h6></div>
+                    <ol>
+                      <li value="1">Pruebas de humo</li>
+                      <li>Pruebas automatizadas que evidencian una incidencia</li>
+                      <li>Pruebas exploratorias</li>
+                    </ol>
+                  </div>
+
+                  <!-- 5.2.1 Pruebas de humo -->
+                  <div>
+                    <div><h6><strong>5.2.1 Pruebas de humo</strong></h6></div>
+                    <p align="justify">Cuando llega una solicitud por parte del QA Interno para que el encargado verifique la historia de usuario, este debe ejecutar las pruebas de humo que están relacionadas con las funcionalidades más críticas de la historia de usuario. </p>
+                    <p align="justify">La decisión sobre qué pruebas de humo se seleccionarán es tomada por el equipo completo, teniendo en cuenta la importancia de esta para el negocio del cliente y el impacto que puede tener su falla en el resto del sistema (Por ejemplo pérdida de información, generación de un estado bloqueante).</p>
+                    <p align="justify">Todas las pruebas que se ejecutarán en la prueba de humo, deben tener la misma etiqueta específica sobre los <strong>scenarios</strong> en los archivo <strong>Feature</strong>.</p>
+                    <p align="justify"><strong>Ejemplo</strong><br>Las pruebas de humo que se ejecutarán por el Encargado utilizarán la etiqueta <strong>@SmokeTestEncargado</strong> de la siguiente forma: </p>
+
+                    <p align="justify">@SmokeTestEncargado <br>  
+                      <strong>Scenario:</strong> Autenticación para una red social <br>
+                      <strong>Given</strong> Usuario en la página de autenticación de facebook <br>
+                      <strong>When</strong> El usuario se autentifica con el nombre de usuario como "username" AND La contraseña como "password" <br>
+                      <strong>Then</strong> La autenticación debe ser exitosa</p>
+                  </div>
+
+                  <!-- 5.2.2 Pruebas automatizadas que evidencian una incidencia -->
+                  <div>
+                    <div><h6><strong>5.2.2 Pruebas automatizadas que evidencian una incidencia</strong></h6></div>
+                    <p align="justify">En segundo lugar debe chequear las incidencias reportadas por el equipo con el objetivo de cerciorarse que fueron reparadas. Para esto debe ejecutar las pruebas que demuestran la existencia de la incidencias. Si estas no se encuentran automatizadas debe seguir los pasos descritos en el reporte de incidencias para reproducirlas.</p>
+                  </div>
+
+                  <!-- 5.3 Reporte de incidencias -->
+                  <div>
+                    <div><h6><strong>5.3 Reporte de incidencias</strong></h6></div>
+                    <p align="justify">Si ejecuta las pruebas y encuentra incidencias debe reportarlas siguiendo el siguiente formato:</p>
+                    <ol>
+                      <li value="1"><strong>Caso de prueba:</strong> Se indica el caso de prueba con el cual se produjo la incidencia.</li>
+                      <li><strong>Precondiciones:</strong> Estado en el que se debe encontrar el sistema y el usuario para reproducir la incidencia</li>
+                      <li><strong>Descripción:</strong> Breve descripción de lo que se busca probar y lo que se obtiene.</li>
+                      <li><strong>Pasos:</strong> Pasos a realizar para reproducir la incidencia</li>
+                      <li><strong>Resultados esperados:</strong> Estado final del sistema y usuario esperado.</li>
+                      <li><strong>Resultados obtenidos:</strong> Estado del sistema obtenido dado a la aparición de la incidencia.</li>
+                      <li><strong>Severidad:</strong> Indicar la severidad incidencia, es decir el grado en el que influye su existencia (Baja, Normal, Crítica, Bloqueante).</li>
+                      <li><strong>Evidencia:</strong> Para dejar evidencia de la incidencia encontrada, se deben utilizar fotos, donde se indiquen los pasos a seguir y el resultado que se obtuvo.</li>
+                    </ol>
+
+                    <p align="justify"><strong>Ejemplo</strong></p>
+
+                    <p align="justify"><strong>Caso de prueba:</strong> Autenticarse en la red social con datos validos.</p>
+
+                    <p align="justify"><strong>Precondiciones:</strong><br>
+                    Usuario registrado en la red social. <br>
+                    Usuario con cuenta activa. <br>
+                    Usuario en la página de autenticación
+                    </p>
+
+                    <p align="justify"><strong>Descripción:</strong> El usuario trata de autenticarse en la red social pero el botón de ingresar no existe.</p>
+
+                    <p align="justify"><strong>Pasos:</strong><br>
+                    Ingresar el nombre de usuario y contraseña <br>
+                    Autenticarse en el sistema
+                    </p>
+
+                    <p align="justify"><strong>Resultados esperados:</strong><br>
+                    Usuario en la página de inicio de la red social.
+                    </p>
+
+                    <p align="justify"><strong>Resultados obtenidos:</strong><br>
+                    Usuario en la página de autenticación de la red social.
+                    </p>
+                    <p align="justify"><strong>Severidad:</strong> Crítica
+                    </p>
+                     <p align="justify"><strong>Evidencia:</strong> [Imagen que muestre la incidencia]
+                    </p>
+                  </div>
+
+                  <!-- 5.4 Proceso general del Encargado del equipo -->
+                  <div>
+                    <div><h6><strong>5.4 Proceso general del Encargado del equipo</strong></h6></div>
+                    <p align="justify">En el diagrama se muestran las actividades y flujos generales que sigue un encargado durante su verificación.</p>
+                    <ol>
+                      <li value="1"><p align="justify">Llega solicitud por parte del QA Interno para verificar la historia de usuario.</p></li>
+                      <li><p align="justify">Ejecutar pruebas de humo.</p></li>
+                      <li><p align="justify">Si la historia de usuario no pasa la verificación utilizando las pruebas de humo, se debe registrar la incidencia. Luego el encargado debe seleccionar y notificar a un programador para que repare la incidencia.</p></li>
+                      <li><p align="justify">Si pasa la verificación, se realiza el chequeo de las incidencias ejecutando las pruebas automatizadas que evidencian su existencia. En el caso que los resultados indiquen que una de las incidencias no ha sido resuelta, nuevamente se debe registrar para que un programador la repare.</p></li>
+                      <li><p align="justify">Finalmente si la historia pasa la verificación efectuada por el encargado se notifica al QA usuario que la historia de usuario se encuentra lista para su validación.</p></li>
+                    </ol>
+
+                    <div layout = "column" layout-align = "center center">
+                            <img src="img/encargado/e1.png" class="img-thumbnail" alt="Cinque Terre" width="700" height="700"> 
+                    </div>
+                  </div>
+                </md-content>
+              </md-tab>
+              <md-tab label="6. QA Usuario">
+                <md-content class="md-padding">
+                  <!-- 6.1 Objetivo -->
+                  <div>
+                  <div layout ="column" layout-align = "center center"><h5><strong>QA Usuario</strong></h5></div>
+                    <div><h6><strong>6.1 Objetivo</strong></h6></div>
+                    <p align="justify">Validar la historia de usuario desarrollada por el equipo de trabajo.</p>
+                  </div>
+
+                  <!-- 6.2 Pruebas a efectuar -->
+                  <div>
+                    <div><h6><strong>6.2 Pruebas a efectuar</strong></h6></div>
+                    <ol>
+                      <li value="1">Pruebas de aceptación automatizadas</li>
+                      <li>Pruebas de aceptación del usuario</li>
+                      <li>Pruebas exploratorias</li>
+                    </ol>
+                  </div>
+
+                  <!-- 6.2.1 Pruebas de aceptación automatizadas -->
+                  <div>
+                    <div><h6><strong>6.2.1 Pruebas de aceptación automatizadas</strong></h6></div>
+                    <p align="justify">Cuando llega una solicitud por parte del encargado para que el QA usuario valide la historia de usuario, este debe ejecutar las pruebas de aceptación automatizadas que se especificaron en un comienzo comienzo del sprint. Con esto se asegura que los criterios de aceptación de las historias de usuario se están satisfaciendo.</p>
+                  </div>
+
+                  <!-- 6.2.2 Pruebas de aceptación del usuario -->
+                  <div>
+                    <div><h6><strong>6.2.2 Pruebas de aceptación del usuario</strong></h6></div>
+                    <p align="justify">En segundo lugar el QA usuario debe validar el sistema realizando pruebas de aceptación del usuario manuales utilizando como base las pruebas de aceptación y prototipos especificados en el comienzo del sprint. Con este tipo de pruebas se deja a su juicio experto la determinación si el software satisface sus necesidades del negocio.</p>
+                  </div>
+
+                  <!-- 6.2.3 Pruebas exploratorias -->
+                  <div>
+                    <div><h6><strong>6.2.3 Pruebas exploratorias</strong></h6></div>
+                    <p align="justify">En complemento de las pruebas de aceptación del usuario, puede realizar pruebas exploratorias para explorar el sistema y conocer su comportamiento. Estas son útiles ya que puede validar fácilmente la usabilidad y funcionalidades del sistema al ir explorando en él, asimismo le permite probar casos claves en base a su conocimiento del negocio. </p>
+                  </div>
+
+                  <!-- 6.3 Reporte de incidencias o cambios -->
+                  <div>
+                    <div><h6><strong>6.3 Reporte de incidencias o cambios</strong></h6></div>
+                    <p align="justify">Si el QA usuario encuentra incidencias debe reportarlas según el tipo que sea: </p>
+
+                    <p align="justify"><strong>Funcional / Usabilidad</strong></p>
+                    <ol>
+                      <li value="1"><strong>Caso de prueba:</strong> Se indica el caso de prueba con el cual se produjo la incidencia.</li>
+                      <li><strong>Precondiciones:</strong> Estado en el que se debe encontrar el sistema y el usuario para reproducir la incidencia</li>
+                      <li><strong>Descripción:</strong> Breve descripción de lo que se busca probar y lo que se obtiene.</li>
+                      <li><strong>Pasos:</strong> Pasos a realizar para reproducir la incidencia</li>
+                      <li><strong>Resultados esperados:</strong> Estado final del sistema y usuario esperado.</li>
+                      <li><strong>Resultados obtenidos:</strong> Estado del sistema obtenido dado a la aparición de la incidencia.</li>
+                      <li><strong>Severidad:</strong> Indicar la severidad incidencia, es decir el grado en el que influye su existencia (Baja, Normal, Crítica, Bloqueante).</li>
+                      <li><strong>Evidencia:</strong> Para dejar evidencia de la incidencia encontrada, se deben utilizar fotos, donde se indiquen los pasos a seguir y el resultado que se obtuvo.</li>
+                    </ol>
+
+                    <p align="justify"><strong>Ejemplo</strong></p>
+
+                    <p align="justify"><strong>Caso de prueba:</strong> Autenticarse en la red social con datos validos.</p>
+
+                    <p align="justify"><strong>Precondiciones:</strong><br>
+                    Usuario registrado en la red social. <br>
+                    Usuario con cuenta activa. <br>
+                    Usuario en la página de autenticación
+                    </p>
+
+                    <p align="justify"><strong>Descripción:</strong> El usuario trata de autenticarse en la red social pero el botón de ingresar no existe.</p>
+
+                    <p align="justify"><strong>Pasos:</strong><br>
+                    Ingresar el nombre de usuario y contraseña <br>
+                    Autenticarse en el sistema
+                    </p>
+
+                    <p align="justify"><strong>Resultados esperados:</strong><br>
+                    Usuario en la página de inicio de la red social.
+                    </p>
+
+                    <p align="justify"><strong>Resultados obtenidos:</strong><br>
+                    Usuario en la página de autenticación de la red social.
+                    </p>
+                    <p align="justify"><strong>Severidad:</strong> Crítica
+                    </p>
+                     <p align="justify"><strong>Evidencia:</strong> [Imagen que muestre la incidencia]
+                    </p>
+                    <br>
+                    <p align="justify"><strong>Mejora / Cambio</strong></p>
+                    <p align="justify"><strong>Descripción:</strong> Breve descripción de lo esperado.
+                    </p>
+                    <p align="justify"><strong>Evidencia:</strong> Para dejar evidencia de donde se quiere realizar la mejora, se deben utilizar fotos que indiquen dónde realizar el cambio.
+                    </p>
+
+                    <p align="justify"><strong>Ejemplo</strong></p>
+                    <p align="justify"><strong>Descripción:</strong> En la página de autenticación me gustaría cambiar las validaciones de entradas del campo nombre de usuario.
+                    </p>
+                    <p align="justify"><strong>Evidencia:</strong> [Imagen que muestre la incidencia]
+                    </p>
+                  </div>
+
+                  <!-- 6.4 Proceso general del QA usuario -->
+                  <div>
+                    <div><h6><strong>6.4 Proceso general del QA usuario</strong></h6></div>
+                    <p align="justify">En el diagrama se muestran las actividades y flujos generales que sigue un QA usuario durante su validación.</p>
+                    <ol>
+                      <li value="1"><p align="justify">Llega solicitud por parte del encargado validar la historia de usuario.</p></li>
+                      <li><p align="justify">Ejecutar pruebas de aceptación automatizadas</p></li>
+                      <li><p align="justify">Si la historia de usuario no pasa la verificación utilizando las pruebas de aceptación automatizadas, se debe registrar la incidencia, modificación o mejora. Para notificar al encargado que la historia de usuario no pasó la validación.</p></li>
+                      <li><p align="justify">Si pasa la verificación, se realizan pruebas de aceptación del usuario y/o exploratorias.</p></li>
+                      <li><p align="justify">En el caso que la historia no pase la validación utilizando las pruebas de aceptación del usuario y/o exploratorias se debe registran las incidencias, modificación o mejora para notificar al encargado que la historia no pasó la validación.</p></li>
+                      <li><p align="justify">Finalmente si la historia pasa la validación efectuada por el QA usuario entonces se declara aceptada.</p></li>
+                    </ol>
+
+                    <div layout = "column" layout-align = "center center">
+                            <img src="img/qau/qau1.png" class="img-thumbnail" alt="Cinque Terre" width="700" height="700"> 
+                    </div>
+                  </div>
+
+                  </div>
+                </md-content>
+              </md-tab>
+            </md-tabs>
+</md-content>
+
+</md-content>

@@ -200,7 +200,7 @@ app.controller("crearAdminCtrl", function($rootScope, $scope, $location, $http, 
 	$scope.passC = "";
 	$scope.tiposUsuario = {};
 	$scope.tipoSelected = {};
-	$scope.newUsuario.estadoidEstado = new Object();
+	//$scope.newUsuario.estadoidEstado = new Object();
 	$scope.newUsuario.tipoUsuarioidTipoUsuario = new Object();
 	//Obteniendo tipos de usuarios
 	restFactory.tipoUsuarios()
@@ -223,17 +223,9 @@ app.controller("crearAdminCtrl", function($rootScope, $scope, $location, $http, 
 	};
 
 	$scope.crearU = function(){
-
-		if($scope.newUsuario.contrasenaU != $scope.passC){
-			$scope.showAlert("Contraseñas ingresadas no coinciden.");
-			return "";
-		}else if($scope.newUsuario.contrasenaU.length < 3){
-			$scope.showAlert("La contraseña debe poseer como mínimo 3 caracteres.");
-			return "";
-		}else{
 			$scope.newUsuario.fotoPerfilU = "img/estandar.jpg";
-			$scope.newUsuario.estadoidEstado.idEstado = 1;
-			$scope.newUsuario.estadoidEstado.nombreE = "Abierta";
+			//$scope.newUsuario.estadoidEstado.idEstado = 1;
+			//$scope.newUsuario.estadoidEstado.nombreE = "Abierta";
 			$scope.newUsuario.tipoUsuarioidTipoUsuario.idTipoUsuario = $scope.tipoSelected.idTipoUsuario;
 			$scope.newUsuario.tipoUsuarioidTipoUsuario.nombreTU = $scope.tipoSelected.nombreTU;
 			restFactory.crearUsuario($scope.newUsuario)
@@ -259,11 +251,11 @@ app.controller("crearAdminCtrl", function($rootScope, $scope, $location, $http, 
 								$scope.showAlert("Rut y e-mail ingresados se encuentran registrados.");
 								return "";
 							}else{
-								$scope.showAlert("Se produjo un error en la creación");
+								$scope.showAlert("Error al crear el usuario, intente más tarde.");
 								return "";
 							}
 					});
-		}
+		
 	}
 	
 	$scope.back = function(){
@@ -363,23 +355,9 @@ app.controller("editarSelectedAdmin", function($rootScope, $scope, $location, $h
 	};
 
 	$scope.editar = function(){
-			if((($scope.pass == undefined && $scope.passC == undefined) || ($scope.pass == "" && $scope.passC == "")) && $scope.apodo == $scope.userSelected.apodoU){
+			if($scope.apodo == $scope.userSelected.apodoU){
 				$scope.showAlert("No existen campos a modificar.");
 				return "";
-			}
-			if(( $scope.pass != undefined && $scope.passC != undefined) && ($scope.pass != "" && $scope.passC != "")){
-				if($scope.pass != $scope.passC){
-					$scope.showAlert("Contraseñas ingresadas no coinciden.");
-					return "";
-					}
-				if($scope.pass == $scope.userSelected.contrasenaU){
-					$scope.showAlert("Contraseña ingresada es igual a la actual.");
-					return "";
-				}
-				if($scope.pass.length < 3 || $scope.userSelected.contrasenaU < 3){
-					$scope.showAlert("Contraseña ingresada debe poseer mínimo 3 caracteres.");
-					return "";
-				}
 			}
 
 			var confirm = $mdDialog.confirm()
@@ -393,9 +371,6 @@ app.controller("editarSelectedAdmin", function($rootScope, $scope, $location, $h
 					$scope.userSelected.apodoU = $scope.apodo;
 				}
 				
-				if($scope.pass != undefined && $scope.passC != undefined && $scope.pass != "" && $scope.passC != "" && $scope.pass != null && $scope.passC != null){
-					$scope.userSelected.contrasenaU = $scope.pass;
-				}
 				restFactory.editarUsuario($scope.userSelected)
 						.success(function(response){
 							if(response){

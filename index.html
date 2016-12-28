@@ -39,12 +39,29 @@
               <md-content layout-padding>
                 <!-- Usuario no logeado -->
                 <div  ng-if = "auth.isLoggedIn() == false || sesion.getUser().estadoidEstado.nombreE == 'Cerrada'">
-                  <p>
+                  <p align = "center">
                     Rapsodia es una plataforma para el aprendizaje y aplicación de los conceptos de las pruebas de software.
                   </p>
                 </div>
-                <!-- Alumno / Ayudante-->
-                <div ng-if = "(sesion.getUser().tipoUsuarioidTipoUsuario.nombreTU == 'Alumno' || sesion.getUser().tipoUsuarioidTipoUsuario.nombreTU == 'Ayudante') && sesion.getUser().estadoidEstado.nombreE == 'Abierta'">
+                <!-- Alumno -->
+                <div ng-if = "sesion.getUser().tipoUsuarioidTipoUsuario.nombreTU == 'Alumno' && sesion.getUser().estadoidEstado.nombreE == 'Abierta'">
+                    <md-list>
+                      <md-list-item ng-click = "perfilAA()">
+                          <span>VER PERFIL</span>
+                          <span flex></span>
+                      </md-list-item>
+                      <md-list-item ng-click = "verC()">
+                          <span>VER COMUNIDADES</span>
+                          <span flex></span>
+                      </md-list-item>
+                      <md-list-item ng-click = "verMaterial()">
+                          <span>MATERIAL TEÓRICO</span>
+                          <span flex></span>
+                      </md-list-item>
+                    </md-list>
+                </div>
+                <!-- Ayudante -->
+                <div ng-if = "sesion.getUser().tipoUsuarioidTipoUsuario.nombreTU == 'Ayudante' && sesion.getUser().estadoidEstado.nombreE == 'Abierta'">
                     <md-list>
                       <md-list-item ng-click = "perfilAA()">
                           <span>VER PERFIL</span>
@@ -791,7 +808,45 @@
                       <md-input-container flex class="md-block" >
                       <label>Descripción</label>
                          <textarea ng-model="hu[7].descripcionHU" md-detect-hidden = "true" rows = "4" disabled></textarea>
-                      </md-input-container>   
+                      </md-input-container> 
+                      <div flex layout = "column" layout-align = "center center">
+                          <h5>Prueba de aceptación</h5>
+                        </div>
+                        <br>  
+                        <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Identificador</label>
+                              <input ng-model="pas[8].identificadorPA" disabled>
+                            </md-input-container>
+                        </div>
+                         <div flex layout = "row">
+                            <md-input-container flex>
+                              <label>Nombre</label>
+                              <input ng-model="pas[8].nombrePA" disabled>
+                            </md-input-container>
+                        </div>
+                          <md-input-container flex class="md-block" >
+                          <label>Descripción</label>
+                             <textarea ng-model="pas[8].descripcionPA" md-detect-hidden = "true" disabled></textarea>
+                          </md-input-container>
+                          <div layout-xs="column" flex layout = "column" layout-align = "center center">
+                          <h5>Incidencias</h5>
+                        </div>
+                        <br>
+                        <div layout = "column" ng-repeat="i in iPA6">
+                          <div layout = "row">
+                              <md-input-container flex>
+                              <label>Identificador</label>
+                                <input type="text" ng-model="i.idI" disabled>
+                              <md-input-container>
+                          </div>
+                          <div layout = "row">
+                              <md-input-container flex>
+                              <label>Descripción</label>
+                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="6" disabled></textarea>
+                              <md-input-container>
+                          </div>
+                        </div>   
                 </md-content>
               </md-tab>
             </md-tabs>
