@@ -551,11 +551,11 @@ app.controller("practicasAlumnoAsignadoCtrl", function($rootScope, $scope, $loca
 
 	$scope.verInfo = function(item){
 		$rootScope.sesion.setPracticaT(item);
-		restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+		restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.userAux.rutU)
 			.success(function (practica1){
 				if(practica1){
 					$rootScope.sesion.setPracticaT1(practica1);	
-					restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+					restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.userAux.rutU)
 						.success(function (practica2){
 							if(practica2){
 								$rootScope.sesion.setPracticaT2(practica2);	
@@ -1151,7 +1151,7 @@ app.controller("evaluarProfesorCtrl", function($rootScope, $scope, $location, $h
 				if(response.message == "t"){
 					restFactory.getPById($scope.practica.idPractica)
 						.success(function (response1){
-							restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+							restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.userAux.rutU)
 								.success(function (practica1){
 									if(practica1){
 										$rootScope.sesion.setPracticaT(response1);
@@ -1201,7 +1201,7 @@ app.controller("evaluarProfesorCtrl", function($rootScope, $scope, $location, $h
 				if(response.message == "t"){
 					restFactory.getPById($scope.practica.idPractica)
 						.success(function (response1){
-							restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+							restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.userAux.rutU)
 								.success(function (practica2){
 									if(practica2){
 										$rootScope.sesion.setPracticaT(response1);

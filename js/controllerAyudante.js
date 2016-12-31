@@ -552,7 +552,7 @@ app.controller("evaluarCtrl", function($rootScope, $scope, $location, $http, res
 				if(response.message == "t"){
 					restFactory.getPById($scope.practica.idPractica)
 						.success(function (response1){
-							restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+							restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.userAux.rutU)
 								.success(function (practica1){
 									if(practica1){
 										$rootScope.sesion.setPracticaT(response1);
@@ -603,7 +603,7 @@ app.controller("evaluarCtrl", function($rootScope, $scope, $location, $http, res
 								if(response.message == "t"){
 									restFactory.getPById($scope.practica.idPractica)
 										.success(function (response1){
-											restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+											restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.userAux.rutU)
 												.success(function (practica2){
 													if(practica2){
 														$rootScope.sesion.setPracticaT(response1);

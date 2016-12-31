@@ -270,8 +270,6 @@ app.controller("asociadosCtrl", function($rootScope, $scope, $location, $http, r
 		  .success(function (response){
 		  $scope.accesoP = response.message;
 	});	  
-
-
 });
 app.controller("verSelectedCtrl", function($rootScope, $scope, $location, $http, restFactory){
 	$scope.usuario = $rootScope.sesion.getUserAux();
@@ -298,11 +296,11 @@ app.controller("practicasAlumnoAsignadoAyudanteCtrl", function($rootScope, $scop
 	
 	$scope.verInfo = function(item){
 		$rootScope.sesion.setPracticaT(item);
-		restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+		restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.userAux.rutU)
 			.success(function (practica1){
 				if(practica1){
 					$rootScope.sesion.setPracticaT1(practica1);	
-					restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+					restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.userAux.rutU)
 						.success(function (practica2){
 							if(practica2){
 								$rootScope.sesion.setPracticaT2(practica2);	
@@ -346,7 +344,6 @@ app.controller("practicasAlumnoAsignadoAyudanteCtrl", function($rootScope, $scop
 
 				}
 	});	
-
 });
 /*Fin Alumno controllers*/
 /*Inicio Terminal*/
@@ -367,11 +364,11 @@ app.controller("terminalHomeCtrl", function($rootScope, $scope, $location, $http
 		  	}else if(response.message == "n"){
 		  		$scope.showAlert("No puede iniciar una nueva práctica mientras no haya finalizado la actual");
 		  	}else{
-		  		restFactory.getPracticaByIdentificadorComunidad(response.message, $rootScope.sesion.comunidad.idComunidad)
+		  		restFactory.getPracticaByIdentificadorComunidad(response.message, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.user.rutU)
 				  .success(function (practica){
 				  	if(practica){
 				  		$rootScope.sesion.setPracticaT(practica);
-				  		restFactory.getPractica1ByIdentificadorP(response.message, $rootScope.sesion.comunidad.idComunidad)
+				  		restFactory.getPractica1ByIdentificadorP(response.message, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.user.rutU)
 						  .success(function (practica1){
 						  	if(practica1){
 						  		$rootScope.sesion.setPracticaT1(practica1);
@@ -416,11 +413,11 @@ app.controller("terminalHomeCtrl", function($rootScope, $scope, $location, $http
 
 	$scope.verInfo = function(item){
 		$rootScope.sesion.setPracticaT(item);
-		restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+		restFactory.getPractica1ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.user.rutU)
 			.success(function (practica1){
 				if(practica1){
 					$rootScope.sesion.setPracticaT1(practica1);
-					restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+					restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.user.rutU)
 						.success(function (practica2){
 							if(practica2){
 								$rootScope.sesion.setPracticaT2(practica2);	
@@ -466,14 +463,14 @@ app.controller("terminalInfoCtrl", function($rootScope, $scope, $location, $http
 	}
 
 	$scope.practica2 = function(){
-		restFactory.crearPractica2($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+		restFactory.crearPractica2($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad, $rootScope.sesion.user.rutU)
 			.success(function(response){
 				if(response.message == "t"){
-					restFactory.getPracticaByIdentificadorComunidad($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+					restFactory.getPracticaByIdentificadorComunidad($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad, $rootScope.sesion.user.rutU)
 						  .success(function (practica){
 						  	if(practica){
 						  		$rootScope.sesion.setPracticaT(practica);
-						  		restFactory.getPractica2ByIdentificadorP($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+						  		restFactory.getPractica2ByIdentificadorP($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad, $rootScope.sesion.user.rutU)
 								  .success(function (practica2){
 								  	if(practica2){
 								  		$rootScope.sesion.setPracticaT2(practica2);
@@ -580,10 +577,10 @@ app.controller("practicaHomeCtrl", function($rootScope, $scope, $location, $http
 			    		.success(function(response){
 
 								if(response.message == "t"){							
-									restFactory.getPracticaByIdentificadorComunidad($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+									restFactory.getPracticaByIdentificadorComunidad($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad, $rootScope.sesion.user.rutU)
 							    		.success(function(response){
 												if(response){	
-													restFactory.getPractica1ByIdentificadorP($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+													restFactory.getPractica1ByIdentificadorP($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad, $rootScope.sesion.user.rutU)
 													  .success(function (practica1){
 													  	if(practica1){
 													  		viewFactory.showSimpleToast("Práctica enviada a corrección, se le notificará al corrector por correo electrónico");
@@ -622,10 +619,10 @@ app.controller("practicaHomeCtrl", function($rootScope, $scope, $location, $http
 			    	restFactory.correccionP2($rootScope.sesion.getPracticaT2().idPractica2)
 			    		.success(function(response){
 								if(response.message == "t"){							
-									restFactory.getPracticaByIdentificadorComunidad($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+									restFactory.getPracticaByIdentificadorComunidad($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad, $rootScope.sesion.user.rutU)
 							    		.success(function(response){
 												if(response){	
-													restFactory.getPractica2ByIdentificadorP($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad)
+													restFactory.getPractica2ByIdentificadorP($rootScope.sesion.getPracticaT().identificadorPractica, $rootScope.sesion.getComunidad().idComunidad, $rootScope.sesion.user.rutU)
 													  .success(function (practica2){
 													  	if(practica2){
 													  		viewFactory.showSimpleToast("Práctica enviada a corrección, se le notificará al corrector por correo electrónico");
@@ -741,6 +738,8 @@ app.controller("practicaCPCtrl", function($rootScope, $scope, $location, $http, 
 		$scope.newCasoPrueba.practicaidPractica.identificadorPractica = $rootScope.sesion.getPracticaT().identificadorPractica;
 		$scope.newCasoPrueba.practicaidPractica.comunidadidComunidad = new Object();
 		$scope.newCasoPrueba.practicaidPractica.comunidadidComunidad.idComunidad = $rootScope.sesion.getComunidad().idComunidad;
+		$scope.newCasoPrueba.practicaidPractica.realizador = new Object();
+		$scope.newCasoPrueba.practicaidPractica.realizador.rutU = $rootScope.sesion.user.rutU;
 		$scope.newCasoPrueba.HUidHU = new Object();
 		$scope.newCasoPrueba.HUidHU.idHU = $scope.huS.idHU;
 		$scope.newCasoPrueba.HUidHU.identificadorHU = $scope.huS.identificadorHU;
@@ -1051,6 +1050,8 @@ app.controller("practicaIncidenciasCtrl", function($rootScope, $scope, $location
 		$scope.newIncidencia.practicaidPractica.identificadorPractica = $rootScope.sesion.getPracticaT().identificadorPractica;
 		$scope.newIncidencia.practicaidPractica.comunidadidComunidad = new Object();
 		$scope.newIncidencia.practicaidPractica.comunidadidComunidad.idComunidad = $rootScope.sesion.getComunidad().idComunidad;
+		$scope.newIncidencia.practicaidPractica.realizador = new Object();
+		$scope.newIncidencia.practicaidPractica.realizador.rutU = $rootScope.sesion.user.rutU;
 		if($scope.casoS.identificadorCaso == "Ninguno"){
 			$scope.newIncidencia.nombreI = $scope.nombre;
 			$scope.newIncidencia.descripcionI = $scope.descripcion;
@@ -1585,7 +1586,7 @@ app.controller("alumnoPractica2Ctrl", function($rootScope, $scope, $location, $h
 					$rootScope.sesion.practicaT2.urlGithub = $scope.githubURL;
 					$rootScope.sesion.practicaT2.urlCodenvy = $scope.codenvyURL;
 				}else{
-					restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad)
+					restFactory.getPractica2ByIdentificadorP($rootScope.sesion.practicaT.identificadorPractica, $rootScope.sesion.comunidad.idComunidad, $rootScope.sesion.user.rutU)
 								  .success(function (practica2){
 								  	if(practica2){
 								  		$rootScope.sesion.setPracticaT2(practica2);
@@ -1714,7 +1715,6 @@ app.controller("alumnoPruebaResultadoCtrl", function($rootScope, $scope, $locati
 
 				}
 	});	
-
 });
 /*Sprint 3.5*/
 
@@ -1740,6 +1740,5 @@ app.controller("materialTeoricoCtrl", function($rootScope, $scope, $location, $h
     $scope.sendTo = function(url){
     	$location.path(url);
     }
-
 });
 /*Sprint 4*/

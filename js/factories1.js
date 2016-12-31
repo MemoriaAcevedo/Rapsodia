@@ -169,8 +169,8 @@ app.factory("restFactory", ["$http", function($http){
 		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getP/"+idP);
 	};
 
-	restFactory.getPracticaByIdentificadorComunidad = function(idP, idC){ 
-		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getPracticaByIdentificadorComunidad/"+idP+"/"+idC);
+	restFactory.getPracticaByIdentificadorComunidad = function(idP, idC, rut){ 
+		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getPracticaByIdentificadorComunidadRut/"+idP+"/"+idC+"/"+rut);
 	};
 
 	restFactory.getPracticasByAlumnoCorrectorComunidad = function(idA, idCorrector, idC){ 
@@ -292,16 +292,16 @@ app.factory("restFactory", ["$http", function($http){
 	//Sprint 3.3
  
 	//Sprint 3.4
-	restFactory.getPractica1ByIdentificadorP = function(idP1, idC){ 
-		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getPractica1ByIdentificadorP/"+idP1+"/"+idC);
+	restFactory.getPractica1ByIdentificadorP = function(idP1, idC, rut){ 
+		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getPractica1ByIdentificadorP/"+idP1+"/"+idC+"/"+rut);
 	};
 
-	restFactory.getPractica2ByIdentificadorP = function(idP2, idC){ 
-		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getPractica2ByIdentificadorP/"+idP2+"/"+idC);
+	restFactory.getPractica2ByIdentificadorP = function(idP2, idC, rut){ 
+		return $http.get("http://localhost:8080/MockRapso-war/webresources/practicaT/getPractica2ByIdentificadorP/"+idP2+"/"+idC+"/"+rut);
 	};
 
-	restFactory.crearPractica2 = function(identificadorP, idC){ 
-		return $http.post("http://localhost:8080/MockRapso-war/webresources/practicaT/crearPractica2/"+identificadorP+"/"+idC);
+	restFactory.crearPractica2 = function(identificadorP, idC, rut){ 
+		return $http.post("http://localhost:8080/MockRapso-war/webresources/practicaT/crearPractica2/"+identificadorP+"/"+idC+"/"+rut);
 	};
 
 	restFactory.correccionP2 = function(idP2){ 
