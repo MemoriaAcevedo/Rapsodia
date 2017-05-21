@@ -17,9 +17,22 @@
 	</div>
   <div ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P1' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregir P1' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1'">
   	<div layout-xs="column" flex layout = "column" layout-align = "center center">
-  	    <div>
+  	    <div align = "center">
   		    <h3>Gestión pruebas funcionales</h3>
+          <p align="justify">En esta sección podrá especificar los casos de prueba funcionales indicando la historia de usuario a la cual hace referencia, nombre, descripción, precondiciones, pasos y resultados esperados. Además tiene la capacidad de visualizar los casos de prueba y el estado en el que se encuentran.</p>
+
+          <h5><strong><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon> Recomendaciones</strong></h5>
+                <ol align = "left">
+                  <li>Haber discutido la documentación del software (Historias de usuario/Pruebas de aceptación) previamente con el corrector</li>
+                  <li>Tener claro el correcto funcionamiento del software y las reglas del negocio
+                   en base a las conversaciones con el corrector</li>
+                  <li>Comunicarse constantemente con el corrector para resolver dudas de funcionamiento del software y obtener ejemplos concretos de como debería funcionar el sistema.</li>
+                  <li>Priorizar los casos de prueba de las funcionalidades, focalizandose en probar sectores de las funcionalidades que sean críticos para el Product Owner <strong>(Corrector)</strong></li>
+                  <li>Discutir con el Product Owner los datos de prueba para efectuar las pruebas. Además tener en cuenta las técnicas para la clasificación de datos de prueba</li>
+                  <li>Identificar el estado en el cual debe encontrarse el sistema antes de realizar la prueba y el estado en el cual queda luego de realizarla.</li>
+                </ol>
   	    </div>
+
         <div flex layout = "column" layout-align = "center center" ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1' && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
             <md-button ng-click="toggleLeft()" class="md-raised">
               Pauta de evaluación
@@ -215,8 +228,19 @@
  
   <div ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregir P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizada'">
     <div layout-xs="column" flex layout = "column" layout-align = "center center">
-        <div>
-            <h3>Gestión pruebas funcionales</h3>
+        <div align = "center">
+          <h3>Gestión pruebas funcionales</h3>
+          <p align="justify">En esta sección podrá especificar los casos de prueba funcionales indicando la historia de usuario a la cual hace referencia, nombre, descripción, precondiciones, pasos y resultados esperados. Además tiene la capacidad de visualizar los casos de prueba y el estado en el que se encuentran.</p>
+
+          <h5><strong><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon> Recomendaciones</strong></h5>
+                <ol align = "left">
+                  <li>Haber discutido la documentación del software (Historias de usuario/Pruebas de aceptación) previamente con el corrector</li>
+                  <li>Tener claro el correcto funcionamiento del software y las reglas del negocio
+                   en base a las conversaciones con el corrector</li>
+                  <li>Comunicarse constantemente con el corrector para resolver dudas de funcionamiento del software y obtener ejemplos concretos de como debería funcionar el sistema.</li>
+                  <li>Priorizar los casos de prueba de las funcionalidades, focalizandose en probar sectores de las funcionalidades que sean críticos para el Product Owner <strong>(Corrector)</strong></li>
+                  <li>Tener en cuenta las técnicas para selección de datos de prueba</li>
+                </ol>
         </div>
         <div flex layout = "column" layout-align = "center center" ng-show = "(sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizada') && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
             <md-button ng-click="toggleLeft()" class="md-raised">

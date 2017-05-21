@@ -1079,34 +1079,38 @@ app.controller("pautaEProfesorCtrl", function($rootScope, $scope, $location, $ht
 				$scope.pas = response;
 	});		
 	
-	$scope.iPA1 = [{idI: "I-1", descripcion: "No valida el formato del rut, y no indica el usuario el formato que debe utilizar"}, {idI: "I-2", descripcion: "No esconde la "+
-	"contraseña al momento de ingresarla"}, {idI: "I-3", descripcion: "Si los datos ingresados son incorrectos, no notifica al usuario"}, {idI: "I-3", descripcion: "Nombre "+
+	$scope.iPA1 = [{idI: "I-1", descripcion: "No valida el formato del rut, siendo el formato correcto 9214907-2"}, {idI: "I-2", descripcion: "No indica al usuario el formato correcto del rut"}
+	, {idI: "I-3", descripcion: "No esconde la contraseña del usuario"}, {idI: "I-4", descripcion: "No notifica al usuario cuando las credenciales ingresadas son incorrectas o el rut no se encuenta registrado"}, {idI: "I-5", descripcion: "Nombre "+
 	"del título inicio sesión mal escrito dice 'seción'"}];
 	
-	$scope.iPA12 = [{idI: "I-1", descripcion: "Icono de configuración toma la funcionalidad de cerrar sesión y de cerrar sesión toma la funcionalidad de configuración"}];
+	$scope.iPA12 = [{idI: "I-1", descripcion: "Icono de configuración toma la funcionalidad de cerrar sesión"}, {idI: "I-2", descripcion: "Icono de cerrar sesión toma la funcionalidad de configuración de la cuenta"}];
 	
-	$scope.iPA2 = [{idI: "I-1", descripcion: "Deja depositar un monto 0 y negativos"}, {idI: "I-2", descripcion: "No respeta el monto límite impuesto por el sistema: 1.000.000"},
-	{idI: "I-3", descripcion: "Sobrepasa el valor máximo del campo monto soportado por la base de datos del sistema, impidiendo la realización de la operación"}, 
-	{idI: "I-4", descripcion: "No notifica al usuario sobre el estado de la operación realizada"}, {idI: "I-5", descripcion: "Las migas de pan muestran que el usuario se encuentra en la página para hacer 'retiro', cuando se encuentra en la de 'depósito'"},
-	{idI: "I-6", descripcion: "No posee el botón para ir atrás"}, {idI: "I-7", descripcion: "Al dirigirse a realizar la operación depósito, redirecciona a la de retiro."}];
+	$scope.iPA2 = [{idI: "I-1", descripcion: "Permite depositar montos menores o iguales a 0"}, {idI: "I-2", descripcion: "Excede el límite de almacenamiento de dinero del sistema (1000000)"},
+	{idI: "I-3", descripcion: "No maneja el valor máximo que puede soportar el campo monto (2147483647 y -2147483647)"}, 
+	{idI: "I-4", descripcion: "No notifica al usuario sobre el formato del monto a depositar (Formato correcto: 10000)"}, {idI: "I-5", descripcion: "No notifica al usuario sobre el estado de su depósito"}, {idI: "I-6", descripcion: "No notifica al usuario sobre las restricciones del sistema"}, 
+	{idI: "I-7", descripcion: "Las migas de pan indican que el usuario está en la página para hacer 'retiro', cuando se encuentra en la de 'depósito'"},
+	{idI: "I-8", descripcion: "No posee el botón para ir atrás"}, {idI: "I-9", descripcion: "La opción que direcciona a la sección para realizar un depósito, direccionada a la sección para efectuar un retiro."}];
 	
-	$scope.iPA3 = [{idI: "I-1", descripcion: "Deja retirar el monto 0 y negativos"}, {idI: "I-2", descripcion: "Deja retirar a pesar de no tener saldo"},
-	{idI: "I-3", descripcion: "No respeta el monto límite impuesto por el sistema: 1.000.000"}, {idI: "I-4", descripcion: "No notifica al usuario sobre el estado de la operación realizada"}, 
-	{idI: "I-5", descripcion: "Botón de atrás no funciona"}, {idI: "I-6", descripcion: "No muestra las migas de pan"}];
+	$scope.iPA3 = [{idI: "I-1", descripcion: "Permite retirar montos menores o iguales a 0"}, {idI: "I-2", descripcion: "Permite retirar montos superiores al saldo disponible"}, {idI: "I-3", descripcion: "Excede el límite de almacenamiento de dinero del sistema (1000000)"},
+	{idI: "I-4", descripcion: "No maneja el valor máximo que puede soportar el campo monto (2147483647 y -2147483647)"}, {idI: "I-5", descripcion: "No notifica al usuario sobre el formato del monto a retirar (Formato correcto: 10000)"}, 
+	{idI: "I-6", descripcion: "No notifica al usuario sobre el estado de su retiro"}, {idI: "I-7", descripcion: "No notifica al usuario sobre las restricciones del sistema"}, 
+	{idI: "I-8", descripcion: "Botón de atrás no funciona"}, {idI: "I-9", descripcion: "No muestra las migas de pan"}];
 
-	$scope.iPA4 = [{idI: "I-1", descripcion: "No valida el formato del rut, y no indica el usuario el formato que debe utilizar"}, {idI: "I-2", descripcion: "Deja transferir el monto 0 y negativos, además de un monto mayor al saldo disponible"},
-	{idI: "I-3", descripcion: "No notifica al usuario sobre el estado de la operación realizada"}, {idI: "I-4", descripcion: "Botón de atrás no funciona en la transferencia"}, 
-	{idI: "I-5", descripcion: "En las migas de pan el botón de inicio direcciona a configuración en lugar del inicio"}, {idI: "I-6", descripcion: "Deja transferir y no descuenta "+
-	"el monto del saldo del que realiza la transferencia"}, {idI: "I-7", descripcion: "Deja transferir aunque la cuenta del destinatario este cerrada"}, {idI: "I-8", descripcion: "Deja transferir a la misma cuenta del realizador"}, 
-	{idI: "I-9", descripcion: "Deja transferir a la misma cuenta"}, {idI: "I-10", descripcion: "No se ven las transacciones realizadas en el historial"},
-	{idI: "I-11", descripcion: "Sin el botón de atrás en el historial"}, {idI: "I-12", descripcion: "Sin migas de pan en el historial"}];
+	$scope.iPA4 = [{idI: "I-1", descripcion: "No valida el formato del rut, siendo el formato correcto 9214907-2"}, {idI: "I-2", descripcion: "No indica al usuario el formato correcto del rut"}, {idI: "I-3", descripcion: "Permite transferir montos menores o iguales a 0"},
+	{idI: "I-4", descripcion: "Permite transferir montos mayores al saldo disponible"}, {idI: "I-5", descripcion: "Permite transferir dinero a la misma cuenta del realizador"},
+    {idI: "I-6", descripcion: "Permite transferir dinero a la cuenta del destinatio aunque esta se encuentre cerrada"}, {idI: "I-7", descripcion: "Transfiere y no descuenta el monto del saldo del que realiza la transferencia"},
+    {idI: "I-8", descripcion: "No maneja el valor máximo que puede soportar el campo monto (2147483647 y -2147483647)"},
+	{idI: "I-9", descripcion: "No notifica al usuario sobre el formato del monto a transferir (Formato correcto: 10000)"}, {idI: "I-10", descripcion: "No notifica al usuario sobre las restricciones del sistema"}, {idI: "I-11", descripcion: "Botón de atrás no funciona"}, 
+	{idI: "I-12", descripcion: "En las migas de pan el botón de inicio direcciona a configuración en lugar del inicio"}, {idI: "I-13", descripcion: "No puede visualizar las transacciones realizadas en el historial"},
+	{idI: "I-14", descripcion: "No existe el botón de atrás en el historial"}, {idI: "I-15", descripcion: "No existen las migas de pan en el historial"}];
 
-	$scope.iPA41 = [{idI: "I-1", descripcion: "No se puede seleccionar rango de transacciones"}];
+	$scope.iPA41 = [{idI: "I-1", descripcion: "No permite seleccionar el rango de transacciones"}];
 
-	$scope.iPA42 = [{idI: "I-1", descripcion: "No ordena los campos"}];
+	$scope.iPA42 = [{idI: "I-1", descripcion: "No permite ordenar las transacciones por los campos"}];
 
 	$scope.iPA5 = [{idI: "I-1", descripcion: "Función de cierre de cuenta no cambia el estado del usuario, estando siempre activo"}, {idI: "I-2", descripcion: "No notifica al usuario sobre el estado de las operaciones realizadas"},
-	{idI: "I-3", descripcion: "Ventana emergente se encuentra mal escrita, además tiene las funcionalidad de botones cambiadas. El botón “cancelar” sirve para cerrar la cuenta y “activar” para cancelar el cierre."}];
+	{idI: "I-3", descripcion: "Ventana de confirmación se encuentra mal escrita"}, 
+	{idI: "I-4", descripcion: "En el ventana de confirmación el botón “cancelar” sirve para cerrar la cuenta y “activar” para cancelar el cierre."}];
 
 	$scope.iPA6 = [{idI: "I-1", descripcion: "No permite activar la cuenta del usuario"}];
 });
@@ -1261,7 +1265,6 @@ app.controller("profesorPractica2Ctrl", function($rootScope, $scope, $location, 
 	}
 });
 /*PRÁCTICA 2*/
-
 
 /*SPRINT 3.5*/
 app.controller("configurarProfeCtrl", function($rootScope, $scope, $location, $http, restFactory, $mdDialog, viewFactory){

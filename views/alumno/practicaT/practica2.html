@@ -20,10 +20,9 @@
 		    <h3>Gestión de reparación módulo bancario</h3>
 	    </div>
 
-      <div align = "center">
-        <p>A continuación se presentan dos secciones donde en la primera se entregan las instrucciones y pasos necesarios para la configuración del entorno de desarrollo y repositorios. En la segunda sección deberá especificar la URL de su ambiente de trabajo y repositorio para que el corrector pueda visualizar su avance a lo largo de la práctica.</p>
+      <div align = "justify">
+        <p>A continuación se presentan las instrucciones necesarias que el alumno debe seguir para configurar el ambiente de desarrollo y repositorios donde realizará la práctica. Asimismo, se entrega la opción para que especifique la URL de su ambiente de trabajo y repositorio para facilitar el acceso al corrector, el cual constantemente visualizará su avance.</p>
       </div>
-        <br>
       <div layout = "column" layout-align = "center center" ng-show = "sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
         <div>
           <h5>Acceso directo al ambiente de desarrollo y repositorio del usuario</h5>
@@ -69,4 +68,17 @@
             </md-card>
         </div>
 	    </div>
+      <br>
+      <div align = "center">
+        <h5><strong><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon> Recomendaciones</strong></h5>
+          <ol align = "left">
+            <li>Solicitar ejemplos al corrector <strong>(Product Owner)</strong> sobre el funcionamiento del software.</li>
+            <li>Tener claro las reglas de negocio que las funcionalidades deben cumplir.</li>
+            <li>Utilizar nombres representativos para las pruebas y comenzar con la palabra should (debería). Ejemplo deberiaEncontrarClientePorId.</li>
+            <li>Contemplar las 3 etapas para confeccionar una prueba unitaria: Preparación, Acto, Afirmación.</li>
+            <li>Verificar el cumplimiento de las características de una prueba unitaria: Atómica, Independiente, Inicua, Rápida, Informativa.</li>
+            <li>Asegurarse que cada prueba automatizada utilizando Test Driven Development, permita crear el mínimo código que satisfaga el comportamiento y regla de negocio de la funcionalidad.</li>
+          </ol>
+      </div>
 </md-content>
+|

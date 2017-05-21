@@ -19,6 +19,17 @@
       <br>
       <h3>Historias de usuario</h3>
     </div>
+     <div align="center">
+          <h5><strong><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon> Recomendaciones</strong></h5>
+                <ol align = "left">
+                  <li>Leer detenidamente cada historia de usuario y pruebas de aceptación</li>
+                  <li>Resolver todas las dudas que surgan respecto a la documentación (Historias de usuario/Pruebas de aceptación) y funcionamiento del software al alumno.</li>
+                  <li>Mantener continua comunicación con el alumno para explicarle el contexto del negocio.</li>
+                  <li>Indicar las reglas de negocio que las funcionalidades del software deben cumplir al alumno.</li>
+                  <li>Entregar ejemplos a los alumnos sobre el funcionamiento del software.</li>
+                  <li>Mencionar la importancia de las migas de pan, botón de atrás, ventanas de confirmación y mensajes de retroalimentación al usuario.</li>
+                </ol>
+        </div>
 <md-tabs md-dynamic-height="" md-border-bottom="">
               <md-tab label="HU-1">
                 <md-content class="md-padding">
@@ -76,6 +87,15 @@
                              <textarea ng-model="pas[0].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
                           </md-input-container>
 
+                       <div align = "center">
+                         <h4><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Reglas</h4>
+                         <ol align = "left">
+                           <li>Validar el formato del rut, Formato correcto: 9214907-2</li>
+                           <li>Entregar un ejemplo al usuario sobre el formato correcto del rut</li>
+                           <li>Esconder la contraseña como medio de seguridad para el usuario</li>
+                           <li>Notificar al usuario mediante un mensaje cuando sus credenciales son incorrectas y/o el rut no existe en los registros del sistema.</li>
+                         </ol>
+                       </div>   
 
                       <div flex layout = "column" layout-align = "center center">
                           <h4>Prueba de aceptación</h4>
@@ -167,6 +187,8 @@
                             <label>Resultados esperados</label>
                              <textarea ng-model="pas[2].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
                           </md-input-container>
+
+                      
                 </md-content>
               </md-tab>
               <md-tab label="HU-3">
@@ -224,7 +246,18 @@
                           <md-input-container flex class="md-block" >
                             <label>Resultados esperados</label>
                              <textarea ng-model="pas[2].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
-                          </md-input-container>  
+                          </md-input-container>
+                         <div align = "center">
+                         <h4><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Reglas</h4>
+                         <ol align = "left">
+                           <li>No se permite depositar montos igual o menores que 0</li>
+                           <li>El sistema soporta almacenar solamente 1000000</li>
+                           <li>Manejar el valor máximo soportado por el campo monto que es de 2147483647 y -2147483647</li>
+                           <li>Notificar al usuario mediante un mensaje sobre el formato del monto a depositar. Ejemplo 10000</li>
+                           <li>Notificar al usuario mediante un mensaje sobre el estado de su depósito.</li>
+                           <li>Notificar al usuario mediante un mensaje sobre las restricciones del sistema en el caso que no las cumpla.</li>
+                         </ol>
+                       </div>   
                 </md-content>
               </md-tab>
               <md-tab label="HU-4">
@@ -283,6 +316,17 @@
                             <label>Resultados esperados</label>
                              <textarea ng-model="pas[3].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
                           </md-input-container>
+                           <div align = "center">
+                         <h4><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Reglas</h4>
+                         <ol align = "left">
+                           <li>No se permite retirar montos igual o menores que 0</li>
+                           <li>El sistema no permite retirar montos superiores al saldo disponible</li>
+                           <li>Manejar el valor máximo soportado por el campo monto que es de 2147483647 y -2147483647</li>
+                           <li>Notificar al usuario mediante un mensaje sobre el formato del monto a retirar. Ejemplo 10000</li>
+                           <li>Notificar al usuario mediante un mensaje sobre el estado de su depósito.</li>
+                           <li>Notificar al usuario mediante un mensaje sobre las restricciones del sistema en el caso que no las cumpla.</li>
+                         </ol>
+                       </div>   
                 </md-content>
               </md-tab>
               <md-tab label="HU-5">
@@ -340,7 +384,22 @@
                           <md-input-container flex class="md-block" >
                             <label>Resultados esperados</label>
                              <textarea ng-model="pas[4].resultadosEPA" md-detect-hidden = "true" disabled></textarea>
-                          </md-input-container>    
+                          </md-input-container>
+                          <div align = "center">
+                         <h4><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Reglas</h4>
+                         <ol align = "left">
+                           <li>Validar el formato del rut, Formato correcto: 9214907-2</li>
+                           <li>Entregar un ejemplo al usuario sobre el formato correcto del rut</li>
+                           <li>No permite transferir montos menores o iguales a 0</li>
+                           <li>No permite transferir un monto superior al saldo disponible</li>
+                           <li>No permite transferir a la misma cuenta</li>
+                           <li>No permite transferir si la cuenta del destinatario está cerrada</li>
+                           <li>Manejar el valor máximo soportado por el campo monto que es de 2147483647 y -2147483647</li>
+                           <li>Notificar al usuario mediante un mensaje sobre el formato del monto a transferir. Ejemplo 10000</li>
+                           <li>Notificar al usuario mediante un mensaje sobre el estado de su depósito.</li>
+                           <li>Notificar al usuario mediante un mensaje sobre las restricciones del sistema en el caso que no las cumpla.</li>
+                         </ol>
+                       </div>       
                 </md-content>
               </md-tab>
               <md-tab label="HU-6">
@@ -547,5 +606,5 @@
                           </md-input-container>   
                 </md-content>
               </md-tab>
-            </md-tabs>   
+            </md-tabs> 
 </md-content>

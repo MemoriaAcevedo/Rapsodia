@@ -17,6 +17,10 @@
 <div layout = "column" layout-align = "center center">
 	<h3>Conceptos de las pruebas de software</h3>
 </div>
+
+<div align="center">
+  <p>En este sección se presentan los conceptos y fundamentos generales de las pruebas de software.</p>
+</div>
 <br>
 <md-content>
             <md-tabs md-dynamic-height="" md-border-bottom="">
@@ -24,12 +28,12 @@
                 <md-content class="md-padding">
                    <div flex layout = "column" layout-align = "center center">
                       <h5><strong>Fundamentos de las pruebas de software</strong></h5>
-                    </div> 
+                    </div>
                     <!-- 1.1 ¿Por qué las pruebas de software son necesarias? -->
-                    <div>
+                    <div  >
                       <div><h6><strong>1.1 ¿Por qué las pruebas de software son necesarias?</strong></h6></div>
                       <div>
-                        <p align="justify">El software que no funciona correctamente puede causar los siguientes problemas:</p>
+                        <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_warning_black_24px.svg" ></md-icon>El software que no funciona correctamente puede causar los siguientes problemas:</p>
                         <ol>
                           <li value="1">Pérdida de dinero</li>
                           <li>Tiempo</li>
@@ -51,15 +55,16 @@
                         <ol>
                           <li value="1">Un humano comete un error</li>
                           <li>Este error se convierte en un defecto en el programa</li>
-                          <li>Si el defecto en el código es ejecutado el sistema debería fallar haciendo algo que no debe, causando una falla.¿</li>
+                          <li>Si el defecto en el código es ejecutado el sistema debería fallar haciendo algo que no debe, causando una falla.</li>
                         </ol>
                       </div>
                     </div>
                     <!-- 1.1.1¿Rol de pruebas de software en el desarrollo? -->
                     <div>
-                      <div><h6><strong>1.1.1 Rol de pruebas de software en el desarrollo</strong></h6></div>
+                      <div><h6 id = "1"><strong>1.1.1 Rol de pruebas de software en el desarrollo</strong></h6></div>
                       <div>
-                        <p align="justify">El rol que cumplen las pruebas en el desarrollo de software es la disminución del riesgo de la ocurrencia de fallas durante la operación y contribuir a la calidad del sistema de software, verificando y validando tanto las funcionalidades del sistema como su documentación.</p>
+
+                        <p align="justify"> <md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>El rol que cumplen las pruebas en el desarrollo de software es la disminución del riesgo de la ocurrencia de fallas durante la operación y contribuir a la calidad del sistema de software, verificando y validando tanto las funcionalidades del sistema como su documentación.</p>
                       </div>
                     </div>
                     <br>
@@ -67,12 +72,12 @@
                     <div>
                       <div><h6><strong>1.2 ¿Qué son las pruebas de software?</strong></h6></div>
                       <div>
-                        <p align="justify">Las pruebas de software son una actividad en la cual un sistema o uno de sus componentes se ejecuta, verificando los resultados entregados.</p>
+                        <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Las pruebas de software son una actividad en la cual un sistema o uno de sus componentes se ejecuta, verificando los resultados entregados.</p>
                       </div>
                     </div>
-                    <!--1.2.1 ¿Actividades de las pruebas de software? -->
+                    <!--1.2.1 Actividades de las pruebas de software? -->
                     <div>
-                      <div><h6><strong>1.2.1 ¿Actividades de las pruebas de software</strong></h6></div>
+                      <div><h6><strong>1.2.1 Actividades de las pruebas de software</strong></h6></div>
                       <div>
                         <p align="justify">Las actividades de pruebas incluyen:</p>
                         <ol>
@@ -89,10 +94,10 @@
                       </div>
                     </div>
                     <!--1.2.2 Objetivos de las pruebas de software -->
-                    <div>
+                    <div id = "test">
                       <div><h6><strong>1.2.2 Objetivos de las pruebas de software</strong></h6></div>
                       <div>
-                        <p align="justify">Las pruebas pueden tener los siguientes objetivos:</p>
+                        <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon>Las pruebas pueden tener los siguientes objetivos:</p>
                         <ol>
                           <li value="1">Encontrar defectos</li>
                           <li>Ganar confianza sobre el nivel de calidad del producto de software</li>
@@ -110,7 +115,7 @@
                       </div>
                     </div>
                     <br>
-                    <!--1.3 Objetivos de las pruebas de software -->
+                    <!--1.3 Principios de las pruebas de software -->
                     <div>
                       <div><h6><strong>1.3 Principios de las pruebas de software</strong></h6></div>
                       <div>
@@ -118,7 +123,7 @@
                           <li value="1"><p align="justify"><strong>Las pruebas muestran la presencia de defectos:</strong> Nunca es posible, en general, garantizar la ausencia de defectos. Dado que depende de recursos importantes como tiempo y personal, además de la cantidad de pruebas que cubran el código bajo prueba. Por otro lado pueden existir casos que el usuario y el equipo de trabajo no contemplaron en la implementación, y los problemas aparecen cuando el sistema se encuentra en producción utilizando datos del ambiente real. Por lo tanto las pruebas reducen solamente la probabilidad de que aparezcan defectos.</p>
                           </li>
                           <li><p align="justify"><strong>Pruebas exhaustivas son imposibles:</strong> Probar todas las funcionalidades no es factible ya que esto demanda muchos recursos tanto de personal como de tiempo. En lugar de probar todo, se debe realizar un análisis de riesgo y prioridades para poner foco en las funcionalidades más críticas del software.</p></li>
-                          <li><p align="justify">Pruebas tempranas: Es recomendable que las actividades de pruebas se ejecuten en las fases más tempranas del desarrollo del software. De esta manera se previene la ocurrencia de defectos reduciendo los costos de reparación que en etapas avanzadas del desarrollo aumentan exponencialmente.</p></li>
+                          <li><p align="justify"><strong>Pruebas tempranas:</strong> Es recomendable que las actividades de pruebas se ejecuten en las fases más tempranas del desarrollo del software. De esta manera se previene la ocurrencia de defectos reduciendo los costos de reparación que en etapas avanzadas del desarrollo aumentan exponencialmente.</p></li>
                           <li><p align="justify"><strong>Defectos agrupados:</strong> Un número pequeño de módulos usualmente contiene la mayor cantidad de defectos encontrado durante las pruebas de pre lanzamiento, y son responsables de la mayor parte de los fallos operativos.</p></li>
                           <li><p align="justify"><strong>Ejecución de pruebas bajo diferentes condiciones:</strong> Cada vez que se ejecute un conjunto de pruebas, se deben utilizar diferentes datos de prueba. De esta manera nos aseguramos de cubrir el conjunto de datos soportado por las funcionalidades y verificar si el sistema es capaz de manejarlo. Por otro lado si se utilizan los mismo datos siempre se obtendrán los mismo resultados siempre.</p></li>
                           <li><p align="justify"><strong>Pruebas son dependiente del contexto:</strong> Las pruebas se realizan de forma diferente en diferentes contextos.</p></li>
@@ -129,12 +134,13 @@
                       </div>
                     </div>
                      <!--1.4 Pruebas y calidad del software -->
-                    <div>
-                      <div><h6><strong>1.3 Principios de las pruebas de software</strong></h6></div>
+                    <div> 
+                      <div><h6><strong>1.4 Pruebas y calidad del software</strong></h6></div>
                       <div>
                         <p align="justify">Las pruebas de software permiten entregar confianza sobre la calidad el software al encontrar defectos, además de reducir el nivel de riesgo de falla del sistema. Por otro lado las pruebas son capaz de medir la calidad del software en base a los defectos encontrados en aspectos funcionales como no funcionales del sistema. </p>
                       </div>
                     </div>
+
                 </md-content>
               </md-tab>
               <md-tab label="2. Pruebas de software">
@@ -145,13 +151,13 @@
                      <!--2.1 Niveles de pruebas -->
                     <div>
                       <div><h6><strong>2.1 Niveles de pruebas</strong></h6></div>
-                      <p align="justify">Los niveles de prueba son actividades encargadas de verificar diferentes aspectos del software según su grado de madurez a lo largo del ciclo de desarrollo. </p>  
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Los niveles de prueba son actividades encargadas de verificar diferentes aspectos del software según su grado de madurez a lo largo del ciclo de desarrollo. </p>  
                     </div>
                      <!--2.1.1 Pruebas unitarias -->
                     <div>
                       <div><h6><strong>2.1.1 Pruebas unitarias</strong></h6></div>
-                      <p align="justify"><strong>Definición:</strong> Pruebas encargadas de verificar el funcionamiento de pequeñas unidades del software tales como métodos, objetos, clases. </p> 
-                      <p align="justify"><strong>Objetivo:</strong> Verificar que cada vez que se le entregue un conjunto de entradas a un objeto aislado se retornen las salidas esperadas. </p>
+                      <p align="justify"><strong><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon> Definición:</strong> Pruebas encargadas de verificar el funcionamiento de pequeñas unidades del software tales como métodos, objetos, clases. </p> 
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon><strong>Objetivo:</strong> Verificar que cada vez que se le entregue un conjunto de entradas a un objeto aislado se retornen las salidas esperadas. </p>
                       <p align="justify"><strong>Encargado de efectuarlas:</strong> Los desarrolladores para asegurarse de que el código implementado se comporta como se espera.  </p>
                       <p><strong>Insumos para confeccionar las pruebas:</strong></p>
                       <ol>
@@ -164,13 +170,13 @@
                           <li>Métodos</li>
                           <li>Objetos</li>
                       </ol>
-                      <p align="justify">Estas pruebas se ejecutan de forma aislada, es decir sin interactuar con clases externas, sin modificar el estado del sistema por lo tanto el estado antes de ejecutar la prueba es el mismo a después de la ejecución de la prueba.</p>
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Estas pruebas se ejecutan de forma aislada, es decir sin interactuar con clases externas, sin modificar el estado del sistema por lo tanto el estado antes de ejecutar la prueba es el mismo a después de la ejecución de la prueba.</p>
                     </div>
                     <!--2.1.2 Pruebas de componentes -->
                     <div>
                       <div><h6><strong>2.1.2 Pruebas de componentes</strong></h6></div>
-                      <p align="justify"><strong>Definición:</strong> Pruebas encargadas de verificar el funcionamiento de componentes del software, tales como paquetes, módulo, de forma independiente. </p> 
-                      <p align="justify"><strong>Objetivo:</strong> Verificar que los componentes del software se comportan de manera correcta independientemente. </p>
+                      <p align="justify"><strong><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Definición:</strong> Pruebas encargadas de verificar el funcionamiento de componentes del software, tales como paquetes, módulo, de forma independiente. </p> 
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon><strong>Objetivo:</strong> Verificar que los componentes del software se comportan de manera correcta independientemente. </p>
                       <p align="justify"><strong>Encargado de efectuarlas:</strong> Estas son escritas y ejecutadas por los desarrolladores para asegurarse de que los componentes implementados funcionan correctamente.  </p>
                       <p><strong>Insumos para confeccionar las pruebas:</strong></p>
                       <ol>
@@ -182,7 +188,7 @@
                           <li value="1">Componentes internos y externos</li>
                           <li>Módulos de la base de datos</li>
                       </ol>
-                      <p align="justify">La diferencia entre las pruebas unitarias y de componentes depende de la complejidad que existe entre los elementos a probar.</p>
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>La diferencia entre las pruebas unitarias y de componentes depende de la complejidad que existe entre los elementos a probar.</p>
 
                       <p align="justify"><strong>Ejemplo</strong><br>
                       Una clase calculadora donde se pone a prueba el método suma el cual recibe parámetros y retorna el resultado inmediatamente sin depender del funcionamiento de otro componente, cae dentro de la categoría de pruebas unitarias, ya que el método de prueba puede ser ejecutado sin depender de la existencia de otro componente. Por otro lado si la clase calculadora interactúa con un componente externo que se encargada de realizar la operación suma y luego retorna el resultado esperado, cae dentro de la categoría de prueba de componentes. Esto se da ya que la clase calculadora para realizar la operación suma depende de su interacción con la clase externa, teniendo que agregar código a la prueba para simular la existencia del componente que realiza operación suma.</p>
@@ -190,8 +196,8 @@
                     <!--2.1.3 Pruebas de integración -->
                     <div>
                       <div><h6><strong>2.1.3 Pruebas de integración</strong></h6></div>
-                      <p align="justify"><strong>Definición:</strong> Pruebas encargadas de verificar la interacción entre las diferentes partes de un sistema tales como interfaces entre componentes, sistemas externos, interacción con el sistema operativo y sistema de archivos. </p> 
-                      <p align="justify"><strong>Objetivo:</strong> Verificar que las diferentes partes del software interactúan de forma correcta. </p>
+                      <p align="justify"><strong><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Definición:</strong> Pruebas encargadas de verificar la interacción entre las diferentes partes de un sistema tales como interfaces entre componentes, sistemas externos, interacción con el sistema operativo y sistema de archivos. </p> 
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon><strong>Objetivo:</strong> Verificar que las diferentes partes del software interactúan de forma correcta. </p>
                       <p align="justify"><strong>Encargado de efectuarlas:</strong> Los desarrolladores asegurándose que el código implementado interactúa correctamente con otras partes del sistema.   </p>
                       <p><strong>Insumos para confeccionar las pruebas:</strong></p>
                       <ol>
@@ -207,7 +213,7 @@
                           <li>Interfaces</li>
                           <li>Componentes</li>
                       </ol>
-                      <p align="justify">Este tipo de pruebas son de granularidad más gruesa permitiendo modificar registros de la base de datos para comprobar que la lógica de negocio entiende datos reales. </p>
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Este tipo de pruebas son de granularidad más gruesa permitiendo modificar registros de la base de datos para comprobar que la lógica de negocio entiende datos reales. </p>
 
                       <p align="justify"><strong>Ejemplo</strong><br>
                       Al ejecutar pruebas de software que modifiquen registros de la base de datos, es recomendable hacer uso de una base de datos de prueba diferente a la real. Esta se inicializa cada vez que se vaya a ejecutar el conjunto de pruebas con los datos necesarios para su funcionamiento, y se elimina completamente una vez finalizada la ejecución. De esta manera se evitan los cambios de registros en la base de datos real y la pérdida de tiempo para su restauración. </p>
@@ -217,14 +223,14 @@
                           <li value="1"> <strong>Pruebas de integración de componentes:</strong> Verifica las interacciones entre componentes de software.</li>
                           <li><strong>Pruebas de integración de sistema:</strong> Verifica las interacciones entre diferentes sistemas o entre hardware, software y debería ser hecho después de las pruebas de sistema.</li>
                       </ol>
-                       <p align="justify"><strong>Riesgos</strong><br>
+                       <p align="justify"><strong>Riesgos</strong><br><md-icon md-svg-icon="img/icon/material/ic_warning_black_24px.svg" ></md-icon>
                       Uno de los riesgos de las pruebas de integración se genera al momento de interactuar con otro sistema al cual solo se tiene acceso mediante una interfaz. Si la interfaz es modificada de forma externa o interna, repercute directamente en el resultado de las pruebas y en la comunicación entre los sistemas. De esta manera se hace más complejo el manejo de las pruebas de integración. </p>
                     </div>
                     <!--2.1.4 Pruebas de sistema -->
                     <div>
                       <div><h6><strong>2.1.4 Pruebas de sistema</strong></h6></div>
-                      <p align="justify"><strong>Definición:</strong> Pruebas encargadas de verificar el funcionamiento del software completo e integrado.  </p> 
-                      <p align="justify"><strong>Objetivo:</strong> Verificar todo el sistema de software integrado en base a la especificación de requerimientos.  </p>
+                      <p align="justify"><strong><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Definición:</strong> Pruebas encargadas de verificar el funcionamiento del software completo e integrado.  </p> 
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon><strong>Objetivo:</strong> Verificar todo el sistema de software integrado en base a la especificación de requerimientos.  </p>
                       <p align="justify"><strong>Encargado de efectuarlas:</strong> Estas pruebas las suelen realizar un equipo de pruebas independiente al de desarrollo, comúnmente en un ambiente similar al de producción.</p>
                       <p><strong>Insumos para confeccionar las pruebas:</strong></p>
                       <ol>
@@ -240,20 +246,17 @@
                           <li>Configuración de sistema y datos de configuración</li>
                           <li>Manuales de operación</li>
                       </ol>
-                      <p align="justify">Las pruebas de sistema se realizan en un ambiente de prueba cuya infraestructura y arquitectura es similar al ambiente de producción, además se inspeccionan los requerimientos tanto funcionales como no funcionales. 
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Las pruebas de sistema se realizan en un ambiente de prueba cuya infraestructura y arquitectura es similar al ambiente de producción, además se inspeccionan los requerimientos tanto funcionales como no funcionales. Estas pruebas pueden ir de extremo a extremo del sistema, es decir desde la interfaz gráfica hasta la llegar modificar los registros en la base de datos. Se ejecutan simulando el comportamiento que tendría un humano utilizando el sistema, ingresando valores de entrada y verificando su salida.
                       </p>
 
-                      <p align="justify">Estas pruebas pueden ir de extremo a extremo del sistema, es decir desde la interfaz gráfica hasta la llegar modificar los registros en la base de datos. Se ejecutan simulando el comportamiento que tendría un humano utilizando el sistema, ingresando valores de entrada y verificando su salida.
-                      </p>
-
-                       <p align="justify">El inconveniente que poseen es que son frágiles, ya que cualquier cambio en el sistema puede provocar que la prueba deje de funcionar. Por lo tanto no es recomendable escribir una gran cantidad de pruebas de sistema. 
+                       <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_warning_black_24px.svg" ></md-icon>El inconveniente que poseen es que son frágiles, ya que cualquier cambio en el sistema puede provocar que la prueba deje de funcionar. Por lo tanto no es recomendable escribir una gran cantidad de pruebas de sistema. 
                       </p>
                     </div>
                     <!--2.1.5 Pruebas de aceptación -->
                     <div>
-                      <div><h6><strong>2.1.4 Pruebas de aceptación</strong></h6></div>
-                      <p align="justify"><strong>Definición:</strong> Pruebas encargadas de determinar si un sistema satisface los criterios de aceptación que permiten al usuario final decidir si acepta o no el software.  </p> 
-                      <p align="justify"><strong>Objetivo:</strong> Ganar confianza en el sistema. </p>
+                      <div><h6><strong>2.1.5 Pruebas de aceptación</strong></h6></div>
+                      <p align="justify"><strong><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Definición:</strong> Pruebas encargadas de determinar si un sistema satisface los criterios de aceptación que permiten al usuario final decidir si acepta o no el software.  </p> 
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon><strong>Objetivo:</strong> Ganar confianza en el sistema. </p>
                       <p align="justify"><strong>Encargado de efectuarlas:</strong> Las pruebas de aceptación son ejecutados por cliente o usuario del producto.</p>
                       <p><strong>Insumos para confeccionar las pruebas:</strong></p>
                       <ol>
@@ -270,10 +273,10 @@
                           <li>Procedimientos de usuarios</li>
                           <li>Formularios</li>
                       </ol>
-                      <p align="justify">El cliente decide si acepta el software en base al grado de adherencia que tiene el sistema a las necesidades solicitadas por este. Por lo tanto, es deseable que existan pocas pocas o ninguna incidencia durante la ejecución de estas, de lo contrario se pierde confianza en el funcionamiento del sistema. 
+                      <p align="justify">El cliente decide si acepta el software en base al grado de adherencia que tiene el sistema a las necesidades solicitadas por este. Por lo tanto, es deseable que existan pocas o ninguna incidencia durante la ejecución de estas, de lo contrario se pierde confianza en el funcionamiento del sistema. 
                       </p>
 
-                      <p align="justify">Estas pruebas son fundamentales para asegurar el éxito de la implementación final de un software, por lo tanto deben ser ejecutadas de forma obligatoria.
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Estas pruebas son fundamentales para asegurar el éxito de la implementación final de un software, por lo tanto deben ser ejecutadas de forma obligatoria.
                       </p>
 
                        <p align="justify"><strong>Casos de prueba que debe incluir la validación del usuario</strong>
@@ -287,8 +290,8 @@
                         <!--2.1.5.1.1 Pruebas de aceptación del usuario -->
                         <div>
                           <div><h6><strong>2.1.5.1.1 Pruebas de aceptación del usuario</strong></h6></div>
-                          <p align="justify"><strong>Definición:</strong> Pruebas encargadas de validar si un sistema satisface las necesidades del negocio y operacionales de los usuarios.   </p> 
-                          <p align="justify"><strong>Objetivo:</strong> Validar que el software se encuentra apto para su uso.  </p>
+                          <p align="justify"><strong><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Definición:</strong> Pruebas encargadas de validar si un sistema satisface las necesidades del negocio y operacionales de los usuarios.   </p> 
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon><strong>Objetivo:</strong> Validar que el software se encuentra apto para su uso.  </p>
                           <p align="justify"><strong>Encargado de efectuarlas:</strong> Las pruebas de aceptación son ejecutados por los usuarios del negocio. </p>
                           <p><strong>Insumos para confeccionar las pruebas:</strong></p>
                           <ol>
@@ -320,7 +323,7 @@
                     <div>
                       <div><h6><strong>2.2 Tipos de pruebas de software</strong></h6></div>
 
-                      <p align="justify">Son un grupo de actividades de prueba dirigidas a verificar el sistema, basadas en un objetivo en particular.</p>
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon> Son un grupo de actividades de prueba dirigidas a verificar el sistema, basadas en un objetivo en particular.</p>
                       <p align="justify">A continuación se muestran los principales objetivos que dirigen las pruebas del software:</p>
                       <!--2.2.1 Funcionalidades del software -->
                       <div>
@@ -328,8 +331,8 @@
                         <!--2.2.1.1 Pruebas funcionales -->
                         <div>
                            <div><h6><strong>2.2.1.1 Pruebas funcionales</strong></h6></div>
-                           <p align="justify"><strong>Definición:</strong> Pruebas encargadas de verificar las funciones, características e interoperabilidad del sistema.  </p> 
-                            <p align="justify"><strong>Objetivo:</strong> Verificar que el software implementado cumple con los especificado considerando su comportamiento externo.</p>
+                           <p align="justify"><strong><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Definición:</strong> Pruebas encargadas de verificar las funciones, características e interoperabilidad del sistema.  </p> 
+                            <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon><strong>Objetivo:</strong> Verificar que el software implementado cumple con los especificado considerando su comportamiento externo.</p>
                             <p align="justify"><strong>Encargado de efectuarlas:</strong> Las pruebas funcionales son realizadas en todos los niveles de pruebas, dado que cada prueba verifica el funcionamiento de las funcionalidades del sistema. Sin embargo, este tipo de pruebas las realizan los QA asegurándose que las funcionalidades implementadas por los programadores funcionen de manera correcta. </p>
                             <p><strong>Insumos para confeccionar las pruebas:</strong></p>
                             <ol>
@@ -343,7 +346,7 @@
                                 <li>Funcionalidades críticas</li>
                                 <li>Casos extremos de entrada de datos</li>
                             </ol>
-                            <p align="justify">Se consideran pruebas de caja negra ya que se valora el comportamiento externo del sistema, por lo tanto lo que importa son las entradas y las salidas esperadas.  
+                            <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Se consideran pruebas de caja negra ya que se valora el comportamiento externo del sistema, por lo tanto lo que importa son las entradas y las salidas esperadas.  
                             </p>
 
                             <p align="justify">Todos los niveles de pruebas son funcionales, ya que se pone a prueba una función del software. La diferencia es el grado de madurez y las interacciones que tiene el software con otros componentes.  
@@ -352,18 +355,18 @@
                         <!--2.2.1.2 Pruebas de humo -->
                         <div>
                            <div><h6><strong>2.2.1.2 Pruebas de humo</strong></h6></div>
-                           <p align="justify">Las pruebas de humo son aquellas pruebas que pretenden verificar que las funcionalidades básica y críticas del software funcionan correctamente.</p> 
-                            <p align="justify"><strong>Selección de pruebas de humo</strong><br>El equipo de trabajo debe identificar las funcionalidades básicas y críticas que el software debe satisfacer para seleccionar los casos de prueba que verifiquen dichas funcionalidades. <br><br>
+                           <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Las pruebas de humo son aquellas pruebas que pretenden verificar que las funcionalidades básica y críticas del software funcionan correctamente.</p> 
+                            <p align="justify"><strong>Selección de pruebas de humo</strong><br><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>El equipo de trabajo debe identificar las funcionalidades básicas y críticas que el software debe satisfacer para seleccionar los casos de prueba que verifiquen dichas funcionalidades. <br><br>
                             Dentro de las pruebas de humo se pueden tener todo tipo de pruebas como unitarias, integración, sistema o funcionales, siempre que sean las que verifiquen lo definido por el equipo de trabajo. <br><br>Dado que el objetivo de estas pruebas es una verificación de funcionalidades acotadas del software de forma periódica, son candidatas para su automatización para obtener una retroalimentación rápida de lo que se está probando.</p>
 
                             <p align="justify"><strong>Cuando ejecutarlas</strong><br>
-                            Las pruebas de humo se ejecutan después de realizar el proceso de compilación del software o antes de ejecutar las pruebas de regresión para asegurar que las funcionalidades básicas y críticas funcionan correctamente. Además estas se suelen incluir en el proceso de integración continua para que sean ejecutadas periódicamente de forma automática cada vez que el código sea actualizado en los repositorios</p>
+                            <md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Las pruebas de humo se ejecutan después de realizar el proceso de compilación del software o antes de ejecutar las pruebas de regresión para asegurar que las funcionalidades básicas y críticas funcionan correctamente. Además estas se suelen incluir en el proceso de integración continua para que sean ejecutadas periódicamente de forma automática cada vez que el código sea actualizado en los repositorios</p>
                         </div>
 
                         <!--2.2.1.3 Pruebas exploratorias -->
                         <div>
                            <div><h6><strong>2.2.1.3 Pruebas exploratorias</strong></h6></div>
-                           <p align="justify">Pruebas que utilizan un enfoque experimental para comprobar el correcto funcionamiento de las funcionalidades críticas de la aplicación.</p> 
+                           <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Pruebas que utilizan un enfoque experimental para comprobar el correcto funcionamiento de las funcionalidades críticas de la aplicación.</p> 
                             <p align="justify">Estas se diseñan, ejecutan y analizan mientras se va interactuando con la aplicación focalizándose en obtener incidencias. Para guiar su realización se utiliza una carta de prueba. Esto permite al probador familiarizarse con el dominio y aplicación. </p>
 
                             <p align="justify">Una carta de prueba expone en términos generales lo que quiere conseguir el cliente con una historia de usuario. </p>
@@ -381,7 +384,7 @@
                                 <li><strong>Variaciones:</strong> Acciones alternativas realizadas por el usuario y su respectiva evaluación. </li>
                             </ol>
 
-                            <p align="justify"><strong>Cuándo aplicarlo:</strong></p>
+                            <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon><strong>Cuándo aplicarlo:</strong></p>
                             <ol>
                                 <li value="1">Cuando existe software ya construido y no existe documentación ni pruebas con respecto a su funcionamiento.</li>
                                 <li>Cuando las pruebas de software no comienzan al mismo tiempo que el desarrollo.</li>
@@ -396,9 +399,6 @@
                                 <li>Realizar una prueba explorando una acción que el usuario haría con el sistema. </li>
                                 <li>Utilizar los resultados obtenidos en cada prueba para guiar la siguiente prueba.</li>
                             </ol>
-
-                            <p align="justify"><strong>Vinculación o zona de guerra:</strong></p>
-                            <p align="justify">Es bueno para la información instantánea e interrogación. Sentados juntos, un programador y un probador podían correr a través de esa misma serie de pruebas, el descubrimiento de la misma manera que el software se maneja bien algunos valores, y muere por completo para otros valores. </p>
                         </div>
                       </div> 
 
@@ -407,7 +407,7 @@
                         <div><h6><strong>2.2.2 Características del software</strong></h6></div>
                         <div>
                           <div><h6><strong>2.2.2.1 Pruebas no funcionales</strong></h6></div>
-                          <p align="justify">Se encargan de probar cómo el sistema trabaja, en término de sus características. Estas pruebas permiten medir las características del sistema que pueden ser cuantificadas en una escala variable como los tiempos de respuesta y pruebas de rendimiento. En Rapsodia no se pone énfasis a este tipo de pruebas.</p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Se encargan de probar cómo el sistema trabaja, en término de sus características. Estas pruebas permiten medir las características del sistema que pueden ser cuantificadas en una escala variable como los tiempos de respuesta y pruebas de rendimiento. En Rapsodia no se pone énfasis a este tipo de pruebas.</p>
                         </div>
                       </div> 
                       <!--2.2.3 Arquitectura o estructura del software-->
@@ -415,9 +415,9 @@
                         <div><h6><strong>2.2.3 Arquitectura o estructura del software</strong></h6></div>
                         <div>
                           <div><h6><strong>2.2.3.1 Pruebas estructurales</strong></h6></div>
-                          <p align="justify">Comúnmente las segunda más usadas luego de las pruebas funcionales. Permiten medir la rigurosidad de las pruebas mediante la evaluación de la cobertura de un tipo de estructura.</p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Comúnmente las segunda más usadas luego de las pruebas funcionales. Permiten medir la rigurosidad de las pruebas mediante la evaluación de la cobertura de un tipo de estructura.</p>
                           <p align="justify">Generalmente se considera una prueba de tipo estructural a las pruebas unitarias las cuales necesitan conocer cómo están implementados los métodos, objetos e interfaces para realizar la prueba. </p>
-                          <p align="justify">Para la evaluación de la cobertura del software, se hace uso de herramientas de inspección de código que permiten identificar el porcentaje de código que ha sido ejercitado por una prueba además de evidenciar errores de diseño en el software.</p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Para la evaluación de la cobertura del software, se hace uso de herramientas de inspección de código que permiten identificar el porcentaje de código que ha sido ejercitado por una prueba además de evidenciar errores de diseño en el software.</p>
                         </div>
                       </div>
                       <!--2.2.4 Pruebas relacionadas con el cambio-->
@@ -425,15 +425,15 @@
                         <div><h6><strong>2.2.4 Pruebas relacionadas con el cambio</strong></h6></div>
                         <div>
                           <div><h6><strong>2.2.4.1 Pruebas de regresión</strong></h6></div>
-                          <p align="justify">Se denomina prueba de regresión a cualquier tipo de prueba de software que intente descubrir errores en funcionalidades generadas por la realización de un cambio en el sistema.</p>
-                          <p align="justify">Por lo tanto su objetivo es comprobar que al sistema no hayan introducido errores cada vez que se realiza una modificación en una de sus funcionalidades. Es lo que coloquialmente se expresa como “se arregló una cosa pero se estropeó otra”.</p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Se denomina prueba de regresión a cualquier tipo de prueba de software que intente descubrir errores en funcionalidades generadas por la realización de un cambio en el sistema.</p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon><strong>Objetivo:</strong> Comprobar que al sistema no hayan introducido errores cada vez que se realiza una modificación en una de sus funcionalidades. Es lo que coloquialmente se expresa como “se arregló una cosa pero se estropeó otra”.</p>
                           <p align="justify">Dado que estas pruebas se ejecutan frecuentemente como medida de comprobación de defecto es recomendable su automatización para obtener una rápida retroalimentación.</p>
-                          <p align="justify"><strong>Recomendación</strong> <br> Cada vez que se encuentre un error, se debe confeccionar una prueba automatizada que lo exponga, con el objetivo de verificar su estado de forma rápida.</p>
-                          <p align="justify"><strong>Advertencia</strong> <br> Tener pruebas de regresión no garantiza que todo funciona de forma correcta.</p>
+                          <p align="justify"><strong>Recomendación</strong> <br><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon> Cada vez que se encuentre un error, se debe confeccionar una prueba automatizada que lo exponga, con el objetivo de verificar su estado de forma rápida.</p>
+                          <p align="justify"><strong>Advertencia</strong> <br><md-icon md-svg-icon="img/icon/material/ic_warning_black_24px.svg" ></md-icon> Tener pruebas de regresión no garantiza que todo funciona de forma correcta.</p>
 
                           <p align="justify"><strong>Selección de pruebas de regresión</strong> <br> Para la selección de las pruebas de regresión se debe realizar un análisis sobre las funcionalidades del sistema y determinar cuales son los sectores del software más críticos para el negocio del cliente. De esta manera se logra priorizar los casos de prueba y seleccionar los realmente aporten valor con su ejecución. </p>
 
-                          <p align="justify"><strong>Recomendaciones</strong></p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon><strong>Recomendaciones</strong></p>
                           <ol>
                                 <li value="1">Las pruebas de regresión deberían cubrir los flujos de trabajo básicos del sistema y los sectores del software donde se hayan identificado errores.</li>
                                 <li>Cada vez que se ven agregando funcionalidades al sistema, el conjunto de pruebas de regresión se debe actualizar y priorizar nuevamente, para focalizarse en las nuevas funcionalidades. </li>
@@ -455,19 +455,17 @@
                       <!-- 3.1 Caja negra -->
                       <div>
                         <div><h6><strong>3.1 Caja negra</strong></h6></div>
-                        <p align="justify">Técnica de diseño de pruebas centrada en probar funcionalidades del software en base al ingreso de entradas y análisis de sus salidas, ignorando su comportamiento interno.</p>
+                        <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Técnica de diseño de pruebas centrada en probar funcionalidades del software en base al ingreso de entradas y análisis de sus salidas, ignorando su comportamiento interno.</p>
 
                         <p align="justify"><strong>Insumos para la aplicación de la técnica:</strong></p>
                         <ol>
                           <li value="1">Especificación de requerimientos</li>
                         </ol>
                       </div>
-                      <!-- 3.1.1 Caja negra -->
+                      <!-- 3.1.1 Técnicas de caja negra -->
                       <div>
                         <div><h6><strong>3.1.1 Técnicas de caja negra</strong></h6></div>
                         <p align="justify">Técnicas para la confección y análisis para las entradas de las pruebas:</p>
-
-                        <p align="justify"><strong>Insumos para la aplicación de la técnica:</strong></p>
                         <ol>
                           <li value="1"><p><strong>Partición de equivalencia:</strong> Divide las entradas al software en grupos de datos que son esperados y exhiben un comportamiento similar. Por ejemplo la división en grupo de datos válidos que son aceptados y los inválidos que el software debe manejar. Esta es aplicable para todos los niveles de prueba. </p></li>
                           <li><p><strong>Análisis de valores límite:</strong> Pone énfasis en el comportamiento que poseen los casos extremos de cada partición de equivalencia. Los límites son un área donde es más probable obtener defectos. Por ejemplo un campo de entrada del sistema que representa la edad de una persona, no puede ser menor a 1 ni mayor que 130. Para este caso los valores límites de la entrada son 1 y 130. </li>
@@ -478,7 +476,7 @@
                       <!-- 3.2 Caja blanca -->
                       <div>
                         <div><h6><strong>3.2 Caja blanca</strong></h6></div>
-                        <p align="justify">Técnica de diseño de pruebas centrada en probar funcionalidades del software en base al funcionamiento e inspección de su estructura interna.</p>
+                        <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Técnica de diseño de pruebas centrada en probar funcionalidades del software en base al funcionamiento e inspección de su estructura interna.</p>
 
                         <p align="justify"><strong>Insumos para la aplicación de la técnica:</strong></p>
                         <ol>
@@ -508,27 +506,29 @@
                       <h5><strong>Cuadrante de pruebas ágil</strong></h5>
                     </div>
                     <div>
-                        <p align="justify"><strong>Definición</strong><br>  El cuadrante de pruebas ágiles es un marco de referencia para la planificación de las pruebas de software en ambientes ágiles.</p>
-                        <p align="justify"><strong>Objetivo</strong><br> Equipo de desarrollos tomen en cuenta los recursos y métodos necesarios para planificar las pruebas y lograr la producción de software de calidad.</p>
+                        <p align="justify"><strong>Definición</strong><br>  <md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>El cuadrante de pruebas ágiles es un marco de referencia para la planificación de las pruebas de software en ambientes ágiles.</p>
+                        <p align="justify"><strong>Objetivo</strong><br> <md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon>Equipo de desarrollos tomen en cuenta los recursos y métodos necesarios para planificar las pruebas y lograr la producción de software de calidad.</p>
                         <p align="justify">Este demuestra el cambio de mentalidad con respecto a la aplicación de las pruebas de software en un ambiente ágil en comparación con las metodologías tradicionales.</p>
                          <p align="justify">La principal diferencia entre las metodologías tradicionales y las ágiles con respecto a las pruebas de software es el propósito de estas. En las tradicionales se pensaba en detectar errores, mientras que en las ágiles se piensa en prevenir errores.</p>
 
-                         <div layout = "column" layout-align = "center center">
-                            <img src="img/bpm/cuadrante.png" class="img-thumbnail" alt="Cinque Terre" width="800" height="800"> 
-                      </div>
-
-
+                        <div ng-controller = "imgCtrl" layout = "column" layout-align = "center center">
+                            <a ng-click = "showImages(conceptos, 0)">
+                              <img ng-src="img/bpm/cuadrante.png" class="img-thumbnail" alt="Cinque Terre" width="500" height="500">
+                            </a>  
+                        </div>
+                        <p align="center"><strong><em>Cuadrante ágil, (Marick, 2003)</em></strong></p>
                     </div>
                     <!-- 4.1 Cuadrante 1 -->
                     <div>
                       <div><h6><strong>4.1 Cuadrante 1: Pruebas de apoyo al equipo de cara a la tecnología</strong></h6></div>
                       <div>
-                        <p align="justify"><strong>Objetivo</strong><br>Este cuadrante está orientado a brindar apoyo al equipo de desarrollo focalizándose principalmente en la calidad interna del software.</p>
-                        <p align="justify"><strong>Técnicas</strong><br>Para esto plantea el uso de técnicas de diseño que fomentan la utilización de pruebas para el desarrollo del software tal como Test Driven Development.</p>
+                        <p align="justify"><strong>Objetivo</strong><br><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon>Este cuadrante está orientado a brindar apoyo al equipo de desarrollo focalizándose principalmente en la calidad interna del software.</p>
+                        <p align="justify"><strong>Técnicas</strong><br><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon>Para esto plantea el uso de técnicas de diseño que fomentan la utilización de pruebas para el desarrollo del software tal como Test Driven Development.</p>
                         <p align="justify">Asimismo recomienda el uso de las siguientes pruebas para este cuadrante: </p>
                         <ol>
                           <li value="1">Pruebas unitarias</li>
                           <li>Pruebas de componentes</li>
+                          <li>Pruebas de integración</li>
                         </ol>
                       </div>
                     </div>
@@ -536,15 +536,14 @@
                     <div>
                       <div><h6><strong>4.2 Cuadrante 2: Pruebas de apoyo al equipo de cara al negocio</strong></h6></div>
                       <div>
-                        <p align="justify"><strong>Objetivo</strong><br>Este cuadrante está orientado a entregar apoyo al equipo de desarrollo focalizándose en en la especificación de requerimientos y la calidad externa del software.</p>
-                        <p align="justify"><strong>Técnicas</strong><br>Para la especificación de requerimientos plantea el uso de técnicas que fomentan la comunicación, la definición de requisitos haciendo uso de ejemplos y evitando ambigüedades como lo son Behavior Driven Development y Acceptance Driven Development. </p>
+                        <p align="justify"><strong>Objetivo</strong><br><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon>Este cuadrante está orientado a entregar apoyo al equipo de desarrollo focalizándose en en la especificación de requerimientos y la calidad externa del software.</p>
+                        <p align="justify"><strong>Técnicas</strong><br><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon>Para la especificación de requerimientos plantea el uso de técnicas que fomentan la comunicación, la definición de requisitos haciendo uso de ejemplos y evitando ambigüedades como lo son Behavior Driven Development y Acceptance Driven Development. </p>
 
-                        <p align="justify">Igualmente para lograr un mayor entendimiento del sistema con el cliente se plantea el uso de prototipos de interfaces gráficas denominados wireframes que les permita navegar a través de las diferentes páginas para que tengan una idea general de los elementos que interactúan en las vistas y cómo se estructura la información. De esta manera se les entrega la oportunidad de otorgar su retroalimentación de forma temprana sobre los prototipos presentados.</p>
+                        <p align="justify"><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon>Igualmente para lograr un mayor entendimiento del sistema con el cliente se plantea el uso de prototipos de interfaces gráficas denominados wireframes que les permita navegar a través de las diferentes páginas para que tengan una idea general de los elementos que interactúan en las vistas y cómo se estructura la información. De esta manera se les entrega la oportunidad de otorgar su retroalimentación de forma temprana sobre los prototipos presentados.</p>
 
                         <p align="justify">Para este cuadrante se recomienda el uso de las siguientes pruebas: </p>
                         <ol>
                           <li value="1">Pruebas de aceptación escritas en una nomenclatura que sea de entendimiento común para los clientes y el equipo de trabajo.</li>
-                          <li>Pruebas de integración</li>
                         </ol>
                       </div>
                     </div>
@@ -552,9 +551,9 @@
                     <div>
                       <div><h6><strong>4.3 Cuadrante 3: Pruebas que critican el producto de cara al negocio</strong></h6></div>
                       <div>
-                        <p align="justify"><strong>Objetivo</strong><br>Este cuadrante está orientado a brindar apoyo para la verificación del cumplimiento de las expectativas del usuario.</p>
+                        <p align="justify"><strong>Objetivo</strong><br><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon>Este cuadrante está orientado a brindar apoyo para la verificación del cumplimiento de las expectativas del usuario.</p>
 
-                        <p align="justify">Aún cuando el software se encuentre implementado de acuerdo a lo especificado por el usuario, existe la posibilidad que esto no sea lo que usuario desee. Por lo tanto el usuario debe validar el software realizando pruebas que le permitan determinar si el sistema satisface sus necesidades de negocios y operacionales.</p>
+                        <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Aún cuando el software se encuentre implementado de acuerdo a lo especificado por el usuario, existe la posibilidad que esto no sea lo que usuario desee. Por lo tanto el usuario debe validar el software realizando pruebas que le permitan determinar si el sistema satisface sus necesidades de negocios y operacionales.</p>
 
                         <p align="justify">Para este cuadrante se recomienda el uso de las siguientes pruebas:</p>
                         <ol>
@@ -569,9 +568,9 @@
                     <div>
                       <div><h6><strong>4.4 Cuadrante 4: Pruebas que critican el producto de cara a la tecnología</strong></h6></div>
                       <div>
-                        <p align="justify"><strong>Objetivo</strong><br>Este cuadrante está orientado a brindar apoyo a la validación del software en base a la satisfacción de los requisitos no funcionales.</p>
+                        <p align="justify"><strong>Objetivo</strong><br><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon>Este cuadrante está orientado a brindar apoyo a la validación del software en base a la satisfacción de los requisitos no funcionales.</p>
 
-                        <p align="justify">Su propósito es analizar y someter a pruebas de extremo a extremo características no funcionales como el desempeño, robustez y seguridad del sistema. </p>
+                        <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Su propósito es analizar y someter a pruebas de extremo a extremo características no funcionales como el desempeño, robustez y seguridad del sistema. </p>
 
                         <p align="justify">Sin embargo no se profundizan los conceptos de pruebas no funcionales en esta plataforma. </p>
                       </div>
@@ -602,8 +601,8 @@
                     <!-- 5.1 Automatización -->
                     <div>
                       <div><h6><strong>5.1 Automatización</h6></strong></div>
-                      <p align="justify"><strong>Definición</strong><br>Es un conjunto de instrucciones escritas para realizar una tarea específica de forma rápida y reiterada. </p>
-                      <p align="justify"><strong>Objetivo</strong><br>Eliminar todas las tareas manuales ejecutadas por un humano, debido a factores como los cortos tiempos de implementación y el constante cambio que posee el software.  </p>
+                      <p align="justify"><strong>Definición</strong><br><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Es un conjunto de instrucciones escritas para realizar una tarea específica de forma rápida y reiterada. </p>
+                      <p align="justify"><strong>Objetivo</strong><br><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon>Eliminar todas las tareas manuales ejecutadas por un humano, debido a factores como los cortos tiempos de implementación y el constante cambio que posee el software.  </p>
                     </div>
                     <!-- 5.1.1 Beneficios -->
                     <div>
@@ -621,7 +620,8 @@
                     <!-- 5.1.2 Decisión de que automatizar-->
                     <div>
                       <div><h6><strong>5.1.2 Decisión de que automatizar</strong></h6></div>
-                      <p align="justify">El ideal es que todo el proceso de gestión de calidad e integración se encuentre automatizado, dentro de ellos se encuentra:</p>
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>
+                      El ideal es que todo el proceso de gestión de calidad e integración se encuentre automatizado, dentro de ellos se encuentra:</p>
                       <ol>
                           <li value="1"><strong>Proceso de integración continua y despliegue:</strong>  Integrar y desplegar son prácticas que se ejecutan de forma diaria en los equipos de trabajo. Por lo tanto su automatización es ideal evitando la pérdida de tiempo en su configuración o ejecución manual.</li>
                           <li><strong>Herramientas de análisis estático: </strong>  Uso de herramientas de análisis estático que verifiquen estándares de códigos o malo olores en el código de forma automatizada.</li>
@@ -634,7 +634,7 @@
                     <!-- 5.1.3 Recomendaciones para automatizar pruebas de software-->
                     <div>
                       <div><h6><strong>5.1.3 Recomendaciones para automatizar pruebas de software</strong></h6></div>
-                      <p align="justify">A continuación se presentan una serie de recomendaciones para tener en cuenta al momento de automatizar las pruebas de software:</p>
+                      <p align="justify"><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon>A continuación se presentan una serie de recomendaciones para tener en cuenta al momento de automatizar las pruebas de software:</p>
                       <ol>
                           <li value="1">Funcionalidades que poseen un alto impacto en el software en el caso que fallen. </li>
                           <li>Pruebas que son ejecutadas en reiteradas ocasiones.</li>
@@ -650,7 +650,7 @@
                           <li value="1"><p align="justify"><strong>Diseño de pruebas antes de automatizarlas:</strong> El buen diseño puede ayudar en la identificación de defectos. Poniendo énfasis tanto en escenarios de cobertura para flujos positivos como negativos.</p></li>
                           <li><p align="justify"><strong>Uso de técnicas de selección de datos:</strong>  Las técnicas tales como análisis de valor límite, equivalencia de particionamiento apoya la selección del conjunto de datos a utilizar en la prueba automatizada.</p></li>
                           <li><p align="justify"><strong>Revisión de las pruebas automatizadas:</strong>   Siempre se deben revisar las pruebas para eliminar las que ya no aporten valor con su ejecución o estén obsoletos con respecto a la funcionalidad que se está probando. </p></li>
-                          <li><p align="justify"><strong>Crear pruebas que sean resistentes a cambios en la interfaz de usuario:</strong>    Utilización de nombres únicos en las vistas que permitan crear pruebas automatizadas resistentes a estos cambios de interfaz de usuario.</p></li>
+                          <li><p align="justify"><strong>Crear pruebas que sean resistentes a cambios en la interfaz de usuario:</strong>Utilización de nombres únicos en las vistas que permitan crear pruebas automatizadas resistentes a estos cambios de interfaz de usuario.</p></li>
                           <li><p align="justify"><strong>Automatizar las pruebas de regresión:</strong> Este tipo de prueba se ejecuta repetidamente en cada nueva versión del software por lo tanto su automatización es esencial para evitar perder tiempo y recursos en su ejecución.</p></li>
                           <li><p align="justify"><strong>La automatización no lo es todo:</strong>  A pesar de que la automatización brinda un gran apoyo en las pruebas de software, no es recomendado utilizar solamente pruebas automatizadas. Por lo tanto se deben utilizar enfoques de pruebas manuales como pruebas exploratorias y las pruebas de aceptación del usuario, las que permiten utilizar criterio humano o de algún involucrado que conozca el negocio.</p></li>
                         </ol>
@@ -659,8 +659,8 @@
                     <!-- 5.2 Integración continua-->
                     <div>
                       <div><h6><strong>5.2 Integración continua</strong></h6></div>
-                      <p align="justify"><strong>Definición</strong><br>Práctica de desarrollo software donde los miembros del equipo integran su trabajo frecuentemente, al menos una vez al día. Cada integración se verifica con una serie de comprobaciones para detectar problemas en el código lo más pronto como sea posible.</p>
-                      <p align="justify"><strong>Objetivo</strong><br>Realizar un control de calidad periódico con el objetivo de mejorar la calidad del producto. </p>
+                      <p align="justify"><strong>Definición</strong><br><md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>Práctica de desarrollo software donde los miembros del equipo integran su trabajo frecuentemente, al menos una vez al día. Cada integración se verifica con una serie de comprobaciones para detectar problemas en el código lo más pronto como sea posible.</p>
+                      <p align="justify"><strong>Objetivo</strong><br><md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon>Realizar un control de calidad periódico con el objetivo de mejorar la calidad del producto. </p>
                     </div>
 
                     <!-- 5.2.1 Proceso de integración continua -->
@@ -719,7 +719,7 @@
                         <!-- 5.2.4.1 Proceso de integración -->
                         <div>
                           <div><h6><strong>5.2.4.1 Proceso de integración</strong></h6></div>
-                          <p align="justify">Definición de un proceso que posee un conjunto de etapas por las que va pasando el software, además de la especificación de los criterios para que el software pase a otra etapa. </p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Definición de un proceso que posee un conjunto de etapas por las que va pasando el software, además de la especificación de los criterios para que el software pase a otra etapa. </p>
 
                           <p align="justify"><strong>Ejemplo de un proceso</strong></p>
                           <ol>
@@ -731,22 +731,22 @@
                         <!-- 5.2.4.2 Integración frecuente -->
                         <div>
                           <div><h6><strong>5.2.4.2 Integración frecuente</strong></h6></div>
-                          <p align="justify">La idea es que los desarrolladores realicen pequeñas integraciones de su código de forma frecuentemente, además ejecutando conjuntos de pruebas que lo ayuden a verificar el funcionamiento del código.  </p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>La idea es que los desarrolladores realicen pequeñas integraciones de su código de forma frecuentemente, además ejecutando conjuntos de pruebas que lo ayuden a verificar el funcionamiento del código.  </p>
                         </div>
                         <!-- 5.2.4.3 Verificación de integraciones -->
                         <div>
                           <div><h6><strong>5.2.4.3 Verificación de integraciones</strong></h6></div>
-                          <p align="justify">Cada vez que se realiza una integración se realiza una serie comprobaciones. La más común y una de las más importantes es la comprobación de la compilación del software. Existen ocasiones que el código compila de forma local pero al momento de integrarlo deja de funcionar. </p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Cada vez que se realiza una integración se realiza una serie comprobaciones. La más común y una de las más importantes es la comprobación de la compilación del software. Existen ocasiones que el código compila de forma local pero al momento de integrarlo deja de funcionar. </p>
                         </div>
                         <!-- 5.2.4.4 Ejecución de pruebas -->
                         <div>
                           <div><h6><strong>5.2.4.4 Ejecución de pruebas</strong></h6></div>
-                          <p align="justify">La integración continua utiliza diferentes tipos de pruebas para comprobar que las integraciones sean correctas. Se suelen definir etapas con distintos grados de pruebas. </p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>La integración continua utiliza diferentes tipos de pruebas para comprobar que las integraciones sean correctas. Se suelen definir etapas con distintos grados de pruebas. </p>
                         </div>
                         <!-- 5.2.4.5 Detectar errores lo más pronto posible -->
                         <div>
                           <div><h6><strong>5.2.4.5 Detectar errores lo más pronto posible</strong></h6></div>
-                          <p align="justify">Cuanto más tiempo pasa desde que se introduce un error hasta que se detecta y se resuelve, más nos cuesta solucionar ese error. Por lo tanto la automatización de las pruebas permite detectar fallos lo antes posible y tener tiempo para realizar otras comprobaciones. </p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Cuanto más tiempo pasa desde que se introduce un error hasta que se detecta y se resuelve, más nos cuesta solucionar ese error. Por lo tanto la automatización de las pruebas permite detectar fallos lo antes posible y tener tiempo para realizar otras comprobaciones. </p>
                         </div>
                       </div>
 
@@ -754,14 +754,14 @@
                       <!-- 5.3 Refactorización -->
                       <div>
                         <div><h6><strong>5.3 Refactorización</strong></h6></div>
-                        <p align="justify"><strong>Definición</strong><br> La refactorización consiste en efectuar modificaciones en el código existente para mejorar su diseño sin cambiar su comportamiento externo.</p>
+                        <p align="justify"><strong>Definición</strong><br> <md-icon md-svg-icon="img/icon/material/ic_create_black_24px.svg" ></md-icon>La refactorización consiste en efectuar modificaciones en el código existente para mejorar su diseño sin cambiar su comportamiento externo.</p>
 
-                        <p align="justify"><strong>Objetivo</strong><br> Disminuir la complejidad del software preservando un buen diseño. </p>
+                        <p align="justify"><strong>Objetivo</strong><br> <md-icon md-svg-icon="img/icon/material/ic_check_black_24px.svg" ></md-icon>Disminuir la complejidad del software preservando un buen diseño. </p>
                         <!-- 5.3.1 ¿Cómo determinar que refactorizar? -->
                         <div>
                           <div><h6><strong>5.3.1 ¿Cómo determinar que refactorizar?</strong></h6></div>
-                          <p align="justify">Generalmente la determinación de que refactorizar se apoya en herramientas de inspección de código, las cuales analizan el cumplimiento de estándares de codificación, sentencias del código y los flujos que este sigue, identificando malos olores que serán reportados al usuario.</p>
-                          <p align="justify">Los malos olores son evidencias comunes de problemas en el diseño del software. Dentro de ellos se pueden detectar líneas duplicadas, bucles, declaraciones sin usar, código inalcanzable, código acoplado, etc. Estos afectan requisitos funcionales como tiempos de respuesta, escalabilidad, mantenimiento entre otros.</p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Generalmente la determinación de que refactorizar se apoya en herramientas de inspección de código, las cuales analizan el cumplimiento de estándares de codificación, sentencias del código y los flujos que este sigue, identificando malos olores que serán reportados al usuario.</p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/ic_priority_high_black_24px.svg" ></md-icon>Los malos olores son evidencias comunes de problemas en el diseño del software. Dentro de ellos se pueden detectar líneas duplicadas, bucles, declaraciones sin usar, código inalcanzable, código acoplado, etc. Estos afectan requisitos funcionales como tiempos de respuesta, escalabilidad, mantenimiento entre otros.</p>
                         </div>
                         <!-- 5.3.2 Tipos de refactorización -->
                         <div>
@@ -776,7 +776,7 @@
                         <!-- 5.3.3 Recomendaciones -->
                         <div>
                           <div><h6><strong>5.3.3 Recomendaciones</strong></h6></div>
-                          <p align="justify">Al momento de refactorizar un método del software se recomienda: </p>
+                          <p align="justify"><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon> Al momento de refactorizar un método del software se recomienda: </p>
                           <ol>
                             <li value="1"><p align="justify"><strong>Uso de herramientas de inspección de código:</strong> Este tipo de herramientas brindan un gran apoyo para la decisión de que sectores del software refactorizar. Entregando informes y calificaciones del software en base a métricas o estándar que el usuario quiera cumplir.</p></li>
                             <li><p align="justify"><strong>No añadir funcionalidad mientras se refactoriza:</strong> La funcionalidad debe comportarse exactamente de la misma forma antes y después de la refactorización.</p></li>

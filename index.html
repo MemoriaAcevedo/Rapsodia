@@ -8,11 +8,13 @@
     <title>Rapsodia</title>
 
     <!-- Bootstrap -->
-     <link href="css/angular-material.css" rel="stylesheet">
-     <link href="css/bootstrap.css" rel="stylesheet">
-     <link href="css/hd.css" rel="stylesheet">
-     <link rel="stylesheet" href="css/material-indigo-blue.css">
+    <link href="css/angular-material.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/hd.css" rel="stylesheet">
+    <link href="css/material-indigo-blue.css" rel="stylesheet" >
     <link href="css/material-icons.css" rel="stylesheet">
+    <link href="css/roboto.css" rel="stylesheet" >
+    <link href="js/angular-bootstrap-lightbox-master/dist/angular-bootstrap-lightbox.css" rel="stylesheet" >
   </head>
   <body layout = "column" ng-app = "mainApp" ng-cloak>
     <div layout = "row" flex>
@@ -23,7 +25,7 @@
               <md-toolbar class="md-tall md-hue-2" layout-align = "center center">
                 <!-- Cabecera login -->
                 <div ng-if = "auth.isLoggedIn() == false" >
-                  <h1 class="md-toolbar-tools">Bienvenido</h1>
+                  <h1 class="md-toolbar-tools">Bienvenido a RAPSODIA</h1>
                 </div>
                 <!-- Cabecera usuarios logeados-->
                 <div ng-if = "auth.isLoggedIn() == true" class="md-toolbar-tools" layout >
@@ -40,7 +42,7 @@
                 <!-- Usuario no logeado -->
                 <div  ng-if = "auth.isLoggedIn() == false || sesion.getUser().estadoidEstado.nombreE == 'Cerrada'">
                   <p align = "center">
-                    Rapsodia es una plataforma para el aprendizaje y aplicación de los conceptos de las pruebas de software.
+                    Plataforma que tiene como objetivo apoyar el aprendizaje de las pruebas de software entregando a sus usuarios material teórico sobre los conceptos y fundamentos de las pruebas. Además brinda la capacidad a los usuarios de realizar pruebas teóricas para medir su conocimiento en los tópicos tratados y poner en práctica los conceptos estudiados resolviendo un problema de la vida real.
                   </p>
                 </div>
                 <!-- Alumno -->
@@ -312,7 +314,7 @@
                           <div layout = "row">
                               <md-input-container flex>
                               <label>Descripción</label>
-                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="5" disabled></textarea>
+                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="10" disabled></textarea>
                               <md-input-container>
                           </div>
                         </div>
@@ -352,7 +354,7 @@
                           <div layout = "row">
                               <md-input-container flex>
                               <label>Descripción</label>
-                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="5" disabled></textarea>
+                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="10" disabled></textarea>
                               <md-input-container>
                           </div>
                         </div>
@@ -453,7 +455,7 @@
                           <div layout = "row">
                               <md-input-container flex>
                               <label>Descripción</label>
-                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="5" disabled></textarea>
+                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="10" disabled></textarea>
                               <md-input-container>
                           </div>
                     </div>   
@@ -523,7 +525,7 @@
                           <div layout = "row">
                               <md-input-container flex>
                               <label>Descripción</label>
-                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="5" disabled></textarea>
+                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="10" disabled></textarea>
                               <md-input-container>
                           </div>
                         </div>
@@ -593,7 +595,7 @@
                           <div layout = "row">
                               <md-input-container flex>
                               <label>Descripción</label>
-                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="5" disabled></textarea>
+                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="10" disabled></textarea>
                               <md-input-container>
                           </div>
                         </div>      
@@ -663,7 +665,7 @@
                           <div layout = "row">
                               <md-input-container flex>
                               <label>Descripción</label>
-                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="5" disabled></textarea>
+                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="10" disabled></textarea>
                               <md-input-container>
                           </div>
                         </div>
@@ -706,7 +708,7 @@
                           <div layout = "row">
                               <md-input-container flex>
                               <label>Descripción</label>
-                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="5" disabled></textarea>
+                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="10" disabled></textarea>
                               <md-input-container>
                           </div>
                         </div> 
@@ -776,7 +778,7 @@
                           <div layout = "row">
                               <md-input-container flex>
                               <label>Descripción</label>
-                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="6" disabled></textarea>
+                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="10" disabled></textarea>
                               <md-input-container>
                           </div>
                         </div> 
@@ -807,7 +809,7 @@
                     </div>
                       <md-input-container flex class="md-block" >
                       <label>Descripción</label>
-                         <textarea ng-model="hu[7].descripcionHU" md-detect-hidden = "true" rows = "4" disabled></textarea>
+                         <textarea ng-model="hu[7].descripcionHU" md-detect-hidden = "true" rows = "10" disabled></textarea>
                       </md-input-container> 
                       <div flex layout = "column" layout-align = "center center">
                           <h5>Prueba de aceptación</h5>
@@ -843,7 +845,7 @@
                           <div layout = "row">
                               <md-input-container flex>
                               <label>Descripción</label>
-                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="6" disabled></textarea>
+                                 <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="10" disabled></textarea>
                               <md-input-container>
                           </div>
                         </div>   
@@ -880,8 +882,11 @@
     <script src = "js/service.js"></script>
     <script src = "js/pagination.js"></script>
     <script src = "js/dataGrid.js"></script>
-     <script src = "js/viewMService.js"></script>
+    <script src = "js/viewMService.js"></script>
     <script src = "js/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
     <script src = "js/ng-file-upload/dist/ng-file-upload.min.js"></script>
+    <script src = "js/angular-bootstrap-lightbox-master/dist/angular-bootstrap-lightbox.js"></script>
+    <script src = "js/imgE.js"></script>
+    <script src = "js/ui-bootstrap-tpls-2.5.0.js"></script>
   </body>
 </html>

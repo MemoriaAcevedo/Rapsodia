@@ -215,11 +215,11 @@ app.service('auth',['$http', 'sesion', '$location', function($http, sesion, $loc
     };
 
     this.isAdmin = function isAdmin(){
-        return sesion.getUser().rutU == '18486956-k';
+        return sesion.getUser().rutU == '15129921-0';
     }
 
      this.isAdminE = function isAdminE(){
-        return sesion.getUserToEdit().rutU == '18486956-k';
+        return sesion.getUserToEdit().rutU == '15129921-0';
     }
 
     this.isAdministrador = function isAdministrador(){

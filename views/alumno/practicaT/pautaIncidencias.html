@@ -37,9 +37,11 @@
       <div layout-xs="column" flex layout = "column" layout-align = "center center">
         <h3>Incidencias Práctica</h3>
       </div>
-
+      <div>
+        <p align="center">En esta sección se especifica el listado de incidencias que posee el software bancario, asociado a cada historia de usuario y prueba de aceptación. </p><br>
+      </div>
     <md-content>
-            <md-tabs md-dynamic-height="" md-border-bottom="">
+             <md-tabs md-dynamic-height="" md-border-bottom="">
               <md-tab label="HU-1">
                 <md-content class="md-padding">
                    <div flex layout = "column" layout-align = "center center">
@@ -559,7 +561,8 @@
                       <md-input-container flex class="md-block" >
                       <label>Descripción</label>
                          <textarea ng-model="hu[7].descripcionHU" md-detect-hidden = "true" rows = "4" disabled></textarea>
-                      </md-input-container>
+                      </md-input-container>  
+
                       <div flex layout = "column" layout-align = "center center">
                           <h5>Prueba de aceptación</h5>
                         </div>
@@ -597,7 +600,7 @@
                                  <textarea ng-model="i.descripcion" md-detect-hidden = "true" rows="6" disabled></textarea>
                               <md-input-container>
                           </div>
-                        </div>    
+                        </div> 
                 </md-content>
               </md-tab>
             </md-tabs>

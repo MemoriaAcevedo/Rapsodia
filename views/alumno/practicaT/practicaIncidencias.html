@@ -17,8 +17,17 @@
 	</div>
 <div ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P1' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregir P1' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1'">
   	<div layout-xs="column" flex layout = "column" layout-align = "center center" >
-  	    <div>
+  	    <div align="center">
   		    <h3>Gestión de incidencias</h3>
+          <p align="justify">En esta sección podrá dejar evidencia de las incidencias identificadas en el módulo bancario, indicando el caso de prueba al cual hace referencia, nombre, descripción, precondiciones, pasos para reproducir la incidencia, resultados esperados y obtenidos. Además tiene la capacidad de visualizar las incidencias relacionadas con casos de prueba y las que identificó explorando el software.</p>
+
+          <h5><strong><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon> Recomendaciones</strong></h5>
+                <ol align = "left">
+                  <li>Si se detecta una incidencia debe existir un registro que lo demuestre, de esta manera se puede verificar su estado de reparación rápidamente.</li>
+                  <li>Especificar en la descripción del reporte de incidencias, los datos de prueba utilizados.</li>
+                  <li>Tener en claro el estado en el que debe encontrarse el sistema antes de efectuar los pasos para reproducir la incidencia.</li>
+                  <li>Identificar el estado en el que queda el sistema una vez ejecutado los pasos.</li>
+                </ol>
   	    </div>
         <div flex layout = "column" layout-align = "center center" ng-show = "sesion.getPracticaT().estadoPidEstadoP.nombre == 'Corregida P1' && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
             <md-button ng-click="toggleLeft()" class="md-raised">
@@ -317,8 +326,17 @@
 
 <div  ng-show = "sesion.practicaT.estadoPidEstadoP.nombre == 'Desarrollo P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Corregir P2' || sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizada'">
     <div layout-xs="column" flex layout = "column" layout-align = "center center" >
-        <div>
+        <div align="center">
           <h3>Gestión de incidencias</h3>
+          <p align="justify">En esta sección podrá dejar evidencia de las incidencias identificadas en el módulo bancario, indicando el caso de prueba al cual hace referencia, nombre, descripción, precondiciones, pasos para reproducir la incidencia, resultados esperados y obtenidos. Además tiene la capacidad de visualizar las incidencias relacionadas con casos de prueba y las que identificó explorando el software.</p>
+
+          <h5><strong><md-icon md-svg-icon="img/icon/material/lightbulb-on-outline.svg" ></md-icon> Recomendaciones</strong></h5>
+                <ol align = "left">
+                  <li>Si se detecta una incidencia debe existir un registro que lo demuestre, de esta manera se puede verificar su estado de reparación rápidamente.</li>
+                  <li>Especificar en la descripción del reporte de incidencias, los datos de prueba utilizados.</li>
+                  <li>Tener en claro el estado en el que debe encontrarse el sistema antes de efectuar los pasos para reproducir la incidencia.</li>
+                  <li>Identificar el estado en el que queda el sistema una vez ejecutado los pasos.</li>
+                </ol>
         </div>
         <div flex layout = "column" layout-align = "center center" ng-show = "(sesion.practicaT.estadoPidEstadoP.nombre == 'Corregida P1' || sesion.practicaT.estadoPidEstadoP.nombre == 'Finalizada') && sesion.practicaT.corrector.estadoidEstado.nombreE == 'Abierta'">
             <md-button ng-click="toggleLeft()" class="md-raised">
